@@ -39,6 +39,7 @@ export default function Navbar() {
                 <li><Link href="/about" className={styles.navLink}>About</Link></li>
                 <li><Link href="/products" className={styles.navLink}>Products</Link></li>
                 <li><Link href="/contact" className={styles.navLink}>Contact</Link></li>
+                <li><Link href="/booking" className={styles.ctaButton}>Book Seat</Link></li>
             </ul>
 
             {/* Mobile Menu Button - Sleek & Simple */}
@@ -57,6 +58,7 @@ export default function Navbar() {
                     <li><Link href="/about" className={styles.mobileNavLink} onClick={toggleMenu}>About</Link></li>
                     <li><Link href="/products" className={styles.mobileNavLink} onClick={toggleMenu}>Products</Link></li>
                     <li><Link href="/contact" className={styles.mobileNavLink} onClick={toggleMenu}>Contact</Link></li>
+                    <li><Link href="/booking" className={styles.mobileNavLink} onClick={toggleMenu}>Book Seat</Link></li>
                 </ul>
             </div>
         </nav>

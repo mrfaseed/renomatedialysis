@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion, useScroll, useTransform, useInView, AnimatePresence } from 'framer-motion';
 import { Phone, Mail, MapPin, Send, HeartPulse, Building2, Clock, Users, Plus, Microscope, Activity, ArrowRight } from 'lucide-react';
 
@@ -20,15 +20,20 @@ export default function ContactPage() {
 
 function MedicalParticles() {
     // Generate random particles
-    const particles = Array.from({ length: 15 }).map((_, i) => ({
-        id: i,
-        x: Math.random() * 100,
-        y: Math.random() * 100,
-        size: Math.random() * 20 + 10,
-        duration: Math.random() * 20 + 10,
-        delay: Math.random() * 5,
-        type: i % 3 // 0: circle, 1: plus, 2: ring
-    }));
+    const [particles, setParticles] = useState([]);
+
+    useEffect(() => {
+        // eslint-disable-next-line
+        setParticles(Array.from({ length: 15 }).map((_, i) => ({
+            id: i,
+            x: Math.random() * 100,
+            y: Math.random() * 100,
+            size: Math.random() * 20 + 10,
+            duration: Math.random() * 20 + 10,
+            delay: Math.random() * 5,
+            type: i % 3 // 0: circle, 1: plus, 2: ring
+        })));
+    }, []);
 
     return (
         <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100vh', pointerEvents: 'none', zIndex: 0, overflow: 'hidden' }}>
@@ -283,7 +288,7 @@ function FormSection() {
                         borderRight: '1px solid rgba(255,255,255,0.1)'
                     }}>
                         <div>
-                            <h2 style={{ fontSize: '2.5rem', marginBottom: '1.5rem', fontFamily: 'var(--font-serif)', lineHeight: 1.2 }}>Let's Build a Healthy Future</h2>
+                            <h2 style={{ fontSize: '2.5rem', marginBottom: '1.5rem', fontFamily: 'var(--font-serif)', lineHeight: 1.2 }}>Let&apos;s Build a Healthy Future</h2>
                             <p style={{ opacity: 0.9, lineHeight: 1.6, fontSize: '1.1rem' }}>
                                 Reach out to our expert team for any inquiries about our products or services.
                             </p>
