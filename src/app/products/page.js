@@ -125,10 +125,6 @@ export default function ProductsPage() {
 
                 {/* Header Section - Clinical/Editorial */}
                 <header className="max-w-4xl mb-24">
-                    <p className="text-xs font-bold tracking-[0.2em] text-slate-500 uppercase mb-6 flex items-center gap-3">
-                        <span className="w-8 h-[1px] bg-slate-400"></span>
-                        Medical Consumables Catalog
-                    </p>
                     <h1 className="text-5xl sm:text-6xl font-semibold tracking-tight text-slate-900 mb-8 leading-[1.05]">
                         Advanced Dialysis Solutions for <br className="hidden md:block" />
                         <span className="text-slate-400">Clinical Excellence.</span>
