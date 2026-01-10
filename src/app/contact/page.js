@@ -170,18 +170,14 @@ function ContactInfoSection() {
     };
 
     return (
-        <section style={{ padding: '0 2rem 6rem', marginTop: '-4rem', position: 'relative', zIndex: 10 }}>
-            <div className="container">
+        <section style={{ padding: '4rem 2rem 6rem', position: 'relative', zIndex: 10 }}>
+            <div className="container" style={{ margin: '0 auto' }}>
                 <motion.div
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: "-50px" }}
                     variants={list}
-                    style={{
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-                        gap: '2rem'
-                    }}
+                    className="contact-info-grid"
                 >
                     <InfoCard
                         icon={<Phone />}
@@ -268,22 +264,13 @@ function FormSection() {
 
     return (
         <section style={{ padding: '4rem 2rem 8rem' }}>
-            <div className="container" style={{ maxWidth: '1100px' }}>
+            <div className="container" style={{ maxWidth: '1100px', margin: '0 auto' }}>
                 <motion.div
                     initial={{ opacity: 0, y: 50, scale: 0.95 }}
                     whileInView={{ opacity: 1, y: 0, scale: 1 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.8 }}
-                    style={{
-                        backgroundColor: '#ffffff',
-                        padding: '0',
-                        borderRadius: '2.5rem',
-                        boxShadow: '0 50px 100px -20px rgba(37, 99, 235, 0.1)',
-                        display: 'grid',
-                        gridTemplateColumns: 'minmax(300px, 40%) 1fr',
-                        border: '1px solid rgba(37, 99, 235, 0.05)',
-                        overflow: 'hidden'
-                    }}
+                    className="contact-form-card"
                 >
                     {/* Left Panel */}
                     <div style={{
