@@ -23,7 +23,7 @@ export default function HeroSection() {
                     <h1 className={styles.title}>
                         <span className={styles.titleSmall}>To Provide</span>
                         <span className={styles.titleHighlight}>High Quality,</span>
-                        <span className={styles.titleMain}>Low Cost <span className="text-red-500">DIALYSIS</span> Treatment</span>
+                        <span className={styles.titleMain}>Low Cost <span className="text-blue-400 drop-shadow-md">DIALYSIS</span> Treatment</span>
                     </h1>
                     <p className={styles.description}>
                         Setting the global benchmark for haemodialysis fluids.
