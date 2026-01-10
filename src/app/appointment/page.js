@@ -2,20 +2,20 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Calendar, Clock, User, CheckCircle, MapPin, ChevronRight, ChevronLeft, Armchair } from 'lucide-react';
+import { Calendar, Clock, User, CheckCircle, ChevronRight, ChevronLeft, Stethoscope, FileText, Activity } from 'lucide-react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 
-export default function BookingPage() {
+export default function AppointmentPage() {
     const [step, setStep] = useState(1);
     const [formData, setFormData] = useState({
         date: '',
         time: '',
-        seat: '',
+        doctorType: '',
         name: '',
         age: '',
         phone: '',
-        dialysisType: 'Hemodialysis',
+        reason: '',
         notes: ''
     });
 
@@ -40,10 +40,10 @@ export default function BookingPage() {
                         className="text-center mb-12"
                     >
                         <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-serif">
-                            Book Your Session
+                            Book Appointment
                         </h1>
                         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                            Schedule your dialysis treatment with ease. Choose your preferred time and comfort zone.
+                            Schedule your consultation with our expert medical team. Quick, easy, and secure.
                         </p>
                     </motion.div>
 
@@ -64,13 +64,13 @@ export default function BookingPage() {
                                                 : 'bg-white border-gray-200 text-gray-400'
                                             }`}
                                     >
-                                        {i === 1 && <Calendar size={18} />}
-                                        {i === 2 && <Armchair size={18} />}
+                                        {i === 1 && <Stethoscope size={18} />}
+                                        {i === 2 && <Calendar size={18} />}
                                         {i === 3 && <User size={18} />}
                                         {i === 4 && <CheckCircle size={18} />}
                                     </div>
                                     <span className={`text-xs mt-2 font-medium ${step >= i ? 'text-blue-600' : 'text-gray-400'}`}>
-                                        {i === 1 ? 'Date' : i === 2 ? 'Seat' : i === 3 ? 'Details' : 'Confirm'}
+                                        {i === 1 ? 'Service' : i === 2 ? 'Schedule' : i === 3 ? 'Details' : 'Confirm'}
                                     </span>
                                 </div>
                             ))}
@@ -85,7 +85,7 @@ export default function BookingPage() {
                         <div className="p-6 md:p-10 min-h-[500px]">
                             <AnimatePresence mode="wait">
                                 {step === 1 && (
-                                    <StepOneDate
+                                    <StepOneService
                                         key="step1"
                                         formData={formData}
                                         setFormData={setFormData}
@@ -93,7 +93,7 @@ export default function BookingPage() {
                                     />
                                 )}
                                 {step === 2 && (
-                                    <StepTwoSeat
+                                    <StepTwoDate
                                         key="step2"
                                         formData={formData}
                                         setFormData={setFormData}
@@ -129,17 +129,77 @@ export default function BookingPage() {
 
 // Step Components
 
-function StepOneDate({ formData, setFormData, onNext }) {
+function StepOneService({ formData, setFormData, onNext }) {
+    const services = [
+        { id: 'nephrology', title: 'Nephrology Consultation', desc: 'Expert consultation for kidney health', icon: <Activity /> },
+        { id: 'dialysis', title: 'Dialysis Session', desc: 'Regular hemodialysis treatment', icon: <Stethoscope /> },
+        { id: 'general', title: 'General Checkup', desc: 'Routine health assessment', icon: <FileText /> },
+    ];
+
+    return (
+        <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            className="space-y-8"
+        >
+            <div className="text-center mb-8">
+                <h2 className="text-2xl font-bold text-gray-800">Select Service</h2>
+                <p className="text-gray-500">Choose the type of appointment you need</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {services.map((service) => {
+                    const isSelected = formData.doctorType === service.id;
+                    return (
+                        <button
+                            key={service.id}
+                            onClick={() => setFormData({ ...formData, doctorType: service.id })}
+                            className={`p-6 rounded-2xl border-2 text-left transition-all hover:shadow-lg ${isSelected
+                                    ? 'bg-blue-50 border-blue-600 shadow-md ring-2 ring-blue-100'
+                                    : 'bg-white border-gray-100 hover:border-blue-200'
+                                }`}
+                        >
+                            <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${isSelected ? 'bg-blue-600 text-white' : 'bg-blue-50 text-blue-600'
+                                }`}>
+                                {React.cloneElement(service.icon, { size: 24 })}
+                            </div>
+                            <h3 className={`text-lg font-bold mb-2 ${isSelected ? 'text-blue-900' : 'text-gray-800'}`}>
+                                {service.title}
+                            </h3>
+                            <p className="text-sm text-gray-500">{service.desc}</p>
+                        </button>
+                    );
+                })}
+            </div>
+
+            <div className="flex justify-end pt-8">
+                <button
+                    onClick={onNext}
+                    disabled={!formData.doctorType}
+                    className={`px-8 py-3 rounded-full font-bold text-lg flex items-center transition-all ${formData.doctorType
+                            ? 'bg-blue-600 text-white hover:bg-blue-700 hover:shadow-lg hover:px-10'
+                            : 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                        }`}
+                >
+                    Next Step <ChevronRight size={20} className="ml-2" />
+                </button>
+            </div>
+        </motion.div>
+    );
+}
+
+function StepTwoDate({ formData, setFormData, onNext, onPrev }) {
     const dates = Array.from({ length: 7 }, (_, i) => {
         const d = new Date();
         d.setDate(d.getDate() + i + 1);
         return d;
     });
 
-    const times = ['08:00 AM', '10:00 AM', '01:00 PM', '03:00 PM', '06:00 PM'];
+    const times = ['09:00 AM', '10:00 AM', '11:00 AM', '02:00 PM', '04:00 PM', '06:00 PM'];
 
     const handleDateSelect = (dateStr) => {
-        setFormData({ ...formData, date: dateStr, time: '' }); // Reset time when date changes
+        setFormData({ ...formData, date: dateStr, time: '' });
     };
 
     const isFormValid = formData.date && formData.time;
@@ -151,7 +211,10 @@ function StepOneDate({ formData, setFormData, onNext }) {
             exit={{ opacity: 0, x: -20 }}
             className="space-y-8"
         >
-            <h2 className="text-2xl font-bold text-gray-800">Select Date & Time</h2>
+            <div className="text-center mb-8">
+                <h2 className="text-2xl font-bold text-gray-800">Select Date & Time</h2>
+                <p className="text-gray-500">Choose a convenient slot for your visit</p>
+            </div>
 
             {/* Date Selection */}
             <div className="space-y-4">
@@ -164,7 +227,7 @@ function StepOneDate({ formData, setFormData, onNext }) {
                             <button
                                 key={dateStr}
                                 onClick={() => handleDateSelect(dateStr)}
-                                className={`p-3 rounded-2xl border text-center transition-all ${isSelected
+                                className={`p-3 rounded-xl border text-center transition-all ${isSelected
                                         ? 'bg-blue-600 text-white border-blue-600 shadow-md transform scale-105'
                                         : 'bg-white text-gray-600 border-gray-200 hover:border-blue-300 hover:bg-blue-50'
                                     }`}
@@ -183,130 +246,25 @@ function StepOneDate({ formData, setFormData, onNext }) {
                 {!formData.date ? (
                     <p className="text-gray-400 italic">Please select a date first</p>
                 ) : (
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
                         {times.map((time) => {
                             const isSelected = formData.time === time;
                             return (
                                 <button
                                     key={time}
                                     onClick={() => setFormData({ ...formData, time })}
-                                    className={`py-3 px-4 rounded-xl border flex items-center justify-center transition-all ${isSelected
+                                    className={`py-3 px-2 rounded-xl border flex items-center justify-center transition-all ${isSelected
                                             ? 'bg-emerald-600 text-white border-emerald-600 shadow-md'
                                             : 'bg-white text-gray-600 border-gray-200 hover:border-emerald-300 hover:bg-emerald-50'
                                         }`}
                                 >
-                                    <Clock size={16} className="mr-2" />
-                                    <span className="font-medium">{time}</span>
+                                    <Clock size={14} className="mr-1" />
+                                    <span className="font-medium text-sm">{time}</span>
                                 </button>
                             );
                         })}
                     </div>
                 )}
-            </div>
-
-            <div className="flex justify-end pt-8">
-                <button
-                    onClick={onNext}
-                    disabled={!isFormValid}
-                    className={`px-8 py-3 rounded-full font-bold text-lg flex items-center transition-all ${isFormValid
-                            ? 'bg-blue-600 text-white hover:bg-blue-700 hover:shadow-lg hover:px-10'
-                            : 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                        }`}
-                >
-                    Next Step <ChevronRight size={20} className="ml-2" />
-                </button>
-            </div>
-        </motion.div>
-    );
-}
-
-function StepTwoSeat({ formData, setFormData, onNext, onPrev }) {
-    // Mock seats visualization
-    // 1-8 beds. Some occupied.
-    const beds = [
-        { id: '1', status: 'occupied', type: 'Window Side' },
-        { id: '2', status: 'available', type: 'Normal' },
-        { id: '3', status: 'available', type: 'Normal' },
-        { id: '4', status: 'available', type: 'Corner' },
-        { id: '5', status: 'unavailable', type: 'Maintenance' },
-        { id: '6', status: 'available', type: 'Normal' },
-        { id: '7', status: 'occupied', type: 'Window Side' },
-        { id: '8', status: 'available', type: 'Premium' },
-    ];
-
-    return (
-        <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
-            className="space-y-8"
-        >
-            <div className="text-center mb-8">
-                <h2 className="text-2xl font-bold text-gray-800">Select Your Seat</h2>
-                <p className="text-gray-500">Choose a comfortable spot for your treatment</p>
-            </div>
-
-            <div className="flex justify-center gap-6 mb-6 text-sm">
-                <div className="flex items-center gap-2">
-                    <div className="w-4 h-4 rounded bg-white border border-gray-300"></div>
-                    <span>Available</span>
-                </div>
-                <div className="flex items-center gap-2">
-                    <div className="w-4 h-4 rounded bg-gray-200"></div>
-                    <span>Occupied</span>
-                </div>
-                <div className="flex items-center gap-2">
-                    <div className="w-4 h-4 rounded bg-blue-600"></div>
-                    <span>Selected</span>
-                </div>
-            </div>
-
-            {/* Seat Map */}
-            <div className="bg-gray-50 p-8 rounded-2xl border border-dashed border-gray-300 max-w-lg mx-auto relative">
-                <div className="absolute top-2 left-1/2 transform -translate-x-1/2 text-xs text-gray-400 uppercase tracking-widest">Nurse Station</div>
-
-                <div className="grid grid-cols-2 gap-x-16 gap-y-8 mt-6">
-                    {beds.map((bed) => {
-                        const isSelected = formData.seat === bed.id;
-                        const isAvailable = bed.status === 'available';
-
-                        return (
-                            <button
-                                key={bed.id}
-                                disabled={!isAvailable}
-                                onClick={() => isAvailable && setFormData({ ...formData, seat: bed.id })}
-                                className={`relative group p-4 rounded-xl border-2 transition-all flex flex-col items-center gap-2 ${isSelected
-                                        ? 'bg-blue-50 border-blue-600 z-10 scale-105 shadow-md'
-                                        : !isAvailable
-                                            ? 'bg-gray-100 border-transparent opacity-50 cursor-not-allowed'
-                                            : 'bg-white border-transparent hover:border-blue-300 hover:shadow-md'
-                                    }`}
-                            >
-                                <Armchair
-                                    size={32}
-                                    className={isSelected ? 'text-blue-600' : !isAvailable ? 'text-gray-400' : 'text-gray-600'}
-                                />
-                                <span className={`text-sm font-medium ${isSelected ? 'text-blue-700' : 'text-gray-600'}`}>
-                                    Bed {bed.id}
-                                </span>
-
-                                {isSelected && (
-                                    <motion.div
-                                        layoutId="check"
-                                        className="absolute -top-2 -right-2 bg-blue-600 text-white rounded-full p-1"
-                                    >
-                                        <CheckCircle size={12} />
-                                    </motion.div>
-                                )}
-
-                                {/* Tooltip */}
-                                <div className="absolute opacity-0 group-hover:opacity-100 bottom-full mb-2 bg-gray-800 text-white text-xs px-2 py-1 rounded pointer-events-none whitespace-nowrap z-20 transition-opacity">
-                                    {bed.type} - {bed.status}
-                                </div>
-                            </button>
-                        );
-                    })}
-                </div>
             </div>
 
             <div className="flex justify-between pt-8">
@@ -318,8 +276,8 @@ function StepTwoSeat({ formData, setFormData, onNext, onPrev }) {
                 </button>
                 <button
                     onClick={onNext}
-                    disabled={!formData.seat}
-                    className={`px-8 py-3 rounded-full font-bold text-lg flex items-center transition-all ${formData.seat
+                    disabled={!isFormValid}
+                    className={`px-8 py-3 rounded-full font-bold text-lg flex items-center transition-all ${isFormValid
                             ? 'bg-blue-600 text-white hover:bg-blue-700 hover:shadow-lg'
                             : 'bg-gray-200 text-gray-400 cursor-not-allowed'
                         }`}
@@ -389,21 +347,19 @@ function StepThreeDetails({ formData, setFormData, onNext, onPrev }) {
                 </div>
 
                 <div className="space-y-2">
-                    <label className="text-sm font-medium text-gray-700">Dialysis Type</label>
-                    <select
-                        name="dialysisType"
-                        value={formData.dialysisType}
+                    <label className="text-sm font-medium text-gray-700">Reason for Visit</label>
+                    <input
+                        type="text"
+                        name="reason"
+                        value={formData.reason}
                         onChange={handleChange}
+                        placeholder="e.g. Regular Checkup"
                         className="w-full p-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-50 transition-all outline-none"
-                    >
-                        <option value="Hemodialysis">Hemodialysis</option>
-                        <option value="Peritoneal Dialysis">Peritoneal Dialysis</option>
-                        <option value="Consultation">Doctor Consultation</option>
-                    </select>
+                    />
                 </div>
 
                 <div className="md:col-span-2 space-y-2">
-                    <label className="text-sm font-medium text-gray-700">Notes / Medical History</label>
+                    <label className="text-sm font-medium text-gray-700">Additional Notes</label>
                     <textarea
                         name="notes"
                         value={formData.notes}
@@ -460,9 +416,9 @@ function StepFourConfirm({ formData, onPrev }) {
                 <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mb-4">
                     <CheckCircle size={48} className="text-green-600" />
                 </div>
-                <h2 className="text-3xl font-bold text-gray-900">Booking Confirmed!</h2>
+                <h2 className="text-3xl font-bold text-gray-900">Appointment Confirmed!</h2>
                 <p className="text-gray-600 max-w-md">
-                    Thank you, {formData.name}. Your appointment for <span className="font-semibold text-gray-800">{formData.dialysisType}</span> on <span className="font-semibold text-gray-800">{formData.date}</span> at <span className="font-semibold text-gray-800">{formData.time}</span> (Bed {formData.seat}) has been scheduled.
+                    Thank you, {formData.name}. Your appointment for <span className="font-semibold text-gray-800">{formData.doctorType}</span> on <span className="font-semibold text-gray-800">{formData.date}</span> at <span className="font-semibold text-gray-800">{formData.time}</span> has been scheduled.
                 </p>
                 <button
                     onClick={() => window.location.reload()}
@@ -482,7 +438,7 @@ function StepFourConfirm({ formData, onPrev }) {
             className="space-y-8"
         >
             <div className="text-center mb-8">
-                <h2 className="text-2xl font-bold text-gray-800">Review Booking</h2>
+                <h2 className="text-2xl font-bold text-gray-800">Review Appointment</h2>
                 <p className="text-gray-500">Please confirm your details</p>
             </div>
 
@@ -499,15 +455,8 @@ function StepFourConfirm({ formData, onPrev }) {
                     </div>
                 </div>
                 <div className="flex justify-between items-center border-b border-blue-100 pb-3">
-                    <span className="text-gray-500 font-medium">Selected Seat</span>
-                    <span className="text-gray-900 font-bold flex items-center gap-2">
-                        <Armchair size={16} className="text-blue-600" />
-                        Bed {formData.seat}
-                    </span>
-                </div>
-                <div className="flex justify-between items-center border-b border-blue-100 pb-3">
-                    <span className="text-gray-500 font-medium">Treatment</span>
-                    <span className="text-gray-900 font-bold">{formData.dialysisType}</span>
+                    <span className="text-gray-500 font-medium">Service</span>
+                    <span className="text-gray-900 font-bold capitalize">{formData.doctorType}</span>
                 </div>
                 <div className="flex justify-between items-center">
                     <span className="text-gray-500 font-medium">Contact</span>
@@ -540,7 +489,7 @@ function StepFourConfirm({ formData, onPrev }) {
                         </>
                     ) : (
                         <>
-                            Confirm Booking <CheckCircle size={20} className="ml-2" />
+                            Confirm Appointment <CheckCircle size={20} className="ml-2" />
                         </>
                     )}
                 </button>
