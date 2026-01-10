@@ -8,7 +8,7 @@ export default function Footer() {
                 <p className={styles.tagline}>
                     Innovating dialysis care for a better tomorrow.
                 </p>
-                <div className={styles.copyright}>
+                <div style={{ marginTop: '2rem', fontSize: '0.875rem', opacity: 0.7 }}>
                     &copy; {new Date().getFullYear()} Renomate. All rights reserved.
                 </div>
             </div>
