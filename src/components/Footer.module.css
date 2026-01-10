@@ -1,47 +1,223 @@
-/* Global variables like --primary are still inherited from globals.css */
-/* but layout specific styles should be modular */
-@import url('https://fonts.googleapis.com/css2?family=BBH+Hegarty&family=Bebas+Neue&family=Changa+One:ital@0;1&family=Damion&family=Figtree:ital,wght@0,300..900;1,300..900;1,300..900&family=Geom:ital,wght@0,300..900;1,300..900&family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Momo+Signature&family=Momo+Trust+Display&family=Notable&family=Paytone+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sekuya&family=Syncopate:wght@400;700&display=swap');
-
 .footer {
-    background: #ffffff;
-    color: #1e293b;
-    padding: 5rem 2rem 2rem;
+    background: #020617;
+    /* Deepest dark blue/black */
+    color: #e2e8f0;
+    padding: 6rem 2rem 3rem;
     margin-top: auto;
-    border-top: 5px solid #0056b3;
-    min-height: 60vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    font-family: 'Poppins', sans-serif;
-    width: 100%;
+    border-top: 1px solid #1e293b;
     position: relative;
-    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    z-index: 1;
+    font-family: 'Poppins', sans-serif;
 }
 
+/* Background & Molecule Styling */
+.chemicalBackground {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+    background: radial-gradient(circle at 50% 0%, #1e3a8a 0%, #020617 60%);
+}
+
+.gridOverlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.5;
+    mask-image: radial-gradient(circle at 50% 50%, black, transparent 80%);
+}
+
+.moleculeWrapper {
+    position: absolute;
+    bottom: -200px;
+    opacity: 0;
+    animation: floatVertical 25s infinite linear;
+    filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.4));
+}
+
+.moleculeSvg {
+    width: 160px;
+    height: 160px;
+    transform-origin: center;
+    /* Removed rotation animation */
+}
+
+/* "Epic" Geometric Styles */
+.hexPath {
+    stroke-dasharray: 240;
+    stroke-dashoffset: 0;
+    animation: drawHex 8s ease-in-out infinite alternate;
+}
+
+.coreNode {
+    filter: drop-shadow(0 0 10px #3b82f6);
+    animation: pulseCore 3s infinite ease-in-out;
+}
+
+.bubble {
+    opacity: 0.7;
+    animation: bubbleFloat 4s infinite ease-in-out;
+}
+
+@keyframes bubbleFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.node {
+    opacity: 0.8;
+}
+
+/* Grid Layout */
 .container {
-    width: 100%;
-    max-width: 1400px;
+    max-width: 1600px;
     margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 2;
 }
 
 .grid {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1.2fr;
-    gap: 4rem;
-    text-align: left;
+    gap: 3rem;
+}
+
+.brandName {
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #ffffff 0%, #93c5fd 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    line-height: 1;
+    margin: 0;
+    letter-spacing: -1px;
+}
+
+.brandBadge {
+    background: rgba(59, 130, 246, 0.2);
+    color: #60a5fa;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    display: inline-block;
+    margin-top: 0.8rem;
+    backdrop-filter: blur(4px);
+}
+
+.tagline {
+    color: #94a3b8;
+    margin-top: 1.5rem;
+    line-height: 1.7;
+    max-width: 400px;
+    font-size: 1.05rem;
+}
+
+.columnTitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    position: relative;
+    color: #f8fafc;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.columnTitle::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: #3b82f6;
+    margin-top: 12px;
+    box-shadow: 0 0 10px #3b82f6;
+}
+
+.links {
+    list-style: none;
+    padding: 0;
+}
+
+.link {
+    color: #94a3b8;
+    text-decoration: none;
+    transition: 0.3s;
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.link:hover {
+    color: #60a5fa;
+    transform: translateX(5px);
+    text-shadow: 0 0 8px rgba(96, 165, 250, 0.5);
+}
+
+.contactItem {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    color: #cbd5e1;
+}
+
+.iconWrapper {
+    color: #cbd5e1;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 12px;
+    height: fit-content;
+    transition: 0.3s;
+}
+
+.contactItem:hover .iconWrapper {
+    background: rgba(59, 130, 246, 0.2);
+    color: #60a5fa;
+    border-color: rgba(59, 130, 246, 0.4);
+}
+
+/* Fluid Overlay Effect */
+.fluidOverlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.15), transparent 40%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.brandCol {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
 .brandHeader {
     display: flex;
     align-items: center;
     gap: 1.5rem;
-    margin-bottom: 2rem;
 }
 
 .logo {
-    width: 90px;
-    height: 90px;
+    width: 70px;
+    height: 70px;
     object-fit: contain;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
 }
 
 .brandInfo {
@@ -50,128 +226,21 @@
 }
 
 .brandPrefix {
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: #64748b;
-    font-weight: 600;
-    margin-bottom: 0.25rem;
-}
-
-.brandName {
-    font-family: 'Momo Trust Display', sans-serif;
-    font-size: 3rem;
-    font-weight: 800;
-    margin: 0;
-    line-height: 1;
-    color: #0056b3;
-    text-shadow: 2px 2px 0px rgba(0, 86, 179, 0.1);
-    letter-spacing: -1px;
-}
-
-.brandBadge {
-    display: inline-block;
-    background: #e0f2fe;
-    color: #0056b3;
-    font-family: 'Poppins', sans-serif;
     font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    padding: 0.4rem 1.2rem;
-    border-radius: 999px;
-    margin-top: 0.75rem;
-    align-self: flex-start;
-}
-
-.tagline {
-    font-size: 1.05rem;
-    color: #475569;
-    line-height: 1.8;
-    max-width: 420px;
-    margin-top: 1.5rem;
-}
-
-.columnTitle {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #0f172a;
-    margin-bottom: 1.75rem;
-    position: relative;
-    font-family: 'Momo Trust Display', sans-serif;
-    letter-spacing: 0.02em;
-}
-
-.columnTitle::after {
-    content: '';
-    display: block;
-    width: 40px;
-    height: 4px;
-    background: #0056b3;
-    margin-top: 10px;
-    border-radius: 2px;
-}
-
-.links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.links li {
-    margin-bottom: 1rem;
-}
-
-.link {
-    color: #475569;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    font-weight: 500;
-    display: inline-block;
-    font-size: 1rem;
-}
-
-.link:hover {
-    color: #0056b3;
-    transform: translateX(5px);
-}
-
-.contactItem {
-    margin-bottom: 1.5rem;
-    font-size: 1rem;
-    color: #475569;
-    line-height: 1.6;
-    display: flex;
-    gap: 1.25rem;
-    align-items: flex-start;
-}
-
-.iconWrapper {
-    width: 40px;
-    height: 40px;
-    background: #e0f2fe;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    color: #0056b3;
-    font-size: 1.1rem;
+    letter-spacing: 0.2em;
+    color: #94a3b8;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
 }
 
 .bottomBar {
-    margin-top: 5rem;
+    margin-top: 6rem;
     padding-top: 2rem;
-    border-top: 1px solid #e2e8f0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    font-size: 0.85rem;
     color: #64748b;
-    font-size: 0.9rem;
-}
-
-.legalLinks {
-    display: flex;
-    gap: 2rem;
 }
 
 .legalLink {
@@ -181,19 +250,148 @@
 }
 
 .legalLink:hover {
-    color: #0056b3;
+    color: #e2e8f0;
 }
 
+.legalLinks {
+    display: flex;
+    gap: 2rem;
+}
+
+/* ANIMATIONS */
+@keyframes floatVertical {
+    0% {
+        transform: translateY(0) scale(0.8);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.3;
+    }
+
+    /* Reduced max opacity for subtlety */
+    90% {
+        opacity: 0.3;
+    }
+
+    100% {
+        transform: translateY(-120vh) scale(0.8);
+        opacity: 0;
+    }
+}
+
+@keyframes drawHex {
+    0% {
+        stroke-dashoffset: 0;
+    }
+
+    50% {
+        stroke-dashoffset: 60;
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes pulseCore {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+        box-shadow: 0 0 20px #3b82f6;
+    }
+
+    50% {
+        transform: scale(1.5);
+        opacity: 0.8;
+    }
+}
+
+/* Relaxed Staggered Molecule Positions */
+.moleculeWrapper:nth-child(1) {
+    left: 10%;
+    animation-duration: 35s;
+    animation-delay: 0s;
+}
+
+.moleculeWrapper:nth-child(2) {
+    left: 25%;
+    animation-duration: 45s;
+    animation-delay: -10s;
+    transform: scale(0.7);
+}
+
+.moleculeWrapper:nth-child(3) {
+    left: 45%;
+    animation-duration: 40s;
+    animation-delay: -25s;
+}
+
+.moleculeWrapper:nth-child(4) {
+    left: 60%;
+    animation-duration: 38s;
+    animation-delay: -5s;
+    transform: scale(1.1);
+}
+
+.moleculeWrapper:nth-child(5) {
+    left: 80%;
+    animation-duration: 50s;
+    animation-delay: -30s;
+    transform: scale(0.9);
+}
+
+.moleculeWrapper:nth-child(6) {
+    left: 15%;
+    animation-duration: 42s;
+    animation-delay: -15s;
+    transform: scale(0.8);
+}
+
+.moleculeWrapper:nth-child(7) {
+    left: 35%;
+    animation-duration: 48s;
+    animation-delay: -35s;
+}
+
+.moleculeWrapper:nth-child(8) {
+    left: 55%;
+    animation-duration: 36s;
+    animation-delay: -8s;
+    transform: scale(1.2);
+}
+
+.moleculeWrapper:nth-child(9) {
+    left: 70%;
+    animation-duration: 44s;
+    animation-delay: -20s;
+    transform: scale(0.7);
+}
+
+.moleculeWrapper:nth-child(10) {
+    left: 90%;
+    animation-duration: 55s;
+    animation-delay: -40s;
+}
+
+.moleculeWrapper:nth-child(11) {
+    display: none;
+}
+
+/* Show fewer items */
+.moleculeWrapper:nth-child(12) {
+    display: none;
+}
+
+/* Responsive */
 @media (max-width: 1024px) {
     .grid {
         grid-template-columns: 1fr 1fr;
-        gap: 3rem;
-    }
-
-    .brandHeader {
-        grid-column: span 2;
     }
 }
+
 
 @media (max-width: 640px) {
     .grid {
@@ -203,30 +401,25 @@
 
     .brandHeader {
         flex-direction: column;
-        justify-content: center;
-        text-align: center;
-        grid-column: span 1;
-    }
-
-    .brandInfo {
         align-items: center;
     }
 
-    .brandBadge {
-        align-self: center;
+    .tagline {
+        margin: 1rem auto;
     }
 
     .columnTitle::after {
-        margin: 10px auto 0;
+        margin: 8px auto;
     }
 
     .contactItem {
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
     }
 
     .bottomBar {
-        flex-direction: column-reverse;
-        gap: 1.5rem;
+        flex-direction: column;
+        gap: 1rem;
         text-align: center;
     }
 }
