@@ -274,14 +274,42 @@ function FormInput({ label, name, type = 'text', value, onChange, placeholder })
     );
 }
 
+
 function MapSection() {
     return (
-        <section style={{ height: '400px', backgroundColor: '#e2e8f0', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
-            <div style={{ position: 'absolute', inset: 0, background: 'url(/map-placeholder.png) center/cover opacity 0.5', filter: 'grayscale(100%)' }} />
-            <div style={{ textAlign: 'center', width: '100%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: '#f1f5f9', color: '#64748b' }}>
-                <MapPin size={48} style={{ marginBottom: '1rem', opacity: 0.4 }} />
-                <p style={{ fontSize: '1.2rem', fontWeight: '500' }}>Google Maps Integration</p>
-                <p className={styles.infoTextSecondary}>123 Wellness Blvd, Healthcare City</p>
+        <section className={styles.mapSection}>
+            <div className={styles.mapContainer}>
+                <div className={styles.mapWrapper}>
+                    <iframe
+                        src="https://maps.google.com/maps?q=9.58064,77.959399&t=m&z=15&output=embed&iwloc=near"
+                        className={styles.mapFrame}
+                        allowFullScreen=""
+                        loading="lazy"
+                        title="Renomate Location"
+                    ></iframe>
+                </div>
+
+                <div className={styles.mapOverlayCard}>
+                    <div className={styles.mapCardHeader}>
+                        <div className={styles.mapCardIcon}>
+                            <MapPin size={20} />
+                        </div>
+                        <h3 className={styles.mapCardTitle}>Visit Our Facility</h3>
+                    </div>
+                    <p className={styles.mapCardAddress}>
+                        Sri RamaKrishna's Renomate<br />
+                        Rajapalayam, Tamil Nadu<br />
+                        India
+                    </p>
+                    <a
+                        href="https://www.google.com/maps?ll=9.58064,77.959399&z=16&t=m&hl=en-US&gl=US&mapclient=embed&cid=2697480994158212801"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.directionBtn}
+                    >
+                        Get Directions <ArrowRight size={16} />
+                    </a>
+                </div>
             </div>
         </section>
     );
