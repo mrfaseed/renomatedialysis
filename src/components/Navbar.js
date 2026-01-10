@@ -23,7 +23,7 @@ export default function Navbar() {
             {/* Logo Section */}
             <Link href="/" className={styles.logoContainer}>
                 <Image
-                    src="/image.png"
+                    src="/imagerenomate.png"
                     alt="Renomate"
                     width={180}
                     height={60}
@@ -39,7 +39,6 @@ export default function Navbar() {
                 <li><Link href="/about" className={styles.navLink}>About</Link></li>
                 <li><Link href="/products" className={styles.navLink}>Products</Link></li>
                 <li><Link href="/contact" className={styles.navLink}>Contact</Link></li>
-                <li><Link href="/appointment" className={styles.ctaButton}>Book Appointment</Link></li>
             </ul>
 
             {/* Mobile Menu Button - Sleek & Simple */}
@@ -48,17 +47,24 @@ export default function Navbar() {
                 onClick={toggleMenu}
                 aria-label="Toggle menu"
             >
-                {isOpen ? <X size={26} color="#334155" /> : <Menu size={26} color="#334155" />}
+                <Menu size={26} color="#334155" />
             </button>
 
             {/* Mobile Fullscreen Menu */}
             <div className={`${styles.mobileMenu} ${isOpen ? styles.open : ''}`}>
+                <button
+                    className={styles.closeMenuBtn}
+                    onClick={toggleMenu}
+                    aria-label="Close menu"
+                >
+                    <X size={32} color="#334155" />
+                </button>
                 <ul className={styles.mobileNavList}>
                     <li><Link href="/" className={styles.mobileNavLink} onClick={toggleMenu}>Home</Link></li>
                     <li><Link href="/about" className={styles.mobileNavLink} onClick={toggleMenu}>About</Link></li>
                     <li><Link href="/products" className={styles.mobileNavLink} onClick={toggleMenu}>Products</Link></li>
                     <li><Link href="/contact" className={styles.mobileNavLink} onClick={toggleMenu}>Contact</Link></li>
-                    <li><Link href="/appointment" className={styles.mobileNavLink} onClick={toggleMenu}>Book Appointment</Link></li>
+
                 </ul>
             </div>
         </nav>
