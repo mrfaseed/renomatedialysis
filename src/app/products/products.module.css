@@ -1,18 +1,5 @@
-<<<<<<< HEAD
-/* Page Background */
-.pageBackground {
-  min-height: 100vh;
-  background-color: #f8fafc;
-  /* Slate-50 */
-  position: relative;
-  overflow-x: hidden;
-  font-family: var(--font-outfit), sans-serif;
-}
-=======
 /* Floating Animation Keyframes */
 @import url('https://fonts.googleapis.com/css2?family=BBH+Hegarty&family=Bebas+Neue&family=Changa+One:ital@0;1&family=Damion&family=Figtree:ital,wght@0,300..900;1,300..900&family=Geom:ital,wght@0,300..900;1,300..900&family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Momo+Signature&family=Momo+Trust+Display&family=Notable&family=Paytone+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sekuya&family=Syncopate:wght@400;700&display=swap');
-
->>>>>>> 1a925685178aaf3749a3b6409fc5345d6722f4a2
 
 .headerTitle {
   color: #1e293b;
@@ -168,9 +155,6 @@
 .floatingIcon {
   position: absolute;
   color: #000000;
-<<<<<<< HEAD
-  opacity: 0.05;
-=======
   /* Distinct Black */
   opacity: 0.07;
   /* Technical sketch look */
@@ -303,14 +287,14 @@
 
 }
 
-.headerSection h1{
+.headerSection h1 {
   font-family: "Google sans flex", sans-serif;
   font-size: 4rem;
   color: #000000;
   font-weight: 600;
 }
 
-.headerSection p{
+.headerSection p {
   font-family: "Google sans flex", sans-serif;
   font-size: 1.25rem;
   color: #000000;
@@ -329,13 +313,13 @@
   /* slate-400 */
 }
 
-.trustItem h4{
+.trustItem h4 {
   font-family: "Google Sans flex", sans-serif;
   color: #000000;
   font-size: 1.25rem;
 }
 
-.trustItem p{
+.trustItem p {
   font-family: "Google Sans flex", sans-serif;
   color: #0000009f;
   font-size: 1rem;
@@ -580,5 +564,4 @@
   color: #64748b;
   line-height: 1.625;
   max-width: 20rem;
->>>>>>> 1a925685178aaf3749a3b6409fc5345d6722f4a2
 }
