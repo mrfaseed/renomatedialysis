@@ -9,8 +9,8 @@ import styles from './About.module.css';
 
 export default function AboutPage() {
     const { scrollYProgress } = useScroll();
-    const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
-    const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.95]);
+    const opacity = 1;
+    const scale = 1;
 
     const [ripples, setRipples] = useState([]);
 
@@ -103,12 +103,10 @@ export default function AboutPage() {
                         <span>About Our Vision</span>
                     </motion.div>
 
-                    <motion.h1 className={styles.heroTitle} variants={titleVariants}>
-                        {"Transforming Dialysis Quality Worldwide".split(" ").map((word, i) => (
-                            <motion.span key={i} variants={letterVariants} style={{ display: 'inline-block', marginRight: '0.3em' }}>
-                                {word === "Quality" ? <span>{word}</span> : word}
-                            </motion.span>
-                        ))}
+                    <motion.h1 className={styles.heroTitle} variants={itemVariants}>
+                        Transforming <br />
+                        <span>Dialysis Quality</span> <br />
+                        Worldwide
                     </motion.h1>
 
                     <motion.div className={styles.heroHighlight} variants={itemVariants}>
@@ -192,32 +190,38 @@ export default function AboutPage() {
                         icon: <Heart size={24} />,
                         image: "/assets/doctor.png",
                         class: styles.valuesIcon
+                    },
+                    {
+                        title: "Global Footprint",
+                        desc: "Serving healthcare providers across multiple continents with reliable supply chains and localized expertise.",
+                        icon: <Globe size={24} />,
+                        image: "/assets/global.png",
+                        class: styles.globalIcon
+                    },
+                    {
+                        title: "24/7 Clinical Support",
+                        desc: "Our team of clinical specialists is available round-the-clock to ensure uninterrupted life-saving therapy.",
+                        icon: <ShieldCheck size={24} />,
+                        image: "/assets/support.png",
+                        class: styles.supportIcon
                     }
                 ].map((feature, idx) => (
                     <motion.div
                         key={idx}
-                        className={styles.featureCard}
+                        className={styles.glassCard}
                         variants={itemVariants}
-                        whileHover={{ y: -10 }}
+                        whileHover={{ y: -10, scale: 1.02 }}
                     >
-                        <div className={styles.cardContent}>
-                            <div className={`${styles.iconWrapper} ${feature.class}`}>
+                        <div className={styles.cardGlow} />
+                        <div className={styles.cardParticles} />
+                        <div className={styles.glassCardContent}>
+                            <div className={`${styles.glassIconWrapper} ${feature.class}`}>
                                 {feature.icon}
                             </div>
-                            <div className={styles.featureInfo}>
-                                <h3>{feature.title}</h3>
-                                <p>{feature.desc}</p>
-                            </div>
+                            <h3>{feature.title}</h3>
+                            <p>{feature.desc}</p>
+                            <div className={styles.cardLightTrail} />
                         </div>
-                        <motion.div className={styles.cardVisual} variants={visualVariants}>
-                            <Image
-                                src={feature.image}
-                                alt={feature.title}
-                                width={500}
-                                height={500}
-                                className={styles.featureImage}
-                            />
-                        </motion.div>
                     </motion.div>
                 ))}
             </motion.section>
@@ -232,8 +236,27 @@ export default function AboutPage() {
                     transition={{ duration: 1 }}
                 >
                     <h2 className={styles.ctaTitle}>
-                        Ready to elevate your <br />
-                        dialysis outcomes?
+                        {"Ready to elevate your".split("").map((char, i) => (
+                            <motion.span
+                                key={i}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ delay: i * 0.02, duration: 0.5 }}
+                            >
+                                {char}
+                            </motion.span>
+                        ))}
+                        <br />
+                        {"dialysis outcomes?".split("").map((char, i) => (
+                            <motion.span
+                                key={i}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.5 + i * 0.02, duration: 0.5 }}
+                            >
+                                {char}
+                            </motion.span>
+                        ))}
                     </h2>
                     <Link href="/contact">
                         <motion.button

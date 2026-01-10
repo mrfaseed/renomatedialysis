@@ -1,3 +1,4 @@
+import { MapPin, Mail, Phone } from 'lucide-react';
 import styles from './Footer.module.css';
 
 export default function Footer() {
@@ -45,7 +46,9 @@ export default function Footer() {
                         <h3 className={styles.columnTitle}>Get in Touch</h3>
 
                         <div className={styles.contactItem}>
-                            <div className={styles.iconWrapper}>📍</div>
+                            <div className={styles.iconWrapper}>
+                                <MapPin size={18} />
+                            </div>
                             <div>
                                 <strong>Location</strong><br />
                                 #2, H3-H3 Road, Virudhunagar
@@ -53,7 +56,9 @@ export default function Footer() {
                         </div>
 
                         <div className={styles.contactItem}>
-                            <div className={styles.iconWrapper}>✉️</div>
+                            <div className={styles.iconWrapper}>
+                                <Mail size={18} />
+                            </div>
                             <div>
                                 <strong>Email</strong><br />
                                 ramakrishnanrenomate@gmail.com
@@ -61,7 +66,9 @@ export default function Footer() {
                         </div>
 
                         <div className={styles.contactItem}>
-                            <div className={styles.iconWrapper}>📞</div>
+                            <div className={styles.iconWrapper}>
+                                <Phone size={18} />
+                            </div>
                             <div>
                                 <strong>Call Us</strong><br />
                                 +91 8643849098
