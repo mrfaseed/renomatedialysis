@@ -72,14 +72,39 @@ export default function HeroSection() {
 }
 
 function VideoBackground() {
+    const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+    const videoRef = React.useRef(null);
+
+    useEffect(() => {
+        // Check if video is already ready (for cached hits)
+        if (videoRef.current && videoRef.current.readyState >= 3) {
+            setIsVideoLoaded(true);
+        }
+    }, []);
+
+    const handleVideoLoad = () => {
+        setIsVideoLoaded(true);
+    };
+
     return (
         <div className={styles.videoWrapper}>
+            {/* Placeholder/Loading State */}
+            <div
+                className={styles.videoPlaceholder}
+                style={{ opacity: isVideoLoaded ? 0 : 1 }}
+            >
+                <div className={styles.spinner} />
+            </div>
+
             <video
+                ref={videoRef}
                 autoPlay
                 loop
                 muted
                 playsInline
                 className={styles.video}
+                onLoadedData={handleVideoLoad}
+                style={{ opacity: isVideoLoaded ? 1 : 0 }}
             >
                 <source src="/assets/0110.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
