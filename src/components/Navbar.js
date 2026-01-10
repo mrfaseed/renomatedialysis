@@ -35,8 +35,6 @@ export default function Navbar() {
 
             {/* Desktop Navigation */}
             <ul className={styles.navLinks}>
-                <li><Link href="/" className={styles.navLink}>Home</Link></li>
-                <li><Link href="/who-we-are" className={styles.navLink}>Who We Are</Link></li>
                 <li><Link href="/about" className={styles.navLink}>About</Link></li>
                 <li><Link href="/products" className={styles.navLink}>Products</Link></li>
                 <li><Link href="/contact" className={styles.navLink}>Contact</Link></li>
@@ -62,7 +60,6 @@ export default function Navbar() {
                 </button>
                 <ul className={styles.mobileNavList}>
                     <li><Link href="/" className={styles.mobileNavLink} onClick={toggleMenu}>Home</Link></li>
-                    <li><Link href="/who-we-are" className={styles.mobileNavLink} onClick={toggleMenu}>Who We Are</Link></li>
                     <li><Link href="/about" className={styles.mobileNavLink} onClick={toggleMenu}>About</Link></li>
                     <li><Link href="/products" className={styles.mobileNavLink} onClick={toggleMenu}>Products</Link></li>
                     <li><Link href="/contact" className={styles.mobileNavLink} onClick={toggleMenu}>Contact</Link></li>

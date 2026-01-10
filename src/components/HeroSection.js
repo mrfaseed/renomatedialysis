@@ -20,6 +20,7 @@ export default function HeroSection() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 1, delay: 0.5 }}
                 >
+                    <ChemicalBoxParticles />
                     <h1 className={styles.title}>
                         <span className={styles.titleSmall}>To Provide</span>
                         <span className={styles.titleHighlight}>High Quality,</span>
@@ -162,6 +163,51 @@ function BloodParticleSystem() {
                         repeat: Infinity,
                         ease: "linear",
                         delay: p.delay
+                    }}
+                />
+            ))}
+        </div>
+    );
+}
+
+
+function ChemicalBoxParticles() {
+    // Small bubbling particles confined to the box
+    const [bubbles, setBubbles] = useState([]);
+
+    useEffect(() => {
+        const bubbleCount = 15;
+        const newBubbles = Array.from({ length: bubbleCount }).map((_, i) => ({
+            id: i,
+            x: Math.random() * 100,
+            y: Math.random() * 100 + 100, // Start below
+            size: Math.random() * 6 + 2,
+            duration: Math.random() * 3 + 2,
+            delay: Math.random() * 2
+        }));
+        setBubbles(newBubbles);
+    }, []);
+
+    return (
+        <div className={styles.chemicalBoxParticles}>
+            {bubbles.map((b) => (
+                <motion.div
+                    key={b.id}
+                    className={styles.chemicalBubble}
+                    style={{
+                        left: `${b.x}%`,
+                        width: b.size,
+                        height: b.size,
+                    }}
+                    animate={{
+                        y: [-20, -150], // Move up
+                        opacity: [0, 0.6, 0]
+                    }}
+                    transition={{
+                        duration: b.duration,
+                        repeat: Infinity,
+                        ease: "easeOut",
+                        delay: b.delay
                     }}
                 />
             ))}
