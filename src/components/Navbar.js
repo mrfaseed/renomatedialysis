@@ -23,7 +23,7 @@ export default function Navbar() {
             {/* Logo Section */}
             <Link href="/" className={styles.logoContainer}>
                 <Image
-                    src="/image3.png"
+                    src="/image5.png"
                     alt="Renomate"
                     width={180}
                     height={60}
