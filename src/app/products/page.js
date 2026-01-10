@@ -81,12 +81,18 @@ const products = [
         title: 'Sodium Hypochlorite – Bleach (5-6%)',
         description: 'Disinfectant for bacterial control in hemodialysis fluid pathways. Effective surface and fluid path cleaner. 5-6% concentration for robust efficacy.',
         image: '/products/SodiumHypochloriteBleach.png'
+    },
+    {
+        id: 14,
+        title: 'RENOCLEAN - Cold Sterilant',
+        description: 'Peracetic acid based cold sterilant for dialyzer reprocessing. Eco-friendly decomposition. High efficacy against a wide range of pathogens.',
+        image: '/products/canewhite.png'
     }
 ];
 
 export default function ProductsPage() {
     return (
-        <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-slate-100 relative">
+        <div className={styles.pageWrapper}>
 
             {/* Background Chemistry Elements - Floating Black Technical Drawings */}
             <div className={styles.chemBackground}>
@@ -121,48 +127,48 @@ export default function ProductsPage() {
                 </div>
             </div>
 
-            <main className="relative z-10 max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-12 pt-36 pb-24">
+            <main className={styles.mainContent}>
 
                 {/* Header Section - Clinical/Editorial */}
-                <header className="max-w-4xl mb-24">
-                    <h1 className="text-5xl sm:text-6xl font-semibold tracking-tight text-slate-900 mb-8 leading-[1.05]">
-                        Advanced Dialysis Solutions for <br className="hidden md:block" />
-                        <span className="text-slate-400">Clinical Excellence.</span>
+                <header className={styles.headerSection}>
+                    <h1 className={styles.headerTitle}>
+                        Advanced Dialysis Solutions for <br className={styles.breakLine} />
+                        <span className={styles.headerSubtitle}>Clinical Excellence.</span>
                     </h1>
-                    <p className="text-xl text-slate-600 max-w-2xl leading-relaxed">
+                    <p className={styles.headerDescription}>
                         From high-purity cleaning fluids to precise hemodialysis concentrates.
                         Engineered for patient safety and operational efficiency in renal care facilities.
                     </p>
                 </header>
 
                 {/* Product Catalog Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-16">
+                <div className={styles.productGrid}>
                     {products.map((product) => (
-                        <article key={product.id} className="group flex flex-col h-full bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow duration-300 rounded-xl border border-slate-100/50">
+                        <article key={product.id} className={styles.productCard}>
                             {/* Image Container - Square, Neutral */}
-                            <div className="relative aspect-square mb-6 bg-slate-50/50 border border-slate-100 rounded-t-xl overflow-hidden flex items-center justify-center p-8 transition-colors duration-300 group-hover:border-slate-300">
+                            <div className={styles.imageContainer}>
                                 <img
                                     src={product.image}
                                     alt={product.title}
-                                    className="w-full h-full object-contain mix-blend-multiply opacity-90 group-hover:opacity-100 transition-opacity duration-300 group-hover:scale-105 transform ease-out"
+                                    className={styles.productImage}
                                 />
                             </div>
 
                             {/* Content */}
-                            <div className="flex-1 flex flex-col min-h-[160px] p-6 pt-0">
-                                <div className="mb-auto">
-                                    <h3 className="text-lg font-bold text-slate-900 leading-snug mb-3 pr-4 group-hover:text-blue-800 transition-colors">
+                            <div className={styles.cardContent}>
+                                <div style={{ marginBottom: 'auto' }}>
+                                    <h3 className={styles.cardTitle}>
                                         {product.title}
                                     </h3>
-                                    <p className="text-sm text-slate-500 leading-relaxed line-clamp-3">
+                                    <p className={styles.cardDescription}>
                                         {product.description}
                                     </p>
                                 </div>
 
-                                <div className="pt-6 mt-4 border-t border-slate-50">
-                                    <span className="inline-flex items-center text-sm font-semibold text-slate-900 hover:text-blue-800 transition-colors cursor-pointer group/cta">
+                                <div className={styles.cardFooter}>
+                                    <span className={styles.cardCta}>
                                         View Technical Specifications
-                                        <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 group-hover/cta:translate-x-1" />
+                                        <ArrowRight className={styles.ctaIcon} />
                                     </span>
                                 </div>
                             </div>
@@ -171,34 +177,34 @@ export default function ProductsPage() {
                 </div>
 
                 {/* Authority / Trust Section */}
-                <section className="mt-40 border-t border-slate-200 pt-24 bg-white/60 backdrop-blur-sm rounded-3xl p-8">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-                        <div className="space-y-4">
-                            <div className="w-12 h-12 flex items-center justify-center bg-blue-50/50 rounded-full border border-blue-100 text-blue-900 mb-6">
-                                <ShieldCheck className="w-6 h-6" />
+                <section className={styles.trustSection}>
+                    <div className={styles.trustGrid}>
+                        <div className={styles.trustItem}>
+                            <div className={styles.trustIconWrapper}>
+                                <ShieldCheck size={24} />
                             </div>
-                            <h4 className="text-lg font-semibold text-slate-900">Certified Quality</h4>
-                            <p className="text-sm text-slate-500 leading-relaxed max-w-xs">
+                            <h4 className={styles.trustTitle}>Certified Quality</h4>
+                            <p className={styles.trustDescription}>
                                 Manufactured in compliance with ISO 13485 and GMP standards. Ensuring consistent safety, sterility, and efficacy for every batch produced.
                             </p>
                         </div>
 
-                        <div className="space-y-4">
-                            <div className="w-12 h-12 flex items-center justify-center bg-blue-50/50 rounded-full border border-blue-100 text-blue-900 mb-6">
-                                <FileCheck className="w-6 h-6" />
+                        <div className={styles.trustItem}>
+                            <div className={styles.trustIconWrapper}>
+                                <FileCheck size={24} />
                             </div>
-                            <h4 className="text-lg font-semibold text-slate-900">Regulatory Compliance</h4>
-                            <p className="text-sm text-slate-500 leading-relaxed max-w-xs">
+                            <h4 className={styles.trustTitle}>Regulatory Compliance</h4>
+                            <p className={styles.trustDescription}>
                                 Fully compliant with national and international medical device regulations. Comprehensive documentation and Certificates of Analysis (CoA) available on request.
                             </p>
                         </div>
 
-                        <div className="space-y-4">
-                            <div className="w-12 h-12 flex items-center justify-center bg-blue-50/50 rounded-full border border-blue-100 text-blue-900 mb-6">
-                                <Activity className="w-6 h-6" />
+                        <div className={styles.trustItem}>
+                            <div className={styles.trustIconWrapper}>
+                                <Activity size={24} />
                             </div>
-                            <h4 className="text-lg font-semibold text-slate-900">Clinical Reliability</h4>
-                            <p className="text-sm text-slate-500 leading-relaxed max-w-xs">
+                            <h4 className={styles.trustTitle}>Clinical Reliability</h4>
+                            <p className={styles.trustDescription}>
                                 Trusted by leading dialysis centers. Our formulations are meticulously designed to maximize dialyzer performance and ensure patient safety during treatment.
                             </p>
                         </div>

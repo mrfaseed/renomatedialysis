@@ -127,8 +127,8 @@ export default function Footer() {
                             <div><strong>Email</strong><br />ramakrishnanrenomate@gmail.com</div>
                         </div>
                         <div className={styles.contactItem}>
-                            <div className={styles.iconWrapper}><Phone size={18} /></div>
-                            <div><strong>Call Us</strong><br />+91 8643849098</div>
+                            <div className={styles.iconWrapper}><Phone size={20} /></div>
+                            <div><strong>Call Us</strong><br />+91 8643849098<br />+91 8056390983</div>
                         </div>
                     </div>
                 </div>
