@@ -28,6 +28,14 @@ body {
   align-items: center;
 }
 
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+    align-items: flex-start;
+    /* Reset center alignment on mobile */
+  }
+}
+
 .nav-link {
   font-weight: 500;
   color: var(--muted-foreground);
