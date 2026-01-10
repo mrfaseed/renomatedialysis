@@ -1,0 +1,231 @@
+/* Premium Pure Glass Navbar - Responsive Fix */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4rem;
+    height: 120px;
+    /* Desktop Height */
+
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+
+    border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.02);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    width: 100%;
+    /* Ensure it doesn't overflow */
+}
+
+.logoContainer {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0.5rem 0;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1002;
+    max-width: 60%;
+    /* Limit container width */
+}
+
+.logoImage {
+    object-fit: contain;
+    width: auto;
+    height: 100%;
+    max-height: 90px;
+    transition: transform 0.3s ease;
+}
+
+/* Desktop Nav Link Styles */
+.navLinks {
+    display: flex;
+    gap: 4rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.navLink {
+    font-weight: 700;
+    color: #334155;
+    transition: all 0.2s ease;
+    position: relative;
+    font-size: 1.5rem;
+    padding: 0.5rem 0;
+    letter-spacing: -0.02em;
+}
+
+.navLink:hover {
+    color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.navLink::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 4px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--primary);
+    transition: width 0.3s ease;
+    border-radius: 4px;
+}
+
+.navLink:hover::after {
+    width: 100%;
+}
+
+/* Mobile Toggle Button - Redesigned */
+.mobileMenuBtn {
+    display: none;
+    background: white;
+    /* Clean background for button */
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    /* Soft rounded square */
+    cursor: pointer;
+    z-index: 1002;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.hamburgerIcon {
+    width: 20px;
+    height: 14px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hamburgerLine {
+    display: block;
+    width: 100%;
+    height: 2px;
+    /* Thinner for elegance */
+    background: #0f172a;
+    /* Dark Slate */
+    border-radius: 4px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: absolute;
+    left: 0;
+}
+
+/* Positioning lines */
+.hamburgerLine:nth-child(1) {
+    top: 0;
+}
+
+.hamburgerLine:nth-child(2) {
+    top: 6px;
+    opacity: 1;
+}
+
+.hamburgerLine:nth-child(3) {
+    top: 12px;
+}
+
+/* Active Menu State (X icon) */
+.mobileMenuBtn.active .hamburgerLine:nth-child(1) {
+    transform: rotate(45deg);
+    top: 6px;
+}
+
+.mobileMenuBtn.active .hamburgerLine:nth-child(2) {
+    opacity: 0;
+}
+
+.mobileMenuBtn.active .hamburgerLine:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 6px;
+}
+
+/* Mobile Overlay Menu */
+.mobileMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff;
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.mobileMenu.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.mobileNavList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.mobileNavLink {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0f172a;
+    text-decoration: none;
+    letter-spacing: -0.02em;
+}
+
+.mobileNavLink:hover {
+    color: var(--primary);
+}
+
+/* RESPONSIVE FIXES */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 0 1.5rem;
+        /* Smaller padding on mobile */
+        height: 70px;
+        /* Smaller height on mobile */
+    }
+
+    /* Force logo constraint on mobile */
+    .logoContainer {
+        max-width: 200px;
+        /* Don't let it overflow */
+        padding: 0.25rem 0;
+    }
+
+    .logoImage {
+        max-height: 50px;
+        /* Smaller logo height for mobile */
+        width: auto;
+    }
+
+    .navLinks {
+        display: none;
+    }
+
+    .mobileMenuBtn {
+        display: flex;
+    }
+}
