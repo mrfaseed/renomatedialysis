@@ -87,23 +87,44 @@
 .heroHighlight {
     display: flex;
     justify-content: flex-start;
-    gap: 1.5rem;
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 3rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #64748b;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 3.5rem;
+    flex-wrap: wrap;
 }
 
 .heroHighlight span {
     position: relative;
+    padding: 0.6rem 1.4rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #1e40af;
+    background: rgba(59, 130, 246, 0.08);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(59, 130, 246, 0.15);
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.05);
 }
 
+.heroHighlight span:hover {
+    transform: translateY(-3px) scale(1.02);
+    background: rgba(59, 130, 246, 0.12);
+    border-color: rgba(59, 130, 246, 0.3);
+    box-shadow:
+        0 8px 20px rgba(59, 130, 246, 0.12),
+        0 0 15px rgba(59, 130, 246, 0.1);
+    color: #1d4ed8;
+}
+
+/* Remove the bullet separator as we now use badges */
 .heroHighlight span:not(:last-child)::after {
-    content: "•";
-    margin-left: 1.5rem;
-    color: #cbd5e1;
+    display: none;
 }
 
 .heroDescription {
@@ -157,96 +178,82 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2.5rem;
-    padding: 0 5% 10rem;
+    padding: 0 5% 12rem;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .featureCard {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    border-radius: 2rem;
-    padding: 3.5rem;
+    background: #ffffff;
+    border: 1px solid #f1f5f9;
+    border-radius: 2.5rem;
+    padding: 4rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
     cursor: pointer;
-    overflow: hidden;
-    position: relative;
-}
-
-.featureCard::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, transparent 100%);
-    opacity: 0;
-    transition: opacity 0.5s ease;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.03);
 }
 
 .featureCard:hover {
-    transform: translateY(-12px);
-    border-color: rgba(59, 130, 246, 0.2);
-    box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.08);
-    background: white;
-}
-
-.featureCard:hover::before {
-    opacity: 1;
+    transform: translateY(-8px);
+    border-color: #e2e8f0;
+    box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.08);
 }
 
 .iconWrapper {
-    width: 80px;
-    height: 80px;
-    border-radius: 1.5rem;
+    width: 65px;
+    height: 65px;
+    border-radius: 1.25rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
-    transition: transform 0.5s ease;
+    font-size: 1.8rem;
+    transition: all 0.3s ease;
+    margin-bottom: 0.5rem;
 }
 
 .featureCard:hover .iconWrapper {
-    transform: scale(1.1) rotate(5deg);
+    transform: scale(1.05);
 }
 
 .missionIcon {
-    background: #f0f9ff;
-    color: #0369a1;
+    background: #3fa8a8;
+    color: white;
 }
 
 .infraIcon {
-    background: #f0fdf4;
-    color: #15803d;
+    background: #4fa8a8;
+    color: white;
+    opacity: 0.9;
 }
 
 .complianceIcon {
-    background: #fdf2f8;
-    color: #be185d;
+    background: #3fa8a8;
+    color: white;
+    opacity: 0.85;
 }
 
 .valuesIcon {
-    background: #fefce8;
-    color: #a16207;
+    background: #5fa8a8;
+    color: white;
+    opacity: 0.95;
 }
 
 .featureInfo h3 {
-    font-size: 1.75rem;
+    font-size: 1.85rem;
     font-weight: 700;
-    color: #0f172a;
-    margin-bottom: 1rem;
-    letter-spacing: -0.01em;
+    color: #1e3a8a;
+    margin-bottom: 1.25rem;
+    font-family: var(--font-outfit), serif;
 }
 
 .featureInfo p {
     color: #64748b;
-    line-height: 1.8;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
+    line-height: 1.6;
+    font-weight: 400;
 }
 
 .ctaSection {

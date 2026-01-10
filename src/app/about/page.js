@@ -102,9 +102,9 @@ export default function AboutPage() {
                     </motion.h1>
 
                     <motion.div className={styles.heroHighlight} variants={itemVariants}>
-                        <span>Innovation</span>
-                        <span>Design</span>
-                        <span>Clinical Excellence</span>
+                        <span><Zap size={14} strokeWidth={3} /> Innovation</span>
+                        <span><Target size={14} strokeWidth={3} /> Design</span>
+                        <span><Award size={14} strokeWidth={3} /> Clinical Excellence</span>
                     </motion.div>
 
                     <motion.p className={styles.heroDescription} variants={itemVariants}>
