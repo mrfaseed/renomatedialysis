@@ -73,6 +73,16 @@ export default function AboutPage() {
         },
     };
 
+    const visualVariants = {
+        hidden: { opacity: 0, scale: 0.8, x: 50 },
+        visible: {
+            opacity: 1,
+            scale: 1,
+            x: 0,
+            transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.2 },
+        },
+    };
+
     return (
         <main className={styles.aboutContainer}>
             {/* Background Decorations */}
@@ -158,25 +168,29 @@ export default function AboutPage() {
                     {
                         title: "Mission Rooted in Care",
                         desc: "Elevating the standard of renal therapy through relentless innovation and accessible precision engineering.",
-                        icon: <Target size={32} />,
+                        icon: <Target size={24} />,
+                        image: "/assets/mission-illustration.png",
                         class: styles.missionIcon
                     },
                     {
                         title: "Advanced Ecosystem",
                         desc: "A sprawling 4,500 sq.ft innovation hub in Ahmedabad, India, where future of dialysis is forged daily.",
-                        icon: <Zap size={32} />,
+                        icon: <Zap size={24} />,
+                        image: "/assets/machine.png",
                         class: styles.infraIcon
                     },
                     {
                         title: "Certified Integrity",
                         desc: "BP, IP, JP, and US FDA compliant processes ensure every consumable meets life-saving quality benchmarks.",
-                        icon: <Award size={32} />,
+                        icon: <Award size={24} />,
+                        image: "/assets/kidney.png",
                         class: styles.complianceIcon
                     },
                     {
                         title: "Human-Centric Tech",
                         desc: "Products designed with both the patient and the clinician in mind, simplifying complex dialysis workflows.",
-                        icon: <Heart size={32} />,
+                        icon: <Heart size={24} />,
+                        image: "/assets/doctor.png",
                         class: styles.valuesIcon
                     }
                 ].map((feature, idx) => (
@@ -186,13 +200,24 @@ export default function AboutPage() {
                         variants={itemVariants}
                         whileHover={{ y: -10 }}
                     >
-                        <div className={`${styles.iconWrapper} ${feature.class}`}>
-                            {feature.icon}
+                        <div className={styles.cardContent}>
+                            <div className={`${styles.iconWrapper} ${feature.class}`}>
+                                {feature.icon}
+                            </div>
+                            <div className={styles.featureInfo}>
+                                <h3>{feature.title}</h3>
+                                <p>{feature.desc}</p>
+                            </div>
                         </div>
-                        <div className={styles.featureInfo}>
-                            <h3>{feature.title}</h3>
-                            <p>{feature.desc}</p>
-                        </div>
+                        <motion.div className={styles.cardVisual} variants={visualVariants}>
+                            <Image
+                                src={feature.image}
+                                alt={feature.title}
+                                width={500}
+                                height={500}
+                                className={styles.featureImage}
+                            />
+                        </motion.div>
                     </motion.div>
                 ))}
             </motion.section>
