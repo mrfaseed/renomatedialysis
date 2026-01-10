@@ -35,7 +35,6 @@ export default function Navbar() {
 
             {/* Desktop Navigation */}
             <ul className={styles.navLinks}>
-                <li><Link href="/" className={styles.navLink}>Home</Link></li>
                 <li><Link href="/about" className={styles.navLink}>About</Link></li>
                 <li><Link href="/products" className={styles.navLink}>Products</Link></li>
                 <li><Link href="/contact" className={styles.navLink}>Contact</Link></li>
