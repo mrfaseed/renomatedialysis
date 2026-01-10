@@ -7,7 +7,7 @@ export default function Footer() {
                     Innovating dialysis care for a better tomorrow.
                 </p>
                 <div style={{ marginTop: '2rem', fontSize: '0.875rem', opacity: 0.7 }}>
-                    &copy; {new Date().getFullYear()} Renomate. All rights reserved.
+                    &copy; {new Date().getFullYear()} Sri Ramakrishna's Renomate. All rights reserved.
                 </div>
             </div>
         </footer>
