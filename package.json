@@ -10,6 +10,10 @@
   },
   "dependencies": {
     "framer-motion": "^12.25.0",
+<<<<<<< HEAD
+=======
+
+>>>>>>> a12f79c74824bbaffacc32e9fa017c309bf16a9b
     "lucide-react": "^0.562.0",
     "next": "16.1.1",
     "react": "19.2.3",

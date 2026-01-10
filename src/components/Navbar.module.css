@@ -1,52 +1,70 @@
-/* Premium Pure Glass Navbar - Responsive Fix */
+/* Navbar.module.css */
 
+/* 1. KEYFRAMES - Subtle & Professional */
+@keyframes fadeSlideDown {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* 2. MAIN NAVBAR - Clean Professional Design */
 .navbar {
+    position: fixed;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    max-width: 1280px;
+    height: 72px;
+
+    /* Professional Glass Effect - White clean background */
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    /* Subtle, clean border and shadow */
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    box-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.05),
+        0 2px 4px -1px rgba(0, 0, 0, 0.03);
+
+    border-radius: 12px;
+    padding: 0 2rem;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 4rem;
-    height: 120px;
-    /* Desktop Height */
-
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(24px) saturate(180%);
-    -webkit-backdrop-filter: blur(24px) saturate(180%);
-
-    border-bottom: 1px solid rgba(226, 232, 240, 0.8);
-    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.02);
-
-    position: sticky;
-    top: 0;
     z-index: 1000;
+
+    /* Smooth, restrained entrance */
+    animation: fadeSlideDown 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     transition: all 0.3s ease;
-    width: 100%;
-    /* Ensure it doesn't overflow */
 }
 
 .logoContainer {
     display: flex;
     align-items: center;
     height: 100%;
-    padding: 0.5rem 0;
-    flex-shrink: 0;
-    position: relative;
-    z-index: 1002;
-    max-width: 60%;
-    /* Limit container width */
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .logoImage {
-    object-fit: contain;
+    height: 48px;
     width: auto;
-    height: 100%;
-    max-height: 90px;
-    transition: transform 0.3s ease;
+    object-fit: contain;
 }
 
-/* Desktop Nav Link Styles */
+/* 3. DESKTOP NAVIGATION */
 .navLinks {
     display: flex;
-    gap: 4rem;
+    gap: 32px;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -54,178 +72,119 @@
 }
 
 .navLink {
-    font-weight: 700;
-    color: #334155;
-    transition: all 0.2s ease;
-    position: relative;
-    font-size: 1.5rem;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #475569;
+    /* Slate 600 - Professional Grey */
     padding: 0.5rem 0;
-    letter-spacing: -0.02em;
+    position: relative;
+    transition: color 0.2s ease;
 }
 
 .navLink:hover {
-    color: var(--primary);
-    transform: translateY(-2px);
+    color: #0284c7;
+    /* Sky 600 - Professional Medical Blue */
 }
 
+/* Professional Underline Indicator */
 .navLink::after {
     content: '';
     position: absolute;
     width: 0;
-    height: 4px;
-    bottom: -4px;
+    height: 2px;
+    bottom: -2px;
     left: 0;
-    background-color: var(--primary);
+    background-color: #0284c7;
     transition: width 0.3s ease;
-    border-radius: 4px;
 }
 
 .navLink:hover::after {
     width: 100%;
 }
 
-/* Mobile Toggle Button - Redesigned */
+/* 4. MOBILE MENU BUTTON */
 .mobileMenuBtn {
     display: none;
-    background: white;
-    /* Clean background for button */
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    /* Soft rounded square */
+    background: transparent;
+    border: none;
     cursor: pointer;
-    z-index: 1002;
-    width: 44px;
-    height: 44px;
-    padding: 0;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 8px;
+    color: #334155;
+    transition: color 0.2s;
 }
 
-.hamburgerIcon {
-    width: 20px;
-    height: 14px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.mobileMenuBtn:hover {
+    color: #0284c7;
 }
 
-.hamburgerLine {
-    display: block;
-    width: 100%;
-    height: 2px;
-    /* Thinner for elegance */
-    background: #0f172a;
-    /* Dark Slate */
-    border-radius: 4px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: absolute;
-    left: 0;
-}
-
-/* Positioning lines */
-.hamburgerLine:nth-child(1) {
-    top: 0;
-}
-
-.hamburgerLine:nth-child(2) {
-    top: 6px;
-    opacity: 1;
-}
-
-.hamburgerLine:nth-child(3) {
-    top: 12px;
-}
-
-/* Active Menu State (X icon) */
-.mobileMenuBtn.active .hamburgerLine:nth-child(1) {
-    transform: rotate(45deg);
-    top: 6px;
-}
-
-.mobileMenuBtn.active .hamburgerLine:nth-child(2) {
-    opacity: 0;
-}
-
-.mobileMenuBtn.active .hamburgerLine:nth-child(3) {
-    transform: rotate(-45deg);
-    top: 6px;
-}
-
-/* Mobile Overlay Menu */
+/* 5. MOBILE MENU OVERLAY */
 .mobileMenu {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: #ffffff;
-    z-index: 1001;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    top: 88px;
+    /* Below navbar */
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    width: 95%;
+    max-width: 1280px;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+    padding: 2rem;
+
     opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 999;
 }
 
 .mobileMenu.open {
     opacity: 1;
-    pointer-events: auto;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
 }
 
 .mobileNavList {
     list-style: none;
     padding: 0;
     margin: 0;
-    text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
+    gap: 1.5rem;
+    text-align: center;
 }
 
 .mobileNavLink {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #0f172a;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #334155;
     text-decoration: none;
-    letter-spacing: -0.02em;
+    display: block;
+    padding: 0.5rem;
 }
 
 .mobileNavLink:hover {
-    color: var(--primary);
+    color: #0284c7;
+    background-color: #f8fafc;
+    border-radius: 6px;
 }
 
-/* RESPONSIVE FIXES */
+/* RESPONSIVE */
 @media (max-width: 1024px) {
-    .navbar {
-        padding: 0 1.5rem;
-        /* Smaller padding on mobile */
-        height: 70px;
-        /* Smaller height on mobile */
-    }
-
-    /* Force logo constraint on mobile */
-    .logoContainer {
-        max-width: 200px;
-        /* Don't let it overflow */
-        padding: 0.25rem 0;
-    }
-
-    .logoImage {
-        max-height: 50px;
-        /* Smaller logo height for mobile */
-        width: auto;
-    }
-
     .navLinks {
         display: none;
     }
 
     .mobileMenuBtn {
         display: flex;
+        /* Ensure flex is used for centering icon */
+        align-items: center;
+        justify-content: center;
+    }
+
+    .navbar {
+        padding: 0 1.5rem;
     }
 }
