@@ -6,7 +6,7 @@ import { Phone, Mail, MapPin, Send, HeartPulse, Building2, Clock, Users, Plus, M
 
 export default function ContactPage() {
     return (
-        <div style={{ backgroundColor: '#ffffff', minHeight: '100vh', overflow: 'hidden', fontFamily: 'var(--font-sans)' }}>
+        <div style={{ backgroundColor: '#ffffff', minHeight: '100vh', fontFamily: 'var(--font-sans)' }}>
             <MedicalParticles />
             <HeroSection />
             <div style={{ position: 'relative', zIndex: 2, background: 'white' }}>
@@ -264,7 +264,7 @@ function FormSection() {
 
     return (
         <section style={{ padding: '4rem 2rem 8rem' }}>
-            <div className="container" style={{ maxWidth: '1100px', margin: '0 auto' }}>
+            <div className="container" style={{ margin: '0 auto' }}>
                 <motion.div
                     initial={{ opacity: 0, y: 50, scale: 0.95 }}
                     whileInView={{ opacity: 1, y: 0, scale: 1 }}

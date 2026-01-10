@@ -7,7 +7,7 @@ export default function ProductsPage() {
                     Explore our wide range of dialysis consumables and equipment.
                 </p>
 
-                <div style={{ display: 'grid', gap: '2rem' }}>
+                <div className="contact-info-grid">
                     {['Dialyzers', 'Blood Tubing Sets', 'AV Fistula Needles', 'Dialysis Catheters', 'Accessories'].map((category) => (
                         <div key={category} style={{
                             padding: '2.5rem',

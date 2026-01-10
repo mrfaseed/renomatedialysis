@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -20,7 +26,6 @@ body {
   overflow-x: hidden;
   margin: 0;
   padding: 0;
-  align-items: center;
 }
 
 .nav-link {
@@ -79,11 +84,18 @@ body {
 
 /* Section Utilities */
 .section {
-  padding: 6rem 2rem;
+  padding: 4rem 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 6rem 2rem;
+  }
 }
 
 .section-alt {
@@ -92,23 +104,36 @@ body {
 
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
+  padding: 0 1.5rem;
 }
 
 .section-title {
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin-bottom: 1rem;
   text-align: center;
 }
 
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 2.5rem;
+  }
+}
+
 .section-description {
-  font-size: 1.125rem;
+  font-size: 1rem;
   color: var(--muted-foreground);
   text-align: center;
-  max-width: 600px;
+  max-width: 700px;
   margin: 0 auto;
   line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+  .section-description {
+    font-size: 1.125rem;
+  }
 }
 
 .btn {
@@ -224,6 +249,9 @@ body {
 
 .about-card.dark .about-card-title {
   color: #f59e0b;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
 }
 
 .about-card.dark .about-card-text {
@@ -290,7 +318,7 @@ body {
   border-color: #f59e0b;
 }
 
-/* Contact Page Responsive Styles - RESTORED */
+/* Contact Page Responsive Styles */
 .contact-form-card {
   display: grid;
   grid-template-columns: 1fr;
