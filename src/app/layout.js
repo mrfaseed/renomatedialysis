@@ -19,8 +19,13 @@ const playfair = Playfair_Display({
 });
 
 export const metadata = {
-  title: "Renomate - Dialysis Solutions",
+  title: "Sri RamaKrishna's Renomate",
   description: "Advanced Dialysis Solutions For Modern Healthcare",
+  icons: {
+    icon: '/favicon/cropped-ramakrishna-logo-32x32.png',
+    apple: '/favicon/cropped-ramakrishna-logo-180x180.png',
+    shortcut: '/favicon/cropped-ramakrishna-logo-32x32.png',
+  },
 };
 
 export default function RootLayout({ children }) {

@@ -1,32 +1,181 @@
 /* Global variables like --primary are still inherited from globals.css */
 /* but layout specific styles should be modular */
+@import url('https://fonts.googleapis.com/css2?family=BBH+Hegarty&family=Bebas+Neue&family=Changa+One:ital@0;1&family=Damion&family=Figtree:ital,wght@0,300..900;1,300..900&family=Geom:ital,wght@0,300..900;1,300..900&family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Momo+Signature&family=Momo+Trust+Display&family=Notable&family=Paytone+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sekuya&family=Syncopate:wght@400;700&display=swap');
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
 
 .footer {
-    background-color: var(--muted);
-    padding: 4rem 2rem;
+    background: linear-gradient(-45deg, #0f172a, #004e7c, #0ea5e9, #0f172a);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: #f1f5f9;
+    padding: 4rem 2rem 2rem;
     margin-top: auto;
-    border-top: 1px solid var(--border);
-    text-align: center;
+    border-top: 5px solid #38bdf8;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
 }
 
 .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
-.title {
-    font-size: 1.5rem;
-    font-weight: 700;
+.grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: 3rem;
+    text-align: left;
+}
+
+.brandHeader {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
     margin-bottom: 1rem;
+    flex-direction: column;
 }
 
-.tagline {
-    color: var(--muted-foreground);
+.brandName {
+    font-family: 'Momo Trust Display', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin: 0;
+    line-height: 1;
+    color: #ffffff;
 }
 
-.copyright {
-    margin-top: 2rem;
-    font-size: 0.875rem;
-    opacity: 0.7;
+.brandBadge {
+    display: inline-block;
+    background: rgba(56, 189, 248, 0.2);
+    color: #38bdf8;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    margin-top: 0.5rem;
+    align-self: flex-start;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+}
+
+.columnTitle {
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    position: relative;
+    font-family: 'Momo Trust Display', sans-serif;
+    letter-spacing: 0.02em;
+}
+
+.columnTitle::after {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 3px;
+    background: #38bdf8;
+    margin-top: 8px;
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+}
+
+.links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.links li {
+    margin-bottom: 0.8rem;
+}
+
+.link {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: 0.3s;
+    font-weight: 300;
+}
+
+.link:hover {
+    color: #38bdf8;
+    padding-left: 5px;
+}
+
+.contactItem {
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #cbd5e1;
+    line-height: 1.6;
+}
+
+.bottomBar {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    color: #94a3b8;
+    font-size: 0.85rem;
+}
+
+.legalLinks {
+    display: flex;
+    gap: 20px;
+}
+
+.legalLink {
+    color: inherit;
+    text-decoration: none;
+}
+
+.legalLink:hover {
+    color: #38bdf8;
+}
+
+@media (max-width: 900px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .brandHeader {
+        align-items: center;
+    }
+
+    .brandBadge {
+        align-self: center;
+    }
+
+    .columnTitle::after {
+        margin: 8px auto 0;
+    }
+
+    .bottomBar {
+        flex-direction: column-reverse;
+        gap: 1rem;
+        text-align: center;
+    }
 }
