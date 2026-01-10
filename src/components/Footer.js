@@ -7,22 +7,28 @@ export default function Footer() {
                 <div className={styles.grid}>
                     <div>
                         <div className={styles.brandHeader}>
-                            {/* Leaving simple text branding as per user's last "paste" but keeping the structure clean if they want the logo back easily, 
-                                but based on "take out the logo from the box" and the paste not having it, let's keep it simple but functional */}
-                            <div>
-                                <p style={{ color: '#94a3b8', fontSize: '0.8rem', letterSpacing: '2px', margin: 0 }}>SRI RAMAKRISHNA'S</p>
-                                <h2 className={styles.brandName}>Renomate</h2>
+                            <img
+                                src="/favicon/cropped-ramakrishna-logo-192x192.png"
+                                alt="Renomate Logo"
+                                className={styles.logo}
+                            />
+                            <div className={styles.brandInfo}>
+                                <span className={styles.brandPrefix}>SRI RAMAKRISHNA'S</span>
+                                <h2 className={styles.brandName}>RENOMATE</h2>
                                 <div className={styles.brandBadge}>DIALYSIS SOLUTIONS</div>
                             </div>
                         </div>
+                        <p className={styles.tagline}>
+                            Pioneering certainties in renal care specializing in state-of-the-art hemodialysis fluid manufacturing.
+                        </p>
                     </div>
 
                     <div>
                         <h3 className={styles.columnTitle}>Company</h3>
                         <ul className={styles.links}>
                             <li><a href="/about" className={styles.link}>About Us</a></li>
-                            <li><a href="/leadership" className={styles.link}>Leadership</a></li>
-                            <li><a href="/careers" className={styles.link}>Careers</a></li>
+                            <li><a href="/products" className={styles.link}>Products</a></li>
+                            <li><a href="/contact" className={styles.link}>Contact Us</a></li>
                         </ul>
                     </div>
 
@@ -37,17 +43,29 @@ export default function Footer() {
 
                     <div>
                         <h3 className={styles.columnTitle}>Get in Touch</h3>
-                        <div className={styles.contactItem} style={{ display: 'flex', gap: '10px' }}>
-                            <span>📍</span>
-                            <span>#2, H3-H3 Road, Virudhunagar</span>
+
+                        <div className={styles.contactItem}>
+                            <div className={styles.iconWrapper}>📍</div>
+                            <div>
+                                <strong>Location</strong><br />
+                                #2, H3-H3 Road, Virudhunagar
+                            </div>
                         </div>
-                        <div className={styles.contactItem} style={{ display: 'flex', gap: '10px' }}>
-                            <span>✉️</span>
-                            <span>ramakrishnanrenomate@gmail.com</span>
+
+                        <div className={styles.contactItem}>
+                            <div className={styles.iconWrapper}>✉️</div>
+                            <div>
+                                <strong>Email</strong><br />
+                                ramakrishnanrenomate@gmail.com
+                            </div>
                         </div>
-                        <div className={styles.contactItem} style={{ display: 'flex', gap: '10px' }}>
-                            <span>📞</span>
-                            <span>+91 8643849098</span>
+
+                        <div className={styles.contactItem}>
+                            <div className={styles.iconWrapper}>📞</div>
+                            <div>
+                                <strong>Call Us</strong><br />
+                                +91 8643849098
+                            </div>
                         </div>
                     </div>
                 </div>
