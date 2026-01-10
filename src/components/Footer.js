@@ -83,7 +83,7 @@ export default function Footer() {
                     <div className={styles.brandCol}>
                         <div className={styles.brandHeader}>
                             <img
-                                src="/favicon/cropped-ramakrishna-logo-192x192.png"
+                                src="/1-2.png"
                                 alt="Renomate Logo"
                                 className={styles.logo}
                             />

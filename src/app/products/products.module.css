@@ -1,9 +1,20 @@
-/* Floating Animation Keyframes */
+
+/* Page Background */
 @import url('https://fonts.googleapis.com/css2?family=BBH+Hegarty&family=Bebas+Neue&family=Changa+One:ital@0;1&family=Damion&family=Figtree:ital,wght@0,300..900;1,300..900&family=Geom:ital,wght@0,300..900;1,300..900&family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Momo+Signature&family=Momo+Trust+Display&family=Notable&family=Paytone+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sekuya&family=Syncopate:wght@400;700&display=swap');
+
+.pageBackground {
+  min-height: 100vh;
+  background-color: #f8fafc;
+  /* Slate-50 */
+  position: relative;
+  overflow-x: hidden;
+  font-family: var(--font-outfit), sans-serif;
+}
+
+
 
 .headerTitle {
   color: #1e293b;
-  /* Slate-800 */
 }
 
 /* Animations */
@@ -111,6 +122,7 @@
   line-height: 1.6;
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   flex-grow: 1;
@@ -155,8 +167,12 @@
 .floatingIcon {
   position: absolute;
   color: #000000;
-  /* Distinct Black */
-  opacity: 0.07;
+
+
+  opacity: 0.05;
+
+
+  
   /* Technical sketch look */
   will-change: transform;
 }
