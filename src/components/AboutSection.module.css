@@ -8,6 +8,53 @@
     justify-content: center;
 }
 
+.title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    letter-spacing: -3px;
+    color: #000000;
+}
+
+@media (min-width: 768px) {
+    .title {
+        font-size: 4rem;
+    }
+}
+
+.highlight {
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    font-size: 4rem;
+    background: linear-gradient(to right, #8596c4, #0ea5e9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% auto;
+    animation: gradient 15s ease infinite;
+    padding-right: 0.2em;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@media (min-width: 768px) {
+    .highlight {
+        font-size: 5.5rem;
+    }
+}
+
 .backgroundContainer {
     position: absolute;
     top: 0;
@@ -29,6 +76,7 @@
     position: relative;
     z-index: 10;
     padding: 3rem 0;
+    text-align: center;
 }
 
 /* Responsive adjustments */

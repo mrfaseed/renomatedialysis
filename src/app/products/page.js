@@ -15,7 +15,7 @@ const products = [
         overview: 'Citric Acid Powder is specially formulated to remove limescale and mineral deposits from dialysis machines, RO water systems, and associated pipelines. Regular use helps maintain proper functioning, improves efficiency, and extends the life of medical equipment.',
         fullDescription: 'Citric Acid Powder is used to clean and remove scale from dialysis machines and water systems. It helps remove hard water deposits and mineral buildup, keeping the equipment clean and working properly.',
         image: '/products/Citric_Acid_Powder.png',
-        detailImage: '/products/Citric_Acid_Powder_v2.png',
+        detailImage: '/products/Citric_v3.png',
         specs: ['Purity: >99%', 'Form: Crystalline Powder', 'Packaging: 500g / 1kg', 'GMP Certified'],
         whyUsed: [
             'Removes limescale and mineral deposits',
@@ -51,6 +51,7 @@ const products = [
         description: 'Specialized cleaning fluid for hemodialysis machines. Precisely formulated to remove organic and inorganic deposits.',
         fullDescription: 'CITROMATE is a specialized cleaning fluid designed for hemodialysis machines. It helps remove organic and inorganic deposits, keeping the machine clean, safe, and working efficiently.',
         image: '/products/CITROMATE.png',
+        detailImage: '/products/CITROMATE_Detail.jpg',
         specs: ['Application: Machine Cleaning', 'pH: Multi-stage stable', 'Efficiency: High', 'Residue-free'],
         whyUsed: [
             'Effectively cleans dialysis machines',
@@ -84,6 +85,7 @@ const products = [
         description: 'Cold sterilant for dialyzer reprocessing. Includes cleaning, testing, and sterilization steps.',
         fullDescription: 'DIAMATE is a specialized cold sterilant solution designed for dialyzer reprocessing. It helps sterilize and disinfect dialyzers safely, removing bacteria and other contaminants while maintaining dialyzer performance.',
         image: '/products/DIAMATE.png',
+        detailImage: '/products/Diamate_canister_v2_match_acid.png',
         specs: ['Type: Peracetic Acid based', 'Usage: Reprocessing', 'Sterilization: High-level', 'Safe Reuse'],
         whyUsed: [
             'Provides safe and effective cold sterilization',
@@ -115,6 +117,7 @@ const products = [
         description: 'Powerful disinfectant for medical and laboratory use. I.P Grade (34-37% W/V).',
         fullDescription: 'Formaldehyde Solution I.P is a strong disinfectant widely used in medical and laboratory settings to sterilize and disinfect equipment, surfaces, and instruments. It effectively eliminates bacteria, viruses, and fungi, ensuring a safe and hygienic environment.',
         image: '/products/Formaldehyde_Solution_IP.png',
+        detailImage: '/products/Formaldehyde_v5_blue_full.png',
         specs: ['Grade: I.P', 'Concentration: 34-37% W/V', 'Efficacy: Broad-spectrum', 'Usage: External only'],
         whyUsed: [
             'Strong and effective disinfectant',
@@ -147,6 +150,7 @@ const products = [
         description: 'Hemodialysis Concentrated Acidic Solution for bicarbonate dialysis treatments. 1:34 proportioning ratio.',
         fullDescription: 'This acid concentrate solution is used in bicarbonate dialysis to help prepare dialysis fluid. It ensures proper acid-base balance and safe dialysis treatment for patients.',
         image: '/products/cane.png',
+        detailImage: '/products/Acid_Concentrate_1_34_v1.png',
         specs: ['Ratio: 1:34', 'Grade: BP Standard', 'Form: Liquid', 'Electrolyte Balanced'],
         whyUsed: [
             'Maintains correct acid-base balance in dialysis fluid',
@@ -179,6 +183,7 @@ const products = [
         description: 'Hemodialysis Concentrated Acidic Solution for bicarbonate dialysis. 1:32.75 proportioning ratio.',
         fullDescription: 'This acid concentrate solution is used in bicarbonate dialysis to prepare the dialysis fluid. It helps maintain the proper acid-base balance, ensuring safe and effective dialysis treatment for patients.',
         image: '/products/cane.png',
+        detailImage: '/products/Acid_Concentrate_1_32_75_v1.png',
         specs: ['Ratio: 1:32.75', 'Grade: BP Standard', 'Selection: Patient Specific', 'High Pure'],
         whyUsed: [
             'Maintains correct acid-base balance in dialysis fluid',
@@ -211,6 +216,7 @@ const products = [
         description: 'Hemodialysis Concentrated Acidic Solution with Dextrose for bicarbonate dialysis treatments.',
         fullDescription: 'This acid concentrate with dextrose is used in bicarbonate dialysis to prepare dialysis fluid. It helps maintain the proper acid-base balance and energy supply during dialysis, ensuring safe and effective treatment.',
         image: '/products/cane.png',
+        detailImage: '/products/Acid_Concentrate_Dextrose_v1.png',
         specs: ['Content: Dextrose Added', 'Ratio: 1:34', 'Clinical: Glycemic Support', 'Pure Grade'],
         whyUsed: [
             'Maintains correct acid-base balance in dialysis fluid',
@@ -243,6 +249,7 @@ const products = [
         description: 'Potassium-free Acidic Solution for cases where free potassium is not required.',
         fullDescription: 'This specialty acid concentrate is designed for bicarbonate dialysis where free potassium is not required. It helps maintain the proper acid-base balance in dialysis fluid, ensuring safe and effective treatment for patients.',
         image: '/products/cane.png',
+        detailImage: '/products/Acid_Concentrate_Free_Potassium_v1.png',
         specs: ['Potassium: 0 mEq/L', 'Ratio: 1:34', 'Case: Hyperkalemia', 'Precise Mix'],
         whyUsed: [
             'Maintains correct acid-base balance',
@@ -275,6 +282,7 @@ const products = [
         description: 'Low Potassium Acidic Solution for patients requiring controlled potassium removal.',
         fullDescription: 'This specialty acid concentrate is used in bicarbonate dialysis for patients who require low potassium in their dialysis fluid. It ensures the proper acid-base balance while providing safe and effective dialysis treatment.',
         image: '/products/cane.png',
+        detailImage: '/products/Acid_Concentrate_Low_Potassium_v1.png',
         specs: ['Potassium: Low Conc.', 'Ratio: 1:34', 'Usage: Controlled Removal', 'Standard Mix'],
         whyUsed: [
             'Maintains correct acid-base balance',
@@ -307,6 +315,7 @@ const products = [
         description: 'Disinfectant for dialysis water systems. Effectively removes bacteria and organic impurities.',
         fullDescription: 'Hydrogen Peroxide Solution is used in dialysis water treatment to disinfect and purify water, removing bacteria and organic contaminants. It helps ensure safe, clean, and high-quality water for hemodialysis.',
         image: '/products/Hydrogen_Peroxide_Solution.png',
+        detailImage: '/products/Hydrogen_Peroxide_v1.png',
         specs: ['Type: H2O2 Solution', 'Usage: Biofilm Removal', 'Application: Water Plants', 'High Purity'],
         whyUsed: [
             'Effectively disinfects dialysis water',
@@ -339,6 +348,7 @@ const products = [
         description: 'Pharmaceutical grade Sodium Bicarbonate (NaHCO3) for preparation of dialysis fluid.',
         fullDescription: 'Sodium Bicarbonate (Bicarb Powder) is used in bicarbonate dialysis to prepare the dialysis fluid. It helps maintain the acid-base balance in the fluid, ensuring safe and effective treatment for patients.',
         image: '/products/Sodium_Bicarbonate_IP.png',
+        detailImage: '/products/Sodium_Bicarbonate_IP_v1.png',
         specs: ['Grade: Pharmaceutical IP', 'Form: Crystalline', 'Purity: High', 'Usage: Fluid Preparation'],
         whyUsed: [
             'Maintains correct acid-base balance in dialysis fluid',
@@ -366,16 +376,20 @@ const products = [
     {
         id: 12,
         title: 'Bicarb Mix – Sodium Bicarbonate IP & Sodium Chloride IP',
+        subtitle: 'Dual-Electrolyte Formulation for Precise Dialysis Fluid Preparation',
         tag: 'Bicarb Mix',
         description: 'Pharmaceutical grade combined formulation of Sodium Bicarbonate and Sodium Chloride.',
+        overview: 'Bicarb Mix is a specialized combination of high-purity Sodium Bicarbonate and Sodium Chloride, designed to simplify the preparation of bicarbonate dialysis fluid. This pre-mixed formulation ensures precise electrolyte ratios, reducing preparation time and minimizing the risk of mixing errors in clinical settings.',
         fullDescription: 'Bicarb Mix is a combined formulation of Sodium Bicarbonate and Sodium Chloride used in dialysis fluid preparation. It ensures precise electrolyte balance, supporting safe and effective hemodialysis.',
         image: '/products/Sodium_Bicarbonate_IP_and_Sodium_Chloride_IP.png',
+        detailImage: '/products/Bicarb_Mix_Detail_v1.png',
         specs: ['Grade: IP Standards', 'Components: Salt + Bicarb', 'Mixing: Precise', 'Dialysis Core'],
         whyUsed: [
             'Maintains correct electrolyte balance in dialysis fluid',
             'Ensures safe and efficient dialysis treatment',
             'Pharmaceutical grade salts for high quality and purity',
-            'Easy to mix and handle'
+            'Easy to mix and handle',
+            'Reduces risk of mixing errors'
         ],
         whereUsed: [
             'Preparing bicarbonate dialysis fluid',
@@ -392,21 +406,26 @@ const products = [
             'Store in a cool, dry place',
             'Avoid contact with eyes',
             'Keep away from children'
-        ]
+        ],
+        benefit: 'Ensures precise electrolyte balance for safer patient outcomes.'
     },
     {
         id: 13,
         title: 'Sodium Hypochlorite – Bleach (5–6%)',
+        subtitle: 'High-Level Disinfectant for Medical Hygiene & Water Systems',
         tag: 'Disinfectant',
         description: 'Powerful disinfectant for dialysis equipment, surfaces, and water systems. 5–6% concentration.',
+        overview: 'Sodium Hypochlorite (Bleach) at 5–6% concentration is a critical disinfectant used to maintain the highest levels of hygiene in dialysis facilities. It is highly effective against a broad spectrum of pathogens, making it ideal for the sanitation of equipment surfaces and the disinfection of water treatment systems to prevent microbial growth.',
         fullDescription: 'Sodium Hypochlorite is a powerful disinfectant used to clean and sanitize dialysis equipment, surfaces, and water systems. It effectively removes bacteria, viruses, and other contaminants, ensuring a safe and hygienic environment.',
         image: '/products/SodiumHypochloriteBleach.png',
+        detailImage: '/products/Sodium_Hypochlorite_Bleach_Detail.jpg',
         specs: ['Conc: 5–6%', 'Role: Bacterial Control', 'Usage: Surface/Fluid path', 'Robust Efficacy'],
         whyUsed: [
             'Strong and effective disinfectant',
             'Kills bacteria, viruses, and fungi',
             'Maintains high hygiene standards in dialysis and medical facilities',
-            'Easy to use and handle'
+            'Easy to use and handle',
+            'Cost-effective sanitation solution'
         ],
         whereUsed: [
             'Disinfecting dialysis machines and equipment',
@@ -424,21 +443,26 @@ const products = [
             'Avoid contact with skin and eyes',
             'Use protective gloves and eyewear while handling',
             'Store in a cool, dry place, away from children'
-        ]
+        ],
+        benefit: 'Ensures a sterile and safe clinical environment for renal care.'
     },
     {
         id: 14,
         title: 'RENOCLEAN – Cold Sterilant',
+        subtitle: 'Eco-Friendly High-Level Disinfectant for Dialyzer Reprocessing',
         tag: 'Cold Sterilant',
         description: 'Specialized cold sterilant for dialyzer reprocessing. Effective pathogen elimination.',
+        overview: 'RENOCLEAN is an advanced peracetic acid-based cold sterilant specifically formulated for the safe reprocessing of dialyzers. It offers high-level disinfection, rapidly eliminating bacteria, viruses, and fungi while being eco-friendly and biodegradable. Its stable formulation ensures consistent performance for every use.',
         fullDescription: 'RENOCLEAN is a specialized cold sterilant solution designed for dialyzer reprocessing. It helps sterilize and disinfect dialyzers effectively, removing bacteria and other contaminants while maintaining dialyzer performance and patient safety.',
         image: '/products/cane.png',
+        detailImage: '/products/RENOCLEAN_Detail.jpg',
         specs: ['Base: Peracetic Acid', 'Nature: Eco-friendly', 'Efficacy: Pathogen killer', 'Stability: High'],
         whyUsed: [
             'Provides effective cold sterilization',
             'Kills bacteria and disinfects dialyzers thoroughly',
             'Maintains dialyzer performance and longevity',
-            'Easy to use and handle'
+            'Eco-friendly and biodegradable',
+            'Stable shelf life'
         ],
         whereUsed: [
             'Dialyzer reprocessing in hemodialysis clinics',
@@ -456,7 +480,8 @@ const products = [
             'Avoid contact with eyes and skin',
             'Store in a cool, dry place',
             'Keep out of reach of children'
-        ]
+        ],
+        benefit: 'Safe and sustainable sterilization for high-quality renal care.'
     }
 ];
 
@@ -467,17 +492,8 @@ export default function ProductsPage() {
     const detailViewRef = useRef(null);
 
     useEffect(() => {
-        if (selectedProduct && detailViewRef.current) {
-            detailViewRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            document.title = `${selectedProduct.title} | Renomate`;
-        } else {
-            document.title = 'Our Products | Renomate';
-        }
-    }, [selectedProduct]);
-
-    useEffect(() => {
-        if (selectedProduct && detailViewRef.current) {
-            detailViewRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (selectedProduct) {
+            window.scrollTo({ top: 0, behavior: 'instant' });
             document.title = `${selectedProduct.title} | Renomate`;
         } else {
             document.title = 'Our Products | Renomate';
@@ -517,16 +533,7 @@ export default function ProductsPage() {
             </div>
 
             <main className={styles.mainContent}>
-                <header className={styles.headerSection}>
-                    <h1 className={styles.headerTitle}>
-                        Advanced Dialysis Solutions for <br className={styles.breakLine} />
-                        <span className={styles.headerSubtitle}>Clinical Excellence.</span>
-                    </h1>
-                    <p className={styles.headerDescription}>
-                        From high-purity cleaning fluids to precise hemodialysis concentrates.
-                        Engineered for patient safety and operational efficiency in renal care facilities.
-                    </p>
-                </header>
+
 
                 <AnimatePresence mode="wait">
                     {!selectedProduct ? (
@@ -537,6 +544,17 @@ export default function ProductsPage() {
                             exit={{ opacity: 0, y: -20 }}
                             transition={{ duration: 0.4 }}
                         >
+                            <header className={styles.headerSection}>
+                                <h1 className={styles.headerTitle}>
+                                    Advanced Dialysis Solutions for <br className={styles.breakLine} />
+                                    <span className={styles.headerSubtitle}>Clinical Excellence.</span>
+                                </h1>
+                                <p className={styles.headerDescription}>
+                                    From high-purity cleaning fluids to precise hemodialysis concentrates.
+                                    Engineered for patient safety and operational efficiency in renal care facilities.
+                                </p>
+                            </header>
+
                             {/* Product Selection Grid */}
                             <div className={styles.productOverviewGrid}>
                                 {products.map((product) => (
@@ -633,7 +651,17 @@ export default function ProductsPage() {
                                 <div className={styles.detailRightColumn}>
                                     <div className={styles.heroImageWrapper}>
                                         <div className={styles.heroGlow} />
-                                        <img src={selectedProduct.detailImage || selectedProduct.image} alt={selectedProduct.title} className={styles.heroImage} />
+                                        <img
+                                            src={selectedProduct.detailImage || selectedProduct.image}
+                                            alt={selectedProduct.title}
+                                            className={styles.heroImage}
+                                            width="450"
+                                            height="450"
+                                            onError={(e) => {
+                                                e.target.onerror = null;
+                                                e.target.src = selectedProduct.image;
+                                            }}
+                                        />
                                     </div>
 
                                     <div className={styles.infoCardLight}>

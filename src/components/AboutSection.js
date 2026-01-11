@@ -8,7 +8,7 @@ export default function AboutSection() {
         <section className={`section section-alt ${styles.aboutSection} relative`}>
             <MoleculeBackground />
             <div className={`container ${styles.content}`}>
-                <h2 className="section-title">Who We Are</h2>
+                <h2 className={styles.title}>Who <span className={styles.highlight}>We </span>Are</h2>
                 <p className="section-description">
                     Renomate is a leading manufacturer of dialysis consumables and equipment.
                     With over 20 years of expertise, we are dedicated to improving patient outcomes through
