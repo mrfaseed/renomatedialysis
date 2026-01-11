@@ -1,14 +1,65 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './Navbar.module.css';
-import { Menu, X, Search } from 'lucide-react';
+import { Menu, X, Search, ArrowRight, FileText } from 'lucide-react';
+import { products, pages } from '../data/searchData';
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
+    const [searchQuery, setSearchQuery] = useState('');
+    const [searchResults, setSearchResults] = useState([]);
+    const searchRef = useRef(null);
+    const mobileSearchRef = useRef(null);
+
+    // Close search when clicking outside
+    useEffect(() => {
+        function handleClickOutside(event) {
+            if (searchRef.current && !searchRef.current.contains(event.target)) {
+                // Only close if not clicking into the mobile search (if separate) or results
+                setIsSearchOpen(false);
+                setSearchQuery('');
+            }
+        }
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
+
+    // Search Handler
+    const handleSearch = (e) => {
+        const query = e.target.value;
+        setSearchQuery(query);
+
+        if (query.trim() === '') {
+            setSearchResults([]);
+            return;
+        }
+
+        const lowerQuery = query.toLowerCase();
+
+        const filteredPages = pages.filter(page =>
+            page.title.toLowerCase().includes(lowerQuery)
+        );
+
+        const filteredProducts = products.filter(product =>
+            product.title.toLowerCase().includes(lowerQuery)
+        );
+
+        setSearchResults([...filteredPages, ...filteredProducts]);
+    };
+
+    const handleResultClick = () => {
+        setSearchQuery('');
+        setSearchResults([]);
+        setIsSearchOpen(false);
+        setIsOpen(false);
+    };
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -46,21 +97,70 @@ export default function Navbar() {
                 {/* Actions: Search, WhatsApp, Mobile Menu */}
                 <div className={styles.navActions}>
                     {/* Search Icon & Input */}
-                    <div className={`${styles.searchContainer} ${isSearchOpen ? styles.searchActive : ''}`}>
+                    <div
+                        className={`${styles.searchContainer} ${isSearchOpen ? styles.searchActive : ''}`}
+                        ref={searchRef}
+                    >
                         <div className={styles.searchInputWrapper}>
                             <input
                                 type="text"
-                                placeholder="Search..."
+                                placeholder="Search products or pages..."
                                 className={styles.searchInput}
+                                value={searchQuery}
+                                onChange={handleSearch}
                             />
                         </div>
                         <button
                             className={styles.searchBtn}
-                            onClick={() => setIsSearchOpen(!isSearchOpen)}
+                            onClick={() => {
+                                setIsSearchOpen(!isSearchOpen);
+                                // Focus input if opening? 
+                            }}
                             aria-label="Toggle search"
                         >
                             <Search size={20} color="#334155" />
                         </button>
+
+                        {/* Search Results Dropdown */}
+                        {isSearchOpen && searchQuery && (
+                            <div className={styles.searchResultsDropdown}>
+                                {searchResults.length > 0 ? (
+                                    searchResults.map((result, index) => (
+                                        <Link
+                                            key={index}
+                                            href={result.link}
+                                            className={styles.searchResultItem}
+                                            onClick={handleResultClick}
+                                        >
+                                            <div className={styles.resultIconWrapper}>
+                                                {result.category === 'Product' ? (
+                                                    <div className={styles.productThumb}>
+                                                        <Image
+                                                            src={result.image}
+                                                            alt={result.title}
+                                                            width={40}
+                                                            height={40}
+                                                            style={{ objectFit: 'contain' }}
+                                                        />
+                                                    </div>
+                                                ) : (
+                                                    <FileText size={20} className="text-slate-400" />
+                                                )}
+                                            </div>
+                                            <div className={styles.resultInfo}>
+                                                <span className={styles.resultTitle}>{result.title}</span>
+                                                <span className={styles.resultCategory}>{result.category}</span>
+                                            </div>
+                                            <ArrowRight size={14} className={styles.resultArrow} />
+                                        </Link>
+                                    ))
+                                ) : (
+                                    <div className={styles.noResults}>
+                                        <p>No results found for "{searchQuery}"</p>
+                                    </div>
+                                )}
+                            </div>
+                        )}
                     </div>
 
                     {/* WhatsApp Button */}
