@@ -90,7 +90,7 @@ export default function Footer() {
                             <div className={styles.brandInfo}>
                                 <span className={styles.brandPrefix}>SRI RAMAKRISHNA'S</span>
                                 <h2 className={styles.brandName}>RENOMATE</h2>
-                                <div className={styles.brandBadge}>DIALYSIS SOLUTIONS</div>
+                                <div className={styles.brandBadge}>MEDICAL DEVICE & HEMODIALYSIS FLUID MANUFACTURES</div>
                             </div>
                         </div>
                         <p className={styles.tagline}>
@@ -98,14 +98,7 @@ export default function Footer() {
                         </p>
                     </div>
 
-                    <div>
-                        <h3 className={styles.columnTitle}>Company</h3>
-                        <ul className={styles.links}>
-                            <li><a href="/about" className={styles.link}>About Us</a></li>
-                            <li><a href="/products" className={styles.link}>Products</a></li>
-                            <li><a href="/contact" className={styles.link}>Contact Us</a></li>
-                        </ul>
-                    </div>
+
 
                     <div>
                         <h3 className={styles.columnTitle}>Solutions</h3>
@@ -116,19 +109,31 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    <div>
+                    <div className={styles.contactColumn}>
                         <h3 className={styles.columnTitle}>Get in Touch</h3>
-                        <div className={styles.contactItem}>
-                            <div className={styles.iconWrapper}><MapPin size={18} /></div>
-                            <div><strong>Location</strong><br />#2, H3-H3 Road, Virudhunagar</div>
-                        </div>
-                        <div className={styles.contactItem}>
-                            <div className={styles.iconWrapper}><Mail size={18} /></div>
-                            <div><strong>Email</strong><br />ramakrishnanrenomate@gmail.com</div>
-                        </div>
-                        <div className={styles.contactItem}>
-                            <div className={styles.iconWrapper}><Phone size={20} /></div>
-                            <div><strong>Call Us</strong><br />+91 8643849098<br />+91 8056390983</div>
+                        <div className={styles.contactGrid}>
+                            <div className={styles.contactCard}>
+                                <div className={styles.iconBox}><MapPin size={24} /></div>
+                                <div className={styles.contactInfo}>
+                                    <span className={styles.contactLabel}>Location</span>
+                                    <p className={styles.contactValue}>Virudhunagar</p>
+                                </div>
+                            </div>
+                            <div className={styles.contactCard}>
+                                <div className={styles.iconBox}><Mail size={24} /></div>
+                                <div className={styles.contactInfo}>
+                                    <span className={styles.contactLabel}>Email</span>
+                                    <p className={styles.contactValue}>ramakrishnanrenomate@gmail.com</p>
+                                </div>
+                            </div>
+                            <div className={styles.contactCard}>
+                                <div className={styles.iconBox}><Phone size={24} /></div>
+                                <div className={styles.contactInfo}>
+                                    <span className={styles.contactLabel}>Call Us</span>
+                                    <p className={styles.contactValue}>+91 8643849098</p>
+                                    <p className={styles.contactValue}>+91 8056390983</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
