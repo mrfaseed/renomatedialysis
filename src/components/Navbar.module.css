@@ -23,20 +23,12 @@
     max-width: 1400px;
     height: 72px;
 
-<<<<<<< HEAD
-    /* Professional Glass Effect - White clean background */
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-=======
     /* Professional Glass Effect - White clean background with RGB Border */
     background:
         linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)) padding-box,
         linear-gradient(90deg, #ff0000, #00ff00, #0000ff) border-box;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
->>>>>>> c30cf60a20e5ed7a0b11e606c7f236dcdb843154
-
     /* RGB Gradient Border */
     border: 2px solid transparent;
 
