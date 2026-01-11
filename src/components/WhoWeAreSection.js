@@ -2,91 +2,56 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
-import styles from '../app/who-we-are/who-we-are.module.css';
+import styles from './WhoWeAreSection.module.css';
 
 export default function WhoWeAreSection() {
     return (
         <section className={styles.container} id="who-we-are">
-            {/* 1. Hero */}
-            <div className={styles.hero}>
-                <div className={styles.heroContent}>
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                    >
-                        <h1 className={styles.heroTitle}>
-                            The People Behind <br />
-                            <span>Renomate Quality</span>
-                        </h1>
-                        <p className={styles.heroSubtitle}>
-                            We are a team of engineers, scientists, and care providers united by a single purpose: to redefine the standards of dialysis care globally.
-                        </p>
-                    </motion.div>
-                </div>
-            </div>
+            {/* 2D Effects Layer */}
+            <div className={styles.gridBackground}></div>
+            <div className={`${styles.floatingCircle} ${styles.circle1}`}></div>
+            <div className={`${styles.floatingCircle} ${styles.circle2}`}></div>
 
-            {/* 2. Scrolling Values Tape */}
-            <div className={styles.valuesTape}>
-                <div className={styles.tapeContent}>
-                    <span className={styles.tapeItem}>Integrity</span>
-                    <span className={styles.tapeItem}>•</span>
-                    <span className={styles.tapeItem}>Innovation</span>
-                    <span className={styles.tapeItem}>•</span>
-                    <span className={styles.tapeItem}>Compassion</span>
-                    <span className={styles.tapeItem}>•</span>
-                    <span className={styles.tapeItem}>Excellence</span>
-                    <span className={styles.tapeItem}>•</span>
-                    <span className={styles.tapeItem}>Safety</span>
-                    <span className={styles.tapeItem}>•</span>
-                    <span className={styles.tapeItem}>Integrity</span>
-                    <span className={styles.tapeItem}>•</span>
-                    <span className={styles.tapeItem}>Innovation</span>
-                    <span className={styles.tapeItem}>•</span>
-                    <span className={styles.tapeItem}>Compassion</span>
-                    <span className={styles.tapeItem}>•</span>
-                    <span className={styles.tapeItem}>Excellence</span>
-                    <span className={styles.tapeItem}>•</span>
-                    <span className={styles.tapeItem}>Safety</span>
-                    <span className={styles.tapeItem}>•</span>
-                </div>
-            </div>
+            {/* Decorative SVG Swish */}
+            <svg className={styles.swishLine} viewBox="0 0 1000 400" xmlns="http://www.w3.org/2000/svg">
+                <motion.path
+                    d="M0,200 Q250,50 500,200 T1000,200"
+                    fill="none"
+                    stroke="#2563eb"
+                    strokeWidth="2"
+                    strokeDasharray="10 10"
+                    initial={{ pathLength: 0, opacity: 0 }}
+                    whileInView={{ pathLength: 1, opacity: 0.2 }}
+                    transition={{ duration: 2, ease: "easeInOut" }}
+                />
+            </svg>
 
-            {/* 3. Our Story Section */}
-            <div className={styles.storySection}>
+            <div className={styles.contentWrapper}>
                 <motion.div
-                    className={styles.storyImageContainer}
-                    initial={{ opacity: 0, x: -50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.8 }}
+                    transition={{ duration: 0.6 }}
                 >
-                    <Image
-                        src="/about-hero.png" // Reusing available asset
-                        alt="Our Factory Lab"
-                        width={800}
-                        height={600}
-                        className={styles.storyImage}
-                    />
+                    <span className={styles.label}>Who We Are</span>
+                    <h2 className={styles.title}>
+                        Engineering <span className={styles.titleItalic}>Purity</span>,<br />
+                        Delivering Hope.
+                    </h2>
                 </motion.div>
+
                 <motion.div
-                    className={styles.storyContent}
-                    initial={{ opacity: 0, x: 50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    className={styles.textLayout}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: 0.2 }}
                 >
-                    <h2>Built on 20 Years of Trust</h2>
-                    <p>
-                        Renomate began with a simple observation: dialysis care was becoming prohibitively expensive without a proportional increase in safety quality. Our founders believed that world-class medical fluids shouldn't be a luxury.
+                    <p className={styles.paragraph}>
+                        At <strong>Renomate</strong>, we don't just manufacture dialysis fluids; we craft the lifeline that thousands of patients depend on every single day. Born from a vision to elevate medical standards in India, we blend precise chemical engineering with an unwavering commitment to patient safety.
                     </p>
-                    <p>
-                        Starting from a small lab in 2004, we have grown into one of India's most respected manufacturers of hemodialysis concentrates. Today, our 4,500 sq.ft facility operates with surgical precision, adhering to global BP/IP standards.
-                    </p>
-                    <p>
-                        Every drop of fluid we produce carries the weight of a patient's life, and we treat it with the sanctity it deserves.
+                    <p className={styles.paragraph}>
+                        Our state-of-the-art facility operates on a simple premise: <strong>Quality is non-negotiable.</strong> From the purity of our raw materials to the integrity of our final packaging, every step is a testament to our dedication to renal care excellence. We are not just a supplier; we are a partner in the journey towards better health.
                     </p>
                 </motion.div>
             </div>

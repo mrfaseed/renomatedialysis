@@ -9,10 +9,13 @@ const products = [
     {
         id: 1,
         title: 'Citric Acid Powder',
+        subtitle: 'Effective Descaling Agent for Dialysis & Medical Water Systems',
         tag: 'Descaling Agent',
-        description: 'High-purity citric acid formulation for efficient descaling. Excellent removal of calcium and magnesium deposits from hemodialysis fluid pathways.',
+        description: 'Citric Acid Powder is a high-quality descaling agent used to clean dialysis machines and medical water systems. It effectively removes hard water scale and mineral buildup, helping equipment remain clean, safe, and efficient for long-term use.',
+        overview: 'Citric Acid Powder is specially formulated to remove limescale and mineral deposits from dialysis machines, RO water systems, and associated pipelines. Regular use helps maintain proper functioning, improves efficiency, and extends the life of medical equipment.',
         fullDescription: 'Citric Acid Powder is used to clean and remove scale from dialysis machines and water systems. It helps remove hard water deposits and mineral buildup, keeping the equipment clean and working properly.',
         image: '/products/Citric_Acid_Powder.png',
+        detailImage: '/products/Citric_Acid_Powder_v2.png',
         specs: ['Purity: >99%', 'Form: Crystalline Powder', 'Packaging: 500g / 1kg', 'GMP Certified'],
         whyUsed: [
             'Removes limescale and mineral deposits',
@@ -30,7 +33,7 @@ const products = [
         howToUse: [
             'Mix the required amount of citric acid powder with water.',
             'Run or apply the solution through the system to remove scale.',
-            'After cleaning, rinse well with clean water.'
+            'After cleaning, rinse thoroughly with clean water.'
         ],
         packSizes: ['500 g', '1 kg'],
         safety: [
@@ -505,24 +508,12 @@ export default function ProductsPage() {
     return (
         <div className={styles.pageWrapper}>
             <div className={styles.chemBackground}>
-                <div className={`${styles.floatingIcon} ${styles.animDelay1}`} style={{ top: '10%', left: '5%' }}>
-                    <Hexagon strokeWidth={1} size={120} />
-                </div>
-                <div className={`${styles.floatingIcon} ${styles.animDelay2}`} style={{ top: '15%', right: '8%' }}>
-                    <FlaskConical strokeWidth={1} size={100} />
-                </div>
-                <div className={`${styles.floatingIcon} ${styles.animDelay3}`} style={{ top: '45%', left: '8%' }}>
-                    <Beaker strokeWidth={1} size={90} />
-                </div>
-                <div className={`${styles.floatingIcon} ${styles.animDelay4}`} style={{ top: '50%', right: '12%' }}>
-                    <Component strokeWidth={1} size={110} />
-                </div>
-                <div className={`${styles.floatingIcon} ${styles.animDelay5}`} style={{ bottom: '15%', left: '15%' }}>
-                    <Microscope strokeWidth={1} size={95} />
-                </div>
-                <div className={`${styles.floatingIcon} ${styles.animDelay1}`} style={{ bottom: '10%', right: '5%' }}>
-                    <Hexagon strokeWidth={1} size={80} />
-                </div>
+                <div className={`${styles.floatingIcon} ${styles.animDelay1}`}></div>
+                <div className={`${styles.floatingIcon} ${styles.animDelay2}`}></div>
+                <div className={`${styles.floatingIcon} ${styles.animDelay3}`}></div>
+                <div className={`${styles.floatingIcon} ${styles.animDelay4}`}></div>
+                <div className={`${styles.floatingIcon} ${styles.animDelay5}`}></div>
+                <div className={`${styles.floatingIcon} ${styles.animDelay6}`}></div>
             </div>
 
             <main className={styles.mainContent}>
@@ -591,83 +582,96 @@ export default function ProductsPage() {
                                 <ArrowLeft size={20} /> Back to All Products
                             </button>
 
-                            <div className={styles.mainDetailCard}>
-                                <div className={styles.mainDetailLayout}>
-                                    <div className={styles.mainDetailImageSection}>
-                                        <div className={styles.mainDetailImageContainer}>
-                                            <div className={styles.detailGlow}></div>
-                                            <img src={selectedProduct.image} alt={selectedProduct.title} className={styles.mainDetailImage} />
-                                        </div>
-                                        {selectedProduct.packSizes && (
-                                            <div className={styles.packSizesInfo}>
-                                                <h4><Package size={18} /> Available Pack Sizes</h4>
-                                                <div className={styles.packSizeChips}>
-                                                    {selectedProduct.packSizes.map(size => (
-                                                        <span key={size} className={styles.sizeChip}>{size}</span>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                        )}
+                            <div className={styles.productDetailGrid}>
+                                {/* Left Column */}
+                                <div className={styles.detailLeftColumn}>
+                                    <div>
+                                        <h1 className={styles.detailTitleLarge}>{selectedProduct.title}</h1>
+                                        <h2 className={styles.detailSubtitle}>{selectedProduct.subtitle || selectedProduct.tag}</h2>
+                                        <p className={styles.detailDescriptionMain}>{selectedProduct.description}</p>
                                     </div>
 
-                                    <div className={styles.mainDetailContent}>
-                                        <span className={styles.detailTag}>{selectedProduct.tag}</span>
-                                        <h2 className={styles.mainDetailTitle}>{selectedProduct.title}</h2>
-                                        <p className={styles.mainDetailFullDesc}>{selectedProduct.fullDescription || selectedProduct.description}</p>
+                                    {selectedProduct.packSizes && (
+                                        <div className={styles.packSizeBox}>
+                                            <span className={styles.packSizeLabel}>Available Pack Sizes</span>
+                                            <div className={styles.packSizeList}>
+                                                {selectedProduct.packSizes.map(size => (
+                                                    <span key={size} className={styles.packSizeItem}>• {size}</span>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    <div className={styles.sectionBlock}>
+                                        <h3 className={styles.sectionTitle}>Product Overview</h3>
+                                        <p className={styles.sectionText}>{selectedProduct.overview || selectedProduct.fullDescription}</p>
 
                                         {selectedProduct.benefit && (
-                                            <div className={styles.benefitAlert}>
-                                                <CheckCircle2 size={20} className={styles.benefitIcon} />
-                                                <p><strong>Benefit:</strong> {selectedProduct.benefit}</p>
+                                            <div className={styles.benefitBox}>
+                                                <CheckCircle2 size={24} className={styles.benefitIcon} />
+                                                <p>{selectedProduct.benefit}</p>
                                             </div>
                                         )}
+                                    </div>
 
-                                        <div className={styles.richContentGrid}>
-                                            {selectedProduct.whyUsed && (
-                                                <div className={styles.contentSection}>
-                                                    <h3><HelpCircle size={20} /> Why this product is used</h3>
-                                                    <ul>
-                                                        {selectedProduct.whyUsed.map((item, i) => <li key={i}>{item}</li>)}
-                                                    </ul>
-                                                </div>
-                                            )}
-
-                                            {selectedProduct.whereUsed && (
-                                                <div className={styles.contentSection}>
-                                                    <h3><Settings size={20} /> Where it can be used</h3>
-                                                    <ul>
-                                                        {selectedProduct.whereUsed.map((item, i) => <li key={i}>{item}</li>)}
-                                                    </ul>
-                                                </div>
-                                            )}
-
-                                            {selectedProduct.howToUse && (
-                                                <div className={styles.contentSection}>
-                                                    <h3><Activity size={20} /> How to use</h3>
-                                                    <ol>
-                                                        {selectedProduct.howToUse.map((item, i) => <li key={i}>{item}</li>)}
-                                                    </ol>
-                                                </div>
-                                            )}
-
-                                            {selectedProduct.safety && (
-                                                <div className={styles.contentSection}>
-                                                    <h3><AlertCircle size={20} /> Safety</h3>
-                                                    <ul className={styles.safetyList}>
-                                                        {selectedProduct.safety.map((item, i) => <li key={i}>{item}</li>)}
-                                                    </ul>
-                                                </div>
-                                            )}
-                                        </div>
-
-                                        <div className={styles.detailActions}>
-                                            <button className={styles.contactBtn}>
-                                                Inquire Now
-                                                <ArrowRight size={18} />
-                                            </button>
-                                        </div>
+                                    <div className={styles.sectionBlock}>
+                                        <h3 className={styles.sectionTitle}>
+                                            <FlaskConical className={styles.sectionIcon} /> How to Use
+                                        </h3>
+                                        <ol className={styles.howToUseList}>
+                                            {selectedProduct.howToUse && selectedProduct.howToUse.map((step, i) => (
+                                                <li key={i}>
+                                                    <span className={styles.stepNumber}>{i + 1}.</span>
+                                                    <span className={styles.stepText}>{step}</span>
+                                                </li>
+                                            ))}
+                                        </ol>
                                     </div>
                                 </div>
+
+                                {/* Right Column */}
+                                <div className={styles.detailRightColumn}>
+                                    <div className={styles.heroImageWrapper}>
+                                        <div className={styles.heroGlow} />
+                                        <img src={selectedProduct.detailImage || selectedProduct.image} alt={selectedProduct.title} className={styles.heroImage} />
+                                    </div>
+
+                                    <div className={styles.infoCardLight}>
+                                        <h3 className={styles.cardTitle}>
+                                            <Activity className={styles.cardIcon} /> Where It Can Be Used
+                                        </h3>
+                                        <ul className={styles.whereUsedList}>
+                                            {selectedProduct.whereUsed && selectedProduct.whereUsed.map((item, i) => (
+                                                <li key={i}>
+                                                    <div className={styles.listIconWrapper}><Settings size={16} /></div>
+                                                    {item}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+
+                                    <div className={styles.infoCardDanger}>
+                                        <h3 className={styles.cardTitleDanger}>
+                                            <AlertCircle className={styles.cardIconDanger} /> Safety Instructions
+                                        </h3>
+                                        <ul className={styles.safetyListNew}>
+                                            {selectedProduct.safety && selectedProduct.safety.map((item, i) => (
+                                                <li key={i}>
+                                                    <CheckCircle2 size={16} className={styles.safetyCheck} />
+                                                    {item}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className={styles.inquireSection}>
+                                <h3 className={styles.inquireTitle}>Need More Information?</h3>
+                                <p className={styles.inquireText}>Contact our team for technical details, usage guidance, or bulk orders.</p>
+                                <button className={styles.inquireBtn}>
+                                    Inquire Now <ArrowRight size={18} />
+                                </button>
                             </div>
                         </motion.div>
                     )}
