@@ -23,13 +23,16 @@
     max-width: 1400px;
     height: 72px;
 
-    /* Professional Glass Effect - White clean background */
-    background: rgba(255, 255, 255, 0.95);
+    /* Professional Glass Effect - White clean background with RGB Border */
+    background:
+        linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)) padding-box,
+        linear-gradient(90deg, #ff0000, #00ff00, #0000ff) border-box;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
 
-    /* Subtle, clean border and shadow */
-    border: 1px solid rgba(226, 232, 240, 0.8);
+    /* RGB Gradient Border */
+    border: 2px solid transparent;
+
     box-shadow:
         0 4px 6px -1px rgba(0, 0, 0, 0.05),
         0 2px 4px -1px rgba(0, 0, 0, 0.03);
@@ -180,7 +183,7 @@
     height: 2px;
     bottom: -2px;
     left: 0;
-    background-color: #0284c7;
+    background: linear-gradient(90deg, #ff0000, #00ff00, #0000ff);
     transition: width 0.3s ease;
 }
 
@@ -240,8 +243,10 @@
 /* Close Button Style */
 .closeMenuBtn {
     position: absolute;
-    top: 2rem;
-    right: 2rem;
+    top: 1.5rem;
+    /* Aligned with Navbar vertical center */
+    right: 1.5rem;
+    /* Aligned with Navbar padding */
     background: transparent;
     border: none;
     cursor: pointer;
@@ -332,41 +337,86 @@
 
 /* RESPONSIVE */
 @media (max-width: 1024px) {
-    .navLinks {
+
+    /* Hide Desktop Nav items on Mobile */
+    .navLinks,
+    .navActions .searchContainer,
+    .navActions .whatsappBtn {
         display: none;
     }
 
     .mobileMenuBtn {
         display: flex;
-        /* Ensure flex is used for centering icon */
         align-items: center;
         justify-content: center;
-        flex-shrink: 0;
-        /* Prevent button from squishing */
-        margin-left: 1rem;
+        margin-left: auto;
+        /* Push to right */
         z-index: 1001;
-        /* Ensure button is above the overlay */
         position: relative;
     }
 
     .navbar {
         padding: 0 1rem;
-        /* Reduce padding slightly */
     }
 
     .logoContainer {
         flex-shrink: 1;
-        /* Allow logo to shrink if needed */
         min-width: 0;
-        /* Allow flex item to shrink below content size */
         overflow: hidden;
     }
 
     .logoImage {
-        height: 36px;
-        /* Smaller height for mobile */
-        max-width: 100%;
-        /* Ensure image doesn't overflow container */
+        height: 48px;
+        /* Slightly larger than 36 for better visibility */
         width: auto;
     }
+}
+
+/* Mobile Search Styling */
+.mobileSearchContainer {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    width: 80%;
+    max-width: 300px;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.mobileSearchInput {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    color: #334155;
+    background: transparent;
+}
+
+.mobileSearchBtn {
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Mobile WhatsApp Styling */
+.mobileWhatsappBtn {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: #f0fdf4;
+    /* Light green bg */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+
+.mobileWhatsappBtn:hover {
+    transform: scale(1.1);
+    background: #dcfce7;
 }
