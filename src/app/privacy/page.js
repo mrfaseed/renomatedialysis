@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './privacy.module.css';
 
 export const metadata = {
     title: 'Privacy Policy | Sri Ramakrishna\'s Renomate',
@@ -7,22 +8,22 @@ export const metadata = {
 
 export default function PrivacyPolicy() {
     return (
-        <div className="min-h-screen bg-slate-50 pt-32 pb-20">
-            <div className="container mx-auto px-6 max-w-4xl">
+        <div className={styles.pageWrapper}>
+            <div className={styles.container}>
 
                 {/* Header */}
-                <div className="mb-12 border-b border-slate-200 pb-8">
-                    <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4 font-outfit">
+                <div className={styles.header}>
+                    <h1 className={styles.title}>
                         Privacy Policy
                     </h1>
-                    <p className="text-slate-500 font-medium">Last Updated: 11 January 2026</p>
+                    <p className={styles.lastUpdated}>Last Updated: 11 January 2026</p>
                 </div>
 
                 {/* Content */}
-                <div className="prose prose-slate max-w-none prose-lg text-slate-700 space-y-12">
+                <div className={styles.proseWrapper}>
 
                     <section>
-                        <h3 className="text-2xl font-bold text-slate-800 mb-4">1. Introduction</h3>
+                        <h3 className={styles.sectionTitle}>1. Introduction</h3>
                         <p>
                             This Privacy Policy explains how we handle personal information submitted through our website.
                             This website is intended for <strong>business and professional use only</strong>.
@@ -30,23 +31,23 @@ export default function PrivacyPolicy() {
                     </section>
 
                     <section>
-                        <h3 className="text-2xl font-bold text-slate-800 mb-4">2. Information We Collect</h3>
-                        <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                        <h3 className={styles.sectionTitle}>2. Information We Collect</h3>
+                        <div className={styles.infoBox}>
                             <p className="mb-4">We <strong>do not automatically collect</strong> any personal data.</p>
                             <p className="mb-2">The <strong>only information we collect</strong> is what you <strong>voluntarily submit</strong> through our contact form, which may include:</p>
-                            <ul className="list-disc pl-5 space-y-1">
+                            <ul className={styles.list}>
                                 <li>Name</li>
                                 <li>Email address</li>
                                 <li>Message content</li>
                             </ul>
-                            <p className="mt-4 text-sm text-slate-500 italic">No other data is collected.</p>
+                            <p className={styles.infoSmall}>No other data is collected.</p>
                         </div>
                     </section>
 
                     <section>
-                        <h3 className="text-2xl font-bold text-slate-800 mb-4">3. How We Use the Information</h3>
+                        <h3 className={styles.sectionTitle}>3. How We Use the Information</h3>
                         <p>The information you provide is used <strong>solely</strong> to:</p>
-                        <ul className="list-disc pl-5 mt-2 mb-4">
+                        <ul className={styles.list}>
                             <li>Respond to your inquiry</li>
                             <li>Communicate regarding business, partnership, or product-related matters</li>
                         </ul>
@@ -54,42 +55,42 @@ export default function PrivacyPolicy() {
                     </section>
 
                     <section>
-                        <h3 className="text-2xl font-bold text-slate-800 mb-4">4. No Sensitive or Patient Data</h3>
-                        <div className="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-lg">
-                            <p className="font-semibold text-amber-800 mb-2">This website does NOT collect:</p>
-                            <ul className="list-disc pl-5 text-amber-700">
+                        <h3 className={styles.sectionTitle}>4. No Sensitive or Patient Data</h3>
+                        <div className={styles.warningBox}>
+                            <p className={styles.warningTitle}>This website does NOT collect:</p>
+                            <ul className={styles.warningList}>
                                 <li>Patient data</li>
                                 <li>Medical records</li>
                                 <li>Health information</li>
                                 <li>Payment information</li>
                             </ul>
-                            <p className="mt-4 font-bold text-amber-900">Please do not submit sensitive or confidential medical data through the contact form.</p>
+                            <p className={styles.warningFooter}>Please do not submit sensitive or confidential medical data through the contact form.</p>
                         </div>
                     </section>
 
                     <section>
-                        <h3 className="text-2xl font-bold text-slate-800 mb-4">5. Data Sharing</h3>
+                        <h3 className={styles.sectionTitle}>5. Data Sharing</h3>
                         <p>We do <strong>not sell, rent, or trade</strong> personal information.</p>
                         <p className="mt-2">Your data is not shared with third parties except:</p>
-                        <ul className="list-disc pl-5 mt-2">
+                        <ul className={styles.list}>
                             <li>Where required by law or regulatory authorities</li>
                         </ul>
                     </section>
 
                     <section>
-                        <h3 className="text-2xl font-bold text-slate-800 mb-4">6. Data Retention</h3>
+                        <h3 className={styles.sectionTitle}>6. Data Retention</h3>
                         <p>Contact form data is retained <strong>only as long as necessary</strong> to respond to the inquiry or meet legal and regulatory obligations.</p>
                     </section>
 
                     <section>
-                        <h3 className="text-2xl font-bold text-slate-800 mb-4">7. Data Security</h3>
+                        <h3 className={styles.sectionTitle}>7. Data Security</h3>
                         <p>We apply reasonable technical and organizational measures to protect submitted information from unauthorized access, disclosure, or misuse.</p>
                     </section>
 
                     <section>
-                        <h3 className="text-2xl font-bold text-slate-800 mb-4">8. Your Rights</h3>
+                        <h3 className={styles.sectionTitle}>8. Your Rights</h3>
                         <p>Depending on applicable laws, you may have the right to:</p>
-                        <ul className="list-disc pl-5 mt-2 mb-4">
+                        <ul className={styles.list}>
                             <li>Request access to your data</li>
                             <li>Request correction or deletion</li>
                             <li>Withdraw consent at any time</li>
@@ -98,27 +99,27 @@ export default function PrivacyPolicy() {
                     </section>
 
                     <section>
-                        <h3 className="text-2xl font-bold text-slate-800 mb-4">9. Cookies and Tracking</h3>
+                        <h3 className={styles.sectionTitle}>9. Cookies and Tracking</h3>
                         <p>This website does <strong>not</strong> use tracking cookies or analytics tools.</p>
                     </section>
 
-                    <section className="bg-slate-900 text-slate-100 p-8 rounded-2xl mt-12">
-                        <h3 className="text-2xl font-bold text-white mb-6">10. Contact Information</h3>
-                        <div className="space-y-4">
+                    <section className={styles.contactSection}>
+                        <h3 className={styles.contactTitle}>10. Contact Information</h3>
+                        <div className={styles.contactGrid}>
                             <p>For privacy-related questions, contact:</p>
                             <div>
-                                <span className="block text-slate-400 text-sm uppercase tracking-wider font-semibold">Email</span>
-                                <a href="mailto:ramakrishnanrenomate@gmail.com" className="text-blue-400 hover:text-blue-300 font-medium transition-colors">ramakrishnanrenomate@gmail.com</a>
+                                <span className={styles.contactLabel}>Email</span>
+                                <a href="mailto:ramakrishnanrenomate@gmail.com" className={styles.contactLink}>ramakrishnanrenomate@gmail.com</a>
                             </div>
                             <div>
-                                <span className="block text-slate-400 text-sm uppercase tracking-wider font-semibold">Company</span>
-                                <p className="text-white font-medium">Sri Ramakrishna's Renomate</p>
+                                <span className={styles.contactLabel}>Company</span>
+                                <p className={styles.companyName}>Sri Ramakrishna's Renomate</p>
                             </div>
                         </div>
                     </section>
 
-                    <section className="pt-8 text-sm text-slate-500">
-                        <h3 className="text-lg font-bold text-slate-700 mb-2">11. Changes to This Policy</h3>
+                    <section className={styles.footerSection}>
+                        <h3 className={styles.footerSectionTitle}>11. Changes to This Policy</h3>
                         <p>We may update this Privacy Policy from time to time. Updates will be posted on this page.</p>
                     </section>
 
