@@ -24,9 +24,9 @@
     height: 72px;
 
     /* Professional Glass Effect - White clean background */
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 
     /* Subtle, clean border and shadow */
     border: 1px solid rgba(226, 232, 240, 0.8);
@@ -40,7 +40,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 1000;
+    z-index: 99999;
 
     /* Smooth, restrained entrance */
     animation: fadeSlideDown 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
