@@ -29,10 +29,7 @@
         linear-gradient(90deg, #ff0000, #00ff00, #0000ff) border-box;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-<<<<<<< HEAD
-=======
 
->>>>>>> aafa54df54361d24f8877a19914b364371f48fba
     /* RGB Gradient Border */
     border: 2px solid transparent;
 

@@ -464,34 +464,20 @@ export default function ProductsPage() {
     const detailViewRef = useRef(null);
 
     useEffect(() => {
-        if (!selectedProduct) {
-            const observerOptions = {
-                root: null,
-                rootMargin: '-20% 0px -20% 0px',
-                threshold: 0.5,
-            };
-
-            const observerCallback = (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        setActiveProductId(parseInt(entry.target.getAttribute('data-id')));
-                    }
-                });
-            };
-
-            const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-            Object.values(productRefs.current).forEach((ref) => {
-                if (ref) observer.observe(ref);
-            });
-
-            return () => observer.disconnect();
+        if (selectedProduct && detailViewRef.current) {
+            detailViewRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            document.title = `${selectedProduct.title} | Renomate`;
+        } else {
+            document.title = 'Our Products | Renomate';
         }
     }, [selectedProduct]);
 
     useEffect(() => {
         if (selectedProduct && detailViewRef.current) {
             detailViewRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            document.title = `${selectedProduct.title} | Renomate`;
+        } else {
+            document.title = 'Our Products | Renomate';
         }
     }, [selectedProduct]);
 
@@ -565,8 +551,8 @@ export default function ProductsPage() {
                                 {products.map((product) => (
                                     <div
                                         key={product.id}
-                                        className={`${styles.overviewCard} ${activeProductId === product.id ? styles.activeOverview : ''}`}
-                                        onClick={() => scrollToProduct(product.id)}
+                                        className={styles.overviewCard}
+                                        onClick={() => handleViewDetails(product)}
                                     >
                                         <div className={styles.overviewImageContainer}>
                                             <img src={product.image} alt={product.title} className={styles.overviewImage} />
@@ -574,6 +560,7 @@ export default function ProductsPage() {
                                         <div className={styles.overviewInfo}>
                                             <span className={styles.overviewTag}>{product.tag}</span>
                                             <h4 className={styles.overviewTitle}>{product.title}</h4>
+                                            <p className={styles.overviewDescription}>{product.description}</p>
                                             <button
                                                 className={styles.viewSpecsBtn}
                                                 onClick={(e) => {
@@ -588,48 +575,7 @@ export default function ProductsPage() {
                                 ))}
                             </div>
 
-                            {/* Sectioned Detailed Content (Original Layout) */}
-                            <div className={styles.detailedSectionsContainer}>
-                                {products.map((product) => (
-                                    <section
-                                        key={product.id}
-                                        data-id={product.id}
-                                        ref={(el) => (productRefs.current[product.id] = el)}
-                                        className={`${styles.productDetailSection} ${activeProductId === product.id ? styles.activeDetail : styles.inactiveDetail}`}
-                                    >
-                                        <div className={styles.detailCard}>
-                                            <div className={styles.detailImageContainer}>
-                                                <div className={styles.detailGlow}></div>
-                                                <img src={product.image} alt={product.title} className={styles.detailImage} />
-                                            </div>
-                                            <div className={styles.detailContent}>
-                                                <span className={styles.detailTag}>{product.tag}</span>
-                                                <h2 className={styles.detailTitle}>{product.title}</h2>
-                                                <p className={styles.detailDescription}>{product.description}</p>
 
-                                                <div className={styles.specsGrid}>
-                                                    {product.specs.map((spec, index) => (
-                                                        <div key={index} className={styles.specItem}>
-                                                            <div className={styles.specDot}></div>
-                                                            <span>{spec}</span>
-                                                        </div>
-                                                    ))}
-                                                </div>
-
-                                                <div className={styles.detailActions}>
-                                                    <button
-                                                        className={styles.viewFullBtn}
-                                                        onClick={() => handleViewDetails(product)}
-                                                    >
-                                                        View Full Details
-                                                        <ArrowRight size={18} />
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </section>
-                                ))}
-                            </div>
                         </motion.div>
                     ) : (
                         <motion.div
