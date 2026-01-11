@@ -1,4 +1,3 @@
-
 /* Page Background */
 @import url('https://fonts.googleapis.com/css2?family=BBH+Hegarty&family=Bebas+Neue&family=Changa+One:ital@0;1&family=Damion&family=Figtree:ital,wght@0,300..900;1,300..900&family=Geom:ital,wght@0,300..900;1,300..900&family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Momo+Signature&family=Momo+Trust+Display&family=Notable&family=Paytone+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sekuya&family=Syncopate:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=BBH+Hegarty&family=Bebas+Neue&family=Changa+One:ital@0;1&family=Damion&family=Figtree:ital,wght@0,300..900;1,300..900&family=Geom:ital,wght@0,300..900;1,300..900&family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Momo+Signature&family=Momo+Trust+Display&family=Notable&family=Paytone+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sekuya&family=Syncopate:wght@400;700&display=swap');
@@ -174,7 +173,7 @@
   opacity: 0.05;
 
 
-  
+
   /* Technical sketch look */
   will-change: transform;
 }
@@ -286,7 +285,7 @@
 
 .headerTitle {
   font-family: "Google sans", sans-serif;
-  font-size: 4rem;
+  font-size: 2.5rem;
   /* text-5xl */
   font-weight: 600;
   letter-spacing: -3px;
@@ -294,6 +293,12 @@
   color: #0f172a;
   margin-bottom: 2rem;
   line-height: 1.05;
+}
+
+@media (min-width: 768px) {
+  .headerTitle {
+    font-size: 4rem;
+  }
 }
 
 .headerSubtitle {
@@ -311,9 +316,11 @@
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
@@ -321,7 +328,7 @@
 
 .headerSection h1 {
   font-family: "Google sans flex", sans-serif;
-  font-size: 4rem;
+
   color: #000000;
   font-weight: 600;
 }
@@ -334,50 +341,49 @@
   text-transform: capitalize;
 }
 
-@media (min-width: 640px) {
-  .headerTitle {
-    font-size: 3.75rem;
-    /* text-6xl */
+@media (min-width: 768px) {
+  .headerSection p {
+    font-size: 1rem;
   }
 }
 
-.headerSubtitle {
-  color: #94a3b8;
-  /* slate-400 */
+@media (min-width: 640px) {
+
+  .trustItem h4 {
+    font-family: "Google Sans flex", sans-serif;
+    color: #000000;
+    font-size: 1.25rem;
+  }
+
+  .trustItem p {
+    font-family: "Google Sans flex", sans-serif;
+    color: #0000009f;
+    font-size: 1rem;
+  }
+
+  .cardContent h3 {
+    font-family: "Inter Tight", sans-serif;
+    font-size: 1.25rem;
+  }
+
+  .cardContent p {
+    font-family: "Inter Tight", sans-serif;
+    font-size: 1rem;
+  }
+
+  .cardCta {
+    font-family: "Google sans flex", sans-serif;
+    font-size: 1rem;
+  }
+
+  /* Equivalent to hidden md:block */
+  .breakLine {
+    color: #000000;
+    display: none;
+  }
 }
 
-.trustItem h4 {
-  font-family: "Google Sans flex", sans-serif;
-  color: #000000;
-  font-size: 1.25rem;
-}
 
-.trustItem p {
-  font-family: "Google Sans flex", sans-serif;
-  color: #0000009f;
-  font-size: 1rem;
-}
-
-.cardContent h3{
-  font-family: "Inter Tight", sans-serif;
-  font-size: 1.25rem;
-}
-
-.cardContent p{
-  font-family: "Inter Tight", sans-serif;
-  font-size: 1rem;
-}
-
-.cardCta{
-  font-family: "Google sans flex", sans-serif;
-  font-size: 1rem;
-}
-
-/* Equivalent to hidden md:block */
-.breakLine {
-  color: #000000;
-  display: none;
-}
 
 @media (min-width: 768px) {
   .breakLine {
