@@ -51,7 +51,7 @@ const products = [
         description: 'Specialized cleaning fluid for hemodialysis machines. Precisely formulated to remove organic and inorganic deposits.',
         fullDescription: 'CITROMATE is a specialized cleaning fluid designed for hemodialysis machines. It helps remove organic and inorganic deposits, keeping the machine clean, safe, and working efficiently.',
         image: '/products/CITROMATE.png',
-        detailImage: '/products/Citromate_canister_v1.png',
+        detailImage: '/products/CITROMATE_Detail.jpg',
         specs: ['Application: Machine Cleaning', 'pH: Multi-stage stable', 'Efficiency: High', 'Residue-free'],
         whyUsed: [
             'Effectively cleans dialysis machines',
