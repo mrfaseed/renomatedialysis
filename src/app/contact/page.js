@@ -163,7 +163,7 @@ function FormSection() {
                     {/* Left Panel */}
                     <div className={styles.formLeftPanel}>
                         <div className={styles.formContent}>
-                            <h2 style={{ fontSize: '2.5rem', marginBottom: '1.5rem', fontFamily: 'var(--font-serif)', lineHeight: 1.2 }}>Let&apos;s Build a Healthy Future</h2>
+                            <h2 style={{ fontSize: '2.8rem', letterSpacing: '-1px', marginBottom: '1.5rem', lineHeight: 1.2 }}>Let&apos;s Build a Healthy Future</h2>
                             <p style={{ opacity: 0.9, lineHeight: 1.6, fontSize: '1.1rem' }}>
                                 Reach out to our expert team for any inquiries about our products or services.
                             </p>
@@ -178,7 +178,7 @@ function FormSection() {
 
                     {/* Right Panel - Form */}
                     <div className={styles.formRightPanel}>
-                        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+                        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                             <FormInput label="Full Name" name="name" value={formState.name} onChange={handleChange} placeholder="Dr. Sarah Smith" />
                             <FormInput label="Work Email" name="email" type="email" value={formState.email} onChange={handleChange} placeholder="sarah@hospital.com" />
 
