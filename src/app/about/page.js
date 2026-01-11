@@ -7,6 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from './About.module.css';
 
+
 export default function AboutPage() {
     const { scrollYProgress } = useScroll();
     const opacity = 1;
@@ -85,8 +86,9 @@ export default function AboutPage() {
 
     return (
         <main className={styles.aboutContainer}>
-            {/* Background Decorations */}
-            <div className={styles.heroBackground} />
+            {/* 3D Background - Replaces static decoration */}
+            <div className={styles.heroBackground}>
+            </div>
 
             {/* Hero Section */}
             <section className={styles.heroContent}>
