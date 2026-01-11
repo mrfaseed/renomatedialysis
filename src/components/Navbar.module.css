@@ -23,19 +23,12 @@
     max-width: 1400px;
     height: 72px;
 
-<<<<<<< HEAD
-    /* Professional Glass Effect - White clean background */
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-=======
     /* Professional Glass Effect - White clean background with RGB Border */
     background:
         linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)) padding-box,
         linear-gradient(90deg, #ff0000, #00ff00, #0000ff) border-box;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
->>>>>>> c30cf60a20e5ed7a0b11e606c7f236dcdb843154
 
     /* RGB Gradient Border */
     border: 2px solid transparent;
@@ -122,6 +115,7 @@
 
 .searchContainer.searchActive {
     background: #f1f5f9;
+    border: 1px solid #cbd5e1;
     padding-left: 1rem;
     padding-right: 4px;
 }
@@ -166,6 +160,128 @@
     background-color: rgba(0, 0, 0, 0.05);
 }
 
+/* SEARCH RESULTS DROPDOWN */
+.searchResultsDropdown {
+    position: absolute;
+    top: 120%;
+    right: 0;
+    width: 380px;
+    background: white;
+    border-radius: 16px;
+    box-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 10px 15px -3px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(226, 232, 240, 0.8);
+    overflow: hidden;
+    z-index: 1000;
+    padding: 8px;
+    animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.searchResultItem {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: background-color 0.2s ease;
+    gap: 12px;
+    margin-bottom: 2px;
+}
+
+.searchResultItem:hover {
+    background-color: #f8fafc;
+}
+
+.resultIconWrapper {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f1f5f9;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.productThumb {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding: 4px;
+    background: white;
+}
+
+.resultInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.resultTitle {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #1e293b;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.resultCategory {
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-top: 2px;
+}
+
+.resultArrow {
+    color: #94a3b8;
+    opacity: 0;
+    transform: translateX(-5px);
+    transition: all 0.2s ease;
+}
+
+.searchResultItem:hover .resultArrow {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.noResults {
+    padding: 24px;
+    text-align: center;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+/* RESPONSIVE SEARCH DROPDOWN */
+@media (max-width: 768px) {
+    .searchResultsDropdown {
+        position: fixed;
+        top: 85px;
+        /* Adjust according to navbar height + padding */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 92%;
+        right: auto;
+        max-height: 60vh;
+        overflow-y: auto;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+}
+
 .navLink {
     text-decoration: none;
     font-size: 0.95rem;
@@ -190,7 +306,7 @@
     height: 2px;
     bottom: -2px;
     left: 0;
-    background: linear-gradient(90deg, #ff0000, #00ff00, #0000ff);
+    background: #0284c7;
     transition: width 0.3s ease;
 }
 
