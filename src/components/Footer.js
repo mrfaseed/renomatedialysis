@@ -103,9 +103,9 @@ export default function Footer() {
                     <div>
                         <h3 className={styles.columnTitle}>Solutions</h3>
                         <ul className={styles.links}>
-                            <li><a href="/products/machines" className={styles.link}>Dialysis Machines</a></li>
-                            <li><a href="/products/consumables" className={styles.link}>Consumables</a></li>
-                            <li><a href="/products/water-treatment" className={styles.link}>Water Treatment</a></li>
+                            <li><a href="/about" className={styles.link}>About us</a></li>
+                            <li><a href="/products" className={styles.link}>Products</a></li>
+                            <li><a href="/contact" className={styles.link}>Contact us</a></li>
                         </ul>
                     </div>
 
@@ -116,7 +116,7 @@ export default function Footer() {
                                 <div className={styles.iconBox}><MapPin size={24} /></div>
                                 <div className={styles.contactInfo}>
                                     <span className={styles.contactLabel}>Location</span>
-                                    <p className={styles.contactValue}>Virudhunagar</p>
+                                    <p className={styles.contactValue}>No.2,H3,H3 Road,Virudhunagar</p>
                                 </div>
                             </div>
                             <div className={styles.contactCard}>
@@ -139,7 +139,7 @@ export default function Footer() {
                 </div>
 
                 <div className={styles.bottomBar}>
-                    <span>© {currentYear} Sri Ramakrishna's Renomate. All rights reserved.</span>
+                    <span>© {currentYear} SRI RAMAKRISHNA'S RENOMATE MEDICAL DEVICE & HEMODIALYSIS FLUID MANUFACTURES .  All rights reserved.</span>
                     <div className={styles.legalLinks}>
                         <a href="/privacy" className={styles.legalLink}>Privacy Policy</a>
                         <a href="/terms" className={styles.legalLink}>Terms of Service</a>

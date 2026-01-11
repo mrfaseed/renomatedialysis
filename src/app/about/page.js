@@ -1,291 +1,347 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { Heart, ShieldCheck, Database, Target, ChevronRight, Globe, Award, Zap } from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
+import {
+    Factory,
+    Microscope,
+    ShieldCheck,
+    Users,
+    Eye,
+    Target,
+    HeartPulse,
+    FileCheck,
+    FlaskConical,
+    Leaf,
+    CheckCircle2,
+    Award
+} from 'lucide-react';
 import styles from './About.module.css';
 
+const fadeInUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.6, ease: "easeOut" }
+    }
+};
+
+const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1
+        }
+    }
+};
 
 export default function AboutPage() {
-    const { scrollYProgress } = useScroll();
-    const opacity = 1;
-    const scale = 1;
-
-    const [ripples, setRipples] = useState([]);
-
-    const createRipple = (event) => {
-        const button = event.currentTarget;
-        const rect = button.getBoundingClientRect();
-        const size = Math.max(rect.width, rect.height);
-        const x = event.clientX - rect.left - size / 2;
-        const y = event.clientY - rect.top - size / 2;
-
-        const newRipple = {
-            id: Date.now(),
-            x,
-            y,
-            size
-        };
-
-        setRipples((prev) => [...prev, newRipple]);
-        setTimeout(() => {
-            setRipples((prev) => prev.filter((ripple) => ripple.id !== newRipple.id));
-        }, 600);
-    };
-
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.1,
-                delayChildren: 0.3,
-            },
-        },
-    };
-
-    const itemVariants = {
-        hidden: { opacity: 0, y: 30 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
-        },
-    };
-
-    const titleVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.05,
-            },
-        },
-    };
-
-    const letterVariants = {
-        hidden: { opacity: 0, y: 50 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: { type: "spring", damping: 15, stiffness: 100 },
-        },
-    };
-
-    const visualVariants = {
-        hidden: { opacity: 0, scale: 0.8, x: 50 },
-        visible: {
-            opacity: 1,
-            scale: 1,
-            x: 0,
-            transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.2 },
-        },
-    };
-
     return (
-        <main className={styles.aboutContainer}>
-            {/* 3D Background - Replaces static decoration */}
-            <div className={styles.heroBackground}>
+        <main className={styles.mainContainer}>
+            {/* Global Animated Background */}
+            <div className={styles.globalBackground}>
+                <div className={styles.movingLine}></div>
+                <div className={styles.movingLine}></div>
+                <div className={styles.movingLine}></div>
+                <div className={styles.movingLine}></div>
+                <div className={styles.movingLine}></div>
+                <div className={styles.pulseCircle}></div>
+                <div className={styles.pulseCircle}></div>
+                <div className={styles.pulseCircle}></div>
             </div>
 
-            {/* Hero Section */}
-            <section className={styles.heroContent}>
-                <motion.div
-                    style={{ opacity, scale }}
-                    variants={containerVariants}
-                    initial="hidden"
-                    animate="visible"
-                    className={styles.heroText}
-                >
-                    <motion.div variants={itemVariants} className={styles.breadcrumb}>
-                        <Link href="/">Home</Link>
-                        <ChevronRight size={14} />
-                        <span>About Our Vision</span>
+            {/* Hero Section - About Us */}
+            <section className={styles.heroSection}>
+                <div className={styles.heroBackground}></div>
+                <div className={styles.contentWrapper}>
+                    <motion.div
+                        initial="hidden"
+                        animate="visible"
+                        variants={staggerContainer}
+                        className={styles.heroContent}
+                    >
+                        <div className={styles.heroTextContent}>
+                            <motion.span variants={fadeInUp} className={styles.badge}>About Us</motion.span>
+                            <motion.h1 variants={fadeInUp} className={styles.heroTitle}>
+                                Sri Ramakrishna’s <span className={styles.highlight}>Renomate</span>
+                            </motion.h1>
+                            <motion.p variants={fadeInUp} className={styles.heroText}>
+                                Sri Ramakrishna’s Renomate is a professionally managed medical device manufacturing organization specializing in the development, manufacturing, and supply of <strong>Haemodialysis Solutions</strong> and related products. The company is committed to supporting renal care by delivering products that meet the highest standards of quality, safety, and regulatory compliance.
+                            </motion.p>
+                            <motion.div variants={fadeInUp} className={styles.heroStats}>
+                                <div className={styles.statItem}>
+                                    <span className={styles.statValue}>11k+</span>
+                                    <span className={styles.statLabel}>Sq. Ft. Facility</span>
+                                </div>
+                                <div className={styles.statItem}>
+                                    <span className={styles.statValue}>GMP</span>
+                                    <span className={styles.statLabel}>Certified</span>
+                                </div>
+                                <div className={styles.statItem}>
+                                    <span className={styles.statValue}>MDR</span>
+                                    <span className={styles.statLabel}>2017 Compliant</span>
+                                </div>
+                            </motion.div>
+                        </div>
+                        <motion.div
+                            variants={fadeInUp}
+                            className={styles.heroImageWrapper}
+                        >
+                            <Image
+                                src="/assets/mission-illustration.png"
+                                alt="Renomate Mission"
+                                width={600}
+                                height={600}
+                                className={styles.heroImage}
+                                priority
+                            />
+                        </motion.div>
                     </motion.div>
-
-                    <motion.h1 className={styles.heroTitle} variants={itemVariants}>
-                        Transforming <br />
-                        <span>Dialysis Quality</span> <br />
-                        Worldwide
-                    </motion.h1>
-
-                    <motion.div className={styles.heroHighlight} variants={itemVariants}>
-                        <span><Zap size={14} strokeWidth={3} /> Innovation</span>
-                        <span><Target size={14} strokeWidth={3} /> Design</span>
-                        <span><Award size={14} strokeWidth={3} /> Clinical Excellence</span>
-                    </motion.div>
-
-                    <motion.p className={styles.heroDescription} variants={itemVariants}>
-                        Renomate is not just a manufacturer; we are architects of better health.
-                        With two decades of clinical mastery, we craft dialysis solutions that
-                        bridge the gap between advanced technology and compassionate care.
-                    </motion.p>
-                </motion.div>
-
-                <motion.div
-                    className={styles.heroIllustration}
-                    initial={{ opacity: 0, scale: 0.8, rotate: -2 }}
-                    animate={{
-                        opacity: 1,
-                        scale: 1,
-                        rotate: 0,
-                        y: [0, -15, 0]
-                    }}
-                    transition={{
-                        opacity: { duration: 1.2, delay: 0.5 },
-                        scale: { duration: 1.5, delay: 0.5, ease: [0.22, 1, 0.36, 1] },
-                        rotate: { duration: 1.5, delay: 0.5, ease: [0.22, 1, 0.36, 1] },
-                        y: {
-                            duration: 6,
-                            repeat: Infinity,
-                            ease: "easeInOut",
-                            delay: 2
-                        }
-                    }}
-                >
-                    <Image
-                        src="/about-hero.png"
-                        alt="Renomate Excellence"
-                        width={900}
-                        height={500}
-                        className={styles.illustrationImage}
-                        priority
-                    />
-                </motion.div>
+                </div>
             </section>
 
-            {/* Features Grid */}
-            <motion.section
-                className={styles.featuresGrid}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-100px" }}
-                variants={containerVariants}
-            >
-                {[
-                    {
-                        title: "Mission Rooted in Care",
-                        desc: "Elevating the standard of renal therapy through relentless innovation and accessible precision engineering.",
-                        icon: <Target size={24} />,
-                        image: "/assets/mission-illustration.png",
-                        class: styles.missionIcon
-                    },
-                    {
-                        title: "Advanced Ecosystem",
-                        desc: "A sprawling 4,500 sq.ft innovation hub in Ahmedabad, India, where future of dialysis is forged daily.",
-                        icon: <Zap size={24} />,
-                        image: "/assets/machine.png",
-                        class: styles.infraIcon
-                    },
-                    {
-                        title: "Certified Integrity",
-                        desc: "BP, IP, JP, and US FDA compliant processes ensure every consumable meets life-saving quality benchmarks.",
-                        icon: <Award size={24} />,
-                        image: "/assets/kidney.png",
-                        class: styles.complianceIcon
-                    },
-                    {
-                        title: "Human-Centric Tech",
-                        desc: "Products designed with both the patient and the clinician in mind, simplifying complex dialysis workflows.",
-                        icon: <Heart size={24} />,
-                        image: "/assets/doctor.png",
-                        class: styles.valuesIcon
-                    },
-                    {
-                        title: "Global Footprint",
-                        desc: "Serving healthcare providers across multiple continents with reliable supply chains and localized expertise.",
-                        icon: <Globe size={24} />,
-                        image: "/assets/global.png",
-                        class: styles.globalIcon
-                    },
-                    {
-                        title: "24/7 Clinical Support",
-                        desc: "Our team of clinical specialists is available round-the-clock to ensure uninterrupted life-saving therapy.",
-                        icon: <ShieldCheck size={24} />,
-                        image: "/assets/support.png",
-                        class: styles.supportIcon
-                    }
-                ].map((feature, idx) => (
+            {/* Manufacturing Excellence */}
+            <section className={styles.section}>
+                <div className={styles.contentWrapper}>
                     <motion.div
-                        key={idx}
-                        className={styles.glassCard}
-                        variants={itemVariants}
-                        whileHover={{ y: -10, scale: 1.02 }}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={staggerContainer}
+                        className={styles.gridTwoCol}
                     >
-                        <div className={styles.cardGlow} />
-                        <div className={styles.cardParticles} />
-                        <div className={styles.glassCardContent}>
-                            <div className={`${styles.glassIconWrapper} ${feature.class}`}>
-                                {feature.icon}
+                        <div className={styles.textColumn}>
+                            <div className={styles.iconBox}>
+                                <Factory size={32} />
                             </div>
-                            <h3>{feature.title}</h3>
-                            <p>{feature.desc}</p>
-                            <div className={styles.cardLightTrail} />
+                            <h2 className={styles.sectionTitle}>Manufacturing Excellence & Quality Systems</h2>
+                            <p className={styles.sectionText}>
+                                Our manufacturing facility is strategically located at <strong>No. 2, H3, H3 Road, Virudhunagar, Tamil Nadu</strong>, with an operational area of approximately 11,000 square feet. The facility has been meticulously designed and constructed in accordance with <strong className={styles.textHighlight}>Good Manufacturing Practices (GMP)</strong> and complies with the structural and operational requirements of the Central Drugs Standard Control Organization (CDSCO) and the Medical Device Rules (MDR), 2017.
+                            </p>
+                            <p className={styles.sectionText}>
+                                Our operations are governed by a comprehensive Quality Management System (QMS) to ensure consistency, traceability, and continual improvement across all processes. Quality is not just a regulatory requirement—it is a core organizational value.
+                            </p>
+                        </div>
+                        <div className={styles.cardsColumn}>
+                            <motion.div variants={fadeInUp} className={styles.glassCard}>
+                                <Microscope className={styles.cardIcon} size={28} />
+                                <h3>In-house Laboratory</h3>
+                                <p>Our Quality Control and Testing Laboratory is fully equipped for raw material testing, in-process control, and finished product analysis.</p>
+                                <ul className={styles.checkList}>
+                                    <li><CheckCircle2 size={16} /> Atomic Absorption Spectroscopy (AAS)</li>
+                                    <li><CheckCircle2 size={16} /> Wet Chemistry Laboratory</li>
+                                    <li><CheckCircle2 size={16} /> Microbiology Laboratory</li>
+                                </ul>
+                            </motion.div>
                         </div>
                     </motion.div>
-                ))}
-            </motion.section>
+                </div>
+            </section>
 
-            {/* CTA Section */}
-            <section className={styles.ctaSection}>
-                <motion.div
-                    className={styles.ctaContent}
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1 }}
-                >
-                    <h2 className={styles.ctaTitle}>
-                        {"Ready to elevate your".split("").map((char, i) => (
-                            <motion.span
-                                key={i}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ delay: i * 0.02, duration: 0.5 }}
-                            >
-                                {char}
-                            </motion.span>
-                        ))}
-                        <br />
-                        {"dialysis outcomes?".split("").map((char, i) => (
-                            <motion.span
-                                key={i}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.5 + i * 0.02, duration: 0.5 }}
-                            >
-                                {char}
-                            </motion.span>
-                        ))}
-                    </h2>
-                    <Link href="/contact">
-                        <motion.button
-                            className={styles.ctaButton}
-                            onMouseDown={createRipple}
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.98 }}
+            {/* Raw Materials */}
+            <section className={`${styles.section} ${styles.altBg}`}>
+                <div className={styles.contentWrapper}>
+                    <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={fadeInUp}
+                        className={styles.sectionHeader}
+                    >
+                        <Leaf className={styles.headerIcon} size={40} />
+                        <h2 className={styles.sectionTitle}>Raw Materials & Supplier Quality Assurance</h2>
+                        <p className={styles.sectionSubtitle}>
+                            At Sri Ramakrishna’s Renomate, the quality of raw materials is fundamental to the safety and performance of our haemodialysis solutions.
+                        </p>
+                    </motion.div>
+
+                    <div className={styles.gridThreeCol}>
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.1 }}
+                            className={styles.featureCard}
                         >
-                            Partner With Us
-                            <AnimatePresence>
-                                {ripples.map((ripple) => (
-                                    <span
-                                        key={ripple.id}
-                                        className={styles.ripple}
-                                        style={{
-                                            left: ripple.x,
-                                            top: ripple.y,
-                                            width: ripple.size,
-                                            height: ripple.size,
-                                        }}
-                                    />
-                                ))}
-                            </AnimatePresence>
-                        </motion.button>
-                    </Link>
-                </motion.div>
+                            <div className={styles.featureIconBox}><FlaskConical size={24} /></div>
+                            <h3>Premium Sourcing</h3>
+                            <p>Indian Pharma Grade raw materials from approved vendors and food-grade cane-based ingredients for high purity.</p>
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.2 }}
+                            className={styles.featureCard}
+                        >
+                            <div className={styles.featureIconBox}><ShieldCheck size={24} /></div>
+                            <h3>Stringent Testing</h3>
+                            <p>Incoming materials undergo strict quality checks. Each batch is tested for identity, purity, and quality per specifications.</p>
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.3 }}
+                            className={styles.featureCard}
+                        >
+                            <div className={styles.featureIconBox}><FileCheck size={24} /></div>
+                            <h3>Traceability</h3>
+                            <p>Complete traceability and documentation are maintained in line with QMS and MDR 2017 requirements.</p>
+                        </motion.div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Regulatory Compliance */}
+            <section className={styles.complianceSection}>
+                <div className={styles.contentWrapper}>
+                    <div className={styles.complianceContent}>
+                        <Award size={48} className={styles.whiteIcon} />
+                        <h2>Regulatory Compliance</h2>
+                        <p>We strictly adhere to applicable national regulatory standards and guidelines, ensuring our systems support regulatory inspections and continuous compliance.</p>
+                        <div className={styles.complianceGrid}>
+                            <span className={styles.complianceTag}>MDR 2017</span>
+                            <span className={styles.complianceTag}>CDSCO Requirements</span>
+                            <span className={styles.complianceTag}>GMP Certified</span>
+                            <span className={styles.complianceTag}>QMS Principles</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Leadership */}
+            <section className={styles.section}>
+                <div className={styles.contentWrapper}>
+                    <motion.div
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={fadeInUp}
+                        className={styles.sectionHeader}
+                    >
+                        <Users className={styles.headerIcon} size={40} />
+                        <h2 className={styles.sectionTitle}>Technical & Quality Leadership</h2>
+                    </motion.div>
+
+                    <div className={styles.teamGrid}>
+                        <TeamMember
+                            name="Mr. M. Palanivelu"
+                            degree="M.Pharm"
+                            role="Technical Head"
+                            description="Responsible for manufacturing operations, process validation, quality systems, and regulatory compliance."
+                            delay={0.1}
+                        />
+                        <TeamMember
+                            name="Mr. S. Gurusamy"
+                            degree="M.Sc (Chemistry)"
+                            role="Quality Control"
+                            description="Oversees analytical testing, laboratory operations, and compliance with quality standards."
+                            delay={0.2}
+                        />
+                        <TeamMember
+                            name="Ms. K. Saraswathy"
+                            degree="B.Sc (Chemistry)"
+                            role="Quality Control"
+                            description="Supports routine analysis, documentation, and quality assurance activities."
+                            delay={0.3}
+                        />
+                        <TeamMember
+                            name="Mr. B. Prakash"
+                            degree="B.Tech"
+                            role="Medical Device Designer"
+                            description="Responsible for design inputs, technical documentation, product development support."
+                            delay={0.4}
+                        />
+                    </div>
+
+                    <div className={styles.grandGovernance}>
+                        <div className={styles.governanceContent}>
+                            <h3>Management & Governance</h3>
+                            <p className={styles.foundedBy}>Sri Ramakrishna’s Renomate is led by its partner firm:</p>
+                            <ul className={styles.foundersList}>
+                                <li>Mr. B. Suresh</li>
+                                <li>Ms. R. Meenal</li>
+                            </ul>
+                            <p>
+                                The leadership team is committed to ethical business practices, regulatory transparency, and long-term sustainability. Their vision emphasizes patient safety, customer satisfaction, and excellence in manufacturing.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Vision & Mission */}
+            <section className={styles.visionMissionSection}>
+                <div className={styles.contentWrapper}>
+                    <div className={styles.splitLayout}>
+                        <motion.div
+                            initial={{ x: -30, opacity: 0 }}
+                            whileInView={{ x: 0, opacity: 1 }}
+                            transition={{ duration: 0.6 }}
+                            viewport={{ once: true }}
+                            className={`${styles.splitCard} ${styles.blueCard}`}
+                        >
+                            <Eye size={40} className={styles.cardIconLarge} />
+                            <h2>Our Vision</h2>
+                            <p>To be a recognized and trusted manufacturer of haemodialysis solutions, delivering reliable, safe, and high-quality medical devices that contribute to improved renal care and patient well-being.</p>
+                        </motion.div>
+                        <motion.div
+                            initial={{ x: 30, opacity: 0 }}
+                            whileInView={{ x: 0, opacity: 1 }}
+                            transition={{ duration: 0.6 }}
+                            viewport={{ once: true }}
+                            className={`${styles.splitCard} ${styles.lightCard}`}
+                        >
+                            <Target size={40} className={styles.cardIconLarge} />
+                            <h2>Our Mission</h2>
+                            <ul className={styles.missionList}>
+                                <li>Manufacture solutions meeting highest quality/safety standards.</li>
+                                <li>Operate in full compliance with CDSCO, MDR 2017, GMP, and QMS.</li>
+                                <li>Continuously enhance quality through innovation and optimization.</li>
+                                <li>Build long-term partnerships through trust and reliability.</li>
+                            </ul>
+                        </motion.div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Commitment */}
+            <section className={styles.commitmentSection}>
+                <div className={styles.contentWrapper}>
+                    <div className={styles.commitmentCard}>
+                        <HeartPulse size={48} className={styles.heartIcon} />
+                        <h2>Commitment to Patients & Healthcare</h2>
+                        <p>
+                            We understand the critical role haemodialysis solutions play in patient care. Therefore, every aspect of our manufacturing process—from raw material selection to final product release—is driven by a commitment to patient safety, clinical effectiveness, and regulatory excellence.
+                        </p>
+                    </div>
+                </div>
             </section>
         </main>
+    );
+}
+
+function TeamMember({ name, degree, role, description, delay }) {
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: delay, duration: 0.5 }}
+            className={styles.teamCard}
+        >
+            <div className={styles.teamHeader}>
+                <div>
+                    <h3 className={styles.teamName}>{name}</h3>
+                    <span className={styles.teamDegree}>{degree}</span>
+                </div>
+            </div>
+            <div className={styles.teamRole}>{role}</div>
+            <p className={styles.teamDesc}>{description}</p>
+        </motion.div>
     );
 }
