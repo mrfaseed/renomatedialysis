@@ -91,6 +91,7 @@ export default function Navbar() {
                     <li><Link href="/" className={styles.navLink}>Home</Link></li>
                     <li><Link href="/about" className={styles.navLink}>About</Link></li>
                     <li><Link href="/products" className={styles.navLink}>Products</Link></li>
+                    <li><Link href="/gallery" className={styles.navLink}>Gallery</Link></li>
                     <li><Link href="/contact" className={styles.navLink}>Contact</Link></li>
                 </ul>
 
@@ -212,6 +213,7 @@ export default function Navbar() {
                     <li><Link href="/" className={styles.mobileNavLink} onClick={toggleMenu}>Home</Link></li>
                     <li><Link href="/about" className={styles.mobileNavLink} onClick={toggleMenu}>About</Link></li>
                     <li><Link href="/products" className={styles.mobileNavLink} onClick={toggleMenu}>Products</Link></li>
+                    <li><Link href="/gallery" className={styles.mobileNavLink} onClick={toggleMenu}>Gallery</Link></li>
                     <li><Link href="/contact" className={styles.mobileNavLink} onClick={toggleMenu}>Contact</Link></li>
                 </ul>
 

@@ -284,6 +284,7 @@
 .headerIcon {
     color: #2563eb;
     margin-bottom: 1.5rem;
+    min-height: 80px;
 }
 
 .sectionSubtitle {

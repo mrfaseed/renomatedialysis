@@ -41,18 +41,6 @@ const staggerContainer = {
 export default function AboutPage() {
     return (
         <main className={styles.mainContainer}>
-            {/* Global Animated Background */}
-            <div className={styles.globalBackground}>
-                <div className={styles.movingLine}></div>
-                <div className={styles.movingLine}></div>
-                <div className={styles.movingLine}></div>
-                <div className={styles.movingLine}></div>
-                <div className={styles.movingLine}></div>
-                <div className={styles.pulseCircle}></div>
-                <div className={styles.pulseCircle}></div>
-                <div className={styles.pulseCircle}></div>
-            </div>
-
             {/* Hero Section - About Us */}
             <section className={styles.heroSection}>
                 <div className={styles.heroBackground}></div>
