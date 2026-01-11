@@ -20,10 +20,11 @@ export default function HeroSection() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 1, delay: 0.5 }}
                 >
+                    <ChemicalBoxParticles />
                     <h1 className={styles.title}>
                         <span className={styles.titleSmall}>To Provide</span>
                         <span className={styles.titleHighlight}>High Quality,</span>
-                        <span className={styles.titleMain}>Low Cost <span className="text-red-500">DIALYSIS</span> Treatment</span>
+                        <span className={styles.titleMain}>Low Cost <span className="text-blue-400 drop-shadow-md">DIALYSIS</span> Treatment</span>
                     </h1>
                     <p className={styles.description}>
                         Setting the global benchmark for haemodialysis fluids.
@@ -72,14 +73,39 @@ export default function HeroSection() {
 }
 
 function VideoBackground() {
+    const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+    const videoRef = React.useRef(null);
+
+    useEffect(() => {
+        // Check if video is already ready (for cached hits)
+        if (videoRef.current && videoRef.current.readyState >= 3) {
+            setIsVideoLoaded(true);
+        }
+    }, []);
+
+    const handleVideoLoad = () => {
+        setIsVideoLoaded(true);
+    };
+
     return (
         <div className={styles.videoWrapper}>
+            {/* Placeholder/Loading State */}
+            <div
+                className={styles.videoPlaceholder}
+                style={{ opacity: isVideoLoaded ? 0 : 1 }}
+            >
+                <div className={styles.spinner} />
+            </div>
+
             <video
+                ref={videoRef}
                 autoPlay
                 loop
                 muted
                 playsInline
                 className={styles.video}
+                onLoadedData={handleVideoLoad}
+                style={{ opacity: isVideoLoaded ? 1 : 0 }}
             >
                 <source src="/assets/0110.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
@@ -137,6 +163,51 @@ function BloodParticleSystem() {
                         repeat: Infinity,
                         ease: "linear",
                         delay: p.delay
+                    }}
+                />
+            ))}
+        </div>
+    );
+}
+
+
+function ChemicalBoxParticles() {
+    // Small bubbling particles confined to the box
+    const [bubbles, setBubbles] = useState([]);
+
+    useEffect(() => {
+        const bubbleCount = 15;
+        const newBubbles = Array.from({ length: bubbleCount }).map((_, i) => ({
+            id: i,
+            x: Math.random() * 100,
+            y: Math.random() * 100 + 100, // Start below
+            size: Math.random() * 6 + 2,
+            duration: Math.random() * 3 + 2,
+            delay: Math.random() * 2
+        }));
+        setBubbles(newBubbles);
+    }, []);
+
+    return (
+        <div className={styles.chemicalBoxParticles}>
+            {bubbles.map((b) => (
+                <motion.div
+                    key={b.id}
+                    className={styles.chemicalBubble}
+                    style={{
+                        left: `${b.x}%`,
+                        width: b.size,
+                        height: b.size,
+                    }}
+                    animate={{
+                        y: [-20, -150], // Move up
+                        opacity: [0, 0.6, 0]
+                    }}
+                    transition={{
+                        duration: b.duration,
+                        repeat: Infinity,
+                        ease: "easeOut",
+                        delay: b.delay
                     }}
                 />
             ))}

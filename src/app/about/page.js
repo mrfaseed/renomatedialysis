@@ -6,7 +6,7 @@ import { Heart, ShieldCheck, Database, Target, ChevronRight, Globe, Award, Zap }
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './About.module.css';
-import ThreeBackground from '../../components/ThreeBackground';
+
 
 export default function AboutPage() {
     const { scrollYProgress } = useScroll();
@@ -88,7 +88,6 @@ export default function AboutPage() {
         <main className={styles.aboutContainer}>
             {/* 3D Background - Replaces static decoration */}
             <div className={styles.heroBackground}>
-                <ThreeBackground />
             </div>
 
             {/* Hero Section */}
