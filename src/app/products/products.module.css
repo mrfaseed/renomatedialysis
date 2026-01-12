@@ -148,20 +148,35 @@
 
 .headerTitle {
   font-family: "Google Sans", sans-serif;
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.06em;
   color: #0f172a;
   margin-bottom: 1.5rem;
   line-height: 1.1;
 }
 
+@media (max-width: 768px) {
+  .headerTitle {
+    font-size: 1.7rem;
+  }
+}
+
 .headerSubtitle {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: 4rem;
   display: block;
   background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 768px) {
+  .headerSubtitle {
+    font-size: 2.3rem;
+  }
 }
 
 .headerDescription {
@@ -244,13 +259,13 @@
 }
 
 .overviewTag {
-  font-size: 0.65rem;
+  font-family: "Google Sans", sans-serif;
+  font-size: 0.7rem;
   font-weight: 700;
-  color: #64748b;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  color: #113132;
+  letter-spacing: -0.02em;
   display: inline-block;
-  background: white;
+  background: rgba(111, 212, 233, 0.142);
   padding: 0.35rem 0.75rem;
   border-radius: 999px;
   margin-bottom: 0.75rem;
@@ -258,18 +273,11 @@
   transition: all 0.3s ease;
   cursor: default;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
-  border: 1px solid #e2e8f0;
+  border: 1px solid #236bc9;
   position: relative;
   z-index: 20;
 }
 
-.overviewTag:hover {
-  border-color: #3b82f6 !important;
-  color: #2563eb !important;
-  background: #eff6ff !important;
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15) !important;
-  transform: translateY(-2px) !important;
-}
 
 .overviewTitle {
   font-family: "Google Sans", sans-serif;
@@ -312,9 +320,9 @@
 }
 
 .overviewCard:hover .viewSpecsBtn {
-  background: #0f172a;
+  background: #2259db;
   color: white;
-  border-color: #0f172a;
+  border-color: #1d4cbb;
 }
 
 /* Detailed Product Sections */

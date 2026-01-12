@@ -547,7 +547,7 @@ export default function ProductsPage() {
                             <header className={styles.headerSection}>
                                 <h1 className={styles.headerTitle}>
                                     Advanced Dialysis Solutions for <br className={styles.breakLine} />
-                                    <span className={styles.headerSubtitle}>Clinical Excellence.</span>
+                                    <span className={styles.headerSubtitle}>Clinical Excellence</span>
                                 </h1>
                                 <p className={styles.headerDescription}>
                                     From high-purity cleaning fluids to precise hemodialysis concentrates.

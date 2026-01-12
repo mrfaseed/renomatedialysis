@@ -110,10 +110,9 @@ function HeroSection() {
                 </motion.div>
 
                 <h1 className={styles.heading}>
-                    <SplitText text="Connect With" />
-                    <br />
-                    <span className={styles.headingHighlight}>
-                        <em style={{ fontStyle: 'normal' }}>Excellence</em>
+                   Connect With 
+                   <span className={styles.headingHighlight}>
+                         Excellence
                     </span>
                 </h1>
 
@@ -179,8 +178,8 @@ function FormSection() {
                     {/* Right Panel - Form */}
                     <div className={styles.formRightPanel}>
                         <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-                            <FormInput label="Full Name" name="name" value={formState.name} onChange={handleChange} placeholder="Dr. Sarah Smith" />
-                            <FormInput label="Work Email" name="email" type="email" value={formState.email} onChange={handleChange} placeholder="sarah@hospital.com" />
+                            <FormInput label="Full Name" name="name" value={formState.name} onChange={handleChange} placeholder="John Doe" />
+                            <FormInput label="Work Email" name="email" type="email" value={formState.email} onChange={handleChange} placeholder="john@mail.com" />
 
                             <div className={styles.inputGroup}>
                                 <label className={styles.inputLabel}>Message</label>

@@ -66,21 +66,26 @@
 
 .heading {
     font-family: "Google Sans Flex", sans-serif;
-    font-size: 4.55rem;
-    font-weight: 800;
+    font-size: 3rem;
+    font-weight: 600;
     line-height: 0.8;
     margin-bottom: 1.5rem;
     color: #0f172a;
-    letter-spacing: -3px;
+    letter-spacing: -2px;
 }
 
 @media screen and (max-width: 768px) {
     .heading {
-        font-size: 2.7rem;
+        font-family: "Google Sans Flex", sans-serif;
+        font-size: 2rem;
+        line-height: 1;
     }
 }
 
 .headingHighlight {
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    font-size: 5rem;
     background: linear-gradient(135deg, #7988aa 0%, #1e40af 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -89,6 +94,7 @@
     animation: gradient 3s ease infinite;
     position: relative;
     display: inline-block;
+    padding: 1 1rem;
 }
 
 @keyframes gradient {
@@ -100,6 +106,13 @@
     }
     100% {
         background-position: 0% 50%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .headingHighlight {
+        font-size: 3.5rem;
+        padding-right: 1rem;
     }
 }
 
