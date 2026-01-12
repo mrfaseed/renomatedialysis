@@ -267,7 +267,8 @@ const products = [
             'Avoid contact with skin and eyes',
             'Store in a cool, dry place',
             'Keep out of reach of children'
-        ]
+        ],
+        relatedProducts: [3, 10, 2]
     },
     {
         id: 6,
@@ -331,13 +332,42 @@ const products = [
             'Avoid contact with skin and eyes',
             'Store in a cool, dry place',
             'Keep out of reach of children'
-        ]
+        ],
+        relatedProducts: [7, 2, 3]
     },
     {
         id: 7,
         title: 'Acid Concentrate – Acidic Solution (DEXTROSE) – Bicarbonate',
-        tag: 'Acid Concentrate',
+        sku: 'W018-1-1-2-1',
+        tag: 'Solution',
         description: 'Hemodialysis Concentrated Acidic Solution with Dextrose for bicarbonate dialysis treatments.',
+        detailDescription: 'HEMODIALYSIS CONCENTRATED ACIDIC SOLUTION – BP For BICARBONATE DIALYSIS (1:34:1.83 proportioning)',
+        overview: 'Hemodialysis Concentrated Acidic Solution – Bp For Bicarbonate Dialysis (1:34:1.83 proportioning)',
+        weight: '20 liter',
+        benefit: 'Regular use of Hemodialysis Concentrated Acidic Solution – BP ensures accurate electrolyte balance, precise 1:34:1.83 proportioning, and consistent bicarbonate dialysis performance.',
+        customSections: [
+            {
+                title: 'Contents(gm/Lr)',
+                items: [
+                    '1. Sodium Chloride I.P. - 185.00gm',
+                    '2. Potassium Chloride I.P. - 5.5gm',
+                    '3. Calcium Chloride I.P. - 8gm',
+                    '4. Magnesium Chloride I.P. - 2.75gm',
+                    '5. Acetic Acid I.P. - 9.0gm',
+                    '5. Dextrose Monohydrate I.P. - 38gm',
+                    '6. Purified Water to 1Ltr'
+                ]
+            },
+            {
+                title: 'Electrolyte Composition',
+                items: [
+                    'Na* 85.95mEq | K* 2.0mEq',
+                    'Ca** 3.0mEq | Mg** 0.75mEq',
+                    'Cl 91.08mEq | Acetic Acid 4.0mEq',
+                    'Dextrose = 5m.mol'
+                ]
+            }
+        ],
         fullDescription: 'This acid concentrate with dextrose is used in bicarbonate dialysis to prepare dialysis fluid. It helps maintain the proper acid-base balance and energy supply during dialysis, ensuring safe and effective treatment.',
         image: '/products/cane.png',
         detailImage: '/products/Acid_Concentrate_Dextrose_v1.png',
@@ -359,18 +389,24 @@ const products = [
             'Use protective gloves while handling'
         ],
         packSizes: ['5 Liters', '20 Liters'],
+        dilution: ['DILUTION RATIO 1:35:83', 'One part of solution with 35.83 parts of appropriate quality of water'],
         safety: [
-            'Handle with care – it is an acidic solution',
-            'Avoid contact with skin and eyes',
-            'Store in a cool, dry place',
-            'Keep out of reach of children'
-        ]
+            'This Solution (A) Should Not Be Used Alone. Should Be Used Along With Freshly Prepared Bicarbonate Solution (B).',
+            'Not To Be Used If Container Is Found Leaking Or Solution Is Not Clear.',
+            'Solution Containing Visible Solid Particles Should Not Be Used',
+            'Not To Be Injected.',
+            'Not To Be Taken Orally.'
+        ],
+        relatedProducts: [2, 5, 4]
     },
     {
         id: 8,
         title: 'Specialty Acid – Acidic Solution (Free Potassium) – Bicarbonate',
-        tag: 'Specialty Acid',
+        sku: 'W018-1-1-2',
+        tag: 'Solution',
         description: 'Potassium-free Acidic Solution for cases where free potassium is not required.',
+        detailDescription: 'HEMODIALYSIS CONCENTRATED ACIDIC SOLUTION – BP For BICARBONATE DIALYSIS (1:34:1.83 proportioning)',
+        overview: 'Hemodialysis Concentrated Acidic Solution – Bp For Bicarbonate Dialysis (1:34:1.83 proportioning)',
         fullDescription: 'This specialty acid concentrate is designed for bicarbonate dialysis where free potassium is not required. It helps maintain the proper acid-base balance in dialysis fluid, ensuring safe and effective treatment for patients.',
         image: '/products/cane.png',
         detailImage: '/products/Acid_Concentrate_Free_Potassium_v1.png',
@@ -392,18 +428,47 @@ const products = [
             'Use protective gloves while handling'
         ],
         packSizes: ['5 Liters', '20 Liters'],
+        customSections: [
+            {
+                title: 'contents (gm/Ltr) - Each Liter Contains',
+                items: [
+                    '1. Sodium Chloride I.P. - 187.00gm',
+                    '2. Potassium Chloride I.P. - Nil',
+                    '3. Calcium Chloride I.P. - 8gm',
+                    '4. Magnesium Chloride I.P. - 2.75gm',
+                    '5. Acetic Acid I.P. - 9.0gm',
+                    '6. Purified Water to 1Ltr'
+                ]
+            },
+            {
+                title: 'Electrolyte Composition',
+                items: [
+                    'Na* 86.88mEq | K* Nil',
+                    'Ca** 3.0mEq | Mg** 0.75mEq',
+                    'Cl 90.58mEq | Acitic Acid 4.0mEq'
+                ]
+            }
+        ],
+        weight: '20 Liter',
+        dilution: ['DILUTION RATIO 1:35:83', 'One part of solution with 35.83 parts of appropriate quality of water'],
+        benefit: 'Regular use of Hemodialysis Concentrated Acidic Solution – BP ensures precise 1:34:1.83 proportioning, accurate electrolyte balance, and consistent bicarbonate dialysis performance.',
         safety: [
-            'Handle with care – it is an acidic solution',
-            'Avoid contact with skin and eyes',
-            'Store in a cool, dry place',
-            'Keep out of reach of children'
-        ]
+            'This Solution (A) Should Not Be Used Alone. Should Be Used Along With Freshly Prepared Bicarbonate Solution (B).',
+            'Not To Be Used If Container Is Found Leaking Or Solution Is Not Clear.',
+            'Solution Containing Visible Solid Particles Should Not Be Used',
+            'Not To Be Injected.',
+            'Not To Be Taken Orally.'
+        ],
+        relatedProducts: [3, 9, 5]
     },
     {
         id: 9,
         title: 'Specialty Acid – Acidic Solution (Low Potassium) – Bicarbonate',
-        tag: 'Specialty Acid',
+        sku: 'W018-1-1-1',
+        tag: 'Solution',
         description: 'Low Potassium Acidic Solution for patients requiring controlled potassium removal.',
+        detailDescription: 'HEMODIALYSIS CONCENTRATED ACIDIC SOLUTION – BP For BICARBONATE DIALYSIS (1:34:1.83 proportioning)',
+        overview: 'Hemodialysis Concentrated Acidic Solution – Bp For Bicarbonate Dialysis (1:34:1.83 proportioning)',
         fullDescription: 'This specialty acid concentrate is used in bicarbonate dialysis for patients who require low potassium in their dialysis fluid. It ensures the proper acid-base balance while providing safe and effective dialysis treatment.',
         image: '/products/cane.png',
         detailImage: '/products/Acid_Concentrate_Low_Potassium_v1.png',
@@ -424,20 +489,53 @@ const products = [
             'Follow manufacturer’s guidelines for safe use',
             'Use protective gloves while handling'
         ],
-        packSizes: ['5 Liters', '20 Liters'],
+        packSizes: ['20 Liters'],
+        customSections: [
+            {
+                title: 'contents (gm/Ltr) - Each Liter Contains',
+                items: [
+                    '1. Sodium Chloride I.P. - 186.00gm',
+                    '2. Potassium Chloride I.P. - 2.75gm',
+                    '3. Calcium Chloride I.P. - 6.8gm',
+                    '4. Magnesium Chloride I.P. - 3.6gm',
+                    '5. Acetic Acid I.P. - 9.0gm',
+                    '6. Purified Water to 1 Liter'
+                ]
+            },
+            {
+                title: 'Electrolyte Composition',
+                items: [
+                    'Na* 86.41mEq | K* 1.0mEq',
+                    'Ca** 2.51mEq | Mg** 0.96mEq',
+                    'Cl 91.0mEq | Acitic Acid 4.0mEq'
+                ]
+            }
+        ],
+        weight: '20 Liter',
+        dilution: ['DILUTION RATIO 1:35:83', 'One part of solution with 35.83 parts of appropriate quality of water'],
         safety: [
-            'Handle with care – it is an acidic solution',
-            'Avoid contact with skin and eyes',
-            'Store in a cool, dry place',
-            'Keep out of reach of children'
-        ]
+            'This Solution (A) Should Not Be Used Alone. Should Be Used Along With Freshly Prepared Bicarbonate Solution (B).',
+            'Not To Be Used If Container Is Found Leaking Or Solution Is Not Clear.',
+            'Solution Containing Visible Solid Particles Should Not Be Used',
+            'Not To Be Injected.',
+            'Not To Be Taken Orally.'
+        ],
+        relatedProducts: [7, 4, 5]
     },
     {
         id: 10,
         title: 'Hydrogen Peroxide Solution',
-        tag: 'Water Treatment',
-        description: 'Disinfectant for dialysis water systems. Effectively removes bacteria and organic impurities.',
-        fullDescription: 'Hydrogen Peroxide Solution is used in dialysis water treatment to disinfect and purify water, removing bacteria and organic contaminants. It helps ensure safe, clean, and high-quality water for hemodialysis.',
+        tag: 'Disinfectant',
+        description: 'It is a clear, colourless, and odourless liquid. It decomposes in contact with oxidisation organic matter and with certain metal and also if allowed to become alkaline',
+        fullDescription: 'Hydrogen peroxide in dialysis water from this tank was detectable at a concentration of 30 mg/l. All four affected patients had been exposed to dialysiswater from this source. Water supplying in the water treatment plant was held in a separate tank that had not been treated with hydrogen peroxide',
+        overview: 'Hydrogen peroxide in dialysis water from this tank was detectable at a concentration of 30 mg/l. All four affected patients had been exposed to dialysiswater from this source. Water supplying in the water treatment plant was held in a separate tank that had not been treated with hydrogen peroxide',
+
+        productDetails: [
+            { label: 'Product Name', value: 'Hydrogen Peroxide Solution' },
+            { label: 'Category', value: 'Disinfectant' },
+            { label: 'Description', value: 'It is a clear, colourless, and odourless liquid. It decomposes in contact with oxidisation organic matter and with certain metal and also if allowed to become alkaline' },
+            { label: 'Composition', value: 'Hydrogen Peroxide I.P 18.20% W/VPurified Water Q.S' }
+        ],
         image: '/products/Hydrogen_Peroxide_Solution.png',
         detailImage: '/products/Hydrogen_Peroxide_v1.png',
         specs: ['Type: H2O2 Solution', 'Usage: Biofilm Removal', 'Application: Water Plants', 'High Purity'],
@@ -457,13 +555,15 @@ const products = [
             'Follow standard concentration and contact time',
             'Rinse thoroughly if required before use'
         ],
-        packSizes: ['500 ml', '1 Liter', '5 Liters'],
+        packSizes: ['5 Liter Container'],
         safety: [
             'Handle with care – avoid skin and eye contact',
             'Use protective gloves while handling',
             'Store in a cool, dry place',
             'Keep away from children'
-        ]
+        ],
+        benefit: 'Regular use of Hydrogen Peroxide Solution supports effective system disinfection, controls microbial growth, and helps maintain hygienic dialysis water treatment operations.',
+        relatedProducts: [5, 4, 9]
     },
     {
         id: 11,
@@ -570,43 +670,7 @@ const products = [
         ],
         benefit: 'Ensures a sterile and safe clinical environment for renal care.'
     },
-    {
-        id: 14,
-        title: 'RENOCLEAN – Cold Sterilant',
-        subtitle: 'Eco-Friendly High-Level Disinfectant for Dialyzer Reprocessing',
-        tag: 'Cold Sterilant',
-        description: 'Specialized cold sterilant for dialyzer reprocessing. Effective pathogen elimination.',
-        overview: 'RENOCLEAN is an advanced peracetic acid-based cold sterilant specifically formulated for the safe reprocessing of dialyzers. It offers high-level disinfection, rapidly eliminating bacteria, viruses, and fungi while being eco-friendly and biodegradable. Its stable formulation ensures consistent performance for every use.',
-        fullDescription: 'RENOCLEAN is a specialized cold sterilant solution designed for dialyzer reprocessing. It helps sterilize and disinfect dialyzers effectively, removing bacteria and other contaminants while maintaining dialyzer performance and patient safety.',
-        image: '/products/cane.png',
-        detailImage: '/products/RENOCLEAN_Detail.jpg',
-        specs: ['Base: Peracetic Acid', 'Nature: Eco-friendly', 'Efficacy: Pathogen killer', 'Stability: High'],
-        whyUsed: [
-            'Provides effective cold sterilization',
-            'Kills bacteria and disinfects dialyzers thoroughly',
-            'Maintains dialyzer performance and longevity',
-            'Eco-friendly and biodegradable',
-            'Stable shelf life'
-        ],
-        whereUsed: [
-            'Dialyzer reprocessing in hemodialysis clinics',
-            'Dialysis fluid pathways and tubing',
-            'Ensuring safe and hygienic dialysis treatment'
-        ],
-        howToUse: [
-            'Use as per the dialyzer manufacturer’s instructions',
-            'Ensure proper contact time for sterilization',
-            'Rinse dialyzers thoroughly with clean water before reuse'
-        ],
-        packSizes: ['500 ml', '1 Liter'],
-        safety: [
-            'Use protective gloves while handling',
-            'Avoid contact with eyes and skin',
-            'Store in a cool, dry place',
-            'Keep out of reach of children'
-        ],
-        benefit: 'Safe and sustainable sterilization for high-quality renal care.'
-    }
+
 ];
 
 export default function ProductsPage() {
@@ -730,7 +794,7 @@ export default function ProductsPage() {
                                     <div>
                                         <h1 className={styles.detailTitleLarge}>{selectedProduct.title}</h1>
                                         <h2 className={styles.detailSubtitle}>{selectedProduct.subtitle || selectedProduct.tag}</h2>
-                                        <p className={styles.detailDescriptionMain}>{selectedProduct.description}</p>
+                                        <p className={styles.detailDescriptionMain}>{selectedProduct.detailDescription || selectedProduct.fullDescription || selectedProduct.description}</p>
                                         {(selectedProduct.sku || selectedProduct.tag) && (
                                             <p style={{ marginTop: '0.5rem', color: '#64748b', fontSize: '0.9rem', fontWeight: 'bold' }}>
                                                 {selectedProduct.sku && <><span style={{ color: '#64748b' }}>SKU: </span><span style={{ color: '#334155' }}>{selectedProduct.sku}</span> <span style={{ margin: '0 0.5rem', color: '#cbd5e1' }}>|</span></>} Category: <span style={{ color: '#334155' }}>{selectedProduct.tag}</span>
@@ -757,7 +821,7 @@ export default function ProductsPage() {
                                                 </div>
                                             </div>
                                         </div>
-                                    ) : (selectedProduct.id === 5 || selectedProduct.id === 6) && selectedProduct.weight ? (
+                                    ) : (selectedProduct.id === 5 || selectedProduct.id === 6 || selectedProduct.id === 7 || selectedProduct.id === 8 || selectedProduct.id === 9) && selectedProduct.weight ? (
                                         <div className={styles.packSizeBox}>
                                             <span className={styles.packSizeLabel}>Weight</span>
                                             <div className={styles.packSizeList}>
@@ -792,6 +856,28 @@ export default function ProductsPage() {
                                             <div className={styles.benefitBox} style={{ marginTop: '1.5rem', marginBottom: '0.5rem' }}>
                                                 <CheckCircle2 size={24} className={styles.benefitIcon} />
                                                 <p>{selectedProduct.benefit}</p>
+                                            </div>
+                                        )}
+
+                                        {selectedProduct.productDetails && (
+                                            <div style={{ marginTop: '2rem' }}>
+                                                <h3 className={styles.sectionTitle}>Product Details</h3>
+                                                <div style={{ overflowX: 'auto', borderRadius: '0.5rem', border: '1px solid #e2e8f0' }}>
+                                                    <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.95rem', textAlign: 'left' }}>
+                                                        <tbody>
+                                                            {selectedProduct.productDetails.map((row, index) => (
+                                                                <tr key={index} style={{
+                                                                    borderBottom: index !== selectedProduct.productDetails.length - 1 ? '1px solid #f1f5f9' : 'none',
+                                                                    background: index === 0 ? '#f1f5f9' : 'transparent'
+                                                                }}>
+                                                                    <td style={{ padding: '0.75rem 1rem', color: index === 0 ? '#0f172a' : '#64748b', fontWeight: index === 0 ? '700' : '400', width: '50px' }}>{index + 1}</td>
+                                                                    <td style={{ padding: '0.75rem 1rem', color: index === 0 ? '#0f172a' : '#334155', fontWeight: index === 0 ? '700' : '500', width: '200px' }}>{row.label}</td>
+                                                                    <td style={{ padding: '0.75rem 1rem', color: index === 0 ? '#0f172a' : '#475569', fontWeight: index === 0 ? '700' : '400' }}>{row.value}</td>
+                                                                </tr>
+                                                            ))}
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             </div>
                                         )}
 
