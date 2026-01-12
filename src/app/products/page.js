@@ -164,8 +164,9 @@ const products = [
     {
         id: 4,
         title: 'Formaldehyde Solution',
-        tag: 'Strong Disinfectant',
-        description: 'Powerful disinfectant for medical and laboratory use. I.P Grade (34-37% W/V).',
+        tag: 'Solution',
+        description: 'Formaldehyde can be useful as a disinfectant as it kills most bacteria and fungi (including their spores). It is used to produced killed vaccines. Formaldehyde are used in Hemodialysis Unit.',
+        overview: 'Formaldehyde can be useful as a disinfectant as it kills most bacteria and fungi (including their spores). It is used to produced killed vaccines. Formaldehyde are used in Hemodialysis Unit.',
         fullDescription: 'Formaldehyde Solution I.P is a strong disinfectant widely used in medical and laboratory settings to sterilize and disinfect equipment, surfaces, and instruments. It effectively eliminates bacteria, viruses, and fungi, ensuring a safe and hygienic environment.',
         image: '/products/Formaldehyde_Solution_IP.png',
         detailImage: '/products/Formaldehyde_v5_blue_full.png',
@@ -187,6 +188,7 @@ const products = [
             'Rinse equipment thoroughly if required before reuse.'
         ],
         packSizes: ['500 ml', '1 Liter'],
+        benefit: 'Regular use of Formaldehyde Solution ensures effective disinfection, controls microbial contamination, and maintains dialysis machine hygiene.',
         safety: [
             'Highly toxic and corrosive – handle with care',
             'Avoid direct contact with skin and eyes',
@@ -665,7 +667,16 @@ export default function ProductsPage() {
                                         )}
                                     </div>
 
-                                    {selectedProduct.packSizes && (
+                                    {selectedProduct.id === 3 && selectedProduct.customSections ? (
+                                        <div className={styles.packSizeBox}>
+                                            <span className={styles.packSizeLabel}>{selectedProduct.customSections[0].title}</span>
+                                            <div className={styles.packSizeList}>
+                                                {selectedProduct.customSections[0].items.map((item, idx) => (
+                                                    <span key={idx} className={styles.packSizeItem}>• {item}</span>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    ) : selectedProduct.packSizes && (
                                         <div className={styles.packSizeBox}>
                                             <span className={styles.packSizeLabel}>Available Pack Sizes</span>
                                             <div className={styles.packSizeList}>
@@ -689,33 +700,35 @@ export default function ProductsPage() {
 
 
 
-                                        {selectedProduct.customSections && selectedProduct.customSections.map((section, sectionIdx) => (
-                                            <motion.div
-                                                key={sectionIdx}
-                                                initial={{ opacity: 0, y: 10 }}
-                                                whileInView={{ opacity: 1, y: 0 }}
-                                                viewport={{ once: true }}
-                                                whileHover={{ y: -5, boxShadow: '0 10px 25px -5px rgba(14, 165, 233, 0.15), 0 8px 10px -6px rgba(14, 165, 233, 0.1)' }}
-                                                transition={{ duration: 0.3 }}
-                                                style={{ marginTop: '1.5rem', background: 'linear-gradient(145deg, #f0f9ff 0%, #e0f2fe 100%)', padding: '1.5rem', borderRadius: '1rem', border: '1px solid #bae6fd', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)' }}
-                                            >
-                                                <h4 style={{ fontSize: '1.1rem', fontWeight: '700', color: '#0369a1', marginBottom: '1rem' }}>
-                                                    {section.title}
-                                                </h4>
-                                                <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-                                                    {section.items.map((item, idx) => (
-                                                        <motion.li
-                                                            key={idx}
-                                                            whileHover={{ x: 5, color: '#0284c7' }}
-                                                            style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', fontSize: '0.95rem', color: '#334155', cursor: 'default' }}
-                                                        >
-                                                            <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#0ea5e9', boxShadow: '0 0 0 3px #e0f2fe', flexShrink: 0 }} />
-                                                            {item}
-                                                        </motion.li>
-                                                    ))}
-                                                </ul>
-                                            </motion.div>
-                                        ))}
+                                        {selectedProduct.customSections && selectedProduct.customSections
+                                            .filter((section, sectionIdx) => selectedProduct.id !== 3 || sectionIdx !== 0)
+                                            .map((section, sectionIdx) => (
+                                                <motion.div
+                                                    key={sectionIdx}
+                                                    initial={{ opacity: 0, y: 10 }}
+                                                    whileInView={{ opacity: 1, y: 0 }}
+                                                    viewport={{ once: true }}
+                                                    whileHover={{ y: -5, boxShadow: '0 10px 25px -5px rgba(14, 165, 233, 0.15), 0 8px 10px -6px rgba(14, 165, 233, 0.1)' }}
+                                                    transition={{ duration: 0.3 }}
+                                                    style={{ marginTop: '1.5rem', background: 'linear-gradient(145deg, #f0f9ff 0%, #e0f2fe 100%)', padding: '1.5rem', borderRadius: '1rem', border: '1px solid #bae6fd', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)' }}
+                                                >
+                                                    <h4 style={{ fontSize: '1.1rem', fontWeight: '700', color: '#0369a1', marginBottom: '1rem' }}>
+                                                        {section.title}
+                                                    </h4>
+                                                    <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+                                                        {section.items.map((item, idx) => (
+                                                            <motion.li
+                                                                key={idx}
+                                                                whileHover={{ x: 5, color: '#0284c7' }}
+                                                                style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', fontSize: '0.95rem', color: '#334155', cursor: 'default' }}
+                                                            >
+                                                                <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#0ea5e9', boxShadow: '0 0 0 3px #e0f2fe', flexShrink: 0 }} />
+                                                                {item}
+                                                            </motion.li>
+                                                        ))}
+                                                    </ul>
+                                                </motion.div>
+                                            ))}
 
 
 
@@ -819,19 +832,6 @@ export default function ProductsPage() {
                                         </motion.div>
                                     )}
 
-                                    <div className={styles.sectionBlock} style={{ marginTop: '2rem' }}>
-                                        <h3 className={styles.sectionTitle}>
-                                            <FlaskConical className={styles.sectionIcon} /> How to Use
-                                        </h3>
-                                        <ol className={styles.howToUseList}>
-                                            {selectedProduct.howToUse && selectedProduct.howToUse.map((step, i) => (
-                                                <li key={i}>
-                                                    <span className={styles.stepNumber}>{i + 1}.</span>
-                                                    <span className={styles.stepText}>{step}</span>
-                                                </li>
-                                            ))}
-                                        </ol>
-                                    </div>
                                 </div>
                             </div>
 
