@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, ArrowRight, ShieldCheck, FileCheck, Activity, FlaskConical, Beaker, Hexagon, Component, Microscope, ChevronDown, CheckCircle2, AlertCircle, Package, Settings, HelpCircle } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ShieldCheck, FileCheck, Activity, FlaskConical, Beaker, Hexagon, Component, Microscope, ChevronDown, CheckCircle2, AlertCircle, Package, Settings, HelpCircle, Clock } from 'lucide-react';
 import styles from './products.module.css';
 
 const products = [
@@ -10,9 +10,9 @@ const products = [
         id: 1,
         title: 'Citric Acid Powder',
         subtitle: 'Effective Descaling Agent for Dialysis & Medical Water Systems',
-        tag: 'Descaling Agent',
-        description: 'Citric Acid Powder is a high-quality descaling agent used to clean dialysis machines and medical water systems. It effectively removes hard water scale and mineral buildup, helping equipment remain clean, safe, and efficient for long-term use.',
-        overview: 'Citric Acid Powder is specially formulated to remove limescale and mineral deposits from dialysis machines, RO water systems, and associated pipelines. Regular use helps maintain proper functioning, improves efficiency, and extends the life of medical equipment.',
+        tag: 'Powder',
+        description: 'This has an excellent removal of calcium & magnesium deposits. The offered citromate is precisely processed by advanced technology & finest material of market under the supervision of experts.',
+        overview: 'This has an excellent removal of calcium & magnesium deposits. The offered citromate is precisely processed by advanced technology & finest material of market under the supervision of experts. Along with that, this citromate is well examined on different terms of quality for supplying its flawless range from our side. Customers can purchase this citromate from us with various specifications at industry existing rates to the clients.',
         fullDescription: 'Citric Acid Powder is used to clean and remove scale from dialysis machines and water systems. It helps remove hard water deposits and mineral buildup, keeping the equipment clean and working properly.',
         image: '/products/Citric_Acid_Powder.png',
         detailImage: '/products/Citric_v3.png',
@@ -35,58 +35,108 @@ const products = [
             'Run or apply the solution through the system to remove scale.',
             'After cleaning, rinse thoroughly with clean water.'
         ],
-        packSizes: ['500 g', '1 kg'],
+        packSizes: ['500 gm', '1 Kg'],
         safety: [
             'Store in a dry place',
             'Avoid contact with eyes and skin',
             'Keep away from children',
             'Use gloves while handling'
         ],
-        benefit: 'Regular use helps keep dialysis equipment clean, safe, and long-lasting.'
+        benefit: 'Regular use helps keep dialysis equipment clean, safe, and long-lasting.',
+        relatedProducts: [12, 11]
     },
     {
         id: 2,
         title: 'CITROMATE',
-        tag: 'Cleaning Solution',
-        description: 'Specialized cleaning fluid for hemodialysis machines. Precisely formulated to remove organic and inorganic deposits.',
-        fullDescription: 'CITROMATE is a specialized cleaning fluid designed for hemodialysis machines. It helps remove organic and inorganic deposits, keeping the machine clean, safe, and working efficiently.',
+        sku: 'W019',
+        tag: 'Solution',
+        description: 'This has an excellent removal of calcium & magnesium deposits. The offered citromate is precisely processed by advanced technology & finest material of market under the supervision of experts.',
+        fullDescription: 'This has an excellent removal of calcium & magnesium deposits. The offered citromate is precisely processed by advanced technology & finest material of market under the supervision of experts. Along with that, this citromate is well examined on different terms of quality for supplying its flawless range from our side. Customers can purchase this citromate from us with various specifications at industry existing rates to the clients.',
+        overview: 'This has an excellent removal of calcium & magnesium deposits. The offered citromate is precisely processed by advanced technology & finest material of market under the supervision of experts. Along with that, this citromate is well examined on different terms of quality for supplying its flawless range from our side. Customers can purchase this citromate from us with various specifications at industry existing rates to the clients.',
+        customSections: [
+            {
+                title: 'Citromate – For Thermochemical Disinfection',
+                items: [
+                    'pH Value: 1.7 to 2.0',
+                    'Dissolves blood residue',
+                    'Biodegradable & non-toxic',
+                    'Removal of calcium sediments',
+                    'Causes serious eye damage (Handle with Care)'
+                ]
+            },
+            {
+                title: 'The synergistic effect of its components',
+                items: [
+                    'Makes CITROMATE a potent disinfectant solution.',
+                    'CITROMATE at 60° has a broad spectrum of microbiocidal',
+                    'activity and works bactericidal, virus inactivating',
+                    '(HBV, HCV,HIV) and fungicidal.'
+                ]
+            }
+        ],
+        expiry: 'One year from the date of manufacture',
         image: '/products/CITROMATE.png',
         detailImage: '/products/CITROMATE_Detail.jpg',
-        specs: ['Application: Machine Cleaning', 'pH: Multi-stage stable', 'Efficiency: High', 'Residue-free'],
+        specs: ['SKU: W019', 'pH: 1.7 - 2.0', 'Expiry: 1 Year', 'Microbiocidal >60°C'],
         whyUsed: [
-            'Effectively cleans dialysis machines',
-            'Removes organic residues and mineral deposits',
-            'Helps maintain proper hygiene standards',
-            'Improves machine performance',
-            'Suitable for regular cleaning use'
+            'Dissolves blood residue and calcium sediments',
+            'Biodegradable and non-toxic formulation',
+            'Potent disinfectant at 60°C (Bactericidal, Virucidal, Fungicidal)',
+            'Effective against HBV, HCV, and HIV',
+            'Synergistic effect for high disinfection potency'
         ],
         whereUsed: [
-            'Hemodialysis machines',
+            'Hemodialysis machines (Thermochemical disinfection)',
             'Dialysis fluid pathways',
-            'Internal circulation systems of dialysis equipment'
+            'Internal circulation systems'
         ],
         howToUse: [
             'Use CITROMATE as per the dialysis machine manufacturer’s cleaning instructions.',
-            'Run the solution through the system and rinse thoroughly with clean water before use.'
+            'Ensure temperature reaches 60°C for full microbiocidal activity.',
+            'Rinse thoroughly with clean water before use.'
         ],
-        packSizes: ['500 g', '1 kg'],
-        benefit: 'Regular use of CITROMATE helps ensure clean and hygienic machines, smooth operation, and longer equipment life.',
+        packSizes: ['5 Liter'],
+        benefit: 'Regular use of CITROMATE ensures machine hygiene, effective decalcification, and broad-spectrum disinfection.',
         safety: [
-            'Use protective gloves while handling',
-            'Avoid contact with eyes and skin',
-            'Store in a cool, dry place',
+            'Causes serious eye damage - Handle with extreme care',
+            'Not for Medical use - Machine Disinfectant Only',
+            'Use protective gloves and eyewear while handling',
             'Keep away from children'
-        ]
+        ],
+        relatedProducts: [5, 8, 3]
     },
     {
         id: 3,
         title: 'DIAMATE',
-        tag: 'Cold Sterilant',
-        description: 'Cold sterilant for dialyzer reprocessing. Includes cleaning, testing, and sterilization steps.',
-        fullDescription: 'DIAMATE is a specialized cold sterilant solution designed for dialyzer reprocessing. It helps sterilize and disinfect dialyzers safely, removing bacteria and other contaminants while maintaining dialyzer performance.',
+        subtitle: 'Cold Sterilant',
+        sku: 'W021',
+        tag: 'Solution',
+        description: 'Dialyzers are not just reused, they are reprocessed. The reprocessing procedure involves cleaning, testing, filling your dialyzer with a sterilant (Diamate® Cold Sterilant), inspecting, labeling, storing and rinsing your dialyzer before it is reused for your next treatment.',
+        overview: 'DIAMATE is a specialized cold sterilant solution designed for dialyzer reprocessing. It helps sterilize and disinfect dialyzers safely, removing bacteria and other contaminants while maintaining dialyzer performance.',
+        fullDescription: 'Dialyzers are not just reused, they are reprocessed. The reprocessing procedure involves cleaning, testing, filling your dialyzer with a sterilant (Diamate® Cold Sterilant), inspecting, labeling, storing and rinsing your dialyzer before it is reused for your next treatment.',
         image: '/products/DIAMATE.png',
         detailImage: '/products/Diamate_canister_v2_match_acid.png',
-        specs: ['Type: Peracetic Acid based', 'Usage: Reprocessing', 'Sterilization: High-level', 'Safe Reuse'],
+        specs: ['SKU: W021', 'Type: Peracetic Acid based', 'Usage: Reprocessing', 'Sterilization: High-level', 'Safe Reuse'],
+        customSections: [
+            {
+                title: 'Composition',
+                items: [
+                    'Peracetic acid 4.5%',
+                    'Hydrogen Proxide 24.0%'
+                ]
+            },
+            {
+                title: 'Quality Advantage',
+                items: [
+                    'The most excellent disinfectant with peracetic acid as main ingredient',
+                    'The only agent with both cleaning and disinfection at the same time',
+                    'Decomposition into water and oxygen after use (environmentally friendly)',
+                    'Used for dialyzer reuse'
+                ]
+            }
+        ],
+        benefit: 'Regular use of DIAMATE ensures optimal dialysis machine performance, effective removal of mineral deposits, and reliable system cleanliness.',
+        storage: ['Store upright out of direct sun light'],
         whyUsed: [
             'Provides safe and effective cold sterilization',
             'Kills bacteria and disinfects dialyzers thoroughly',
@@ -104,11 +154,12 @@ const products = [
         ],
         packSizes: ['500 ml', '1 Liter'],
         safety: [
-            'Use protective gloves and follow standard precautions',
-            'Avoid contact with eyes and skin',
-            'Store in a cool, dry place',
-            'Keep away from children'
-        ]
+            'On contact with eyes or skin wash immediately',
+            'If you feel unwell seek medical advice',
+            'Wear suitable gloves and safety eye glasses',
+            'Do not swallow'
+        ],
+        relatedProducts: [5, 6, 8]
     },
     {
         id: 4,
@@ -607,6 +658,11 @@ export default function ProductsPage() {
                                         <h1 className={styles.detailTitleLarge}>{selectedProduct.title}</h1>
                                         <h2 className={styles.detailSubtitle}>{selectedProduct.subtitle || selectedProduct.tag}</h2>
                                         <p className={styles.detailDescriptionMain}>{selectedProduct.description}</p>
+                                        {(selectedProduct.sku || selectedProduct.tag) && (
+                                            <p style={{ marginTop: '0.5rem', color: '#64748b', fontSize: '0.9rem', fontWeight: 'bold' }}>
+                                                {selectedProduct.sku && <><span style={{ color: '#64748b' }}>SKU: </span><span style={{ color: '#334155' }}>{selectedProduct.sku}</span> <span style={{ margin: '0 0.5rem', color: '#cbd5e1' }}>|</span></>} Category: <span style={{ color: '#334155' }}>{selectedProduct.tag}</span>
+                                            </p>
+                                        )}
                                     </div>
 
                                     {selectedProduct.packSizes && (
@@ -625,26 +681,48 @@ export default function ProductsPage() {
                                         <p className={styles.sectionText}>{selectedProduct.overview || selectedProduct.fullDescription}</p>
 
                                         {selectedProduct.benefit && (
-                                            <div className={styles.benefitBox}>
+                                            <div className={styles.benefitBox} style={{ marginTop: '1.5rem', marginBottom: '0.5rem' }}>
                                                 <CheckCircle2 size={24} className={styles.benefitIcon} />
                                                 <p>{selectedProduct.benefit}</p>
                                             </div>
                                         )}
+
+
+
+                                        {selectedProduct.customSections && selectedProduct.customSections.map((section, sectionIdx) => (
+                                            <motion.div
+                                                key={sectionIdx}
+                                                initial={{ opacity: 0, y: 10 }}
+                                                whileInView={{ opacity: 1, y: 0 }}
+                                                viewport={{ once: true }}
+                                                whileHover={{ y: -5, boxShadow: '0 10px 25px -5px rgba(14, 165, 233, 0.15), 0 8px 10px -6px rgba(14, 165, 233, 0.1)' }}
+                                                transition={{ duration: 0.3 }}
+                                                style={{ marginTop: '1.5rem', background: 'linear-gradient(145deg, #f0f9ff 0%, #e0f2fe 100%)', padding: '1.5rem', borderRadius: '1rem', border: '1px solid #bae6fd', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)' }}
+                                            >
+                                                <h4 style={{ fontSize: '1.1rem', fontWeight: '700', color: '#0369a1', marginBottom: '1rem' }}>
+                                                    {section.title}
+                                                </h4>
+                                                <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+                                                    {section.items.map((item, idx) => (
+                                                        <motion.li
+                                                            key={idx}
+                                                            whileHover={{ x: 5, color: '#0284c7' }}
+                                                            style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', fontSize: '0.95rem', color: '#334155', cursor: 'default' }}
+                                                        >
+                                                            <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#0ea5e9', boxShadow: '0 0 0 3px #e0f2fe', flexShrink: 0 }} />
+                                                            {item}
+                                                        </motion.li>
+                                                    ))}
+                                                </ul>
+                                            </motion.div>
+                                        ))}
+
+
+
+
                                     </div>
 
-                                    <div className={styles.sectionBlock}>
-                                        <h3 className={styles.sectionTitle}>
-                                            <FlaskConical className={styles.sectionIcon} /> How to Use
-                                        </h3>
-                                        <ol className={styles.howToUseList}>
-                                            {selectedProduct.howToUse && selectedProduct.howToUse.map((step, i) => (
-                                                <li key={i}>
-                                                    <span className={styles.stepNumber}>{i + 1}.</span>
-                                                    <span className={styles.stepText}>{step}</span>
-                                                </li>
-                                            ))}
-                                        </ol>
-                                    </div>
+
                                 </div>
 
                                 {/* Right Column */}
@@ -679,8 +757,121 @@ export default function ProductsPage() {
                                             ))}
                                         </ul>
                                     </div>
+
+                                    {/* Storage Section */}
+                                    {selectedProduct.storage && (
+                                        <div style={{ marginTop: '1.5rem', padding: '1.25rem', background: '#fcfcfc', borderRadius: '0.75rem', border: '1px solid #e5e5e5', display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                                            <div style={{ background: '#f1f5f9', padding: '0.5rem', borderRadius: '50%' }}>
+                                                <Package size={20} color="#475569" />
+                                            </div>
+                                            <div>
+                                                <h4 style={{ fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: '#64748b', fontWeight: '700', marginBottom: '0.2rem' }}>
+                                                    Storage
+                                                </h4>
+                                                <ul style={{ margin: 0, padding: 0, listStyle: 'none' }}>
+                                                    {selectedProduct.storage.map((item, i) => (
+                                                        <li key={i} style={{ color: '#334155', fontWeight: '500', fontSize: '0.95rem' }}>{item}</li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    {/* Expiry Date Section */}
+                                    {selectedProduct.expiry && (
+                                        <motion.div
+                                            initial={{ opacity: 0, y: 10 }}
+                                            whileInView={{ opacity: 1, y: 0 }}
+                                            viewport={{ once: true }}
+                                            transition={{ duration: 0.4, delay: 0.1 }}
+                                            whileHover={{ scale: 1.02, boxShadow: '0 10px 25px -5px rgba(71, 85, 105, 0.1)' }}
+                                            style={{
+                                                marginTop: '1.5rem',
+                                                padding: '1.25rem',
+                                                background: 'linear-gradient(to right, #f8fafc, #f1f5f9)',
+                                                borderRadius: '1rem',
+                                                border: '1px solid #cbd5e1',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                gap: '1rem',
+                                                boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
+                                            }}
+                                        >
+                                            <div style={{
+                                                background: '#fff',
+                                                padding: '0.6rem',
+                                                borderRadius: '50%',
+                                                boxShadow: '0 2px 5px rgba(0,0,0,0.05)',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'center'
+                                            }}>
+                                                <Clock size={24} color="#334155" />
+                                            </div>
+                                            <div>
+                                                <h4 style={{ fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: '#64748b', fontWeight: '700', marginBottom: '0.1rem' }}>
+                                                    Expiry Date
+                                                </h4>
+                                                <p style={{ fontWeight: 700, color: '#1e293b', fontSize: '1.05rem', margin: 0 }}>
+                                                    {selectedProduct.expiry}
+                                                </p>
+                                            </div>
+                                        </motion.div>
+                                    )}
+
+                                    <div className={styles.sectionBlock} style={{ marginTop: '2rem' }}>
+                                        <h3 className={styles.sectionTitle}>
+                                            <FlaskConical className={styles.sectionIcon} /> How to Use
+                                        </h3>
+                                        <ol className={styles.howToUseList}>
+                                            {selectedProduct.howToUse && selectedProduct.howToUse.map((step, i) => (
+                                                <li key={i}>
+                                                    <span className={styles.stepNumber}>{i + 1}.</span>
+                                                    <span className={styles.stepText}>{step}</span>
+                                                </li>
+                                            ))}
+                                        </ol>
+                                    </div>
                                 </div>
                             </div>
+
+
+
+                            {selectedProduct.relatedProducts && (
+                                <div className={styles.relatedProductsSection} style={{ marginTop: '5rem', marginBottom: '4rem' }}>
+                                    <h3 className={styles.sectionTitle} style={{ fontSize: '1.5rem', marginBottom: '2rem' }}>Related products</h3>
+                                    <div className={styles.productOverviewGrid} style={{ marginBottom: 0 }}>
+                                        {selectedProduct.relatedProducts.map(relatedId => {
+                                            const relatedProduct = products.find(p => p.id === relatedId);
+                                            if (!relatedProduct) return null;
+                                            return (
+                                                <div
+                                                    key={relatedProduct.id}
+                                                    className={styles.overviewCard}
+                                                    onClick={() => handleViewDetails(relatedProduct)}
+                                                >
+                                                    <div className={styles.overviewImageContainer}>
+                                                        <img src={relatedProduct.image} alt={relatedProduct.title} className={styles.overviewImage} />
+                                                    </div>
+                                                    <div className={styles.overviewInfo}>
+                                                        <span className={styles.overviewTag}>{relatedProduct.tag}</span>
+                                                        <h4 className={styles.overviewTitle}>{relatedProduct.title}</h4>
+                                                        <button
+                                                            className={styles.viewSpecsBtn}
+                                                            onClick={(e) => {
+                                                                e.stopPropagation();
+                                                                handleViewDetails(relatedProduct);
+                                                            }}
+                                                        >
+                                                            View Details <ArrowRight size={14} />
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
+                                </div>
+                            )}
 
                             <div className={styles.inquireSection}>
                                 <h3 className={styles.inquireTitle}>Need More Information?</h3>
@@ -727,7 +918,7 @@ export default function ProductsPage() {
                     </div>
                 </section>
             </main>
-        </div>
+        </div >
     );
 }
 
