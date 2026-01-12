@@ -20,13 +20,15 @@ export default function ChemistryBackground() {
 
     useEffect(() => {
         // Generate random elements only on client to avoid hydration mismatch
-        const newElements = Array.from({ length: 15 }).map((_, i) => ({
+        // Reduced count from 15 to 6 for better spacing
+        const newElements = Array.from({ length: 6 }).map((_, i) => ({
             id: i,
             Icon: icons[Math.floor(Math.random() * icons.length)],
-            initialX: Math.random() * 100,
-            initialY: Math.random() * 100,
-            size: Math.random() * 30 + 20, // 20px to 50px
-            duration: Math.random() * 20 + 10, // 10s to 30s
+            // Try to distribute them a bit better by using the index
+            initialX: (Math.random() * 20) + (i * 15), // Distribute across width roughly
+            initialY: Math.random() * 80 + 10, // Keep away from extreme top/bottom
+            size: Math.random() * 30 + 30, // Slightly larger: 30px to 60px
+            duration: Math.random() * 20 + 20, // Slower: 20s to 40s
             delay: Math.random() * 5,
             rotate: Math.random() * 360,
         }));
@@ -48,11 +50,11 @@ export default function ChemistryBackground() {
                         scale: 0,
                     }}
                     animate={{
-                        opacity: [0.4, 0.8, 0.4],
-                        scale: [1, 1.2, 1],
-                        y: [0, -100, 0], // Move up and down
-                        x: [0, 50, -50, 0], // Meander horizontally
-                        rotate: [0, 180, 360],
+                        opacity: [0.3, 0.6, 0.3], // Lower opacity
+                        scale: [1, 1.1, 1], // Subtle scale
+                        y: [0, -30, 0], // Subtle float up/down
+                        x: [0, 20, -20, 0], // Subtle drift
+                        rotate: [0, 90, 180], // Slower rotation
                     }}
                     transition={{
                         duration: el.duration,
