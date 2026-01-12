@@ -137,7 +137,7 @@ export default function HeroSection() {
                         animate="visible"
                     >
                         <motion.h4 variants={itemVariants} className={styles.welcomeText}>
-                            To Provide
+                            Excellence in Renal Care
                         </motion.h4>
 
                         <motion.h1 variants={itemVariants} className={styles.title}>
@@ -146,26 +146,26 @@ export default function HeroSection() {
                                 className={styles.textGold}
                                 whileHover={{ scale: 1.02, textShadow: "0 0 20px rgba(250, 204, 21, 0.4)" }}
                             >
-                                High Quality,
+                                High Quality
                             </motion.span>
                             <motion.span
                                 variants={itemVariants}
                                 className={styles.textWhite}
+                                style={{ display: 'block' }}
                             >
-                                LOW COST
+                                DIALYSIS TREATMENT
                             </motion.span>
-                            <br className={styles.breakMobile} />
                             <motion.span
                                 variants={itemVariants}
                                 className={styles.textBlue}
                                 whileHover={{ filter: "drop-shadow(0 0 25px rgba(59, 130, 246, 0.8))" }}
                             >
-                                DIALYSIS TREATMENT
+                                AT LOW COST
                             </motion.span>
                         </motion.h1>
 
                         <motion.p variants={itemVariants} className={styles.description} style={{ y: descY }}>
-                            Setting the global benchmark for haemodialysis fluids. We combine advanced chemical engineering with rigorous safety standards to support life-saving treatments.
+                            Setting the global benchmark for hemodialysis fluids. We combine engineering excellence with rigorous safety to support life-saving care.
                         </motion.p>
 
                         <motion.div variants={itemVariants} className={styles.actionGroup}>
