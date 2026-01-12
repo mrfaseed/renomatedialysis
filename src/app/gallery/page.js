@@ -24,7 +24,7 @@ export default function GalleryPage() {
                 {/* Video Player Section */}
                 <div className={styles.playerContainer}>
                     <HLSPlayer
-                        src="/hls/index.m3u8"
+                        src="https://storage.googleapis.com/renomatedialysis.firebasestorage.app/hls/index.m3u8"
                         poster="/image7.png" /* Using logo or any image as poster for now, user can change */
                     />
                 </div>

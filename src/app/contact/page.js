@@ -110,9 +110,9 @@ function HeroSection() {
                 </motion.div>
 
                 <h1 className={styles.heading}>
-                   Connect With 
-                   <span className={styles.headingHighlight}>
-                         Excellence
+                    Connect With
+                    <span className={styles.headingHighlight}>
+                        Excellence
                     </span>
                 </h1>
 
@@ -139,12 +139,32 @@ function FormSection() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setStatus('sending');
-        await new Promise(resolve => setTimeout(resolve, 2000));
-        setStatus('success');
-        setTimeout(() => {
+
+        try {
+            const response = await fetch('/api/send-email', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formState),
+            });
+
+            const data = await response.json();
+
+            if (response.ok && !data.error) {
+                setStatus('success');
+                setTimeout(() => {
+                    setStatus('idle');
+                    setFormState({ name: '', email: '', message: '' });
+                }, 3000);
+            } else {
+                console.error('Failed to send:', data.error);
+                setStatus('idle');
+                alert('Failed to send message. Please try again later.');
+            }
+        } catch (error) {
+            console.error('Error:', error);
             setStatus('idle');
-            setFormState({ name: '', email: '', message: '' });
-        }, 3000);
+            alert('An unexpected error occurred.');
+        }
     };
 
     const handleChange = (e) => setFormState({ ...formState, [e.target.name]: e.target.value });
