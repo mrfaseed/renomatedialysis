@@ -16,12 +16,40 @@
     position: absolute;
     inset: 0;
     background-image:
-        linear-gradient(#f1f5f9 1px, transparent 1px),
-        linear-gradient(90deg, #f1f5f9 1px, transparent 1px);
-    background-size: 40px 40px;
-    mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+        radial-gradient(rgba(37, 99, 235, 0.05) 1px, transparent 1px),
+        linear-gradient(rgba(37, 99, 235, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37, 99, 235, 0.02) 1px, transparent 1px);
+    background-size: 30px 30px, 90px 90px, 90px 90px;
+    mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
     z-index: 0;
     pointer-events: none;
+}
+
+.backgroundGrid::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -10%;
+    width: 120%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.3), transparent);
+    animation: flowLine 5s infinite linear;
+}
+
+@keyframes flowLine {
+    0% {
+        transform: translateY(-50vh);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(50vh);
+        opacity: 0;
+    }
 }
 
 /* --- Container --- */
@@ -76,9 +104,11 @@
     0% {
         background-position: 0% 50%;
     }
+
     50% {
         background-position: 100% 50%;
     }
+
     100% {
         background-position: 0% 50%;
     }
@@ -183,7 +213,7 @@
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent,  rgba(255, 255, 255, 0.2), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
 }
 
 /* Floating Orbs in CTA */
@@ -250,9 +280,11 @@
     0% {
         background-position: 0% 50%;
     }
+
     50% {
         background-position: 100% 50%;
     }
+
     100% {
         background-position: 0% 50%;
     }
