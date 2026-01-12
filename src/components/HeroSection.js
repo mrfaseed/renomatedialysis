@@ -119,10 +119,8 @@ export default function HeroSection() {
                 </svg>
             </div>
 
-            {/* Floating Abstract Elements */}
-            <div className={`${styles.abstractCapsule} ${styles.capsule1}`} />
-            <div className={`${styles.abstractCapsule} ${styles.capsule2}`} />
-            <div className={`${styles.abstractDot} ${styles.dot1}`} />
+            {/* Floating Chemical Elements - MOLECULAR OVERLAY */}
+            <MolecularOverlay />
 
             <div className={styles.container}>
                 {/* Main Content with Parallax & Motion */}
@@ -137,14 +135,13 @@ export default function HeroSection() {
                         animate="visible"
                     >
                         <motion.h4 variants={itemVariants} className={styles.welcomeText}>
-                            Excellence in Renal Care
+                            Advanced Chemical Manufacturing
                         </motion.h4>
 
                         <motion.h1 variants={itemVariants} className={styles.title}>
                             <motion.span
                                 variants={itemVariants}
-                                className={styles.textGold}
-                                whileHover={{ scale: 1.02, textShadow: "0 0 20px rgba(250, 204, 21, 0.4)" }}
+                                className={styles.textHighlight}
                             >
                                 High Quality
                             </motion.span>
@@ -157,26 +154,25 @@ export default function HeroSection() {
                             </motion.span>
                             <motion.span
                                 variants={itemVariants}
-                                className={styles.textBlue}
-                                whileHover={{ filter: "drop-shadow(0 0 25px rgba(59, 130, 246, 0.8))" }}
+                                className={styles.textSub}
                             >
                                 AT LOW COST
                             </motion.span>
                         </motion.h1>
 
                         <motion.p variants={itemVariants} className={styles.description} style={{ y: descY }}>
-                            Setting the global benchmark for hemodialysis fluids. We combine engineering excellence with rigorous safety to support life-saving care.
+                            Engineered for absolute purity. We synthesize state-of-the-art hemodialysis fluids using cutting-edge molecular manufacturing processes to ensure uncompromised patient safety.
                         </motion.p>
 
                         <motion.div variants={itemVariants} className={styles.actionGroup}>
                             <Link href="/products" className={styles.readMoreBtn}>
-                                View Our Solutions
+                                Discover Innovations
                                 <span className={styles.btnIcon}>
                                     <ArrowRight size={16} />
                                 </span>
                             </Link>
                             <Link href="/contact" className={styles.secondaryBtn}>
-                                Talk to Sales
+                                Partner With Us
                             </Link>
                         </motion.div>
                     </motion.div>
@@ -243,102 +239,57 @@ function VideoBackground() {
     );
 }
 
-function OverlayBlinds() {
-    // Creates a "blind" effect with striped gradients
-    return (
-        <div className={styles.blindOverlay} />
-    );
-}
-
-function BloodParticleSystem() {
-    // Generates floating particles: Red (Blood) and Blue/White (Dialysis Fluid)
-    const [particles, setParticles] = useState([]);
+function MolecularOverlay() {
+    // Generates floating chemical structures (Hexagons)
+    const [molecules, setMolecules] = useState([]);
 
     useEffect(() => {
-        const particleCount = 25;
-        const newParticles = Array.from({ length: particleCount }).map((_, i) => ({
+        const count = 12;
+        const newMolecules = Array.from({ length: count }).map((_, i) => ({
             id: i,
-            x: Math.random() * 100,
-            y: Math.random() * 100,
-            size: Math.random() * 12 + 4,
-            duration: Math.random() * 15 + 10,
+            x: Math.random() * 90 + 5,
+            y: Math.random() * 90 + 5,
+            size: Math.random() * 40 + 20,
+            duration: Math.random() * 20 + 20,
             delay: Math.random() * 5,
-            type: Math.random() > 0.6 ? 'fluid' : 'blood' // Mix of blood and fluid
+            rotate: Math.random() * 360
         }));
-        setParticles(newParticles);
+        setMolecules(newMolecules);
     }, []);
 
     return (
-        <div className={styles.particleContainer}>
-            {particles.map((p) => (
+        <div className={styles.molecularContainer}>
+            {molecules.map((m) => (
                 <motion.div
-                    key={p.id}
-                    className={`${styles.particle} ${p.type === 'fluid' ? styles.particleFluid : styles.particleBlood}`}
+                    key={m.id}
+                    className={styles.molecule}
                     style={{
-                        left: `${p.x}%`,
-                        top: `${p.y}%`,
-                        width: p.size,
-                        height: p.size,
+                        left: `${m.x}%`,
+                        top: `${m.y}%`,
+                        width: m.size,
+                        height: m.size,
                     }}
                     animate={{
-                        y: [0, -120, 0],
-                        x: [0, p.type === 'fluid' ? 30 : 15, 0],
-                        opacity: p.type === 'fluid' ? [0.1, 0.4, 0.1] : [0.2, 0.5, 0.2],
-                        scale: [1, 1.2, 1]
+                        y: [-20, 20, -20],
+                        rotate: [m.rotate, m.rotate + 45, m.rotate],
+                        opacity: [0.1, 0.3, 0.1],
+                        scale: [1, 1.1, 1]
                     }}
                     transition={{
-                        duration: p.duration,
+                        duration: m.duration,
                         repeat: Infinity,
-                        ease: "linear",
-                        delay: p.delay
+                        ease: "easeInOut",
+                        delay: m.delay
                     }}
-                />
+                >
+                    <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M50 5 L90 27.5 V72.5 L50 95 L10 72.5 V27.5 Z" />
+                        <circle cx="50" cy="50" r="15" opacity="0.5" />
+                        <path d="M50 5 L50 25 M90 27.5 L73 37 M90 72.5 L73 63 M50 95 L50 75 M10 72.5 L27 63 M10 27.5 L27 37" opacity="0.5" />
+                    </svg>
+                </motion.div>
             ))}
         </div>
     );
 }
 
-
-function ChemicalBoxParticles() {
-    // Small bubbling particles confined to the box
-    const [bubbles, setBubbles] = useState([]);
-
-    useEffect(() => {
-        const bubbleCount = 15;
-        const newBubbles = Array.from({ length: bubbleCount }).map((_, i) => ({
-            id: i,
-            x: Math.random() * 100,
-            y: Math.random() * 100 + 100, // Start below
-            size: Math.random() * 6 + 2,
-            duration: Math.random() * 3 + 2,
-            delay: Math.random() * 2
-        }));
-        setBubbles(newBubbles);
-    }, []);
-
-    return (
-        <div className={styles.chemicalBoxParticles}>
-            {bubbles.map((b) => (
-                <motion.div
-                    key={b.id}
-                    className={styles.chemicalBubble}
-                    style={{
-                        left: `${b.x}%`,
-                        width: b.size,
-                        height: b.size,
-                    }}
-                    animate={{
-                        y: [-20, -150], // Move up
-                        opacity: [0, 0.6, 0]
-                    }}
-                    transition={{
-                        duration: b.duration,
-                        repeat: Infinity,
-                        ease: "easeOut",
-                        delay: b.delay
-                    }}
-                />
-            ))}
-        </div>
-    );
-}

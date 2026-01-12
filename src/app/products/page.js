@@ -804,7 +804,6 @@ export default function ProductsPage() {
                                                     key={sectionIdx}
                                                     initial={{ opacity: 0, y: 10 }}
                                                     whileInView={{ opacity: 1, y: 0 }}
-                                                    viewport={{ once: true }}
                                                     whileHover={{ y: -5, boxShadow: '0 10px 25px -5px rgba(14, 165, 233, 0.15), 0 8px 10px -6px rgba(14, 165, 233, 0.1)' }}
                                                     transition={{ duration: 0.3 }}
                                                     style={{ marginTop: '1.5rem', background: 'linear-gradient(145deg, #f0f9ff 0%, #e0f2fe 100%)', padding: '1.5rem', borderRadius: '1rem', border: '1px solid #bae6fd', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)' }}
@@ -911,7 +910,6 @@ export default function ProductsPage() {
                                         <motion.div
                                             initial={{ opacity: 0, y: 10 }}
                                             whileInView={{ opacity: 1, y: 0 }}
-                                            viewport={{ once: true }}
                                             transition={{ duration: 0.4, delay: 0.1 }}
                                             whileHover={{ scale: 1.02, boxShadow: '0 10px 25px -5px rgba(71, 85, 105, 0.1)' }}
                                             style={{
