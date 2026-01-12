@@ -664,19 +664,7 @@ export default function ProductsPage() {
                                         />
                                     </div>
 
-                                    <div className={styles.infoCardLight}>
-                                        <h3 className={styles.cardTitle}>
-                                            <Activity className={styles.cardIcon} /> Where It Can Be Used
-                                        </h3>
-                                        <ul className={styles.whereUsedList}>
-                                            {selectedProduct.whereUsed && selectedProduct.whereUsed.map((item, i) => (
-                                                <li key={i}>
-                                                    <div className={styles.listIconWrapper}><Settings size={16} /></div>
-                                                    {item}
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
+
 
                                     <div className={styles.infoCardDanger}>
                                         <h3 className={styles.cardTitleDanger}>
