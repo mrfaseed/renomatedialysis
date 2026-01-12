@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Building2, ShieldCheck, Banknote, Clock, FlaskConical, PackageSearch, FileText } from 'lucide-react';
 import styles from './BusinessPartners.module.css';
+import ChemistryBackground from './ChemistryBackground';
 
 const features = [
     {
@@ -50,6 +51,7 @@ const itemVariants = {
 export default function BusinessPartners() {
     return (
         <section className={styles.section}>
+            <ChemistryBackground />
             <div className={styles.backgroundGrid}></div>
 
             <div className={styles.container}>
@@ -71,7 +73,6 @@ export default function BusinessPartners() {
                     variants={containerVariants}
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true }}
                 >
                     {features.map((feature, index) => (
                         <motion.div

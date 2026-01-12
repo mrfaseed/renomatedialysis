@@ -187,7 +187,15 @@ const products = [
             'Ensure proper ventilation and wear protective gloves and eyewear.',
             'Rinse equipment thoroughly if required before reuse.'
         ],
-        packSizes: ['500 ml', '1 Liter'],
+        customSections: [
+            {
+                title: 'Composition',
+                items: [
+                    'Formaldehyde Solution I.P (34-37% W/V)'
+                ]
+            }
+        ],
+        packSizes: ['5 Liter Container'],
         benefit: 'Regular use of Formaldehyde Solution ensures effective disinfection, controls microbial contamination, and maintains dialysis machine hygiene.',
         safety: [
             'Highly toxic and corrosive – handle with care',
@@ -667,7 +675,26 @@ export default function ProductsPage() {
                                         )}
                                     </div>
 
-                                    {selectedProduct.id === 3 && selectedProduct.customSections ? (
+                                    {selectedProduct.id === 4 && selectedProduct.customSections && selectedProduct.packSizes ? (
+                                        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                                            <div className={styles.packSizeBox} style={{ flex: '1', minWidth: '250px' }}>
+                                                <span className={styles.packSizeLabel}>{selectedProduct.customSections[0].title}</span>
+                                                <div className={styles.packSizeList}>
+                                                    {selectedProduct.customSections[0].items.map((item, idx) => (
+                                                        <span key={idx} className={styles.packSizeItem}>• {item}</span>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                            <div className={styles.packSizeBox} style={{ flex: '1', minWidth: '250px' }}>
+                                                <span className={styles.packSizeLabel}>Available Pack Sizes</span>
+                                                <div className={styles.packSizeList}>
+                                                    {selectedProduct.packSizes.map(size => (
+                                                        <span key={size} className={styles.packSizeItem}>• {size}</span>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ) : selectedProduct.id === 3 && selectedProduct.customSections ? (
                                         <div className={styles.packSizeBox}>
                                             <span className={styles.packSizeLabel}>{selectedProduct.customSections[0].title}</span>
                                             <div className={styles.packSizeList}>
@@ -701,13 +728,12 @@ export default function ProductsPage() {
 
 
                                         {selectedProduct.customSections && selectedProduct.customSections
-                                            .filter((section, sectionIdx) => selectedProduct.id !== 3 || sectionIdx !== 0)
+                                            .filter((section, sectionIdx) => (selectedProduct.id !== 3 && selectedProduct.id !== 4) || sectionIdx !== 0)
                                             .map((section, sectionIdx) => (
                                                 <motion.div
                                                     key={sectionIdx}
                                                     initial={{ opacity: 0, y: 10 }}
                                                     whileInView={{ opacity: 1, y: 0 }}
-                                                    viewport={{ once: true }}
                                                     whileHover={{ y: -5, boxShadow: '0 10px 25px -5px rgba(14, 165, 233, 0.15), 0 8px 10px -6px rgba(14, 165, 233, 0.1)' }}
                                                     transition={{ duration: 0.3 }}
                                                     style={{ marginTop: '1.5rem', background: 'linear-gradient(145deg, #f0f9ff 0%, #e0f2fe 100%)', padding: '1.5rem', borderRadius: '1rem', border: '1px solid #bae6fd', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)' }}
@@ -795,7 +821,6 @@ export default function ProductsPage() {
                                         <motion.div
                                             initial={{ opacity: 0, y: 10 }}
                                             whileInView={{ opacity: 1, y: 0 }}
-                                            viewport={{ once: true }}
                                             transition={{ duration: 0.4, delay: 0.1 }}
                                             whileHover={{ scale: 1.02, boxShadow: '0 10px 25px -5px rgba(71, 85, 105, 0.1)' }}
                                             style={{

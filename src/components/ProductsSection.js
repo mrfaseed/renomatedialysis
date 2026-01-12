@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import styles from './ProductsSection.module.css';
+import ChemistryBackground from './ChemistryBackground';
 
 const featuredProducts = [
     {
@@ -61,6 +62,7 @@ const cardVariants = {
 export default function ProductsSection() {
     return (
         <section className={styles.section}>
+            <ChemistryBackground />
             {/* Background Decoration */}
             <div className={styles.bgDecoration}>
                 <div className={styles.blob1}></div>
@@ -75,7 +77,6 @@ export default function ProductsSection() {
                         className={styles.titleBlock}
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
                     >
                         <h2 className={styles.title}>
@@ -95,7 +96,7 @@ export default function ProductsSection() {
                     variants={containerVariants}
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true, margin: "-100px" }}
+                    viewport={{ margin: "-100px" }}
                 >
                     {featuredProducts.slice(0, 4).map((product) => (
                         <motion.div
@@ -134,7 +135,6 @@ export default function ProductsSection() {
                     className={styles.viewAllContainer}
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: 0.2 }}
                 >
                     <Link href="/products" className={styles.viewAllBtn}>

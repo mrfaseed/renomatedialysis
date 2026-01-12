@@ -4,6 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ShieldCheck, Factory, Wind, Users } from 'lucide-react';
 import styles from './OurIndustry.module.css';
+import ChemistryBackground from './ChemistryBackground';
 
 const industryFeatures = [
     {
@@ -48,13 +49,13 @@ const itemVariants = {
 export default function OurIndustry() {
     return (
         <section className={styles.section}>
+            <ChemistryBackground />
             <div className={styles.container}>
 
                 <div className={styles.header}>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
                         className={styles.title}
                     >
                         Our <span className={styles.industry}>Industry</span>
@@ -62,7 +63,6 @@ export default function OurIndustry() {
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
                         className={styles.subtitle}
                     >
@@ -76,7 +76,6 @@ export default function OurIndustry() {
                         variants={containerVariants}
                         initial="hidden"
                         whileInView="visible"
-                        viewport={{ once: true }}
                         className={styles.featuresList}
                     >
                         {industryFeatures.map((feature) => (
@@ -106,7 +105,6 @@ export default function OurIndustry() {
                     <motion.div
                         initial={{ opacity: 0, x: 20 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
                         transition={{ duration: 0.7 }}
                         className={styles.imageColumn}
                     >
