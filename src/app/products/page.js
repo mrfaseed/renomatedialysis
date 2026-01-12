@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight, ShieldCheck, FileCheck, Activity, FlaskConical, Beaker, Hexagon, Component, Microscope, ChevronDown, CheckCircle2, AlertCircle, Package, Settings, HelpCircle, Clock } from 'lucide-react';
 import styles from './products.module.css';
@@ -251,6 +252,16 @@ const products = [
                     'Ca** 3.0mEq | Mg** 0.75mEq',
                     'Cl 108mEq | Acetic Acid 4.0mEq'
                 ]
+            },
+            {
+                title: 'Instructions',
+                items: [
+                    'To Be Dispensed Only By Or On The Prescription Of A Registered Medical Practitioner.',
+                    'To Be Used With Solution (B) To Be Used With Haemo Dialysis Machine Only',
+                    'Store At A Sufficiently Elevated Temperature (Above 4 Degree C) To Prevent Formation Of Crystals',
+                    'Make Sure Container Is Sealed Properly. Additives May Be Incompatible With Dialysis Fluid. If Complete Information Is Not Available Consult A Pharmacist. Mix Through After Introduction Of Additives. Solutions Containing Additives Should Not Be Stored, Discard Any Unused Portion',
+                    'Keep All Medicines Out Of Reach Of Children\'s'
+                ]
             }
         ],
         weight: '20Ltr',
@@ -316,11 +327,21 @@ const products = [
                     'Ca** 3.0mEq | Mg** 0.75mEq',
                     'Cl 108mEq | Acetic Acid 4.0mEq'
                 ]
+            },
+            {
+                title: 'Instructions',
+                items: [
+                    'To Be Dispensed Only By Or On The Prescription Of A Registered Medical Practitioner.',
+                    'To Be Used With Solution (B) To Be Used With Haemo Dialysis Machine Only',
+                    'Store At A Sufficiently Elevated Temperature (Above 4 Degree C) To Prevent Formation Of Crystals',
+                    'Make Sure Container Is Sealed Properly. Additives May Be Incompatible With Dialysis Fluid. If Complete Information Is Not Available Consult A Pharmacist. Mix Through After Introduction Of Additives. Solutions Containing Additives Should Not Be Stored, Discard Any Unused Portion',
+                    'Keep All Medicines Out Of Reach Of Children\'s'
+                ]
             }
         ],
         packSizes: ['5 Liters', '20 Liters'],
         weight: '20 Liter',
-        dilution: ['DILUTION RATIO 1:34', 'One part of solution with 34 parts of appropriate quality of water'],
+        dilution: ['1:32.75:1.25 Dilution Proportioning', 'For Bicarbonate Haemodialysis Concentrate'],
         benefit: 'Regular use of Hemodialysis Concentrated Acidic Solution – BP supports precise proportioning (1:32.75:1.25), maintains solution stability, and ensures reliable bicarbonate dialysis delivery.',
         safety: [
             'This Solution (A) Should Not Be Used Alone. Should Be Used Along With Freshly Prepared Bicarbonate Solution (B)',
@@ -365,6 +386,16 @@ const products = [
                     'Ca** 3.0mEq | Mg** 0.75mEq',
                     'Cl 91.08mEq | Acetic Acid 4.0mEq',
                     'Dextrose = 5m.mol'
+                ]
+            },
+            {
+                title: 'Instructions',
+                items: [
+                    'To Be Dispensed Only By Or On The Prescription Of A Registered Medical Practitioner.',
+                    'To Be Used With Solution (B) To Be Used With Haemo Dialysis Machine Only',
+                    'Store At A Sufficiently Elevated Temperature (Above 4 Degree C) To Prevent Formation Of Crystals',
+                    'Make Sure Container Is Sealed Properly. Additives May Be Incompatible With Dialysis Fluid. If Complete Information Is Not Available Consult A Pharmacist. Mix Through After Introduction Of Additives. Solutions Containing Additives Should Not Be Stored, Discard Any Unused Portion',
+                    'Keep All Medicines Out Of Reach Of Children\'s'
                 ]
             }
         ],
@@ -447,6 +478,16 @@ const products = [
                     'Ca** 3.0mEq | Mg** 0.75mEq',
                     'Cl 90.58mEq | Acitic Acid 4.0mEq'
                 ]
+            },
+            {
+                title: 'Instructions',
+                items: [
+                    'To Be Dispensed Only By Or On The Prescription Of A Registered Medical Practitioner.',
+                    'To Be Used With Solution (B) To Be Used With Haemo Dialysis Machine Only',
+                    'Store At A Sufficiently Elevated Temperature (Above 4 Degree C) To Prevent Formation Of Crystals',
+                    'Make Sure Container Is Sealed Properly. Additives May Be Incompatible With Dialysis Fluid. If Complete Information Is Not Available Consult A Pharmacist. Mix Through After Introduction Of Additives. Solutions Containing Additives Should Not Be Stored, Discard Any Unused Portion',
+                    'Keep All Medicines Out Of Reach Of Children\'s'
+                ]
             }
         ],
         weight: '20 Liter',
@@ -509,6 +550,16 @@ const products = [
                     'Ca** 2.51mEq | Mg** 0.96mEq',
                     'Cl 91.0mEq | Acitic Acid 4.0mEq'
                 ]
+            },
+            {
+                title: 'Instructions',
+                items: [
+                    'To Be Dispensed Only By Or On The Prescription Of A Registered Medical Practitioner.',
+                    'To Be Used With Solution (B) To Be Used With Haemo Dialysis Machine Only',
+                    'Store At A Sufficiently Elevated Temperature (Above 4 Degree C) To Prevent Formation Of Crystals',
+                    'Make Sure Container Is Sealed Properly. Additives May Be Incompatible With Dialysis Fluid. If Complete Information Is Not Available Consult A Pharmacist. Mix Through After Introduction Of Additives. Solutions Containing Additives Should Not Be Stored, Discard Any Unused Portion',
+                    'Keep All Medicines Out Of Reach Of Children\'s'
+                ]
             }
         ],
         weight: '20 Liter',
@@ -568,9 +619,11 @@ const products = [
     {
         id: 11,
         title: 'Bicarb Powder – Sodium Bicarbonate IP',
-        tag: 'Bicarb Powder',
+        sku: 'W018-1',
+        tag: 'Powder',
         description: 'Pharmaceutical grade Sodium Bicarbonate (NaHCO3) for preparation of dialysis fluid.',
-        fullDescription: 'Sodium Bicarbonate (Bicarb Powder) is used in bicarbonate dialysis to prepare the dialysis fluid. It helps maintain the acid-base balance in the fluid, ensuring safe and effective treatment for patients.',
+        fullDescription: 'Sodium bicarbonate (IUPAC name: sodium hydrogen carbonate), commonly known as baking soda, is a chemical compound with the formula NaHCO3. It is a salt composed of a sodium cation (Na+) and a bicarbonate anion (HCO3–). Sodium bicarbonate is a white solid that is crystalline, but often appears as a fine powder. It has a slightly salty, alkaline taste resembling that of washing soda (sodium carbonate). The natural mineral form is nahcolite',
+        overview: 'Sodium bicarbonate (IUPAC name: sodium hydrogen carbonate), commonly known as baking soda, is a chemical compound with the formula NaHCO3. It is a salt composed of a sodium cation (Na+) and a bicarbonate anion (HCO3–). Sodium bicarbonate is a white solid that is crystalline, but often appears as a fine powder. It has a slightly salty, alkaline taste resembling that of washing soda (sodium carbonate). The natural mineral form is nahcolite',
         image: '/products/Sodium_Bicarbonate_IP.png',
         detailImage: '/products/Sodium_Bicarbonate_IP_v1.png',
         specs: ['Grade: Pharmaceutical IP', 'Form: Crystalline', 'Purity: High', 'Usage: Fluid Preparation'],
@@ -590,20 +643,35 @@ const products = [
             'Follow dialysis machine manufacturer instructions',
             'Use protective gloves while handling'
         ],
-        packSizes: ['500 g', '1 kg', '5 kg'],
+        weight: '835gms',
+        dilution: ['1:32.75:1.25 Dilution Proportioning', 'For Bicarbonate Haemodialysis Concentrate'],
+        customSections: [
+            {
+                title: 'Composition',
+                items: [
+                    'Sodium Bicarbonate I.P. - 650 gms',
+                    'Na+ - 37 mEq/L',
+                    'HCO3- - 37 mEq/L'
+                ]
+            }
+        ],
+        expiry: 'One year from the date of manufacture',
         safety: [
-            'Store in a cool, dry place',
-            'Avoid contact with eyes',
-            'Keep away from children'
-        ]
+            'This solution be prepared fresh for every bicarb dialysis',
+            'Store at a temperature above 4° C',
+            'Discard unused and contaminated solution'
+        ],
+        relatedProducts: [12, 1]
     },
     {
         id: 12,
         title: 'Bicarb Mix – Sodium Bicarbonate IP & Sodium Chloride IP',
         subtitle: 'Dual-Electrolyte Formulation for Precise Dialysis Fluid Preparation',
-        tag: 'Bicarb Mix',
-        description: 'Pharmaceutical grade combined formulation of Sodium Bicarbonate and Sodium Chloride.',
-        overview: 'Bicarb Mix is a specialized combination of high-purity Sodium Bicarbonate and Sodium Chloride, designed to simplify the preparation of bicarbonate dialysis fluid. This pre-mixed formulation ensures precise electrolyte ratios, reducing preparation time and minimizing the risk of mixing errors in clinical settings.',
+        tag: 'Powder',
+        sku: 'W018',
+        description: 'Sodium bicarbonate (IUPAC name: sodium hydrogen carbonate), commonly known as baking soda, is a chemical compound with the formula NaHCO3. It is a salt composed of a sodium cation (Na+) and a bicarbonateanion (HCO3–).',
+        detailDescription: 'Sodium bicarbonate (IUPAC name: sodium hydrogen carbonate), commonly known as baking soda, is a chemical compound with the formula NaHCO3. It is a salt composed of a sodium cation (Na+) and a bicarbonateanion (HCO3–).',
+        overview: 'Sodium bicarbonate (IUPAC name: sodium hydrogen carbonate), commonly known as baking soda, is a chemical compound with the formula NaHCO3. It is a salt composed of a sodium cation (Na+) and a bicarbonateanion (HCO3–). Sodium bicarbonate is a white solid that is crystalline, but often appears as a fine powder. It has a slightly salty, alkaline taste resembling that of washing soda (sodium carbonate). The natural mineral form is nahcolite.',
         fullDescription: 'Bicarb Mix is a combined formulation of Sodium Bicarbonate and Sodium Chloride used in dialysis fluid preparation. It ensures precise electrolyte balance, supporting safe and effective hemodialysis.',
         image: '/products/Sodium_Bicarbonate_IP_and_Sodium_Chloride_IP.png',
         detailImage: '/products/Bicarb_Mix_Detail_v1.png',
@@ -625,21 +693,46 @@ const products = [
             'Follow dialysis machine manufacturer instructions',
             'Use protective gloves while handling'
         ],
-        packSizes: ['500 g', '1 kg', '5 kg'],
-        safety: [
-            'Store in a cool, dry place',
-            'Avoid contact with eyes',
-            'Keep away from children'
+        weight: '835gms',
+        customSections: [
+            {
+                title: 'Composition',
+                items: [
+                    'Sodium Chloride - 235gms',
+                    'Sodium Bicarbonate - 600gms',
+                    'Na++ - 54mEq',
+                    'HCO3− - 35mEq',
+                    'Cl− - 19mEq'
+                ]
+            },
+            {
+                title: 'Preparation Procedure',
+                items: [
+                    'Add Sodium Chloride IP to the water slowly with simultaneously stirring.',
+                    'After Sodium Chloride IP is completely dissolved add Sodium Bicarb IP Powder in small portion with simultaneously stirring.',
+                    'After the entire Sodium Bicarb IP Powder is added stir until completely dissolved. The total process time will take 15 Minutes.',
+                    'Filter and transfer to fresh can. Use for bicarb dialysis immediately.'
+                ]
+            }
         ],
-        benefit: 'Ensures precise electrolyte balance for safer patient outcomes.'
+        expiry: 'One year from the date of manufacture',
+        dilution: ['1:34:1.83 Dilution Proportioning', 'For Bicarbonate Haemodialysis Concentrate'],
+        safety: [
+            'This solution be prepared fresh for every bicarb dialysis',
+            'Store at a temperature above 4° C',
+            'Discard unused and contaminated solution'
+        ],
+        benefit: 'Regular use of Sodium Bicarbonate IP and Sodium Chloride IP supports accurate electrolyte balance, stable bicarbonate dialysis preparation, and consistent dialysis performance.',
+        relatedProducts: [1, 11]
     },
     {
         id: 13,
         title: 'Sodium Hypochlorite – Bleach (5–6%)',
         subtitle: 'High-Level Disinfectant for Medical Hygiene & Water Systems',
-        tag: 'Disinfectant',
+        tag: 'Solution',
         description: 'Powerful disinfectant for dialysis equipment, surfaces, and water systems. 5–6% concentration.',
-        overview: 'Sodium Hypochlorite (Bleach) at 5–6% concentration is a critical disinfectant used to maintain the highest levels of hygiene in dialysis facilities. It is highly effective against a broad spectrum of pathogens, making it ideal for the sanitation of equipment surfaces and the disinfection of water treatment systems to prevent microbial growth.',
+        detailDescription: 'All dialysis units must have written policies and procedures that deal with disinfection of the dialysis fluid path way of the Hemodialysis machine. These procedures are targeted to control bacterial contamination and have nothing to do with preventing blood borne infections.',
+        overview: 'All dialysis units must have written policies and procedures that deal with disinfection of the dialysis fluid path way of the Hemodialysis machine. These procedures are targeted to control bacterial contamination and have nothing to do with preventing blood borne infections. The procedures generally consist of using sodium hypochlorite (bleach) on a regular basis (according to the manufacturer\'s instructions) and a sterilant overnight at certain intervals (e.g., every 100 hours of use). Studies have shown that HIV is inactivated rapidly after being exposed to commonly used chemical germicides at concentrations that are much lower than used in practice. The much hardier HBV is also known to be inactivated by common household bleach. Suggested concentrations of sodium hypochlorite prepared daily range from 500 parts per million (ppm) (1:100 dilution of household bleach) to 5000 ppm (1:10 dilution).',
         fullDescription: 'Sodium Hypochlorite is a powerful disinfectant used to clean and sanitize dialysis equipment, surfaces, and water systems. It effectively removes bacteria, viruses, and other contaminants, ensuring a safe and hygienic environment.',
         image: '/products/SodiumHypochloriteBleach.png',
         detailImage: '/products/Sodium_Hypochlorite_Bleach_Detail.jpg',
@@ -661,19 +754,29 @@ const products = [
             'Apply on surfaces or circulate through systems as needed',
             'Follow safety precautions and rinse thoroughly if required'
         ],
-        packSizes: ['500 ml', '1 Liter', '5 Liters'],
+        customSections: [
+            {
+                title: 'Composition',
+                items: [
+                    'Sodium Hypochlorite – Bleach (5-6%)'
+                ]
+            }
+        ],
+        packSizes: ['20 Liter Container'],
         safety: [
             'Handle with care – it is corrosive',
             'Avoid contact with skin and eyes',
             'Use protective gloves and eyewear while handling',
             'Store in a cool, dry place, away from children'
         ],
-        benefit: 'Ensures a sterile and safe clinical environment for renal care.'
+        benefit: 'Regular use of Sodium Hypochlorite – Bleach (5–6%) ensures effective disinfection, controls microbial contamination, and maintains hygiene in dialysis and water treatment systems.',
+        relatedProducts: [5, 9, 4]
     },
 
 ];
 
 export default function ProductsPage() {
+    const router = useRouter();
     const [activeProductId, setActiveProductId] = useState(null);
     const [selectedProduct, setSelectedProduct] = useState(null);
     const productRefs = useRef({});
@@ -821,9 +924,9 @@ export default function ProductsPage() {
                                                 </div>
                                             </div>
                                         </div>
-                                    ) : (selectedProduct.id === 5 || selectedProduct.id === 6 || selectedProduct.id === 7 || selectedProduct.id === 8 || selectedProduct.id === 9) && selectedProduct.weight ? (
+                                    ) : selectedProduct.weight ? (
                                         <div className={styles.packSizeBox}>
-                                            <span className={styles.packSizeLabel}>Weight</span>
+                                            <span className={styles.packSizeLabel}>{selectedProduct.id === 12 || selectedProduct.id === 11 ? 'Net Weight' : 'Weight'}</span>
                                             <div className={styles.packSizeList}>
                                                 <span className={styles.packSizeItem}>• {selectedProduct.weight}</span>
                                             </div>
@@ -941,7 +1044,7 @@ export default function ProductsPage() {
 
                                     <div className={styles.infoCardDanger}>
                                         <h3 className={styles.cardTitleDanger}>
-                                            <AlertCircle className={styles.cardIconDanger} /> Safety Instructions
+                                            <AlertCircle className={styles.cardIconDanger} /> Caution
                                         </h3>
                                         <ul className={styles.safetyListNew}>
                                             {selectedProduct.safety && selectedProduct.safety.map((item, i) => (
@@ -1076,7 +1179,7 @@ export default function ProductsPage() {
                             <div className={styles.inquireSection}>
                                 <h3 className={styles.inquireTitle}>Need More Information?</h3>
                                 <p className={styles.inquireText}>Contact our team for technical details, usage guidance, or bulk orders.</p>
-                                <button className={styles.inquireBtn}>
+                                <button className={styles.inquireBtn} onClick={() => router.push('/contact')}>
                                     Inquire Now <ArrowRight size={18} />
                                 </button>
                             </div>
