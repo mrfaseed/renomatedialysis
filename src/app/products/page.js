@@ -202,17 +202,20 @@ const products = [
             'Avoid direct contact with skin and eyes',
             'Use in a well-ventilated area',
             'Keep out of reach of children'
-        ]
+        ],
+        relatedProducts: [10, 13, 6]
     },
     {
         id: 5,
-        title: 'Acid Concentrate – Bicarbonate Dialysis (1:34)',
-        tag: 'Acid Concentrate',
-        description: 'Hemodialysis Concentrated Acidic Solution for bicarbonate dialysis treatments. 1:34 proportioning ratio.',
+        title: 'Acid Concentrate – Bicarbonate Dialysis (1:34:1.83 proportioning)',
+        sku: 'W018-1-1',
+        tag: 'Solution',
+        description: 'Hemodialysis Concentrated Acidic Solution for bicarbonate dialysis treatments. 1:34:1.83 proportioning ratio.',
+        overview: 'Hemodialysis Concentrated Acidic Solution – Bp For Bicarbonate Dialysis (1:34:1.83 proportioning)',
         fullDescription: 'This acid concentrate solution is used in bicarbonate dialysis to help prepare dialysis fluid. It ensures proper acid-base balance and safe dialysis treatment for patients.',
         image: '/products/cane.png',
         detailImage: '/products/Acid_Concentrate_1_34_v1.png',
-        specs: ['Ratio: 1:34', 'Grade: BP Standard', 'Form: Liquid', 'Electrolyte Balanced'],
+        specs: ['Ratio: 1:34:1.83', 'Grade: BP Standard', 'Form: Liquid', 'Electrolyte Balanced'],
         whyUsed: [
             'Maintains correct acid-base balance in dialysis fluid',
             'Ensures safe and effective hemodialysis',
@@ -225,12 +228,41 @@ const products = [
             'Ensuring safe patient treatment during dialysis'
         ],
         howToUse: [
-            'Mix with bicarbonate solution as per the 1:34 ratio',
+            'Mix with bicarbonate solution as per the 1:34:1.83 ratio',
             'Follow dialysis machine manufacturer guidelines for safe usage',
             'Use protective gloves while handling'
         ],
+        customSections: [
+            {
+                title: 'Contents (gm/Ltr) - Each Liter Contains',
+                items: [
+                    'Sodium Chloride I.P. - 210.00gm',
+                    'Potassium Chloride I.P. - 5.20gm',
+                    'Calcium Chloride I.P. - 8gm',
+                    'Magnesium Chloride I.P. - 2.7gm',
+                    'Acetic Acid I.P. - 9.0gm',
+                    'Purified Water to 1Ltr'
+                ]
+            },
+            {
+                title: 'Electrolyte Composition',
+                items: [
+                    'Na* 103mEq | K* 2.0mEq',
+                    'Ca** 3.0mEq | Mg** 0.75mEq',
+                    'Cl 108mEq | Acetic Acid 4.0mEq'
+                ]
+            }
+        ],
+        weight: '20Ltr',
         packSizes: ['5 Liters', '20 Liters'],
+        dilution: ['DILUTION RATIO 1:34', 'One part of solution with 34 parts of appropriate quality of water'],
+        benefit: 'Regular use of Hemodialysis Concentrated Acidic Solution – BP ensures accurate electrolyte balance, precise 1:34:1.83 proportioning, and consistent bicarbonate dialysis performance',
         safety: [
+            'This Solution (A) Should Not Be Used Alone. Should Be Used Along With Freshly Prepared Bicarbonate Solution (B)',
+            'Not To Be Used If Container Is Found Leaking Or Solution Is Not Clear',
+            'Solution Containing Visible Solid Particles Should Not Be Used',
+            'Not To Be Injected',
+            'Not To Be Taken Orally',
             'Handle with care – it is an acidic solution',
             'Avoid contact with skin and eyes',
             'Store in a cool, dry place',
@@ -239,13 +271,15 @@ const products = [
     },
     {
         id: 6,
-        title: 'Acid Concentrate – Bicarbonate Dialysis (1:32.75)',
-        tag: 'Acid Concentrate',
-        description: 'Hemodialysis Concentrated Acidic Solution for bicarbonate dialysis. 1:32.75 proportioning ratio.',
+        title: 'Acid Concentrate – Bicarbonate Dialysis (1:32.75:1.25 proportioning)',
+        sku: 'W018-1-1-3',
+        tag: 'Solution',
+        description: 'Hemodialysis Concentrated Acidic Solution – Bp For Bicarbonate Dialysis (1:32.75:1.25 proportioning)',
+        overview: 'Hemodialysis Concentrated Acidic Solution – Bp For Bicarbonate Dialysis (1:32.75:1.25 proportioning)',
         fullDescription: 'This acid concentrate solution is used in bicarbonate dialysis to prepare the dialysis fluid. It helps maintain the proper acid-base balance, ensuring safe and effective dialysis treatment for patients.',
         image: '/products/cane.png',
         detailImage: '/products/Acid_Concentrate_1_32_75_v1.png',
-        specs: ['Ratio: 1:32.75', 'Grade: BP Standard', 'Selection: Patient Specific', 'High Pure'],
+        specs: ['Ratio: 1:32.75:1.25', 'Grade: BP Standard', 'Selection: Patient Specific', 'High Pure'],
         whyUsed: [
             'Maintains correct acid-base balance in dialysis fluid',
             'Ensures safe and efficient hemodialysis',
@@ -258,12 +292,41 @@ const products = [
             'Ensuring safe patient treatment'
         ],
         howToUse: [
-            'Mix with bicarbonate solution as per the 1:32.75 ratio',
+            'Mix with bicarbonate solution as per the 1:32.75:1.25 ratio',
             'Follow the dialysis machine manufacturer’s instructions',
             'Use protective gloves while handling'
         ],
+        customSections: [
+            {
+                title: 'Contents (gm/Ltr) - Each Liter Contains',
+                items: [
+                    'Sodium Chloride I.P. - 210.00gm',
+                    'Potassium Chloride I.P. - 5.20gm',
+                    'Calcium Chloride I.P. - 8gm',
+                    'Magnesium Chloride I.P. - 2.7gm',
+                    'Acetic Acid I.P. - 9.0gm',
+                    'Purified Water to 1Ltr'
+                ]
+            },
+            {
+                title: 'Electrolyte Composition',
+                items: [
+                    'Na* 103mEq | K* 2.0mEq',
+                    'Ca** 3.0mEq | Mg** 0.75mEq',
+                    'Cl 108mEq | Acetic Acid 4.0mEq'
+                ]
+            }
+        ],
         packSizes: ['5 Liters', '20 Liters'],
+        weight: '20 Liter',
+        dilution: ['DILUTION RATIO 1:34', 'One part of solution with 34 parts of appropriate quality of water'],
+        benefit: 'Regular use of Hemodialysis Concentrated Acidic Solution – BP supports precise proportioning (1:32.75:1.25), maintains solution stability, and ensures reliable bicarbonate dialysis delivery.',
         safety: [
+            'This Solution (A) Should Not Be Used Alone. Should Be Used Along With Freshly Prepared Bicarbonate Solution (B)',
+            'Not To Be Used If Container Is Found Leaking Or Solution Is Not Clear',
+            'Solution Containing Visible Solid Particles Should Not Be Used',
+            'Not To Be Injected',
+            'Not To Be Taken Orally',
             'Handle with care – it is an acidic solution',
             'Avoid contact with skin and eyes',
             'Store in a cool, dry place',
@@ -694,6 +757,13 @@ export default function ProductsPage() {
                                                 </div>
                                             </div>
                                         </div>
+                                    ) : (selectedProduct.id === 5 || selectedProduct.id === 6) && selectedProduct.weight ? (
+                                        <div className={styles.packSizeBox}>
+                                            <span className={styles.packSizeLabel}>Weight</span>
+                                            <div className={styles.packSizeList}>
+                                                <span className={styles.packSizeItem}>• {selectedProduct.weight}</span>
+                                            </div>
+                                        </div>
                                     ) : selectedProduct.id === 3 && selectedProduct.customSections ? (
                                         <div className={styles.packSizeBox}>
                                             <span className={styles.packSizeLabel}>{selectedProduct.customSections[0].title}</span>
@@ -810,6 +880,25 @@ export default function ProductsPage() {
                                                 </h4>
                                                 <ul style={{ margin: 0, padding: 0, listStyle: 'none' }}>
                                                     {selectedProduct.storage.map((item, i) => (
+                                                        <li key={i} style={{ color: '#334155', fontWeight: '500', fontSize: '0.95rem' }}>{item}</li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    {/* Dilution Section */}
+                                    {selectedProduct.dilution && (
+                                        <div style={{ marginTop: '1.5rem', padding: '1.25rem', background: '#fcfcfc', borderRadius: '0.75rem', border: '1px solid #e5e5e5', display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                                            <div style={{ background: '#f1f5f9', padding: '0.5rem', borderRadius: '50%' }}>
+                                                <Beaker size={20} color="#475569" />
+                                            </div>
+                                            <div>
+                                                <h4 style={{ fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: '#64748b', fontWeight: '700', marginBottom: '0.2rem' }}>
+                                                    Dilution
+                                                </h4>
+                                                <ul style={{ margin: 0, padding: 0, listStyle: 'none' }}>
+                                                    {selectedProduct.dilution.map((item, i) => (
                                                         <li key={i} style={{ color: '#334155', fontWeight: '500', fontSize: '0.95rem' }}>{item}</li>
                                                     ))}
                                                 </ul>
