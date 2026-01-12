@@ -1,5 +1,6 @@
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import Loader from '../components/Loader';
 import "./globals.css";
 import { Geist, Geist_Mono, Playfair_Display, Outfit } from "next/font/google";
 
@@ -37,6 +38,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} ${outfit.variable} ${playfair.variable}`} style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }} suppressHydrationWarning>
+        <Loader />
         <Navbar />
         <main style={{ flex: 1, width: '100%' }}>{children}</main>
         <Footer />
