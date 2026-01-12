@@ -13,7 +13,7 @@
     }
 }
 
-/* 2. MAIN NAVBAR - Clean Professional Design */
+/* 2. MAIN NAVBAR - Pure White Design */
 .navbar {
     position: fixed;
     top: 1rem;
@@ -23,21 +23,19 @@
     max-width: 1400px;
     height: 72px;
 
-    /* Professional Glass Effect - White clean background with RGB Border */
-    background:
-        linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)) padding-box,
-        linear-gradient(90deg, #ff0000, #00ff00, #0000ff) border-box;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    /* Pure White Background */
+    background: #ffffff;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 
-    /* RGB Gradient Border */
-    border: 2px solid transparent;
+    /* Subtle Border */
+    border: 1px solid #e2e8f0;
 
     box-shadow:
         0 4px 6px -1px rgba(0, 0, 0, 0.05),
         0 2px 4px -1px rgba(0, 0, 0, 0.03);
 
-    border-radius: 12px;
+    border-radius: 99px;
     padding: 0 2rem;
 
     display: flex;
@@ -45,9 +43,44 @@
     align-items: center;
     z-index: 99999;
 
-    /* Smooth, restrained entrance */
     animation: fadeSlideDown 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     transition: all 0.3s ease;
+}
+
+/* RGB Gradient Border Surround */
+.navbar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 99px;
+    padding: 2px;
+    background: linear-gradient(90deg, #ff0000, #00ff00, #0000ff, #ff0000, #00ff00, #0000ff);
+    background-size: 200% 100%;
+    animation: rgbBorderRun 3s linear infinite;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: 2;
+    pointer-events: none;
+    /* Crucial: Allow clicks to pass through to links */
+}
+
+@keyframes rgbBorderRun {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Hidden State */
+.hiddenNavbar {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
 }
 
 .rightSection {
@@ -66,19 +99,54 @@
 }
 
 .logoImage {
-    height: 75px;
+    height: 48px;
     width: auto;
     object-fit: contain;
+    /* Removed brightness filter for natural look on white */
 }
 
 /* 3. DESKTOP NAVIGATION */
 .navLinks {
     display: flex;
-    gap: 24px;
+    gap: 32px;
     list-style: none;
     margin: 0;
     padding: 0;
     align-items: center;
+}
+
+.navLink {
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #475569;
+    /* Slate-600 */
+    padding: 0.5rem 0;
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+.navLink:hover {
+    color: #0d9488;
+    /* Teal-600 */
+    /* Removed drop shadow for cleaner look on white */
+}
+
+/* Professional Underline Indicator */
+.navLink::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background: #0d9488;
+    /* Teal-600 */
+    transition: width 0.3s ease;
+}
+
+.navLink:hover::after {
+    width: 100%;
 }
 
 /* 3.1 SEARCH & ACTIONS */
@@ -93,14 +161,16 @@
     align-items: center;
     justify-content: center;
     background: transparent;
-    padding: 6px;
+    padding: 8px;
     border-radius: 50%;
-    transition: transform 0.2s ease, background-color 0.2s;
+    border: 1px solid #e2e8f0;
+    transition: transform 0.2s ease, background-color 0.2s, border-color 0.2s;
 }
 
 .whatsappBtn:hover {
     transform: scale(1.1);
-    background-color: rgba(37, 211, 102, 0.1);
+    background-color: #f0fdf4;
+    border-color: #25D366;
 }
 
 .searchContainer {
@@ -114,7 +184,7 @@
 }
 
 .searchContainer.searchActive {
-    background: #f1f5f9;
+    background: #f8fafc;
     border: 1px solid #cbd5e1;
     padding-left: 1rem;
     padding-right: 4px;
@@ -128,7 +198,7 @@
 }
 
 .searchContainer.searchActive .searchInputWrapper {
-    width: 200px;
+    width: 220px;
     /* Expand width */
     opacity: 1;
     margin-right: 0.5rem;
@@ -141,7 +211,12 @@
     outline: none;
     font-size: 0.9rem;
     color: #334155;
+    /* Dark Slate */
     font-family: inherit;
+}
+
+.searchInput::placeholder {
+    color: #94a3b8;
 }
 
 .searchBtn {
@@ -154,24 +229,27 @@
     align-items: center;
     justify-content: center;
     transition: background-color 0.2s;
+    color: #64748b;
+    /* Slate-500 */
 }
 
 .searchBtn:hover {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: #f1f5f9;
+    color: #334155;
 }
 
 /* SEARCH RESULTS DROPDOWN */
 .searchResultsDropdown {
     position: absolute;
-    top: 120%;
+    top: 140%;
     right: 0;
     width: 380px;
-    background: white;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
     border-radius: 16px;
     box-shadow:
-        0 4px 6px -1px rgba(0, 0, 0, 0.1),
-        0 10px 15px -3px rgba(0, 0, 0, 0.1),
-        0 0 0 1px rgba(226, 232, 240, 0.8);
+        0 10px 25px -5px rgba(0, 0, 0, 0.1),
+        0 8px 10px -6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     z-index: 1000;
     padding: 8px;
@@ -223,6 +301,7 @@
     position: relative;
     padding: 4px;
     background: white;
+    /* Keep thumbs white/clear */
 }
 
 .resultInfo {
@@ -257,6 +336,7 @@
 .searchResultItem:hover .resultArrow {
     opacity: 1;
     transform: translateX(0);
+    color: #0d9488;
 }
 
 .noResults {
@@ -282,47 +362,6 @@
     }
 }
 
-.navLink {
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: #475569;
-    /* Slate 600 - Professional Grey */
-    padding: 0.5rem 0;
-    position: relative;
-    transition: color 0.2s ease;
-}
-
-.navLink:hover {
-    color: #0284c7;
-    /* Sky 600 - Professional Medical Blue */
-}
-
-/* Professional Underline Indicator */
-.navLink::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -2px;
-    left: 0;
-    background: #0284c7;
-    transition: width 0.3s ease;
-}
-
-.navLink:hover::after {
-    width: 100%;
-}
-
-
-
-/* Hidden State for Navbar */
-.hiddenNavbar {
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-}
-
 /* 4. MOBILE MENU BUTTON */
 .mobileMenuBtn {
     display: none;
@@ -335,29 +374,25 @@
 }
 
 .mobileMenuBtn:hover {
-    color: #0284c7;
+    color: #0d9488;
 }
 
-/* 5. PREMIUM MOBILE MENU OVERLAY */
+/* 5. DARK MOBILE MENU OVERLAY */
 .mobileMenu {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(240, 249, 255, 0.99));
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-
+    background: #020617;
+    /* Darkest Blue */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-
     opacity: 0;
     visibility: hidden;
     transform: translateY(0);
-    /* Reset transform to avoid offset issues if any */
     transition: all 0.5s cubic-bezier(0.32, 0.72, 0, 1);
     z-index: 100000;
     padding: 1.5rem;
@@ -389,23 +424,25 @@
 }
 
 .mobileLogoImage {
-    height: 40px;
+    height: 48px;
     width: auto;
     object-fit: contain;
+    filter: brightness(1.2);
+    /* Keep brightness on dark mobile menu */
 }
 
 /* Close Button Style */
 .closeMenuBtn {
-    background: transparent;
+    background: rgba(255, 255, 255, 0.1);
     border: none;
     cursor: pointer;
-    transition: transform 0.2s ease, opacity 0.3s ease;
+    transition: transform 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 8px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.5);
+    color: white;
 }
 
 .mobileMenu.open .closeMenuBtn {
@@ -414,8 +451,8 @@
 
 .closeMenuBtn:hover {
     transform: rotate(90deg);
+    background: rgba(255, 255, 255, 0.2);
     color: #ef4444;
-    background: rgba(255, 255, 255, 0.8);
 }
 
 
@@ -434,7 +471,7 @@
 .mobileNavLink {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #1e293b;
+    color: #e2e8f0;
     text-decoration: none;
     display: inline-block;
     position: relative;
@@ -471,9 +508,9 @@
 }
 
 .mobileNavLink:hover {
-    color: #0284c7;
+    color: #2dd4bf;
     transform: scale(1.05);
-    text-shadow: 0 4px 12px rgba(2, 132, 199, 0.2);
+    text-shadow: 0 0 20px rgba(45, 212, 191, 0.3);
 }
 
 .mobileNavLink::after {
@@ -526,8 +563,8 @@
     align-items: stretch;
     /* Full width children */
     position: relative;
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     /* Rounded pill initially, might change on result */
     width: 100%;
@@ -538,9 +575,8 @@
 }
 
 .mobileSearchContainer:focus-within {
-    border-color: #0284c7;
-    box-shadow: 0 4px 20px rgba(2, 132, 199, 0.1);
-    transform: translateY(-2px);
+    border-color: #2dd4bf;
+    background: rgba(255, 255, 255, 0.08);
 }
 
 /* Wrapper for input and icon row */
@@ -555,7 +591,7 @@
     border: none;
     outline: none;
     font-size: 1rem;
-    color: #334155;
+    color: white;
     background: transparent;
     padding: 0.8rem 1.5rem;
     /* Add padding here if wrapper not used, or adjust */
@@ -567,22 +603,22 @@
 .mobileSearchBtn {
     position: absolute;
     right: 1.5rem;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 0.8rem;
+    /* approximate center vertically relative to input height */
     background: transparent;
     border: none;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    color: #64748b;
+    color: #94a3b8;
 }
 
 /* Mobile Search Results Dropdown Area */
 .mobileSearchResults {
     width: 100%;
-    background: white;
-    border-top: 1px solid #f1f5f9;
+    background: #1e293b;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     max-height: 300px;
     overflow-y: auto;
     border-radius: 0 0 20px 20px;
@@ -603,7 +639,7 @@
 }
 
 .mobileSearchResults .searchResultItem:hover {
-    background: #f8fafc;
+    background: rgba(255, 255, 255, 0.05);
 }
 
 /* Mobile WhatsApp Styling */
@@ -611,17 +647,18 @@
     margin-top: auto;
     margin-bottom: 2rem;
     padding: 1rem;
-    background: #f0fdf4;
+    background: rgba(37, 211, 102, 0.1);
+    border: 1px solid rgba(37, 211, 102, 0.3);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .mobileWhatsappBtn:hover {
     transform: scale(1.15) rotate(10deg);
-    background: #dcfce7;
-    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
+    background: rgba(37, 211, 102, 0.2);
+    box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
 }
