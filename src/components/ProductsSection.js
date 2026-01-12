@@ -138,7 +138,7 @@ export default function ProductsSection() {
                     transition={{ duration: 0.8, delay: 0.2 }}
                 >
                     <Link href="/products" className={styles.viewAllBtn}>
-                        <span className={styles.btnText}>VIEW ALL PRODUCTS</span>
+                        <span className={styles.btnText}>View <span className={styles.highlightbtn}>All </span>Products</span>
                         <div className={styles.btnIconCircle}>
                             <ArrowRight className={styles.icon} />
                         </div>

@@ -155,9 +155,9 @@
 
 /* Contact Section */
 .contactSection {
-    background-color: #0f172a;
+    background-color: #98f3fdc4;
     /* slate-900 */
-    color: #f1f5f9;
+    color: #04111e;
     /* slate-100 */
     padding: 2rem;
     /* p-8 */
@@ -171,7 +171,7 @@
     font-size: 1.5rem;
     /* text-2xl */
     font-weight: 700;
-    color: white;
+    color: rgb(12, 1, 1);
     margin-bottom: 1.5rem;
     /* mb-6 */
 }
@@ -185,7 +185,7 @@
 
 .contactLabel {
     display: block;
-    color: #94a3b8;
+    color: #143665;
     /* slate-400 */
     font-size: 0.875rem;
     /* text-sm */
@@ -196,7 +196,7 @@
 }
 
 .contactLink {
-    color: #60a5fa;
+    color: #4495f8;
     /* blue-400 */
     font-weight: 500;
     text-decoration: none;
@@ -204,11 +204,11 @@
 }
 
 .contactLink:hover {
-    color: #93c5fd;
+    color: #629ee3a9;
     /* blue-300 */
 }
 
 .companyName {
-    color: white;
+    color: rgb(33, 3, 3);
     font-weight: 500;
 }
