@@ -4,71 +4,199 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import styles from './HeroSection.module.css';
+import { ArrowRight } from 'lucide-react';
 
 export default function HeroSection() {
+    const { scrollY } = useScroll();
+
+    // Parallax values
+    const titleY = useTransform(scrollY, [0, 500], [0, -100]);
+    const descY = useTransform(scrollY, [0, 500], [0, -50]);
+    const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+    const scale = useTransform(scrollY, [0, 500], [1, 0.95]);
+
+    // Variants for staggered children
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.15,
+                delayChildren: 0.3,
+            }
+        }
+    };
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 40, filter: 'blur(10px)' },
+        visible: {
+            opacity: 1,
+            y: 0,
+            filter: 'blur(0px)',
+            transition: {
+                type: "spring",
+                stiffness: 100,
+                damping: 20,
+                duration: 0.8
+            }
+        }
+    };
+
     return (
         <section className={styles.hero}>
             <VideoBackground />
-            <OverlayBlinds />
-            <BloodParticleSystem />
+
+            {/* Dynamic Background Glow - Moving Aura */}
+            <motion.div
+                className={styles.bgAura}
+                animate={{
+                    scale: [1, 1.1, 1],
+                    opacity: [0.3, 0.5, 0.3],
+                }}
+                transition={{
+                    duration: 10,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                }}
+            />
+
+            {/* Tech Bottom Divider - Seamless Sine Wave */}
+            <div className={styles.bottomDividerWrapper}>
+                {/* SVG 1 */}
+                <svg
+                    className={styles.techDividerSvg}
+                    viewBox="0 0 1200 120"
+                    preserveAspectRatio="none"
+                    shapeRendering="geometricPrecision"
+                >
+                    <defs>
+                        <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stopColor="#22d3ee" />
+                            <stop offset="50%" stopColor="#3b82f6" />
+                            <stop offset="100%" stopColor="#818cf8" />
+                        </linearGradient>
+                    </defs>
+
+                    {/* Main Technical Stroke */}
+                    <path
+                        d="M0,60 C200,20 400,20 600,60 C800,100 1000,100 1200,60 V120 H1200 V150 H0 V120 Z"
+                        fill="none"
+                        stroke="url(#waveGradient)"
+                        strokeWidth="8"
+                        className={styles.dividerOutline}
+                    />
+
+                    {/* White Fill - Ensuring a solid bottom closure */}
+                    <path
+                        d="M0,65 C200,25 400,25 600,65 C800,105 1000,105 1200,65 V150 H0 Z"
+                        fill="#ffffff"
+                        className={styles.dividerFill}
+                    />
+                </svg>
+
+                {/* SVG 2 (Duplicate for Loop) */}
+                <svg
+                    className={styles.techDividerSvg}
+                    viewBox="0 0 1200 120"
+                    preserveAspectRatio="none"
+                    shapeRendering="geometricPrecision"
+                >
+                    {/* Main Technical Stroke */}
+                    <path
+                        d="M0,60 C200,20 400,20 600,60 C800,100 1000,100 1200,60 V120 H1200 V150 H0 V120 Z"
+                        fill="none"
+                        stroke="url(#waveGradient)"
+                        strokeWidth="8"
+                        className={styles.dividerOutline}
+                    />
+
+                    {/* White Fill */}
+                    <path
+                        d="M0,65 C200,25 400,25 600,65 C800,105 1000,105 1200,65 V150 H0 Z"
+                        fill="#ffffff"
+                        className={styles.dividerFill}
+                    />
+                </svg>
+            </div>
+
+            {/* Floating Abstract Elements */}
+            <div className={`${styles.abstractCapsule} ${styles.capsule1}`} />
+            <div className={`${styles.abstractCapsule} ${styles.capsule2}`} />
+            <div className={`${styles.abstractDot} ${styles.dot1}`} />
 
             <div className={styles.container}>
-                {/* Left: Typography & Story */}
+                {/* Main Content with Parallax & Motion */}
                 <motion.div
-                    className={styles.textContent}
-                    initial={{ opacity: 0, x: -50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 1, delay: 0.5 }}
+                    className={styles.contentWrapper}
+                    style={{ y: titleY, opacity, scale }}
                 >
-                    <ChemicalBoxParticles />
-                    <h1 className={styles.title}>
-                        <span className={styles.titleSmall}>To Provide</span>
-                        <span className={styles.titleHighlight}>High Quality,</span>
-                        <span className={styles.titleMain}>Low Cost <span className="text-blue-400 drop-shadow-md">DIALYSIS</span> Treatment</span>
-                    </h1>
-                    <p className={styles.description}>
-                        Setting the global benchmark for haemodialysis fluids.
-                        We combine advanced chemical engineering with rigorous safety standards to support life-saving treatments.
-                    </p>
+                    <motion.div
+                        className={styles.textContent}
+                        variants={containerVariants}
+                        initial="hidden"
+                        animate="visible"
+                    >
+                        <motion.h4 variants={itemVariants} className={styles.welcomeText}>
+                            To Provide
+                        </motion.h4>
 
-                    <div className={styles.actionGroup}>
-                        <Link href="/products" className={styles.primaryBtn}>
-                            View Our Solutions
-                        </Link>
-                        <Link href="/contact" className={styles.secondaryBtn}>
-                            Talk to Sales
-                        </Link>
-                    </div>
+                        <motion.h1 variants={itemVariants} className={styles.title}>
+                            <motion.span
+                                variants={itemVariants}
+                                className={styles.textGold}
+                                whileHover={{ scale: 1.02, textShadow: "0 0 20px rgba(250, 204, 21, 0.4)" }}
+                            >
+                                High Quality,
+                            </motion.span>
+                            <motion.span
+                                variants={itemVariants}
+                                className={styles.textWhite}
+                            >
+                                LOW COST
+                            </motion.span>
+                            <br className={styles.breakMobile} />
+                            <motion.span
+                                variants={itemVariants}
+                                className={styles.textBlue}
+                                whileHover={{ filter: "drop-shadow(0 0 25px rgba(59, 130, 246, 0.8))" }}
+                            >
+                                DIALYSIS TREATMENT
+                            </motion.span>
+                        </motion.h1>
+
+                        <motion.p variants={itemVariants} className={styles.description} style={{ y: descY }}>
+                            Setting the global benchmark for haemodialysis fluids. We combine advanced chemical engineering with rigorous safety standards to support life-saving treatments.
+                        </motion.p>
+
+                        <motion.div variants={itemVariants} className={styles.actionGroup}>
+                            <Link href="/products" className={styles.readMoreBtn}>
+                                View Our Solutions
+                                <span className={styles.btnIcon}>
+                                    <ArrowRight size={16} />
+                                </span>
+                            </Link>
+                            <Link href="/contact" className={styles.secondaryBtn}>
+                                Talk to Sales
+                            </Link>
+                        </motion.div>
+                    </motion.div>
                 </motion.div>
-
-                {/* Floating Chemical/Medical Icons */}
-                <div className={styles.floatingIcons}>
-                    <motion.div
-                        animate={{ y: [0, -20, 0], rotate: [0, 10, 0] }}
-                        transition={{ duration: 5, repeat: Infinity }}
-                        className={styles.iconFlask}
-                    >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(239, 68, 68, 0.6)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M10 2v7.31" /><path d="M14 2v7.31" /><path d="M8.5 2h7" /><path d="M14 9.3a6.5 6.5 0 1 1-4 0" /></svg>
-                    </motion.div>
-                    <motion.div
-                        animate={{ y: [0, 15, 0], rotate: [0, -5, 0] }}
-                        transition={{ duration: 7, repeat: Infinity, delay: 1 }}
-                        className={styles.iconDna}
-                    >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(59, 130, 246, 0.5)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M2 15c6.667-6 13.333 0 20-6" /><path d="M9 22c1.798-1.998 2.518-3.995 2.807-5.993" /><path d="M15 2c-1.798 1.998-2.518 3.995-2.807 5.993" /><path d="M17 12a5.73 5.73 0 0 0-2.5 5.5" /><path d="M7 12a5.73 5.73 0 0 1 2.5-5.5" /></svg>
-                    </motion.div>
-                    <motion.div
-                        animate={{ y: [0, -10, 0], opacity: [0.3, 0.6, 0.3] }}
-                        transition={{ duration: 4, repeat: Infinity, delay: 2 }}
-                        className={styles.iconDroplet}
-                    >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(255, 255, 255, 0.4)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z" /></svg>
-                    </motion.div>
-                </div>
-
-
             </div>
         </section>
+    );
+}
+
+function SocialSidebar() {
+    return (
+        <div className={styles.socialSidebar}>
+            <span className={styles.followUsText}>Follow Us</span>
+            <div className={styles.socialLine} />
+            <div className={styles.socialIcons}>
+                <Link href="#" className={styles.socialIcon}>F</Link>
+                <Link href="#" className={styles.socialIcon}>I</Link>
+                <Link href="#" className={styles.socialIcon}>T</Link>
+            </div>
+        </div>
     );
 }
 

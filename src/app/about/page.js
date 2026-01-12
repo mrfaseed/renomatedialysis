@@ -54,7 +54,7 @@ export default function AboutPage() {
                         <div className={styles.heroTextContent}>
                             <motion.span variants={fadeInUp} className={styles.badge}>About Us</motion.span>
                             <motion.h1 variants={fadeInUp} className={styles.heroTitle}>
-                                Sri Ramakrishna’s <span className={styles.highlight}>Renomate</span>
+                                Sri Ramakrishna’s <br /><span className={styles.highlight}>Renomate</span>
                             </motion.h1>
                             <motion.p variants={fadeInUp} className={styles.heroText}>
                                 Sri Ramakrishna’s Renomate is a professionally managed medical device manufacturing organization specializing in the development, manufacturing, and supply of <strong>Haemodialysis Solutions</strong> and related products. The company is committed to supporting renal care by delivering products that meet the highest standards of quality, safety, and regulatory compliance.
@@ -105,7 +105,7 @@ export default function AboutPage() {
                             <div className={styles.iconBox}>
                                 <Factory size={32} />
                             </div>
-                            <h2 className={styles.sectionTitle}>Manufacturing Excellence & Quality Systems</h2>
+                            <h2 className={styles.sectionTitle}>Manufacturing Excellence & <span className={styles.highlightqu}>Quality</span>  Systens</h2>
                             <p className={styles.sectionText}>
                                 Our manufacturing facility is strategically located at <strong>No. 2, H3, H3 Road, Virudhunagar, Tamil Nadu</strong>, with an operational area of approximately 11,000 square feet. The facility has been meticulously designed and constructed in accordance with <strong className={styles.textHighlight}>Good Manufacturing Practices (GMP)</strong> and complies with the structural and operational requirements of the Central Drugs Standard Control Organization (CDSCO) and the Medical Device Rules (MDR), 2017.
                             </p>
@@ -140,7 +140,7 @@ export default function AboutPage() {
                         className={styles.sectionHeader}
                     >
                         <Leaf className={styles.headerIcon} size={40} />
-                        <h2 className={styles.sectionTitle}>Raw Materials & Supplier Quality Assurance</h2>
+                        <h2 className={styles.sectionTitle}>Raw Materials & Supplier ,<span className={styles.sectionTitle1}> Quality </span>Assurance</h2>
                         <p className={styles.sectionSubtitle}>
                             At Sri Ramakrishna’s Renomate, the quality of raw materials is fundamental to the safety and performance of our haemodialysis solutions.
                         </p>
@@ -274,7 +274,7 @@ export default function AboutPage() {
                             className={`${styles.splitCard} ${styles.blueCard}`}
                         >
                             <Eye size={40} className={styles.cardIconLarge} />
-                            <h2>Our Vision</h2>
+                            <h2 className={styles.missionList}>Our Vision</h2>
                             <p>To be a recognized and trusted manufacturer of haemodialysis solutions, delivering reliable, safe, and high-quality medical devices that contribute to improved renal care and patient well-being.</p>
                         </motion.div>
                         <motion.div
@@ -285,7 +285,7 @@ export default function AboutPage() {
                             className={`${styles.splitCard} ${styles.lightCard}`}
                         >
                             <Target size={40} className={styles.cardIconLarge} />
-                            <h2>Our Mission</h2>
+                            <h2 className={styles.sectionTitle}>Our Mission</h2>
                             <ul className={styles.missionList}>
                                 <li>Manufacture solutions meeting highest quality/safety standards.</li>
                                 <li>Operate in full compliance with CDSCO, MDR 2017, GMP, and QMS.</li>

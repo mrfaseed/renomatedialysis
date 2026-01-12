@@ -13,7 +13,7 @@
     }
 }
 
-/* 2. MAIN NAVBAR - Clean Professional Design */
+/* 2. MAIN NAVBAR - Pure White Design */
 .navbar {
     position: fixed;
     top: 1rem;
@@ -23,21 +23,19 @@
     max-width: 1400px;
     height: 72px;
 
-    /* Professional Glass Effect - White clean background with RGB Border */
-    background:
-        linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)) padding-box,
-        linear-gradient(90deg, #ff0000, #00ff00, #0000ff) border-box;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    /* Pure White Background */
+    background: #ffffff;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 
-    /* RGB Gradient Border */
-    border: 2px solid transparent;
+    /* Subtle Border */
+    border: 1px solid #e2e8f0;
 
     box-shadow:
         0 4px 6px -1px rgba(0, 0, 0, 0.05),
         0 2px 4px -1px rgba(0, 0, 0, 0.03);
 
-    border-radius: 12px;
+    border-radius: 99px;
     padding: 0 2rem;
 
     display: flex;
@@ -45,9 +43,44 @@
     align-items: center;
     z-index: 99999;
 
-    /* Smooth, restrained entrance */
     animation: fadeSlideDown 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     transition: all 0.3s ease;
+}
+
+/* RGB Gradient Border Surround */
+.navbar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 99px;
+    padding: 2px;
+    background: linear-gradient(90deg, #ff0000, #00ff00, #0000ff, #ff0000, #00ff00, #0000ff);
+    background-size: 200% 100%;
+    animation: rgbBorderRun 3s linear infinite;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: 2;
+    pointer-events: none;
+    /* Crucial: Allow clicks to pass through to links */
+}
+
+@keyframes rgbBorderRun {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Hidden State */
+.hiddenNavbar {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
 }
 
 .rightSection {
@@ -66,19 +99,54 @@
 }
 
 .logoImage {
-    height: 75px;
+    height: 48px;
     width: auto;
     object-fit: contain;
+    /* Removed brightness filter for natural look on white */
 }
 
 /* 3. DESKTOP NAVIGATION */
 .navLinks {
     display: flex;
-    gap: 24px;
+    gap: 32px;
     list-style: none;
     margin: 0;
     padding: 0;
     align-items: center;
+}
+
+.navLink {
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #475569;
+    /* Slate-600 */
+    padding: 0.5rem 0;
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+.navLink:hover {
+    color: #0d9488;
+    /* Teal-600 */
+    /* Removed drop shadow for cleaner look on white */
+}
+
+/* Professional Underline Indicator */
+.navLink::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background: #0d9488;
+    /* Teal-600 */
+    transition: width 0.3s ease;
+}
+
+.navLink:hover::after {
+    width: 100%;
 }
 
 /* 3.1 SEARCH & ACTIONS */
@@ -93,14 +161,16 @@
     align-items: center;
     justify-content: center;
     background: transparent;
-    padding: 6px;
+    padding: 8px;
     border-radius: 50%;
-    transition: transform 0.2s ease, background-color 0.2s;
+    border: 1px solid #e2e8f0;
+    transition: transform 0.2s ease, background-color 0.2s, border-color 0.2s;
 }
 
 .whatsappBtn:hover {
     transform: scale(1.1);
-    background-color: rgba(37, 211, 102, 0.1);
+    background-color: #f0fdf4;
+    border-color: #25D366;
 }
 
 .searchContainer {
@@ -114,7 +184,7 @@
 }
 
 .searchContainer.searchActive {
-    background: #f1f5f9;
+    background: #f8fafc;
     border: 1px solid #cbd5e1;
     padding-left: 1rem;
     padding-right: 4px;
@@ -128,7 +198,7 @@
 }
 
 .searchContainer.searchActive .searchInputWrapper {
-    width: 200px;
+    width: 220px;
     /* Expand width */
     opacity: 1;
     margin-right: 0.5rem;
@@ -141,7 +211,12 @@
     outline: none;
     font-size: 0.9rem;
     color: #334155;
+    /* Dark Slate */
     font-family: inherit;
+}
+
+.searchInput::placeholder {
+    color: #94a3b8;
 }
 
 .searchBtn {
@@ -154,24 +229,27 @@
     align-items: center;
     justify-content: center;
     transition: background-color 0.2s;
+    color: #64748b;
+    /* Slate-500 */
 }
 
 .searchBtn:hover {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: #f1f5f9;
+    color: #334155;
 }
 
 /* SEARCH RESULTS DROPDOWN */
 .searchResultsDropdown {
     position: absolute;
-    top: 120%;
+    top: 140%;
     right: 0;
     width: 380px;
-    background: white;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
     border-radius: 16px;
     box-shadow:
-        0 4px 6px -1px rgba(0, 0, 0, 0.1),
-        0 10px 15px -3px rgba(0, 0, 0, 0.1),
-        0 0 0 1px rgba(226, 232, 240, 0.8);
+        0 10px 25px -5px rgba(0, 0, 0, 0.1),
+        0 8px 10px -6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     z-index: 1000;
     padding: 8px;
@@ -223,6 +301,7 @@
     position: relative;
     padding: 4px;
     background: white;
+    /* Keep thumbs white/clear */
 }
 
 .resultInfo {
@@ -257,6 +336,7 @@
 .searchResultItem:hover .resultArrow {
     opacity: 1;
     transform: translateX(0);
+    color: #0d9488;
 }
 
 .noResults {
@@ -282,40 +362,6 @@
     }
 }
 
-.navLink {
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: #475569;
-    /* Slate 600 - Professional Grey */
-    padding: 0.5rem 0;
-    position: relative;
-    transition: color 0.2s ease;
-}
-
-.navLink:hover {
-    color: #0284c7;
-    /* Sky 600 - Professional Medical Blue */
-}
-
-/* Professional Underline Indicator */
-.navLink::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -2px;
-    left: 0;
-    background: #0284c7;
-    transition: width 0.3s ease;
-}
-
-.navLink:hover::after {
-    width: 100%;
-}
-
-
-
 /* 4. MOBILE MENU BUTTON */
 .mobileMenuBtn {
     display: none;
@@ -328,67 +374,84 @@
 }
 
 .mobileMenuBtn:hover {
-    color: #0284c7;
+    color: #0d9488;
 }
 
-/* 5. PREMIUM MOBILE MENU OVERLAY */
+/* 5. DARK MOBILE MENU OVERLAY */
 .mobileMenu {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(240, 249, 255, 0.98));
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-
+    background: #020617;
+    /* Darkest Blue */
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-
+    justify-content: flex-start;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-20px);
+    transform: translateY(0);
     transition: all 0.5s cubic-bezier(0.32, 0.72, 0, 1);
-    z-index: 900;
-    /* Behind navbar content but covering page */
-    padding-top: 80px;
-    /* Offset for navbar */
-    flex-direction: column;
+    z-index: 100000;
+    padding: 1.5rem;
+    overflow-y: auto;
 }
 
 .mobileMenu.open {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+}
+
+/* ... rest of styles ... */
+
+/* Close Button Style */
+/* Header: Logo + Close Button */
+.mobileMenuHeader {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1002;
+}
+
+.mobileLogoContainer {
+    display: flex;
+    align-items: center;
+}
+
+.mobileLogoImage {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(1.2);
+    /* Keep brightness on dark mobile menu */
 }
 
 /* Close Button Style */
 .closeMenuBtn {
-    position: absolute;
-    top: 1.5rem;
-    /* Aligned with Navbar vertical center */
-    right: 1.5rem;
-    /* Aligned with Navbar padding */
-    background: transparent;
+    background: rgba(255, 255, 255, 0.1);
     border: none;
     cursor: pointer;
-    z-index: 1002;
-    transition: transform 0.2s ease, opacity 0.3s ease;
+    transition: transform 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0;
+    padding: 8px;
+    border-radius: 50%;
+    color: white;
 }
 
 .mobileMenu.open .closeMenuBtn {
     opacity: 1;
-    transition-delay: 0.2s;
-    /* Slight delay to appear after menu */
 }
 
 .closeMenuBtn:hover {
-    transform: scale(1.1) rotate(90deg);
+    transform: rotate(90deg);
+    background: rgba(255, 255, 255, 0.2);
     color: #ef4444;
 }
 
@@ -396,29 +459,25 @@
 .mobileNavList {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: auto 0;
+    /* Centers vertically in available space */
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
     text-align: center;
     width: 100%;
-    position: relative;
-    /* Context for children */
 }
 
 .mobileNavLink {
-    font-size: 2.25rem;
-    /* Large premium font */
+    font-size: 2.5rem;
     font-weight: 700;
-    color: #334155;
+    color: #e2e8f0;
     text-decoration: none;
     display: inline-block;
     position: relative;
-    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
-
-    /* Reveal animation setup */
+    transition: all 0.3s ease;
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
 }
 
 /* Staggered Animation for Links when Open */
@@ -449,8 +508,9 @@
 }
 
 .mobileNavLink:hover {
-    color: #0284c7;
-    transform: scale(1.1);
+    color: #2dd4bf;
+    transform: scale(1.05);
+    text-shadow: 0 0 20px rgba(45, 212, 191, 0.3);
 }
 
 .mobileNavLink::after {
@@ -498,15 +558,32 @@
 /* Mobile Search Styling */
 .mobileSearchContainer {
     display: flex;
+    flex-direction: column;
+    /* Stack results below input */
+    align-items: stretch;
+    /* Full width children */
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    /* Rounded pill initially, might change on result */
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+}
+
+.mobileSearchContainer:focus-within {
+    border-color: #2dd4bf;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* Wrapper for input and icon row */
+.mobileSearchInputWrapper {
+    display: flex;
     align-items: center;
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    padding: 0.75rem 1rem;
-    width: 80%;
-    max-width: 300px;
-    margin-bottom: 2rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 0.8rem 1.5rem;
 }
 
 .mobileSearchInput {
@@ -514,32 +591,74 @@
     border: none;
     outline: none;
     font-size: 1rem;
-    color: #334155;
+    color: white;
     background: transparent;
+    padding: 0.8rem 1.5rem;
+    /* Add padding here if wrapper not used, or adjust */
+    margin-right: -40px;
+    /* Overlap button space */
+    padding-right: 40px;
 }
 
 .mobileSearchBtn {
+    position: absolute;
+    right: 1.5rem;
+    top: 0.8rem;
+    /* approximate center vertically relative to input height */
     background: transparent;
     border: none;
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+    color: #94a3b8;
+}
+
+/* Mobile Search Results Dropdown Area */
+.mobileSearchResults {
+    width: 100%;
+    background: #1e293b;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    max-height: 300px;
+    overflow-y: auto;
+    border-radius: 0 0 20px 20px;
+    padding: 0.5rem;
+    animation: fadeIn 0.2s ease-out;
+}
+
+/* Adjust container radius when results are open */
+.mobileSearchContainer:has(.mobileSearchResults) {
+    border-radius: 20px 20px 0 0;
+    /* Flat bottom */
+}
+
+/* Mobile Result Items (reuse desktop styles mostly) */
+.mobileSearchResults .searchResultItem {
+    padding: 12px;
+    background: transparent;
+}
+
+.mobileSearchResults .searchResultItem:hover {
+    background: rgba(255, 255, 255, 0.05);
 }
 
 /* Mobile WhatsApp Styling */
 .mobileWhatsappBtn {
-    margin-top: 2rem;
+    margin-top: auto;
+    margin-bottom: 2rem;
     padding: 1rem;
-    background: #f0fdf4;
-    /* Light green bg */
+    background: rgba(37, 211, 102, 0.1);
+    border: 1px solid rgba(37, 211, 102, 0.3);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.2s;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .mobileWhatsappBtn:hover {
-    transform: scale(1.1);
-    background: #dcfce7;
+    transform: scale(1.15) rotate(10deg);
+    background: rgba(37, 211, 102, 0.2);
+    box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
 }

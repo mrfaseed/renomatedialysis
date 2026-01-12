@@ -67,6 +67,7 @@
 }
 
 .badge {
+    font-family: "Google Sans", sans-serif;
     display: inline-block;
     padding: 0.6rem 1.25rem;
     background: rgba(37, 99, 235, 0.08);
@@ -80,22 +81,39 @@
 }
 
 .heroTitle {
-    font-size: clamp(2.5rem, 4vw, 4rem);
-    line-height: 1.1;
-    font-weight: 800;
+    font-family: "Google Sans", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
     color: #0f172a;
     margin-bottom: 1.5rem;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.04em;
+}
+
+@media (max-width: 768px) {
+    .heroTitle {
+        font-size: 0.7rem;
+    }
 }
 
 .highlight {
+    font-family: "Google Sans", sans-serif;
+    font-size: 5rem;
+    line-height: 1;
+    text-transform: uppercase;
     background: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
+@media (max-width: 768px) {
+    .highlight {
+        font-size: 3rem;
+    }
+}
+
 .heroText {
+    font-family: "Google Sans", sans-serif;
     font-size: 1.15rem;
     line-height: 1.8;
     color: #475569;
@@ -104,6 +122,7 @@
 }
 
 .heroText strong {
+    font-family: "Google Sans", sans-serif;
     color: #1e3a8a;
     font-weight: 600;
 }
@@ -154,13 +173,15 @@
 }
 
 .statValue {
+    font-family: "Google Sans", sans-serif;
     font-size: 2.5rem;
     font-weight: 800;
     color: #0f172a;
-    line-height: 1;
+    padding-top: 3rem;
 }
 
 .statLabel {
+    font-family: "Google Sans", sans-serif;
     font-size: 0.85rem;
     font-weight: 600;
     color: #64748b;
@@ -194,22 +215,46 @@
 }
 
 .sectionTitle {
+    font-family: "Google Sans", sans-serif;
     font-size: 2.5rem;
-    font-weight: 700;
+    font-weight: 600;
+    letter-spacing: -0.04em;
     color: #0f172a;
     margin-bottom: 1.5rem;
     line-height: 1.2;
 }
 
+@media (max-width: 768px) {
+    .sectionTitle {
+        font-size: 1.5rem;
+    }
+}
+
+.highlightqu {
+    font-family: "Playfair Display", sans-serif;
+    font-style: italic;
+    font-size: 3.5rem;
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    color: #3571ff;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    padding-right: 0.06rem;
+}
+
 .sectionText {
+    font-family: "Google Sans", sans-serif;
     font-size: 1.125rem;
+    font-weight: 450;
     line-height: 1.8;
     color: #475569;
     margin-bottom: 1.5rem;
 }
 
 .textHighlight {
+    font-family: "Google Sans", sans-serif;
     color: #2563eb;
+    font-weight: 600;
 }
 
 .glassCard {
@@ -238,13 +283,23 @@
 }
 
 .glassCard h3 {
+    font-family: "Google Sans", sans-serif;
     font-size: 1.5rem;
-    font-weight: 700;
+    font-weight: 600;
     margin-bottom: 1rem;
     color: #0f172a;
 }
 
+.glassCard p {
+    font-family: "Google Sans", sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #475569;
+    margin-bottom: 1rem;
+}
+
 .checkList {
+    font-family: "Google Sans", sans-serif;
     list-style: none;
     padding: 0;
     margin: 1.5rem 0 0;
@@ -254,6 +309,7 @@
 }
 
 .checkList li {
+    font-family: "Google Sans", sans-serif;
     display: flex;
     align-items: center;
     gap: 0.75rem;
@@ -287,7 +343,33 @@
     min-height: 80px;
 }
 
+.sectionTitle {
+    font-family: "Google Sans", sans-serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    color: #0f172a;
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .sectionTitle {
+        font-size: 1.5rem;
+    }
+}
+
+.sectionTitle1 {
+    font-family: "Playfair Display", sans-serif;
+    font-style: italic;
+    font-size: 3.5rem;
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    color: #2563eb;
+    margin-bottom: 1.5rem;
+}
+
 .sectionSubtitle {
+    font-family: "Google Sans", sans-serif;
     font-size: 1.15rem;
     color: #64748b;
     margin-top: 1rem;
@@ -325,6 +407,7 @@
 }
 
 .featureCard h3 {
+    font-family: "Google Sans", sans-serif;
     font-size: 1.25rem;
     font-weight: 700;
     margin-bottom: 0.75rem;
@@ -332,6 +415,7 @@
 }
 
 .featureCard p {
+    font-family: "Google Sans", sans-serif;
     font-size: 1rem;
     line-height: 1.6;
     color: #64748b;
@@ -359,14 +443,22 @@
 }
 
 .complianceSection h2 {
+    font-family: "Google Sans", sans-serif;
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
+    letter-spacing: -0.04em;
 }
 
+@media (max-width: 768px) {
+    .complianceSection h2 {
+        font-size: 1.7rem;
+    }
+}
 .complianceSection p {
+    font-family: "Google Sans", sans-serif;
     font-size: 1.2rem;
-    opacity: 0.9;
+    opacity: 0.7;
     margin-bottom: 3rem;
     max-width: 700px;
 }
@@ -379,6 +471,7 @@
 }
 
 .complianceTag {
+    font-family: "Google Sans", sans-serif;
     padding: 0.75rem 1.75rem;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
@@ -389,6 +482,11 @@
     transition: background 0.3s;
 }
 
+@media (max-width: 768px) {
+    .complianceTag {
+        font-size: 1rem;
+    }
+}
 .complianceTag:hover {
     background: rgba(255, 255, 255, 0.2);
     transform: translateY(-2px);
@@ -415,22 +513,35 @@
     box-shadow: 0 10px 30px -5px rgba(37, 99, 235, 0.1);
 }
 
+.contentWrapper h2{
+    font-size: 4rem;
+}
+
+@media (max-width: 768px) {
+    .contentWrapper h2{
+        font-size: 2rem;
+    }
+}
+
 .teamName {
+    font-family: "Google Sans", sans-serif;
     font-size: 1.25rem;
-    font-weight: 700;
+    font-weight: 600;
     color: #0f172a;
     margin-bottom: 0.25rem;
 }
 
 .teamDegree {
+    font-family: "Google Sans", sans-serif;
     font-size: 0.85rem;
     color: #64748b;
-    font-weight: 500;
+    font-weight: 600;
     display: block;
     margin-bottom: 1rem;
 }
 
 .teamRole {
+    font-family: "Google Sans", sans-serif;
     display: inline-block;
     padding: 0.25rem 0.75rem;
     background: #eff6ff;
@@ -442,6 +553,7 @@
 }
 
 .teamDesc {
+    font-family: "Google Sans", sans-serif;
     font-size: 0.95rem;
     line-height: 1.6;
     color: #475569;
@@ -449,7 +561,9 @@
 
 
 .grandGovernance {
-    margin-top: 5rem;
+    font-family: "Google Sans", sans-serif;
+    font-size: 1.1rem;
+    margin-top: 4rem;
     background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
     border: 1px solid #e2e8f0;
     border-top: 6px solid #f59e0b;
@@ -465,26 +579,41 @@
     position: absolute;
     top: 1rem;
     right: 2rem;
-    font-size: 8rem;
-    font-family: serif;
+    font-size: 5rem;
     color: #f1f5f9;
     line-height: 1;
     pointer-events: none;
 }
 
 .governanceContent h3 {
-    font-size: 2.25rem;
+    font-family: "Google Sans", sans-serif;
+    font-size: 3rem;
     font-weight: 800;
     color: #0f172a;
     margin-bottom: 1.5rem;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.04em;
+}
+
+@media (max-width: 768px) {
+    .governanceContent h3 {
+        font-size: 1.7rem;
+        font-weight: 700;
+    }
 }
 
 .foundedBy {
+    font-family: "Google Sans", sans-serif;
     font-size: 1.25rem;
     color: #64748b;
     margin-bottom: 1.5rem;
     font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .foundedBy {
+        font-size: 1rem;
+        font-weight: 400;
+    }
 }
 
 .foundersList {
@@ -495,8 +624,16 @@
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
 }
+@media (max-width: 768px) {
+    .foundersList {
+        grid-template-columns: repeat(auto-fit, minmax(300px, -1fr));
+        gap: 1rem;
+    }
+}
+
 
 .foundersList li {
+    font-family: "Google Sans", sans-serif;
     font-size: 1.4rem;
     font-weight: 700;
     color: #0f172a;
@@ -516,6 +653,7 @@
 }
 
 .governanceContent p:last-child {
+    font-family: "Google Sans", sans-serif;
     font-size: 1.15rem;
     line-height: 1.8;
     color: #475569;
@@ -535,6 +673,26 @@
     gap: 2rem;
 }
 
+.splitLayout .sectionTitle{
+    font-size: 3rem;
+}
+
+@media (max-width: 768px) {
+    .splitLayout .sectionTitle{
+        font-size: 2rem;
+    }
+}
+
+.splitLayout .missionList{
+    font-size: 3rem;
+}
+
+@media (max-width: 768px) {
+    .splitLayout .missionList{
+        font-size: 2rem;
+    }
+}
+
 .splitCard {
     padding: 4rem 3rem;
     border-radius: 32px;
@@ -551,10 +709,15 @@
 }
 
 .blueCard h2 {
+    font-family: "Google Sans", sans-serif; 
+    font-size: 3rem;
+    padding-bottom: 1rem;
+    font-weight: 700;
     color: white;
 }
 
 .blueCard p {
+    font-family: "Google Sans", sans-serif; 
     color: #e2e8f0;
     font-size: 1.2rem;
     line-height: 1.7;
@@ -571,6 +734,8 @@
 }
 
 .missionList {
+    font-family: "Google Sans", sans-serif; 
+    font-size: 1.2rem;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -580,6 +745,7 @@
 }
 
 .missionList li {
+    font-family: "Google Sans", sans-serif; 
     position: relative;
     padding-left: 1.5rem;
     font-size: 1.1rem;
@@ -593,6 +759,20 @@
     position: absolute;
     left: 0;
     font-weight: bold;
+}
+
+.sectionTitle{
+    font-family: "Google Sans", sans-serif; 
+    font-size: 3rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.cardIconLarge p{
+    font-family: "Google Sans", sans-serif; 
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: #475569;
 }
 
 /* Commitment */
@@ -619,18 +799,33 @@
 }
 
 .commitmentCard h2 {
-    font-size: 2rem;
+    font-family: "Google Sans", sans-serif; 
+    font-size: 2.7rem;
     font-weight: 700;
     color: #0f172a;
     margin-bottom: 1.5rem;
+    letter-spacing: -0.04em;
+}
+
+@media (max-width: 768px) {
+    .commitmentCard h2 {
+        font-size: 2rem;
+    }
 }
 
 .commitmentCard p {
-    font-size: 1.15rem;
+    font-family: "Google Sans", sans-serif; 
+    font-size: 1.2rem;
     line-height: 1.8;
     color: #334155;
     max-width: 90%;
     margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .commitmentCard p {
+        font-size: 1.1rem;
+    }
 }
 
 /* Responsive */

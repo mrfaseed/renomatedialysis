@@ -167,7 +167,7 @@
 
 /* --- CTA Box --- */
 .ctaBox {
-    background: linear-gradient(135deg, #d0ef07 0%, #d8f310 100%);
+    background-color: #fbea00;
     border-radius: 2rem;
     padding: 4rem 2rem;
     text-align: center;
@@ -206,7 +206,7 @@
 .orb2 {
     width: 250px;
     height: 250px;
-    background: #abe114;
+    background: #ffe100;
     bottom: -50px;
     right: -50px;
 }
@@ -234,7 +234,7 @@
     font-family: "Playfair Display", serif;
     font-style: italic;
     font-size: 4.5rem;
-    background: linear-gradient(to right, #aabbde, #2563eb);
+    background: linear-gradient(to right, #763a12, #ed8600);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -304,8 +304,8 @@
 
 .btnSecondary:hover {
     color: white;
-    background: rgba(255, 255, 255, 0.2);
-    border-color: white;
+    background: rgb(0, 0, 0);
+    border-color: rgb(0, 0, 0);
 }
 
 .btnIcon {
