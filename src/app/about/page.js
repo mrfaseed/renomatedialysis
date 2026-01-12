@@ -97,7 +97,6 @@ export default function AboutPage() {
                     <motion.div
                         initial="hidden"
                         whileInView="visible"
-                        viewport={{ once: true }}
                         variants={staggerContainer}
                         className={styles.gridTwoCol}
                     >
@@ -135,7 +134,6 @@ export default function AboutPage() {
                     <motion.div
                         initial="hidden"
                         whileInView="visible"
-                        viewport={{ once: true }}
                         variants={fadeInUp}
                         className={styles.sectionHeader}
                     >
@@ -150,7 +148,6 @@ export default function AboutPage() {
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
                             transition={{ delay: 0.1 }}
                             className={styles.featureCard}
                         >
@@ -161,7 +158,6 @@ export default function AboutPage() {
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
                             transition={{ delay: 0.2 }}
                             className={styles.featureCard}
                         >
@@ -172,7 +168,6 @@ export default function AboutPage() {
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
                             transition={{ delay: 0.3 }}
                             className={styles.featureCard}
                         >
@@ -207,7 +202,6 @@ export default function AboutPage() {
                     <motion.div
                         initial="hidden"
                         whileInView="visible"
-                        viewport={{ once: true }}
                         variants={fadeInUp}
                         className={styles.sectionHeader}
                     >
@@ -270,7 +264,6 @@ export default function AboutPage() {
                             initial={{ x: -30, opacity: 0 }}
                             whileInView={{ x: 0, opacity: 1 }}
                             transition={{ duration: 0.6 }}
-                            viewport={{ once: true }}
                             className={`${styles.splitCard} ${styles.blueCard}`}
                         >
                             <Eye size={40} className={styles.cardIconLarge} />
@@ -281,7 +274,6 @@ export default function AboutPage() {
                             initial={{ x: 30, opacity: 0 }}
                             whileInView={{ x: 0, opacity: 1 }}
                             transition={{ duration: 0.6 }}
-                            viewport={{ once: true }}
                             className={`${styles.splitCard} ${styles.lightCard}`}
                         >
                             <Target size={40} className={styles.cardIconLarge} />
@@ -318,7 +310,6 @@ function TeamMember({ name, degree, role, description, delay }) {
         <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
             transition={{ delay: delay, duration: 0.5 }}
             className={styles.teamCard}
         >

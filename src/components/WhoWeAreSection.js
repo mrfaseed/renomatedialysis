@@ -3,10 +3,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import styles from './WhoWeAreSection.module.css';
+import ChemistryBackground from './ChemistryBackground';
 
 export default function WhoWeAreSection() {
     return (
         <section className={styles.container} id="who-we-are">
+            <ChemistryBackground />
+
             {/* 2D Effects Layer */}
             <div className={styles.gridBackground}></div>
             <div className={`${styles.floatingCircle} ${styles.circle1}`}></div>
@@ -28,10 +31,9 @@ export default function WhoWeAreSection() {
 
             <div className={styles.contentWrapper}>
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
                 >
                     <span className={styles.label}>Who We Are</span>
                     <h2 className={styles.title}>
@@ -42,10 +44,9 @@ export default function WhoWeAreSection() {
 
                 <motion.div
                     className={styles.textLayout}
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
+                    transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
                 >
                     <p className={styles.paragraph}>
                         At <strong>Renomate</strong>, we don't just manufacture dialysis fluids; we craft the lifeline that thousands of patients depend on every single day. Born from a vision to elevate medical standards in India, we blend precise chemical engineering with an unwavering commitment to patient safety.

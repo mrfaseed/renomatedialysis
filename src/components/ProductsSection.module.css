@@ -24,15 +24,26 @@
 .blob1 {
     position: absolute;
     top: 5rem;
-    /* top-20 */
     right: 0;
-    width: 500px;
-    height: 500px;
-    background-color: rgba(219, 234, 254, 0.5);
-    /* bg-blue-100/50 */
+    width: 600px;
+    height: 600px;
+    background-color: rgba(34, 211, 238, 0.2);
     border-radius: 9999px;
-    filter: blur(100px);
+    filter: blur(120px);
     transform: translate(50%, -50%);
+    animation: pulseGlow 10s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes pulseGlow {
+    0% {
+        transform: translate(50%, -50%) scale(1);
+        opacity: 0.3;
+    }
+
+    100% {
+        transform: translate(40%, -40%) scale(1.2);
+        opacity: 0.5;
+    }
 }
 
 .blob2 {
@@ -293,11 +304,12 @@
 .cardGlow {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom right, transparent, transparent, rgba(239, 246, 255, 0.3));
-    /* to-blue-50/30 */
+    background: radial-gradient(circle at top right, rgba(34, 211, 238, 0.1), transparent 70%);
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0 L1 0 L1 1 L0 1 Z' fill='rgba(34, 211, 238, 0.05)'/%3E%3C/svg%3E");
     opacity: 0;
-    transition: opacity 0.5s ease;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     pointer-events: none;
+    z-index: 1;
 }
 
 .card:hover .cardGlow {
