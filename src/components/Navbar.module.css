@@ -316,6 +316,13 @@
 
 
 
+/* Hidden State for Navbar */
+.hiddenNavbar {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
 /* 4. MOBILE MENU BUTTON */
 .mobileMenuBtn {
     display: none;
@@ -338,87 +345,102 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(240, 249, 255, 0.98));
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(240, 249, 255, 0.99));
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
 
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
 
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-20px);
+    transform: translateY(0);
+    /* Reset transform to avoid offset issues if any */
     transition: all 0.5s cubic-bezier(0.32, 0.72, 0, 1);
-    z-index: 900;
-    /* Behind navbar content but covering page */
-    padding-top: 80px;
-    /* Offset for navbar */
-    flex-direction: column;
+    z-index: 100000;
+    padding: 1.5rem;
+    overflow-y: auto;
 }
 
 .mobileMenu.open {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+}
+
+/* ... rest of styles ... */
+
+/* Close Button Style */
+/* Header: Logo + Close Button */
+.mobileMenuHeader {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1002;
+}
+
+.mobileLogoContainer {
+    display: flex;
+    align-items: center;
+}
+
+.mobileLogoImage {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
 }
 
 /* Close Button Style */
 .closeMenuBtn {
-    position: absolute;
-    top: 1.5rem;
-    /* Aligned with Navbar vertical center */
-    right: 1.5rem;
-    /* Aligned with Navbar padding */
     background: transparent;
     border: none;
     cursor: pointer;
-    z-index: 1002;
     transition: transform 0.2s ease, opacity 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0;
+    padding: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
 }
 
 .mobileMenu.open .closeMenuBtn {
     opacity: 1;
-    transition-delay: 0.2s;
-    /* Slight delay to appear after menu */
 }
 
 .closeMenuBtn:hover {
-    transform: scale(1.1) rotate(90deg);
+    transform: rotate(90deg);
     color: #ef4444;
+    background: rgba(255, 255, 255, 0.8);
 }
 
 
 .mobileNavList {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: auto 0;
+    /* Centers vertically in available space */
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
     text-align: center;
     width: 100%;
-    position: relative;
-    /* Context for children */
 }
 
 .mobileNavLink {
-    font-size: 2.25rem;
-    /* Large premium font */
+    font-size: 2.5rem;
     font-weight: 700;
-    color: #334155;
+    color: #1e293b;
     text-decoration: none;
     display: inline-block;
     position: relative;
-    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
-
-    /* Reveal animation setup */
+    transition: all 0.3s ease;
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
 }
 
 /* Staggered Animation for Links when Open */
@@ -450,7 +472,8 @@
 
 .mobileNavLink:hover {
     color: #0284c7;
-    transform: scale(1.1);
+    transform: scale(1.05);
+    text-shadow: 0 4px 12px rgba(2, 132, 199, 0.2);
 }
 
 .mobileNavLink::after {
@@ -498,15 +521,33 @@
 /* Mobile Search Styling */
 .mobileSearchContainer {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    /* Stack results below input */
+    align-items: stretch;
+    /* Full width children */
+    position: relative;
     background: #ffffff;
     border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    padding: 0.75rem 1rem;
-    width: 80%;
-    max-width: 300px;
-    margin-bottom: 2rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    /* Rounded pill initially, might change on result */
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+}
+
+.mobileSearchContainer:focus-within {
+    border-color: #0284c7;
+    box-shadow: 0 4px 20px rgba(2, 132, 199, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Wrapper for input and icon row */
+.mobileSearchInputWrapper {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 1.5rem;
 }
 
 .mobileSearchInput {
@@ -516,30 +557,71 @@
     font-size: 1rem;
     color: #334155;
     background: transparent;
+    padding: 0.8rem 1.5rem;
+    /* Add padding here if wrapper not used, or adjust */
+    margin-right: -40px;
+    /* Overlap button space */
+    padding-right: 40px;
 }
 
 .mobileSearchBtn {
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
     background: transparent;
     border: none;
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+    color: #64748b;
+}
+
+/* Mobile Search Results Dropdown Area */
+.mobileSearchResults {
+    width: 100%;
+    background: white;
+    border-top: 1px solid #f1f5f9;
+    max-height: 300px;
+    overflow-y: auto;
+    border-radius: 0 0 20px 20px;
+    padding: 0.5rem;
+    animation: fadeIn 0.2s ease-out;
+}
+
+/* Adjust container radius when results are open */
+.mobileSearchContainer:has(.mobileSearchResults) {
+    border-radius: 20px 20px 0 0;
+    /* Flat bottom */
+}
+
+/* Mobile Result Items (reuse desktop styles mostly) */
+.mobileSearchResults .searchResultItem {
+    padding: 12px;
+    background: transparent;
+}
+
+.mobileSearchResults .searchResultItem:hover {
+    background: #f8fafc;
 }
 
 /* Mobile WhatsApp Styling */
 .mobileWhatsappBtn {
-    margin-top: 2rem;
+    margin-top: auto;
+    margin-bottom: 2rem;
     padding: 1rem;
     background: #f0fdf4;
-    /* Light green bg */
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.2s;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
 }
 
 .mobileWhatsappBtn:hover {
-    transform: scale(1.1);
+    transform: scale(1.15) rotate(10deg);
     background: #dcfce7;
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
 }
