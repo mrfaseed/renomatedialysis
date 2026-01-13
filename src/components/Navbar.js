@@ -74,16 +74,22 @@ export default function Navbar() {
         <>
             <nav className={`${styles.navbar} ${isOpen ? styles.hiddenNavbar : ''}`}>
                 {/* Logo Section */}
+                {/* Logo Section */}
                 <Link href="/" className={styles.logoContainer}>
                     <Image
-                        src="/image7.png"
+                        src="/1-1.png"
                         alt="Renomate"
-                        width={180}
-                        height={60}
+                        width={80}
+                        height={80}
                         quality={100}
                         className={styles.logoImage}
                         priority
                     />
+                    <div className={styles.brandText}>
+                        <span className={styles.brandPrefix}>SRI RAMAKRISHNA'S</span>
+                        <h1 className={styles.brandTitle}>RENOMATE</h1>
+                        <span className={styles.brandSubtitle}>MEDICAL DEVICE & HEMODIALYSIS FLUID MANUFACTURES</span>
+                    </div>
                 </Link>
 
                 {/* Desktop Navigation & Actions Wrapper - Grouped to Right */}
@@ -182,7 +188,7 @@ export default function Navbar() {
                                 onClick={toggleMenu}
                                 aria-label="Toggle menu"
                             >
-                                <Menu size={26} color="#334155" />
+                                <Menu size={24} color="#000000" />
                             </button>
                         )}
                     </div>
@@ -207,7 +213,7 @@ export default function Navbar() {
                         onClick={toggleMenu}
                         aria-label="Close menu"
                     >
-                        <X size={32} color="#e2e8f0" />
+                        <X size={32} color="#334155" />
                     </button>
                 </div>
 
@@ -221,7 +227,7 @@ export default function Navbar() {
                         onChange={handleSearch}
                     />
                     <button className={styles.mobileSearchBtn}>
-                        <Search size={20} color="#cbd5e1" />
+                        <Search size={20} color="#64748b" />
                     </button>
 
                     {/* Mobile Search Results */}

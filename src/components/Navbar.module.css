@@ -21,7 +21,7 @@
     transform: translateX(-50%);
     width: 95%;
     max-width: 1400px;
-    height: 72px;
+    height: 85px;
 
     /* Pure White Background */
     background: #ffffff;
@@ -99,10 +99,43 @@
 }
 
 .logoImage {
-    height: 48px;
+    height: 56px;
     width: auto;
     object-fit: contain;
-    /* Removed brightness filter for natural look on white */
+}
+
+.brandText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 12px;
+}
+
+.brandPrefix {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #64748b;
+    margin-bottom: -2px;
+}
+
+.brandTitle {
+    font-size: 1.8rem;
+    font-weight: 800;
+    line-height: 1;
+    color: #0ea5e9;
+    /* Light Blue / Cyan to match image */
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+.brandSubtitle {
+    font-size: 0.5rem;
+    font-weight: 600;
+    color: #334155;
+    letter-spacing: 0.05em;
+    margin-top: 2px;
+    max-width: 220px;
 }
 
 /* 3. DESKTOP NAVIGATION */
@@ -384,8 +417,8 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: #020617;
-    /* Darkest Blue */
+    background: #ffffff;
+    /* Pure White */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -412,14 +445,16 @@
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
+    /* Logo hidden, so align close btn to right */
     margin-bottom: 2rem;
     position: relative;
     z-index: 1002;
 }
 
 .mobileLogoContainer {
-    display: flex;
+    display: none;
+    /* Hide logo on mobile menu */
     align-items: center;
 }
 
@@ -433,7 +468,7 @@
 
 /* Close Button Style */
 .closeMenuBtn {
-    background: rgba(255, 255, 255, 0.1);
+    background: #f1f5f9;
     border: none;
     cursor: pointer;
     transition: transform 0.2s ease;
@@ -442,7 +477,8 @@
     justify-content: center;
     padding: 8px;
     border-radius: 50%;
-    color: white;
+    color: #334155;
+    /* Dark Slate */
 }
 
 .mobileMenu.open .closeMenuBtn {
@@ -451,7 +487,7 @@
 
 .closeMenuBtn:hover {
     transform: rotate(90deg);
-    background: rgba(255, 255, 255, 0.2);
+    background: #e2e8f0;
     color: #ef4444;
 }
 
@@ -469,9 +505,11 @@
 }
 
 .mobileNavLink {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
+    /* Reduced size */
     font-weight: 700;
-    color: #e2e8f0;
+    color: #334155;
+    /* Dark Slate */
     text-decoration: none;
     display: inline-block;
     position: relative;
@@ -540,18 +578,30 @@
 
     .navbar {
         padding: 0 1rem;
+        height: 60px;
+        /* Reduced from 85px */
     }
 
     .logoContainer {
         flex-shrink: 1;
         min-width: 0;
         overflow: hidden;
+        height: 100%;
+        /* Ensure it fits */
     }
 
     .logoImage {
-        height: 48px;
-        /* Slightly larger than 36 for better visibility */
+        display: block;
+        height: 40px;
+        /* Reduced from 60px */
         width: auto;
+    }
+
+    .brandText {
+        display: flex;
+        transform: scale(0.65);
+        transform-origin: left center;
+        margin-left: 5px;
     }
 }
 
@@ -563,8 +613,8 @@
     align-items: stretch;
     /* Full width children */
     position: relative;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
     border-radius: 20px;
     /* Rounded pill initially, might change on result */
     width: 100%;
@@ -591,7 +641,7 @@
     border: none;
     outline: none;
     font-size: 1rem;
-    color: white;
+    color: #334155;
     background: transparent;
     padding: 0.8rem 1.5rem;
     /* Add padding here if wrapper not used, or adjust */
@@ -617,8 +667,8 @@
 /* Mobile Search Results Dropdown Area */
 .mobileSearchResults {
     width: 100%;
-    background: #1e293b;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background: #ffffff;
+    border-top: 1px solid #e2e8f0;
     max-height: 300px;
     overflow-y: auto;
     border-radius: 0 0 20px 20px;
