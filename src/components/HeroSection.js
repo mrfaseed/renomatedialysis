@@ -143,7 +143,7 @@ export default function HeroSection() {
                                 variants={itemVariants}
                                 className={styles.textHighlight}
                             >
-                                High Quality
+                              <span className={styles.playfair}>  High Quality</span>
                             </motion.span>
                             <motion.span
                                 variants={itemVariants}
