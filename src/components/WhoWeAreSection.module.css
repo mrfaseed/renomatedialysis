@@ -39,6 +39,7 @@
     height: 100%;
     background: linear-gradient(to bottom, transparent, rgba(37, 99, 235, 0.03), transparent);
     animation: scanline 8s linear infinite;
+    will-change: transform;
 }
 
 @keyframes scanline {
@@ -58,6 +59,7 @@
     border: 1px solid #cbd5e1;
     z-index: 1;
     pointer-events: none;
+    will-change: transform;
 }
 
 .circle1 {
@@ -96,7 +98,7 @@
 .contentWrapper {
     position: relative;
     z-index: 10;
-    max-width: 1000px;
+    max-width: 1400px;
     margin: 0 auto;
     text-align: center;
 }
@@ -158,8 +160,8 @@
 /* Text Columns */
 .textLayout {
     display: grid;
-    grid-template-columns: 1fr 1fr 1.2fr;
-    gap: 3rem;
+    grid-template-columns: 1.2fr 1.2fr 1fr;
+    gap: 4rem;
     align-items: center;
     text-align: left;
     margin-top: 2rem;
@@ -174,7 +176,7 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    transform: translateX(100px) scale(1.4);
+    transform: translateX(30px) scale(1.2);
 }
 
 @media (max-width: 1100px) {
