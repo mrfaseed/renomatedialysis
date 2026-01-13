@@ -15,7 +15,7 @@ const products = [
         description: 'This has an excellent removal of calcium & magnesium deposits. The offered citromate is precisely processed by advanced technology & finest material of market under the supervision of experts.',
         overview: 'This has an excellent removal of calcium & magnesium deposits. The offered citromate is precisely processed by advanced technology & finest material of market under the supervision of experts. Along with that, this citromate is well examined on different terms of quality for supplying its flawless range from our side. Customers can purchase this citromate from us with various specifications at industry existing rates to the clients.',
         fullDescription: 'Citric Acid Powder is used to clean and remove scale from dialysis machines and water systems. It helps remove hard water deposits and mineral buildup, keeping the equipment clean and working properly.',
-        image: '/products/Citric_Acid_Powder.png',
+        image: '/products/Citric_v3.png',
         detailImage: '/products/Citric_v3.png',
         specs: ['Purity: >99%', 'Form: Crystalline Powder', 'Packaging: 500g / 1kg', 'GMP Certified'],
         whyUsed: [
@@ -76,8 +76,8 @@ const products = [
             }
         ],
         expiry: 'One year from the date of manufacture',
-        image: '/products/CITROMATE.png',
-        detailImage: '/products/CITROMATE_Detail.jpg',
+        image: '/products/Citromate_v3.png',
+        detailImage: '/products/Citromate_v3.png',
         specs: ['SKU: W019', 'pH: 1.7 - 2.0', 'Expiry: 1 Year', 'Microbiocidal >60°C'],
         whyUsed: [
             'Dissolves blood residue and calcium sediments',
@@ -115,8 +115,8 @@ const products = [
         description: 'Dialyzers are not just reused, they are reprocessed. The reprocessing procedure involves cleaning, testing, filling your dialyzer with a sterilant (Diamate® Cold Sterilant), inspecting, labeling, storing and rinsing your dialyzer before it is reused for your next treatment.',
         overview: 'DIAMATE is a specialized cold sterilant solution designed for dialyzer reprocessing. It helps sterilize and disinfect dialyzers safely, removing bacteria and other contaminants while maintaining dialyzer performance.',
         fullDescription: 'Dialyzers are not just reused, they are reprocessed. The reprocessing procedure involves cleaning, testing, filling your dialyzer with a sterilant (Diamate® Cold Sterilant), inspecting, labeling, storing and rinsing your dialyzer before it is reused for your next treatment.',
-        image: '/products/DIAMATE.png',
-        detailImage: '/products/Diamate_canister_v2_match_acid.png',
+        image: '/products/Diamate_v3.png',
+        detailImage: '/products/Diamate_v3.png',
         specs: ['SKU: W021', 'Type: Peracetic Acid based', 'Usage: Reprocessing', 'Sterilization: High-level', 'Safe Reuse'],
         customSections: [
             {
@@ -817,7 +817,6 @@ export default function ProductsPage() {
     const categories = [
         { name: 'All Products', tag: null },
         { name: 'Dialysis Solutions', tag: 'Solution' },
-        { name: 'Powders & Compounds', tag: 'Powder' },
         { name: 'Cleaning & Disinfection', tag: 'Disinfectant' }
     ];
 
