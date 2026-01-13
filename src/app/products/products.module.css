@@ -162,68 +162,79 @@
   }
 }
 
+/* Header Description */
+.headerDescription {
+  font-size: 1.125rem;
+  color: #475569;
+  line-height: 1.7;
+  max-width: 42rem;
+  margin-top: 1rem;
+}
+
+.breakLine {
+  display: block;
+}
+
 .headerSubtitle {
   font-family: "Playfair Display", serif;
   font-style: italic;
   font-size: 4rem;
   display: block;
-  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #10b981 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  line-height: 1.2;
+  margin-top: 0.5rem;
 }
 
 @media (max-width: 768px) {
   .headerSubtitle {
-    font-size: 2.3rem;
+    font-size: 2.5rem;
   }
-}
 
-.headerDescription {
-  font-size: 1.125rem;
-  color: #475569;
-  line-height: 1.6;
-  font-weight: 400;
+  .breakLine {
+    display: none;
+  }
 }
 
 /* Category Filter */
 .categoryFilterContainer {
   display: flex;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
 }
 
 .categoryPill {
-  font-family: "Google Sans", sans-serif;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
   font-size: 0.95rem;
   font-weight: 600;
-  color: #475569;
-  background: #f1f5f9;
-  border: 2px solid transparent;
-  padding: 0.75rem 1.5rem;
-  border-radius: 999px;
+  color: #64748b;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-  letter-spacing: -0.01em;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .categoryPill:hover {
-  background: #e2e8f0;
-  color: #1e293b;
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: #334155;
 }
 
 .categoryPillActive {
-  background: #3b82f6;
+  background: linear-gradient(135deg, #2563eb 0%, #10b981 100%);
   color: white;
-  border-color: #3b82f6;
+  border-color: transparent;
 }
 
 .categoryPillActive:hover {
-  background: #2563eb;
-  border-color: #2563eb;
+  background: linear-gradient(135deg, #1d4ed8 0%, #059669 100%);
+  border-color: transparent;
+  transform: translateY(-1px);
 }
 
 /* Product Count Text */
@@ -349,6 +360,14 @@
   min-height: 4.5rem;
   display: flex;
   align-items: flex-start;
+  transition: all 0.3s ease;
+}
+
+.overviewCard:hover .overviewTitle {
+  background: linear-gradient(135deg, #2563eb 0%, #10b981 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .overviewDescription {
@@ -382,9 +401,9 @@
 }
 
 .overviewCard:hover .viewSpecsBtn {
-  background: #2259db;
+  background: linear-gradient(135deg, #2563eb 0%, #10b981 100%);
   color: white;
-  border-color: #1d4cbb;
+  border-color: transparent;
 }
 
 /* Detailed Product Sections */
