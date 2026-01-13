@@ -163,7 +163,7 @@ export default function AboutPage() {
                         >
                             <div className={styles.featureIconBox}><ShieldCheck size={24} /></div>
                             <h3>Stringent Testing</h3>
-                            <p>Incoming materials undergo strict quality checks. Each batch is tested for identity, purity, and quality per specifications.</p>
+                            <p>Incoming raw materials and finished goods undergo strict quality checks. Each batch is tested for identity, purity, and quality as per IP/BP specifications. </p>
                         </motion.div>
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}

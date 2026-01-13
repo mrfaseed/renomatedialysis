@@ -12,31 +12,31 @@ const featuredProducts = [
         id: 1,
         title: 'Citric Acid Powder 500 gm & 1 Kg',
         description: 'High-purity citric acid formulation for efficient descaling. Excellent removal of calcium and magnesium deposits.',
-        image: '/products/Citric_Acid_Powder.png'
+        image: '/products/1.png'
     },
     {
         id: 2,
         title: 'CITROMATE (Cleaning Fluid)',
         description: 'Specialized cleaning fluid for hemodialysis machines. Precisely formulated to remove organic and inorganic deposits.',
-        image: '/products/CITROMATE.png'
+        image: '/products/2.png'
     },
     {
         id: 3,
         title: 'DIAMATE (Dialyzer Reprocessing)',
         description: 'Cold sterilant for dialyzer reprocessing. Includes cleaning, testing, and sterilization steps. Ensures safe reuse.',
-        image: '/products/DIAMATE.png'
+        image: '/products/3.png'
     },
     {
         id: 4,
         title: 'Formaldehyde Solution I.P',
         description: 'Broad-spectrum disinfectant. Effective against bacteria, fungi, and spores. Compliant with Pharmacopoeia standards.',
-        image: '/products/Formaldehyde_Solution_IP.png'
+        image: '/products/4.png'
     },
     {
         id: 5,
         title: 'Acidic Solution (Bicarbonate)',
         description: 'Hemodialysis Concentrated Acidic Solution. Proportioning ratio 1:34:1.83. Formulated for standard treatments.',
-        image: '/products/cane.png'
+        image: '/products/5.png'
     }
 ];
 
