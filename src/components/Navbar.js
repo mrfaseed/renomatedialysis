@@ -188,7 +188,7 @@ export default function Navbar() {
                                 onClick={toggleMenu}
                                 aria-label="Toggle menu"
                             >
-                                <Menu size={26} color="#334155" />
+                                <Menu size={24} color="#000000" />
                             </button>
                         )}
                     </div>
@@ -213,7 +213,7 @@ export default function Navbar() {
                         onClick={toggleMenu}
                         aria-label="Close menu"
                     >
-                        <X size={32} color="#e2e8f0" />
+                        <X size={32} color="#334155" />
                     </button>
                 </div>
 
@@ -227,7 +227,7 @@ export default function Navbar() {
                         onChange={handleSearch}
                     />
                     <button className={styles.mobileSearchBtn}>
-                        <Search size={20} color="#cbd5e1" />
+                        <Search size={20} color="#64748b" />
                     </button>
 
                     {/* Mobile Search Results */}
