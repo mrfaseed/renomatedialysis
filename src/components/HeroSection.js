@@ -135,7 +135,7 @@ export default function HeroSection() {
                         animate="visible"
                     >
                         <motion.h4 variants={itemVariants} className={styles.welcomeText}>
-                            Advanced Chemical Manufacturing
+                            Advanced Medical Device and Hemodialysis Manufacturers
                         </motion.h4>
 
                         <motion.h1 variants={itemVariants} className={styles.title}>
@@ -143,20 +143,20 @@ export default function HeroSection() {
                                 variants={itemVariants}
                                 className={styles.textHighlight}
                             >
-                              <span className={styles.playfair}>  High Quality</span>
+                              <span className={styles.playfair}>  Premium Quality</span>
                             </motion.span>
                             <motion.span
                                 variants={itemVariants}
                                 className={styles.textWhite}
                                 style={{ display: 'block' }}
                             >
-                                DIALYSIS TREATMENT
+                                GLOBAL STANDARD
                             </motion.span>
                             <motion.span
                                 variants={itemVariants}
                                 className={styles.textSub}
                             >
-                                AT LOW COST
+                                DIALYSIS SOLUTION
                             </motion.span>
                         </motion.h1>
 
@@ -231,7 +231,7 @@ function VideoBackground() {
                 onLoadedData={handleVideoLoad}
                 style={{ opacity: isVideoLoaded ? 1 : 0 }}
             >
-                <source src="/assets/0110.mp4" type="video/mp4" />
+                <source src="/assets/BG_FINAL.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
             <div className={styles.videoOverlay} />

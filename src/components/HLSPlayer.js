@@ -80,6 +80,7 @@ export default function HLSPlayer({ src, poster }) {
     // Toggle Mute
     const toggleMute = () => {
         if (videoRef.current) {
+            // If currently muted, unmuting will play sound
             videoRef.current.muted = !isMuted;
             setIsMuted(!isMuted);
         }
@@ -139,8 +140,22 @@ export default function HLSPlayer({ src, poster }) {
                 autoPlay
             />
 
-            {/* Bottom Right Control Button (Apple Style) */}
-            <div className="absolute bottom-6 right-6 z-20">
+            {/* Bottom Right Control Buttons */}
+            <div className="absolute bottom-6 right-6 z-20 flex gap-3">
+                {/* Sound Toggle Button */}
+                <button
+                    onClick={toggleMute}
+                    className="w-12 h-12 rounded-full bg-black/40 backdrop-blur-md border border-white/10 flex items-center justify-center transition-all duration-300 hover:bg-black/60 hover:scale-105 active:scale-95"
+                    aria-label={isMuted ? "Unmute" : "Mute"}
+                >
+                    {isMuted ? (
+                        <VolumeX size={20} className="text-white/90 stroke-[2.5]" />
+                    ) : (
+                        <Volume2 size={20} className="text-white/90 stroke-[2.5]" />
+                    )}
+                </button>
+
+                {/* Play/Pause Button */}
                 <button
                     onClick={() => {
                         if (videoRef.current?.ended) {

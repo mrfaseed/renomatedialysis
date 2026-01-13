@@ -137,7 +137,7 @@
 
 /* Welcome / Tagline */
 .welcomeText {
-    font-family: "Google Sans", sans-serif;
+    font-family: var(--font-outfit), sans-serif;
     font-size: 0.75rem;
     color: #e2e8f0;
     letter-spacing: 0.3em;
@@ -160,7 +160,7 @@
 
 /* Main Title */
 .title {
-    font-family: "Google Sans", sans-serif;
+    font-family: var(--font-outfit), sans-serif;
     font-size: clamp(3rem, 5vw, 5rem);
     font-weight: 700;
     line-height: 1.2;
@@ -169,10 +169,11 @@
     color: rgb(255, 255, 255);
 
 }
+
 .playfair {
-    font-family: "Playfair Display", serif;
+    font-family: var(--font-serif), serif;
     font-style: italic;
-    
+
 }
 
 .textHighlight {
@@ -202,9 +203,11 @@
     0% {
         background-position: 0% 50%;
     }
+
     50% {
         background-position: 100% 50%;
     }
+
     100% {
         background-position: 0% 50%;
     }
@@ -224,7 +227,7 @@
 
 /* Description */
 .description {
-    font-family: "Google Sans", sans-serif;
+    font-family: var(--font-outfit), sans-serif;
     font-size: 1.15rem;
     line-height: 1.8;
     color: #cbd5e1;
