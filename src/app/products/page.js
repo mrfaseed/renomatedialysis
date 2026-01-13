@@ -15,7 +15,7 @@ const products = [
         description: 'This has an excellent removal of calcium & magnesium deposits. The offered citromate is precisely processed by advanced technology & finest material of market under the supervision of experts.',
         overview: 'This has an excellent removal of calcium & magnesium deposits. The offered citromate is precisely processed by advanced technology & finest material of market under the supervision of experts. Along with that, this citromate is well examined on different terms of quality for supplying its flawless range from our side. Customers can purchase this citromate from us with various specifications at industry existing rates to the clients.',
         fullDescription: 'Citric Acid Powder is used to clean and remove scale from dialysis machines and water systems. It helps remove hard water deposits and mineral buildup, keeping the equipment clean and working properly.',
-        image: '/products/Citric_v3.png',
+        image: '/products/Citric_Acid_Powder.png',
         detailImage: '/products/Citric_v3.png',
         specs: ['Purity: >99%', 'Form: Crystalline Powder', 'Packaging: 500g / 1kg', 'GMP Certified'],
         whyUsed: [
@@ -76,8 +76,8 @@ const products = [
             }
         ],
         expiry: 'One year from the date of manufacture',
-        image: '/products/Citromate_v3.png',
-        detailImage: '/products/Citromate_v3.png',
+        image: '/products/CITROMATE.png',
+        detailImage: '/products/CITROMATE_Detail.jpg',
         specs: ['SKU: W019', 'pH: 1.7 - 2.0', 'Expiry: 1 Year', 'Microbiocidal >60°C'],
         whyUsed: [
             'Dissolves blood residue and calcium sediments',
@@ -115,8 +115,8 @@ const products = [
         description: 'Dialyzers are not just reused, they are reprocessed. The reprocessing procedure involves cleaning, testing, filling your dialyzer with a sterilant (Diamate® Cold Sterilant), inspecting, labeling, storing and rinsing your dialyzer before it is reused for your next treatment.',
         overview: 'DIAMATE is a specialized cold sterilant solution designed for dialyzer reprocessing. It helps sterilize and disinfect dialyzers safely, removing bacteria and other contaminants while maintaining dialyzer performance.',
         fullDescription: 'Dialyzers are not just reused, they are reprocessed. The reprocessing procedure involves cleaning, testing, filling your dialyzer with a sterilant (Diamate® Cold Sterilant), inspecting, labeling, storing and rinsing your dialyzer before it is reused for your next treatment.',
-        image: '/products/Diamate_v3.png',
-        detailImage: '/products/Diamate_v3.png',
+        image: '/products/DIAMATE.png',
+        detailImage: '/products/Diamate_canister_v2_match_acid.png',
         specs: ['SKU: W021', 'Type: Peracetic Acid based', 'Usage: Reprocessing', 'Sterilization: High-level', 'Safe Reuse'],
         customSections: [
             {
@@ -169,8 +169,8 @@ const products = [
         description: 'Formaldehyde can be useful as a disinfectant as it kills most bacteria and fungi (including their spores). It is used to produced killed vaccines. Formaldehyde are used in Hemodialysis Unit.',
         overview: 'Formaldehyde can be useful as a disinfectant as it kills most bacteria and fungi (including their spores). It is used to produced killed vaccines. Formaldehyde are used in Hemodialysis Unit.',
         fullDescription: 'Formaldehyde Solution I.P is a strong disinfectant widely used in medical and laboratory settings to sterilize and disinfect equipment, surfaces, and instruments. It effectively eliminates bacteria, viruses, and fungi, ensuring a safe and hygienic environment.',
-        image: '/products/Formaldehyde_Solution_IP.png',
-        detailImage: '/products/Formaldehyde_v5_blue_full.png',
+        image: '/products/4.png',
+        detailImage: '/products/4.png',
         specs: ['Grade: I.P', 'Concentration: 34-37% W/V', 'Efficacy: Broad-spectrum', 'Usage: External only'],
         whyUsed: [
             'Strong and effective disinfectant',
@@ -214,8 +214,8 @@ const products = [
         description: 'Hemodialysis Concentrated Acidic Solution for bicarbonate dialysis treatments. 1:34:1.83 proportioning ratio.',
         overview: 'Hemodialysis Concentrated Acidic Solution – Bp For Bicarbonate Dialysis (1:34:1.83 proportioning)',
         fullDescription: 'This acid concentrate solution is used in bicarbonate dialysis to help prepare dialysis fluid. It ensures proper acid-base balance and safe dialysis treatment for patients.',
-        image: '/products/cane.png',
-        detailImage: '/products/Acid_Concentrate_1_34_v1.png',
+        image: '/products/5.png',
+        detailImage: '/products/5.png',
         specs: ['Ratio: 1:34:1.83', 'Grade: BP Standard', 'Form: Liquid', 'Electrolyte Balanced'],
         whyUsed: [
             'Maintains correct acid-base balance in dialysis fluid',
@@ -289,8 +289,8 @@ const products = [
         description: 'Hemodialysis Concentrated Acidic Solution – Bp For Bicarbonate Dialysis (1:32.75:1.25 proportioning)',
         overview: 'Hemodialysis Concentrated Acidic Solution – Bp For Bicarbonate Dialysis (1:32.75:1.25 proportioning)',
         fullDescription: 'This acid concentrate solution is used in bicarbonate dialysis to prepare the dialysis fluid. It helps maintain the proper acid-base balance, ensuring safe and effective dialysis treatment for patients.',
-        image: '/products/cane.png',
-        detailImage: '/products/Acid_Concentrate_1_32_75_v1.png',
+        image: '/products/6.png',
+        detailImage: '/products/6.png',
         specs: ['Ratio: 1:32.75:1.25', 'Grade: BP Standard', 'Selection: Patient Specific', 'High Pure'],
         whyUsed: [
             'Maintains correct acid-base balance in dialysis fluid',
@@ -400,8 +400,8 @@ const products = [
             }
         ],
         fullDescription: 'This acid concentrate with dextrose is used in bicarbonate dialysis to prepare dialysis fluid. It helps maintain the proper acid-base balance and energy supply during dialysis, ensuring safe and effective treatment.',
-        image: '/products/cane.png',
-        detailImage: '/products/Acid_Concentrate_Dextrose_v1.png',
+        image: '/products/7.png',
+        detailImage: '/products/7.png',
         specs: ['Content: Dextrose Added', 'Ratio: 1:34', 'Clinical: Glycemic Support', 'Pure Grade'],
         whyUsed: [
             'Maintains correct acid-base balance in dialysis fluid',
@@ -439,8 +439,8 @@ const products = [
         detailDescription: 'HEMODIALYSIS CONCENTRATED ACIDIC SOLUTION – BP For BICARBONATE DIALYSIS (1:34:1.83 proportioning)',
         overview: 'Hemodialysis Concentrated Acidic Solution – Bp For Bicarbonate Dialysis (1:34:1.83 proportioning)',
         fullDescription: 'This specialty acid concentrate is designed for bicarbonate dialysis where free potassium is not required. It helps maintain the proper acid-base balance in dialysis fluid, ensuring safe and effective treatment for patients.',
-        image: '/products/cane.png',
-        detailImage: '/products/Acid_Concentrate_Free_Potassium_v1.png',
+        image: '/products/8.png',
+        detailImage: '/products/8.png',
         specs: ['Potassium: 0 mEq/L', 'Ratio: 1:34', 'Case: Hyperkalemia', 'Precise Mix'],
         whyUsed: [
             'Maintains correct acid-base balance',
@@ -511,8 +511,8 @@ const products = [
         detailDescription: 'HEMODIALYSIS CONCENTRATED ACIDIC SOLUTION – BP For BICARBONATE DIALYSIS (1:34:1.83 proportioning)',
         overview: 'Hemodialysis Concentrated Acidic Solution – Bp For Bicarbonate Dialysis (1:34:1.83 proportioning)',
         fullDescription: 'This specialty acid concentrate is used in bicarbonate dialysis for patients who require low potassium in their dialysis fluid. It ensures the proper acid-base balance while providing safe and effective dialysis treatment.',
-        image: '/products/cane.png',
-        detailImage: '/products/Acid_Concentrate_Low_Potassium_v1.png',
+        image: '/products/9.png',
+        detailImage: '/products/9.png',
         specs: ['Potassium: Low Conc.', 'Ratio: 1:34', 'Usage: Controlled Removal', 'Standard Mix'],
         whyUsed: [
             'Maintains correct acid-base balance',
@@ -587,8 +587,8 @@ const products = [
             { label: 'Description', value: 'It is a clear, colourless, and odourless liquid. It decomposes in contact with oxidisation organic matter and with certain metal and also if allowed to become alkaline' },
             { label: 'Composition', value: 'Hydrogen Peroxide I.P 18.20% W/VPurified Water Q.S' }
         ],
-        image: '/products/Hydrogen_Peroxide_Solution.png',
-        detailImage: '/products/Hydrogen_Peroxide_v1.png',
+        image: '/products/10.png',
+        detailImage: '/products/10.png',
         specs: ['Type: H2O2 Solution', 'Usage: Biofilm Removal', 'Application: Water Plants', 'High Purity'],
         whyUsed: [
             'Effectively disinfects dialysis water',
@@ -624,8 +624,8 @@ const products = [
         description: 'Pharmaceutical grade Sodium Bicarbonate (NaHCO3) for preparation of dialysis fluid.',
         fullDescription: 'Sodium bicarbonate (IUPAC name: sodium hydrogen carbonate), commonly known as baking soda, is a chemical compound with the formula NaHCO3. It is a salt composed of a sodium cation (Na+) and a bicarbonate anion (HCO3–). Sodium bicarbonate is a white solid that is crystalline, but often appears as a fine powder. It has a slightly salty, alkaline taste resembling that of washing soda (sodium carbonate). The natural mineral form is nahcolite',
         overview: 'Sodium bicarbonate (IUPAC name: sodium hydrogen carbonate), commonly known as baking soda, is a chemical compound with the formula NaHCO3. It is a salt composed of a sodium cation (Na+) and a bicarbonate anion (HCO3–). Sodium bicarbonate is a white solid that is crystalline, but often appears as a fine powder. It has a slightly salty, alkaline taste resembling that of washing soda (sodium carbonate). The natural mineral form is nahcolite',
-        image: '/products/Sodium_Bicarbonate_IP.png',
-        detailImage: '/products/Sodium_Bicarbonate_IP_v1.png',
+        image: '/products/11.png',
+        detailImage: '/products/11.png',
         specs: ['Grade: Pharmaceutical IP', 'Form: Crystalline', 'Purity: High', 'Usage: Fluid Preparation'],
         whyUsed: [
             'Maintains correct acid-base balance in dialysis fluid',
@@ -673,8 +673,8 @@ const products = [
         detailDescription: 'Sodium bicarbonate (IUPAC name: sodium hydrogen carbonate), commonly known as baking soda, is a chemical compound with the formula NaHCO3. It is a salt composed of a sodium cation (Na+) and a bicarbonateanion (HCO3–).',
         overview: 'Sodium bicarbonate (IUPAC name: sodium hydrogen carbonate), commonly known as baking soda, is a chemical compound with the formula NaHCO3. It is a salt composed of a sodium cation (Na+) and a bicarbonateanion (HCO3–). Sodium bicarbonate is a white solid that is crystalline, but often appears as a fine powder. It has a slightly salty, alkaline taste resembling that of washing soda (sodium carbonate). The natural mineral form is nahcolite.',
         fullDescription: 'Bicarb Mix is a combined formulation of Sodium Bicarbonate and Sodium Chloride used in dialysis fluid preparation. It ensures precise electrolyte balance, supporting safe and effective hemodialysis.',
-        image: '/products/Sodium_Bicarbonate_IP_and_Sodium_Chloride_IP.png',
-        detailImage: '/products/Bicarb_Mix_Detail_v1.png',
+        image: '/products/12.png',
+        detailImage: '/products/12.png',
         specs: ['Grade: IP Standards', 'Components: Salt + Bicarb', 'Mixing: Precise', 'Dialysis Core'],
         whyUsed: [
             'Maintains correct electrolyte balance in dialysis fluid',
@@ -734,8 +734,8 @@ const products = [
         detailDescription: 'All dialysis units must have written policies and procedures that deal with disinfection of the dialysis fluid path way of the Hemodialysis machine. These procedures are targeted to control bacterial contamination and have nothing to do with preventing blood borne infections.',
         overview: 'All dialysis units must have written policies and procedures that deal with disinfection of the dialysis fluid path way of the Hemodialysis machine. These procedures are targeted to control bacterial contamination and have nothing to do with preventing blood borne infections. The procedures generally consist of using sodium hypochlorite (bleach) on a regular basis (according to the manufacturer\'s instructions) and a sterilant overnight at certain intervals (e.g., every 100 hours of use). Studies have shown that HIV is inactivated rapidly after being exposed to commonly used chemical germicides at concentrations that are much lower than used in practice. The much hardier HBV is also known to be inactivated by common household bleach. Suggested concentrations of sodium hypochlorite prepared daily range from 500 parts per million (ppm) (1:100 dilution of household bleach) to 5000 ppm (1:10 dilution).',
         fullDescription: 'Sodium Hypochlorite is a powerful disinfectant used to clean and sanitize dialysis equipment, surfaces, and water systems. It effectively removes bacteria, viruses, and other contaminants, ensuring a safe and hygienic environment.',
-        image: '/products/SodiumHypochloriteBleach.png',
-        detailImage: '/products/Sodium_Hypochlorite_Bleach_Detail.jpg',
+        image: '/products/13.png',
+        detailImage: '/products/13.png',
         specs: ['Conc: 5–6%', 'Role: Bacterial Control', 'Usage: Surface/Fluid path', 'Robust Efficacy'],
         whyUsed: [
             'Strong and effective disinfectant',
@@ -1072,8 +1072,8 @@ export default function ProductsPage() {
                                             src={selectedProduct.detailImage || selectedProduct.image}
                                             alt={selectedProduct.title}
                                             className={styles.heroImage}
-                                            width="450"
-                                            height="450"
+                                            width="500"
+                                            height="500"
                                             onError={(e) => {
                                                 e.target.onerror = null;
                                                 e.target.src = selectedProduct.image;

@@ -56,6 +56,10 @@
 }
 
 .highlight {
+    font-family: "playfair display", serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 5rem;
     color: #2563eb;
 }
 
