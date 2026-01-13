@@ -186,6 +186,65 @@
   font-weight: 400;
 }
 
+/* Category Filter */
+.categoryFilterContainer {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.categoryPill {
+  font-family: "Google Sans", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #475569;
+  background: #f1f5f9;
+  border: 2px solid transparent;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  letter-spacing: -0.01em;
+}
+
+.categoryPill:hover {
+  background: #e2e8f0;
+  color: #1e293b;
+}
+
+.categoryPillActive {
+  background: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
+}
+
+.categoryPillActive:hover {
+  background: #2563eb;
+  border-color: #2563eb;
+}
+
+/* Product Count Text */
+.productCountText {
+  font-size: 0.95rem;
+  color: #64748b;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .categoryFilterContainer {
+    justify-content: center;
+  }
+
+  .categoryPill {
+    font-size: 0.85rem;
+    padding: 0.65rem 1.25rem;
+  }
+}
+
 /* Product Overview Grid */
 .productOverviewGrid {
   display: grid;

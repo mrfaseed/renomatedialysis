@@ -779,6 +779,7 @@ export default function ProductsPage() {
     const router = useRouter();
     const [activeProductId, setActiveProductId] = useState(null);
     const [selectedProduct, setSelectedProduct] = useState(null);
+    const [selectedCategory, setSelectedCategory] = useState('All Products');
     const productRefs = useRef({});
     const detailViewRef = useRef(null);
 
@@ -811,6 +812,22 @@ export default function ProductsPage() {
             element.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
     };
+
+    // Category mapping
+    const categories = [
+        { name: 'All Products', tag: null },
+        { name: 'Dialysis Solutions', tag: 'Solution' },
+        { name: 'Powders & Compounds', tag: 'Powder' },
+        { name: 'Cleaning & Disinfection', tag: 'Disinfectant' }
+    ];
+
+    // Filter products based on selected category
+    const filteredProducts = selectedCategory === 'All Products'
+        ? products
+        : products.filter(product => {
+            const category = categories.find(cat => cat.name === selectedCategory);
+            return product.tag === category?.tag;
+        });
 
     return (
         <div className={styles.pageWrapper}>
@@ -846,9 +863,34 @@ export default function ProductsPage() {
                                 </p>
                             </header>
 
+                            {/* Category Filter */}
+                            <div className={styles.categoryFilterContainer}>
+                                {categories.map((category) => {
+                                    const count = category.tag === null
+                                        ? products.length
+                                        : products.filter(p => p.tag === category.tag).length;
+
+                                    return (
+                                        <button
+                                            key={category.name}
+                                            className={`${styles.categoryPill} ${selectedCategory === category.name ? styles.categoryPillActive : ''
+                                                }`}
+                                            onClick={() => setSelectedCategory(category.name)}
+                                        >
+                                            {category.name} ({count})
+                                        </button>
+                                    );
+                                })}
+                            </div>
+
+                            {/* Product Count Text */}
+                            <div className={styles.productCountText}>
+                                Showing {filteredProducts.length} products in {selectedCategory}
+                            </div>
+
                             {/* Product Selection Grid */}
                             <div className={styles.productOverviewGrid}>
-                                {products.map((product) => (
+                                {filteredProducts.map((product) => (
                                     <div
                                         key={product.id}
                                         className={styles.overviewCard}
