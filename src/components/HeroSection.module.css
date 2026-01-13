@@ -169,12 +169,18 @@
     color: rgb(255, 255, 255);
 
 }
+.playfair {
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    
+}
 
 .textHighlight {
     display: block;
     background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
     /* Silver/Cloud */
     -webkit-background-clip: text;
+    line-height: -1.2;
     background-clip: text;
     color: transparent;
     font-weight: 800;
@@ -182,10 +188,28 @@
 }
 
 .textWhite {
-    color: #e31515;
-    font-weight: 300;
-    /* Thinner for elegance */
+    background: linear-gradient(90deg, #e1e0e0e6, #ffffff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-size: 200% auto;
+    animation: gradientAnimation 3s ease infinite;
+    font-weight: 600;
+    filter: drop-shadow(0 0 20px rgba(111, 174, 247, 0.2));
 }
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 
 .textSub {
     display: block;
