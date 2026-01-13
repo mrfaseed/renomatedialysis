@@ -117,7 +117,7 @@ export default function Footer() {
                                 <div className={styles.iconBox}><MapPin size={24} /></div>
                                 <div className={styles.contactInfo}>
                                     <span className={styles.contactLabel}>Location</span>
-                                    <p className={styles.contactValue}>No.2,H3,H3 Road,Virudhunagar</p>
+                                    <p className={styles.contactValue}>No.2,H3-H3 Road,Virudhunagar</p>
                                 </div>
                             </div>
                             <div className={styles.contactCard}>

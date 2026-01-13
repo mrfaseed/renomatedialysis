@@ -104,7 +104,7 @@ export default function AboutPage() {
                             <div className={styles.iconBox}>
                                 <Factory size={32} />
                             </div>
-                            <h2 className={styles.sectionTitle}>Manufacturing Excellence & <span className={styles.highlightqu}>Quality</span>  Systens</h2>
+                            <h2 className={styles.sectionTitle}>Manufacturing Excellence & <span className={styles.highlightqu}>Quality</span>  Systems</h2>
                             <p className={styles.sectionText}>
                                 Our manufacturing facility is strategically located at <strong>No. 2, H3, H3 Road, Virudhunagar, Tamil Nadu</strong>, with an operational area of approximately 11,000 square feet. The facility has been meticulously designed and constructed in accordance with <strong className={styles.textHighlight}>Good Manufacturing Practices (GMP)</strong> and complies with the structural and operational requirements of the Central Drugs Standard Control Organization (CDSCO) and the Medical Device Rules (MDR), 2017.
                             </p>
@@ -237,6 +237,13 @@ export default function AboutPage() {
                             role="Medical Device Designer"
                             description="Responsible for design inputs, technical documentation, product development support."
                             delay={0.4}
+                        />
+                        <TeamMember
+                            name="Mr. A. Saravanakumar"
+                            degree="M.Sc (Microbiology)"
+                            role="QC - Microbiologist"
+                            description="Responsible for microbiological testing, sterility assurance, and environmental monitoring."
+                            delay={0.5}
                         />
                     </div>
 
