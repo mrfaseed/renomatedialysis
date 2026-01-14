@@ -23,17 +23,17 @@
     max-width: 1400px;
     height: 85px;
 
-    /* Pure White Background */
-    background: #ffffff;
+    /* Deep Teal Gradient Background - Professional & Medical */
+    background: linear-gradient(95deg, #0e5e6f 0%, #3a8891 100%);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
 
-    /* Subtle Border */
-    border: 1px solid #e2e8f0;
-
+    /* Subtle Shadow */
     box-shadow:
-        0 4px 6px -1px rgba(0, 0, 0, 0.05),
-        0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        0 10px 40px -10px rgba(14, 94, 111, 0.3),
+        0 0 2px rgba(255, 255, 255, 0.1);
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
 
     border-radius: 99px;
     padding: 0 2rem;
@@ -48,32 +48,9 @@
 }
 
 /* RGB Gradient Border Surround */
+/* RGB Gradient Border Removed for Clean Professional Look */
 .navbar::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 99px;
-    padding: 2px;
-    background: linear-gradient(90deg, #ff0000, #00ff00, #0000ff, #ff0000, #00ff00, #0000ff);
-    background-size: 200% 100%;
-    animation: rgbBorderRun 3s linear infinite;
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    z-index: 2;
-    pointer-events: none;
-    /* Crucial: Allow clicks to pass through to links */
-}
-
-@keyframes rgbBorderRun {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    100% {
-        background-position: 100% 50%;
-    }
+    display: none;
 }
 
 /* Hidden State */
@@ -96,10 +73,13 @@
     cursor: pointer;
     text-decoration: none;
     flex-shrink: 0;
+    margin: 0;
+    padding: 0;
+    border-radius: 99px;
 }
 
 .logoImage {
-    height: 56px;
+    height: 64px;
     width: auto;
     object-fit: contain;
 }
@@ -115,7 +95,7 @@
     font-size: 0.6rem;
     font-weight: 700;
     letter-spacing: 0.1em;
-    color: #64748b;
+    color: rgba(255, 255, 255, 0.9);
     margin-bottom: -2px;
 }
 
@@ -123,8 +103,7 @@
     font-size: 1.8rem;
     font-weight: 800;
     line-height: 1;
-    color: #0ea5e9;
-    /* Light Blue / Cyan to match image */
+    color: #ffffff;
     margin: 0;
     letter-spacing: -0.02em;
 }
@@ -132,7 +111,7 @@
 .brandSubtitle {
     font-size: 0.5rem;
     font-weight: 600;
-    color: #334155;
+    color: rgba(255, 255, 255, 0.8);
     letter-spacing: 0.05em;
     margin-top: 2px;
     max-width: 220px;
@@ -152,17 +131,16 @@
     text-decoration: none;
     font-size: 0.95rem;
     font-weight: 500;
-    color: #475569;
-    /* Slate-600 */
+    color: rgba(255, 255, 255, 0.85);
+    /* White text */
     padding: 0.5rem 0;
     position: relative;
     transition: color 0.2s ease;
 }
 
 .navLink:hover {
-    color: #0d9488;
-    /* Teal-600 */
-    /* Removed drop shadow for cleaner look on white */
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 /* Professional Underline Indicator */
@@ -173,8 +151,8 @@
     height: 2px;
     bottom: -2px;
     left: 0;
-    background: #0d9488;
-    /* Teal-600 */
+    background: #ffffff;
+    /* White underline */
     transition: width 0.3s ease;
 }
 
@@ -196,14 +174,20 @@
     background: transparent;
     padding: 8px;
     border-radius: 50%;
-    border: 1px solid #e2e8f0;
-    transition: transform 0.2s ease, background-color 0.2s, border-color 0.2s;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    /* Default Icon Color */
+    transition: all 0.2s ease;
 }
 
 .whatsappBtn:hover {
     transform: scale(1.1);
-    background-color: #f0fdf4;
-    border-color: #25D366;
+    background-color: #ffffff;
+    /* White background on hover */
+    color: #25D366;
+    /* Green Icon on Hover */
+    border-color: #ffffff;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
 }
 
 .searchContainer {
@@ -214,13 +198,30 @@
     padding: 4px;
     border-radius: 99px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: white;
+    /* Default text color */
 }
 
 .searchContainer.searchActive {
-    background: #f8fafc;
-    border: 1px solid #cbd5e1;
+    background: #ffffff;
+    /* Solid White */
+    border: 1px solid #ffffff;
     padding-left: 1rem;
     padding-right: 4px;
+    color: #334155;
+    /* Set text color to Slate */
+}
+
+.searchContainer.searchActive .searchInput {
+    color: #334155;
+}
+
+.searchContainer.searchActive .searchBtn {
+    color: #334155;
+}
+
+.searchContainer.searchActive .searchBtn:hover {
+    background: #e2e8f0;
 }
 
 .searchInputWrapper {
@@ -243,12 +244,17 @@
     background: transparent;
     outline: none;
     font-size: 0.9rem;
-    color: #334155;
-    /* Dark Slate */
+    color: currentColor;
+    /* Inherit color from container logic */
     font-family: inherit;
+    height: 100%;
 }
 
 .searchInput::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.searchContainer.searchActive .searchInput::placeholder {
     color: #94a3b8;
 }
 
@@ -261,14 +267,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.2s;
-    color: #64748b;
-    /* Slate-500 */
+    transition: all 0.2s;
+    color: inherit;
+    /* Inherit color */
+    flex-shrink: 0;
 }
 
 .searchBtn:hover {
-    background-color: #f1f5f9;
-    color: #334155;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.searchContainer.searchActive .searchBtn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
 /* SEARCH RESULTS DROPDOWN */

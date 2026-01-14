@@ -143,7 +143,7 @@ export default function HeroSection() {
                                 variants={itemVariants}
                                 className={styles.textHighlight}
                             >
-                              <span className={styles.playfair}>  Premium Quality</span>
+                                <span className={styles.playfair}>  Premium Quality</span>
                             </motion.span>
                             <motion.span
                                 variants={itemVariants}

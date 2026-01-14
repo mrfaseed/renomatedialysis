@@ -217,12 +217,24 @@
 .textSub {
     display: block;
     font-size: 0.35em;
-    font-weight: 600;
+    font-weight: 800;
     letter-spacing: 0.5em;
-    color: #fff200;
-    /* Muted tech blue-grey */
+
+    /* High Visibility: Bright Luminous Cyan/Teal */
+    background: linear-gradient(90deg, #a5f3fc 0%, #2dd4bf 50%, #a5f3fc 100%);
+    background-size: 200% auto;
+    animation: gradientAnimation 5s ease infinite;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+
     margin-top: 1rem;
     text-transform: uppercase;
+
+    /* Neon Glow */
+    filter: drop-shadow(0 0 8px rgba(45, 212, 191, 0.6));
 }
 
 /* Description */
@@ -247,12 +259,15 @@
 }
 
 .readMoreBtn {
-    background: #ffffff;
-    color: #0f172a;
+    /* Theme Gradient Background: Deep Teal */
+    background: linear-gradient(95deg, #0e5e6f 0%, #3a8891 100%);
+
+    color: #ffffff;
     text-decoration: none;
     padding: 1rem 2.5rem;
-    border-radius: 4px;
-    /* Slight rounded */
+    border-radius: 99px;
+    /* Pill shape */
+
     display: inline-flex;
     align-items: center;
     gap: 0.8rem;
@@ -260,12 +275,14 @@
     font-size: 1rem;
     letter-spacing: -0.02em;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(14, 94, 111, 0.4);
+    border: none;
 }
 
 .btnIcon {
-    background: #0f172a;
-    color: white;
+    background: #ffffff;
+    color: #0e5e6f;
+    /* Deep Teal Text */
     width: 24px;
     height: 24px;
     border-radius: 50%;
@@ -276,9 +293,9 @@
 }
 
 .readMoreBtn:hover {
-    background: #f8fafc;
     transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(14, 94, 111, 0.5);
+    filter: brightness(1.1);
 }
 
 .readMoreBtn:hover .btnIcon {
@@ -287,20 +304,24 @@
 
 .secondaryBtn {
     padding: 1rem 2.5rem;
-    border-radius: 4px;
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 99px;
+    /* Pill shape */
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     color: #ffffff;
     font-weight: 500;
     font-size: 1rem;
     letter-spacing: 0.02em;
     text-decoration: none;
     transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
 }
 
 .secondaryBtn:hover {
-    border-color: #ffffff;
-    background: rgba(255, 255, 255, 0.05);
+    border-color: transparent;
+    /* Deep Teal Gradient on Hover */
+    background: linear-gradient(95deg, #0e5e6f 0%, #3a8891 100%);
+    box-shadow: 0 5px 20px rgba(58, 136, 145, 0.3);
 }
 
 /* 7. MOLECULAR OVERLAY - Glass & Subtle */
