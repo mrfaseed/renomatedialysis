@@ -11,12 +11,12 @@ const products = [
         id: 1,
         title: 'Citric Acid Powder',
         subtitle: 'Effective Descaling Agent for Dialysis & Medical Water Systems',
-        tag: 'Powder',
+        tag: 'Disinfectant',
         description: 'This has an excellent removal of calcium & magnesium deposits. The offered citromate is precisely processed by advanced technology & finest material of market under the supervision of experts.',
         overview: 'This has an excellent removal of calcium & magnesium deposits. The offered citromate is precisely processed by advanced technology & finest material of market under the supervision of experts. Along with that, this citromate is well examined on different terms of quality for supplying its flawless range from our side. Customers can purchase this citromate from us with various specifications at industry existing rates to the clients.',
         fullDescription: 'Citric Acid Powder is used to clean and remove scale from dialysis machines and water systems. It helps remove hard water deposits and mineral buildup, keeping the equipment clean and working properly.',
-        image: '/products/Citric_Acid_Powder.png',
-        detailImage: '/products/Citric_v3.png',
+        image: '/products/CITI.png',
+        detailImage: '/products/CITI.png',
         specs: ['Purity: >99%', 'Form: Crystalline Powder', 'Packaging: 500g / 1kg', 'GMP Certified'],
         whyUsed: [
             'Removes limescale and mineral deposits',
@@ -50,10 +50,10 @@ const products = [
         id: 2,
         title: 'CITROMATE',
         sku: 'W019',
-        tag: 'Solution',
+        tag: 'Disinfectant',
         description: 'This has an excellent removal of calcium & magnesium deposits. The offered citromate is precisely processed by advanced technology & finest material of market under the supervision of experts.',
-        fullDescription: 'This has an excellent removal of calcium & magnesium deposits. The offered citromate is precisely processed by advanced technology & finest material of market under the supervision of experts. Along with that, this citromate is well examined on different terms of quality for supplying its flawless range from our side. Customers can purchase this citromate from us with various specifications at industry existing rates to the clients.',
         overview: 'This has an excellent removal of calcium & magnesium deposits. The offered citromate is precisely processed by advanced technology & finest material of market under the supervision of experts. Along with that, this citromate is well examined on different terms of quality for supplying its flawless range from our side. Customers can purchase this citromate from us with various specifications at industry existing rates to the clients.',
+        fullDescription: 'This has an excellent removal of calcium & magnesium deposits. The offered citromate is precisely processed by advanced technology & finest material of market under the supervision of experts. Along with that, this citromate is well examined on different terms of quality for supplying its flawless range from our side. Customers can purchase this citromate from us with various specifications at industry existing rates to the clients.',
         customSections: [
             {
                 title: 'Citromate – For Thermochemical Disinfection',
@@ -76,8 +76,8 @@ const products = [
             }
         ],
         expiry: 'One year from the date of manufacture',
-        image: '/products/CITROMATE.png',
-        detailImage: '/products/CITROMATE_Detail.jpg',
+        image: '/products/ChatGPT Image Jan 13, 2026, 06_35_14 PM.png',
+        detailImage: '/products/ChatGPT Image Jan 13, 2026, 06_35_14 PM.png',
         specs: ['SKU: W019', 'pH: 1.7 - 2.0', 'Expiry: 1 Year', 'Microbiocidal >60°C'],
         whyUsed: [
             'Dissolves blood residue and calcium sediments',
@@ -111,12 +111,12 @@ const products = [
         title: 'DIAMATE',
         subtitle: 'Cold Sterilant',
         sku: 'W021',
-        tag: 'Solution',
+        tag: 'Disinfectant',
         description: 'Dialyzers are not just reused, they are reprocessed. The reprocessing procedure involves cleaning, testing, filling your dialyzer with a sterilant (Diamate® Cold Sterilant), inspecting, labeling, storing and rinsing your dialyzer before it is reused for your next treatment.',
         overview: 'DIAMATE is a specialized cold sterilant solution designed for dialyzer reprocessing. It helps sterilize and disinfect dialyzers safely, removing bacteria and other contaminants while maintaining dialyzer performance.',
         fullDescription: 'Dialyzers are not just reused, they are reprocessed. The reprocessing procedure involves cleaning, testing, filling your dialyzer with a sterilant (Diamate® Cold Sterilant), inspecting, labeling, storing and rinsing your dialyzer before it is reused for your next treatment.',
-        image: '/products/DIAMATE.png',
-        detailImage: '/products/Diamate_canister_v2_match_acid.png',
+        image: '/products/ChatGPT Image Jan 13, 2026, 06_36_53 PM.png',
+        detailImage: '/products/ChatGPT Image Jan 13, 2026, 06_36_53 PM.png',
         specs: ['SKU: W021', 'Type: Peracetic Acid based', 'Usage: Reprocessing', 'Sterilization: High-level', 'Safe Reuse'],
         customSections: [
             {
@@ -165,7 +165,7 @@ const products = [
     {
         id: 4,
         title: 'Formaldehyde Solution',
-        tag: 'Solution',
+        tag: 'Disinfectant',
         description: 'Formaldehyde can be useful as a disinfectant as it kills most bacteria and fungi (including their spores). It is used to produced killed vaccines. Formaldehyde are used in Hemodialysis Unit.',
         overview: 'Formaldehyde can be useful as a disinfectant as it kills most bacteria and fungi (including their spores). It is used to produced killed vaccines. Formaldehyde are used in Hemodialysis Unit.',
         fullDescription: 'Formaldehyde Solution I.P is a strong disinfectant widely used in medical and laboratory settings to sterilize and disinfect equipment, surfaces, and instruments. It effectively eliminates bacteria, viruses, and fungi, ensuring a safe and hygienic environment.',
@@ -729,7 +729,7 @@ const products = [
         id: 13,
         title: 'Sodium Hypochlorite – Bleach (5–6%)',
         subtitle: 'High-Level Disinfectant for Medical Hygiene & Water Systems',
-        tag: 'Solution',
+        tag: 'Disinfectant',
         description: 'Powerful disinfectant for dialysis equipment, surfaces, and water systems. 5–6% concentration.',
         detailDescription: 'All dialysis units must have written policies and procedures that deal with disinfection of the dialysis fluid path way of the Hemodialysis machine. These procedures are targeted to control bacterial contamination and have nothing to do with preventing blood borne infections.',
         overview: 'All dialysis units must have written policies and procedures that deal with disinfection of the dialysis fluid path way of the Hemodialysis machine. These procedures are targeted to control bacterial contamination and have nothing to do with preventing blood borne infections. The procedures generally consist of using sodium hypochlorite (bleach) on a regular basis (according to the manufacturer\'s instructions) and a sterilant overnight at certain intervals (e.g., every 100 hours of use). Studies have shown that HIV is inactivated rapidly after being exposed to commonly used chemical germicides at concentrations that are much lower than used in practice. The much hardier HBV is also known to be inactivated by common household bleach. Suggested concentrations of sodium hypochlorite prepared daily range from 500 parts per million (ppm) (1:100 dilution of household bleach) to 5000 ppm (1:10 dilution).',
