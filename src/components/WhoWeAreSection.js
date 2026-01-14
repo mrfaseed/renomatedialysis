@@ -1,12 +1,15 @@
 'use client';
 
-import React from 'react';
+// import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { DotLottiePlayer } from '@dotlottie/react-player';
+
 import styles from './WhoWeAreSection.module.css';
 import ChemistryBackground from './ChemistryBackground';
 
 export default function WhoWeAreSection() {
+    // Lottie animation removed
+
+
     return (
         <section className={styles.container} id="who-we-are">
             <ChemistryBackground />
@@ -54,14 +57,6 @@ export default function WhoWeAreSection() {
                     <p className={styles.paragraph}>
                         Our state-of-the-art facility operates on a simple premise: <strong>Quality is non-negotiable.</strong> From the purity of our raw materials to the integrity of our final packaging, every step is a testament to our dedication to renal care excellence. We are not just a supplier; we are a partner in the journey towards better health.
                     </p>
-                    <div className={styles.lottieContainer}>
-                        <DotLottiePlayer
-                            src="/Reactor.lottie"
-                            autoplay
-                            loop
-                            style={{ height: '100%', width: '100%' }}
-                        />
-                    </div>
                 </motion.div>
             </div>
         </section>

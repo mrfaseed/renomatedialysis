@@ -5,15 +5,23 @@ import Link from 'next/link';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import styles from './HeroSection.module.css';
 import { ArrowRight } from 'lucide-react';
+import Hls from 'hls.js';
+
+const IS_MOBILE = typeof window !== 'undefined' && window.innerWidth < 768;
 
 export default function HeroSection() {
     const { scrollY } = useScroll();
+    const [isMobile, setIsMobile] = useState(false);
 
-    // Parallax values
-    const titleY = useTransform(scrollY, [0, 500], [0, -100]);
-    const descY = useTransform(scrollY, [0, 500], [0, -50]);
+    useEffect(() => {
+        setIsMobile(window.innerWidth < 768);
+    }, []);
+
+    // Parallax values (Reduced/Disabled on mobile for performance)
+    const titleY = useTransform(scrollY, [0, 500], [0, isMobile ? 0 : -100]);
+    const descY = useTransform(scrollY, [0, 500], [0, isMobile ? 0 : -50]);
     const opacity = useTransform(scrollY, [0, 300], [1, 0]);
-    const scale = useTransform(scrollY, [0, 500], [1, 0.95]);
+    const scale = useTransform(scrollY, [0, 500], [1, isMobile ? 1 : 0.95]);
 
     // Variants for staggered children
     const containerVariants = {
@@ -46,19 +54,21 @@ export default function HeroSection() {
         <section className={styles.hero}>
             <VideoBackground />
 
-            {/* Dynamic Background Glow - Moving Aura */}
-            <motion.div
-                className={styles.bgAura}
-                animate={{
-                    scale: [1, 1.1, 1],
-                    opacity: [0.3, 0.5, 0.3],
-                }}
-                transition={{
-                    duration: 10,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                }}
-            />
+            {/* Dynamic Background Glow - Moving Aura (Hidden on Mobile) */}
+            {!isMobile && (
+                <motion.div
+                    className={styles.bgAura}
+                    animate={{
+                        scale: [1, 1.1, 1],
+                        opacity: [0.3, 0.5, 0.3],
+                    }}
+                    transition={{
+                        duration: 10,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                    }}
+                />
+            )}
 
             {/* Tech Bottom Divider - Seamless Sine Wave */}
             <div className={styles.bottomDividerWrapper}>
@@ -120,7 +130,7 @@ export default function HeroSection() {
             </div>
 
             {/* Floating Chemical Elements - MOLECULAR OVERLAY */}
-            <MolecularOverlay />
+            <MolecularOverlay isMobile={isMobile} />
 
             <div className={styles.container}>
                 {/* Main Content with Parallax & Motion */}
@@ -135,7 +145,7 @@ export default function HeroSection() {
                         animate="visible"
                     >
                         <motion.h4 variants={itemVariants} className={styles.welcomeText}>
-                            Advanced Chemical Manufacturing
+                            Advanced Medical Device and Hemodialysis Manufacturers
                         </motion.h4>
 
                         <motion.h1 variants={itemVariants} className={styles.title}>
@@ -143,20 +153,20 @@ export default function HeroSection() {
                                 variants={itemVariants}
                                 className={styles.textHighlight}
                             >
-                              <span className={styles.playfair}>  High Quality</span>
+                                <span className={styles.playfair}>  Premium Quality</span>
                             </motion.span>
                             <motion.span
                                 variants={itemVariants}
                                 className={styles.textWhite}
                                 style={{ display: 'block' }}
                             >
-                                DIALYSIS TREATMENT
+                                GLOBAL STANDARD
                             </motion.span>
                             <motion.span
                                 variants={itemVariants}
                                 className={styles.textSub}
                             >
-                                AT LOW COST
+                                DIALYSIS SOLUTION
                             </motion.span>
                         </motion.h1>
 
@@ -200,11 +210,92 @@ function VideoBackground() {
     const [isVideoLoaded, setIsVideoLoaded] = useState(false);
     const videoRef = React.useRef(null);
 
+    // Primary Source: Firebase Storage
+    const remoteHlsSource = "https://storage.googleapis.com/renomatedialysis.firebasestorage.app/mainhls/index.m3u8";
+
+    // Fallback Source: Local file
+    const localHlsSource = "/mainhls/index.m3u8";
+
     useEffect(() => {
-        // Check if video is already ready (for cached hits)
-        if (videoRef.current && videoRef.current.readyState >= 3) {
-            setIsVideoLoaded(true);
-        }
+        const video = videoRef.current;
+        if (!video) return;
+
+        let hls;
+
+        const loadStream = (source, isRetry = false) => {
+            if (Hls.isSupported()) {
+                if (hls) hls.destroy();
+
+                const isMobile = window.innerWidth < 768;
+
+                hls = new Hls({
+                    autoStartLoad: true,
+                    startPosition: -1,
+                    debug: false,
+                    // Optimization: Cap resolution on mobile to save bandwidth/decoder
+                    capLevelToPlayerSize: isMobile,
+                    // Optimization: Reduce buffer on mobile to reduce lag/startup
+                    maxBufferLength: isMobile ? 10 : 30,
+                    maxMaxBufferLength: isMobile ? 15 : 60,
+                });
+
+                hls.loadSource(source);
+                hls.attachMedia(video);
+
+                hls.on(Hls.Events.MANIFEST_PARSED, () => {
+                    video.play().catch(e => console.log("Auto-play prevented", e));
+                });
+
+                hls.on(Hls.Events.ERROR, function (event, data) {
+                    if (data.fatal) {
+                        switch (data.type) {
+                            case Hls.ErrorTypes.NETWORK_ERROR:
+                                if (!isRetry) {
+                                    console.warn("Remote HLS failed, falling back to local...");
+                                    loadStream(localHlsSource, true);
+                                } else {
+                                    hls.startLoad();
+                                }
+                                break;
+                            case Hls.ErrorTypes.MEDIA_ERROR:
+                                hls.recoverMediaError();
+                                break;
+                            default:
+                                if (!isRetry) {
+                                    console.warn("Fatal HLS error, switching to local.");
+                                    loadStream(localHlsSource, true);
+                                } else {
+                                    hls.destroy();
+                                }
+                                break;
+                        }
+                    }
+                });
+            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                // Native HLS support (Safari)
+                video.src = source;
+                video.addEventListener('loadedmetadata', () => {
+                    video.play().catch(e => console.log("Auto-play prevented (Safari)", e));
+                });
+
+                video.addEventListener('error', (e) => {
+                    if (!isRetry) {
+                        console.warn("Native HLS failed, switching to local.");
+                        video.src = localHlsSource;
+                        video.play();
+                    }
+                });
+            }
+        };
+
+        // Attempt to load remote first
+        loadStream(remoteHlsSource);
+
+        return () => {
+            if (hls) {
+                hls.destroy();
+            }
+        };
     }, []);
 
     const handleVideoLoad = () => {
@@ -229,22 +320,21 @@ function VideoBackground() {
                 playsInline
                 className={styles.video}
                 onLoadedData={handleVideoLoad}
+                onPlaying={() => setIsVideoLoaded(true)}
                 style={{ opacity: isVideoLoaded ? 1 : 0 }}
-            >
-                <source src="/assets/0110.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-            </video>
+            />
             <div className={styles.videoOverlay} />
         </div>
     );
 }
 
-function MolecularOverlay() {
+function MolecularOverlay({ isMobile }) {
     // Generates floating chemical structures (Hexagons)
     const [molecules, setMolecules] = useState([]);
 
     useEffect(() => {
-        const count = 12;
+        // Drastically reduce count on mobile (12 -> 4)
+        const count = isMobile ? 4 : 12;
         const newMolecules = Array.from({ length: count }).map((_, i) => ({
             id: i,
             x: Math.random() * 90 + 5,
@@ -255,7 +345,7 @@ function MolecularOverlay() {
             rotate: Math.random() * 360
         }));
         setMolecules(newMolecules);
-    }, []);
+    }, [isMobile]);
 
     return (
         <div className={styles.molecularContainer}>

@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState, useEffect, useRef, Suspense } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight, ShieldCheck, FileCheck, Activity, FlaskConical, Beaker, Hexagon, Component, Microscope, ChevronDown, CheckCircle2, AlertCircle, Package, Settings, HelpCircle, Clock } from 'lucide-react';
 import styles from './products.module.css';
@@ -11,12 +11,12 @@ const products = [
         id: 1,
         title: 'Citric Acid Powder',
         subtitle: 'Effective Descaling Agent for Dialysis & Medical Water Systems',
-        tag: 'Powder',
+        tag: 'Disinfectant',
         description: 'This has an excellent removal of calcium & magnesium deposits. The offered citromate is precisely processed by advanced technology & finest material of market under the supervision of experts.',
         overview: 'This has an excellent removal of calcium & magnesium deposits. The offered citromate is precisely processed by advanced technology & finest material of market under the supervision of experts. Along with that, this citromate is well examined on different terms of quality for supplying its flawless range from our side. Customers can purchase this citromate from us with various specifications at industry existing rates to the clients.',
         fullDescription: 'Citric Acid Powder is used to clean and remove scale from dialysis machines and water systems. It helps remove hard water deposits and mineral buildup, keeping the equipment clean and working properly.',
-        image: '/products/Citric_Acid_Powder.png',
-        detailImage: '/products/Citric_v3.png',
+        image: '/products/CITI.png',
+        detailImage: '/products/CITI.png',
         specs: ['Purity: >99%', 'Form: Crystalline Powder', 'Packaging: 500g / 1kg', 'GMP Certified'],
         whyUsed: [
             'Removes limescale and mineral deposits',
@@ -50,10 +50,10 @@ const products = [
         id: 2,
         title: 'CITROMATE',
         sku: 'W019',
-        tag: 'Solution',
+        tag: 'Disinfectant',
         description: 'This has an excellent removal of calcium & magnesium deposits. The offered citromate is precisely processed by advanced technology & finest material of market under the supervision of experts.',
-        fullDescription: 'This has an excellent removal of calcium & magnesium deposits. The offered citromate is precisely processed by advanced technology & finest material of market under the supervision of experts. Along with that, this citromate is well examined on different terms of quality for supplying its flawless range from our side. Customers can purchase this citromate from us with various specifications at industry existing rates to the clients.',
         overview: 'This has an excellent removal of calcium & magnesium deposits. The offered citromate is precisely processed by advanced technology & finest material of market under the supervision of experts. Along with that, this citromate is well examined on different terms of quality for supplying its flawless range from our side. Customers can purchase this citromate from us with various specifications at industry existing rates to the clients.',
+        fullDescription: 'This has an excellent removal of calcium & magnesium deposits. The offered citromate is precisely processed by advanced technology & finest material of market under the supervision of experts. Along with that, this citromate is well examined on different terms of quality for supplying its flawless range from our side. Customers can purchase this citromate from us with various specifications at industry existing rates to the clients.',
         customSections: [
             {
                 title: 'Citromate – For Thermochemical Disinfection',
@@ -76,8 +76,8 @@ const products = [
             }
         ],
         expiry: 'One year from the date of manufacture',
-        image: '/products/CITROMATE.png',
-        detailImage: '/products/CITROMATE_Detail.jpg',
+        image: '/products/cit.png',
+        detailImage: '/products/cit.png',
         specs: ['SKU: W019', 'pH: 1.7 - 2.0', 'Expiry: 1 Year', 'Microbiocidal >60°C'],
         whyUsed: [
             'Dissolves blood residue and calcium sediments',
@@ -111,12 +111,12 @@ const products = [
         title: 'DIAMATE',
         subtitle: 'Cold Sterilant',
         sku: 'W021',
-        tag: 'Solution',
+        tag: 'Disinfectant',
         description: 'Dialyzers are not just reused, they are reprocessed. The reprocessing procedure involves cleaning, testing, filling your dialyzer with a sterilant (Diamate® Cold Sterilant), inspecting, labeling, storing and rinsing your dialyzer before it is reused for your next treatment.',
         overview: 'DIAMATE is a specialized cold sterilant solution designed for dialyzer reprocessing. It helps sterilize and disinfect dialyzers safely, removing bacteria and other contaminants while maintaining dialyzer performance.',
         fullDescription: 'Dialyzers are not just reused, they are reprocessed. The reprocessing procedure involves cleaning, testing, filling your dialyzer with a sterilant (Diamate® Cold Sterilant), inspecting, labeling, storing and rinsing your dialyzer before it is reused for your next treatment.',
-        image: '/products/DIAMATE.png',
-        detailImage: '/products/Diamate_canister_v2_match_acid.png',
+        image: '/products/dia.png',
+        detailImage: '/products/dia.png',
         specs: ['SKU: W021', 'Type: Peracetic Acid based', 'Usage: Reprocessing', 'Sterilization: High-level', 'Safe Reuse'],
         customSections: [
             {
@@ -165,12 +165,12 @@ const products = [
     {
         id: 4,
         title: 'Formaldehyde Solution',
-        tag: 'Solution',
+        tag: 'Disinfectant',
         description: 'Formaldehyde can be useful as a disinfectant as it kills most bacteria and fungi (including their spores). It is used to produced killed vaccines. Formaldehyde are used in Hemodialysis Unit.',
         overview: 'Formaldehyde can be useful as a disinfectant as it kills most bacteria and fungi (including their spores). It is used to produced killed vaccines. Formaldehyde are used in Hemodialysis Unit.',
         fullDescription: 'Formaldehyde Solution I.P is a strong disinfectant widely used in medical and laboratory settings to sterilize and disinfect equipment, surfaces, and instruments. It effectively eliminates bacteria, viruses, and fungi, ensuring a safe and hygienic environment.',
-        image: '/products/Formaldehyde_Solution_IP.png',
-        detailImage: '/products/Formaldehyde_v5_blue_full.png',
+        image: '/products/4.png',
+        detailImage: '/products/4.png',
         specs: ['Grade: I.P', 'Concentration: 34-37% W/V', 'Efficacy: Broad-spectrum', 'Usage: External only'],
         whyUsed: [
             'Strong and effective disinfectant',
@@ -214,8 +214,8 @@ const products = [
         description: 'Hemodialysis Concentrated Acidic Solution for bicarbonate dialysis treatments. 1:34:1.83 proportioning ratio.',
         overview: 'Hemodialysis Concentrated Acidic Solution – Bp For Bicarbonate Dialysis (1:34:1.83 proportioning)',
         fullDescription: 'This acid concentrate solution is used in bicarbonate dialysis to help prepare dialysis fluid. It ensures proper acid-base balance and safe dialysis treatment for patients.',
-        image: '/products/cane.png',
-        detailImage: '/products/Acid_Concentrate_1_34_v1.png',
+        image: '/products/5.png',
+        detailImage: '/products/5.png',
         specs: ['Ratio: 1:34:1.83', 'Grade: BP Standard', 'Form: Liquid', 'Electrolyte Balanced'],
         whyUsed: [
             'Maintains correct acid-base balance in dialysis fluid',
@@ -289,8 +289,8 @@ const products = [
         description: 'Hemodialysis Concentrated Acidic Solution – Bp For Bicarbonate Dialysis (1:32.75:1.25 proportioning)',
         overview: 'Hemodialysis Concentrated Acidic Solution – Bp For Bicarbonate Dialysis (1:32.75:1.25 proportioning)',
         fullDescription: 'This acid concentrate solution is used in bicarbonate dialysis to prepare the dialysis fluid. It helps maintain the proper acid-base balance, ensuring safe and effective dialysis treatment for patients.',
-        image: '/products/cane.png',
-        detailImage: '/products/Acid_Concentrate_1_32_75_v1.png',
+        image: '/products/6.png',
+        detailImage: '/products/6.png',
         specs: ['Ratio: 1:32.75:1.25', 'Grade: BP Standard', 'Selection: Patient Specific', 'High Pure'],
         whyUsed: [
             'Maintains correct acid-base balance in dialysis fluid',
@@ -400,8 +400,8 @@ const products = [
             }
         ],
         fullDescription: 'This acid concentrate with dextrose is used in bicarbonate dialysis to prepare dialysis fluid. It helps maintain the proper acid-base balance and energy supply during dialysis, ensuring safe and effective treatment.',
-        image: '/products/cane.png',
-        detailImage: '/products/Acid_Concentrate_Dextrose_v1.png',
+        image: '/products/7.png',
+        detailImage: '/products/7.png',
         specs: ['Content: Dextrose Added', 'Ratio: 1:34', 'Clinical: Glycemic Support', 'Pure Grade'],
         whyUsed: [
             'Maintains correct acid-base balance in dialysis fluid',
@@ -439,8 +439,8 @@ const products = [
         detailDescription: 'HEMODIALYSIS CONCENTRATED ACIDIC SOLUTION – BP For BICARBONATE DIALYSIS (1:34:1.83 proportioning)',
         overview: 'Hemodialysis Concentrated Acidic Solution – Bp For Bicarbonate Dialysis (1:34:1.83 proportioning)',
         fullDescription: 'This specialty acid concentrate is designed for bicarbonate dialysis where free potassium is not required. It helps maintain the proper acid-base balance in dialysis fluid, ensuring safe and effective treatment for patients.',
-        image: '/products/cane.png',
-        detailImage: '/products/Acid_Concentrate_Free_Potassium_v1.png',
+        image: '/products/8.png',
+        detailImage: '/products/8.png',
         specs: ['Potassium: 0 mEq/L', 'Ratio: 1:34', 'Case: Hyperkalemia', 'Precise Mix'],
         whyUsed: [
             'Maintains correct acid-base balance',
@@ -511,8 +511,8 @@ const products = [
         detailDescription: 'HEMODIALYSIS CONCENTRATED ACIDIC SOLUTION – BP For BICARBONATE DIALYSIS (1:34:1.83 proportioning)',
         overview: 'Hemodialysis Concentrated Acidic Solution – Bp For Bicarbonate Dialysis (1:34:1.83 proportioning)',
         fullDescription: 'This specialty acid concentrate is used in bicarbonate dialysis for patients who require low potassium in their dialysis fluid. It ensures the proper acid-base balance while providing safe and effective dialysis treatment.',
-        image: '/products/cane.png',
-        detailImage: '/products/Acid_Concentrate_Low_Potassium_v1.png',
+        image: '/products/9.png',
+        detailImage: '/products/9.png',
         specs: ['Potassium: Low Conc.', 'Ratio: 1:34', 'Usage: Controlled Removal', 'Standard Mix'],
         whyUsed: [
             'Maintains correct acid-base balance',
@@ -587,8 +587,8 @@ const products = [
             { label: 'Description', value: 'It is a clear, colourless, and odourless liquid. It decomposes in contact with oxidisation organic matter and with certain metal and also if allowed to become alkaline' },
             { label: 'Composition', value: 'Hydrogen Peroxide I.P 18.20% W/VPurified Water Q.S' }
         ],
-        image: '/products/Hydrogen_Peroxide_Solution.png',
-        detailImage: '/products/Hydrogen_Peroxide_v1.png',
+        image: '/products/10.png',
+        detailImage: '/products/10.png',
         specs: ['Type: H2O2 Solution', 'Usage: Biofilm Removal', 'Application: Water Plants', 'High Purity'],
         whyUsed: [
             'Effectively disinfects dialysis water',
@@ -624,8 +624,8 @@ const products = [
         description: 'Pharmaceutical grade Sodium Bicarbonate (NaHCO3) for preparation of dialysis fluid.',
         fullDescription: 'Sodium bicarbonate (IUPAC name: sodium hydrogen carbonate), commonly known as baking soda, is a chemical compound with the formula NaHCO3. It is a salt composed of a sodium cation (Na+) and a bicarbonate anion (HCO3–). Sodium bicarbonate is a white solid that is crystalline, but often appears as a fine powder. It has a slightly salty, alkaline taste resembling that of washing soda (sodium carbonate). The natural mineral form is nahcolite',
         overview: 'Sodium bicarbonate (IUPAC name: sodium hydrogen carbonate), commonly known as baking soda, is a chemical compound with the formula NaHCO3. It is a salt composed of a sodium cation (Na+) and a bicarbonate anion (HCO3–). Sodium bicarbonate is a white solid that is crystalline, but often appears as a fine powder. It has a slightly salty, alkaline taste resembling that of washing soda (sodium carbonate). The natural mineral form is nahcolite',
-        image: '/products/Sodium_Bicarbonate_IP.png',
-        detailImage: '/products/Sodium_Bicarbonate_IP_v1.png',
+        image: '/products/11.png',
+        detailImage: '/products/11.png',
         specs: ['Grade: Pharmaceutical IP', 'Form: Crystalline', 'Purity: High', 'Usage: Fluid Preparation'],
         whyUsed: [
             'Maintains correct acid-base balance in dialysis fluid',
@@ -673,8 +673,8 @@ const products = [
         detailDescription: 'Sodium bicarbonate (IUPAC name: sodium hydrogen carbonate), commonly known as baking soda, is a chemical compound with the formula NaHCO3. It is a salt composed of a sodium cation (Na+) and a bicarbonateanion (HCO3–).',
         overview: 'Sodium bicarbonate (IUPAC name: sodium hydrogen carbonate), commonly known as baking soda, is a chemical compound with the formula NaHCO3. It is a salt composed of a sodium cation (Na+) and a bicarbonateanion (HCO3–). Sodium bicarbonate is a white solid that is crystalline, but often appears as a fine powder. It has a slightly salty, alkaline taste resembling that of washing soda (sodium carbonate). The natural mineral form is nahcolite.',
         fullDescription: 'Bicarb Mix is a combined formulation of Sodium Bicarbonate and Sodium Chloride used in dialysis fluid preparation. It ensures precise electrolyte balance, supporting safe and effective hemodialysis.',
-        image: '/products/Sodium_Bicarbonate_IP_and_Sodium_Chloride_IP.png',
-        detailImage: '/products/Bicarb_Mix_Detail_v1.png',
+        image: '/products/12.png',
+        detailImage: '/products/12.png',
         specs: ['Grade: IP Standards', 'Components: Salt + Bicarb', 'Mixing: Precise', 'Dialysis Core'],
         whyUsed: [
             'Maintains correct electrolyte balance in dialysis fluid',
@@ -729,13 +729,13 @@ const products = [
         id: 13,
         title: 'Sodium Hypochlorite – Bleach (5–6%)',
         subtitle: 'High-Level Disinfectant for Medical Hygiene & Water Systems',
-        tag: 'Solution',
+        tag: 'Disinfectant',
         description: 'Powerful disinfectant for dialysis equipment, surfaces, and water systems. 5–6% concentration.',
         detailDescription: 'All dialysis units must have written policies and procedures that deal with disinfection of the dialysis fluid path way of the Hemodialysis machine. These procedures are targeted to control bacterial contamination and have nothing to do with preventing blood borne infections.',
         overview: 'All dialysis units must have written policies and procedures that deal with disinfection of the dialysis fluid path way of the Hemodialysis machine. These procedures are targeted to control bacterial contamination and have nothing to do with preventing blood borne infections. The procedures generally consist of using sodium hypochlorite (bleach) on a regular basis (according to the manufacturer\'s instructions) and a sterilant overnight at certain intervals (e.g., every 100 hours of use). Studies have shown that HIV is inactivated rapidly after being exposed to commonly used chemical germicides at concentrations that are much lower than used in practice. The much hardier HBV is also known to be inactivated by common household bleach. Suggested concentrations of sodium hypochlorite prepared daily range from 500 parts per million (ppm) (1:100 dilution of household bleach) to 5000 ppm (1:10 dilution).',
         fullDescription: 'Sodium Hypochlorite is a powerful disinfectant used to clean and sanitize dialysis equipment, surfaces, and water systems. It effectively removes bacteria, viruses, and other contaminants, ensuring a safe and hygienic environment.',
-        image: '/products/SodiumHypochloriteBleach.png',
-        detailImage: '/products/Sodium_Hypochlorite_Bleach_Detail.jpg',
+        image: '/products/13.png',
+        detailImage: '/products/13.png',
         specs: ['Conc: 5–6%', 'Role: Bacterial Control', 'Usage: Surface/Fluid path', 'Robust Efficacy'],
         whyUsed: [
             'Strong and effective disinfectant',
@@ -775,13 +775,25 @@ const products = [
 
 ];
 
-export default function ProductsPage() {
+function ProductsContent() {
     const router = useRouter();
+    const searchParams = useSearchParams();
     const [activeProductId, setActiveProductId] = useState(null);
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [selectedCategory, setSelectedCategory] = useState('All Products');
+    const [selectedPackSize, setSelectedPackSize] = useState(null);
     const productRefs = useRef({});
     const detailViewRef = useRef(null);
+
+    useEffect(() => {
+        const productId = searchParams.get('productId');
+        if (productId) {
+            const product = products.find(p => p.id === parseInt(productId));
+            if (product) {
+                setSelectedProduct(product);
+            }
+        }
+    }, [searchParams]);
 
     useEffect(() => {
         if (selectedProduct) {
@@ -794,6 +806,7 @@ export default function ProductsPage() {
 
     const handleViewDetails = (product) => {
         setSelectedProduct(product);
+        setSelectedPackSize(null); // Reset pack size selection when viewing a new product
     };
 
     const handleBack = () => {
@@ -817,7 +830,6 @@ export default function ProductsPage() {
     const categories = [
         { name: 'All Products', tag: null },
         { name: 'Dialysis Solutions', tag: 'Solution' },
-        { name: 'Powders & Compounds', tag: 'Powder' },
         { name: 'Cleaning & Disinfection', tag: 'Disinfectant' }
     ];
 
@@ -953,7 +965,13 @@ export default function ProductsPage() {
                                                 <span className={styles.packSizeLabel}>{selectedProduct.customSections[0].title}</span>
                                                 <div className={styles.packSizeList}>
                                                     {selectedProduct.customSections[0].items.map((item, idx) => (
-                                                        <span key={idx} className={styles.packSizeItem}>• {item}</span>
+                                                        <span
+                                                            key={idx}
+                                                            className={`${styles.packSizeItem} ${selectedPackSize === item ? styles.packSizeItemActive : ''}`}
+                                                            onClick={() => setSelectedPackSize(item)}
+                                                        >
+                                                            • {item}
+                                                        </span>
                                                     ))}
                                                 </div>
                                             </div>
@@ -961,7 +979,13 @@ export default function ProductsPage() {
                                                 <span className={styles.packSizeLabel}>Available Pack Sizes</span>
                                                 <div className={styles.packSizeList}>
                                                     {selectedProduct.packSizes.map(size => (
-                                                        <span key={size} className={styles.packSizeItem}>• {size}</span>
+                                                        <span
+                                                            key={size}
+                                                            className={`${styles.packSizeItem} ${selectedPackSize === size ? styles.packSizeItemActive : ''}`}
+                                                            onClick={() => setSelectedPackSize(size)}
+                                                        >
+                                                            • {size}
+                                                        </span>
                                                     ))}
                                                 </div>
                                             </div>
@@ -970,7 +994,12 @@ export default function ProductsPage() {
                                         <div className={styles.packSizeBox}>
                                             <span className={styles.packSizeLabel}>{selectedProduct.id === 12 || selectedProduct.id === 11 ? 'Net Weight' : 'Weight'}</span>
                                             <div className={styles.packSizeList}>
-                                                <span className={styles.packSizeItem}>• {selectedProduct.weight}</span>
+                                                <span
+                                                    className={`${styles.packSizeItem} ${selectedPackSize === selectedProduct.weight ? styles.packSizeItemActive : ''}`}
+                                                    onClick={() => setSelectedPackSize(selectedProduct.weight)}
+                                                >
+                                                    • {selectedProduct.weight}
+                                                </span>
                                             </div>
                                         </div>
                                     ) : selectedProduct.id === 3 && selectedProduct.customSections ? (
@@ -978,7 +1007,13 @@ export default function ProductsPage() {
                                             <span className={styles.packSizeLabel}>{selectedProduct.customSections[0].title}</span>
                                             <div className={styles.packSizeList}>
                                                 {selectedProduct.customSections[0].items.map((item, idx) => (
-                                                    <span key={idx} className={styles.packSizeItem}>• {item}</span>
+                                                    <span
+                                                        key={idx}
+                                                        className={`${styles.packSizeItem} ${selectedPackSize === item ? styles.packSizeItemActive : ''}`}
+                                                        onClick={() => setSelectedPackSize(item)}
+                                                    >
+                                                        • {item}
+                                                    </span>
                                                 ))}
                                             </div>
                                         </div>
@@ -987,7 +1022,13 @@ export default function ProductsPage() {
                                             <span className={styles.packSizeLabel}>Available Pack Sizes</span>
                                             <div className={styles.packSizeList}>
                                                 {selectedProduct.packSizes.map(size => (
-                                                    <span key={size} className={styles.packSizeItem}>• {size}</span>
+                                                    <span
+                                                        key={size}
+                                                        className={`${styles.packSizeItem} ${selectedPackSize === size ? styles.packSizeItemActive : ''}`}
+                                                        onClick={() => setSelectedPackSize(size)}
+                                                    >
+                                                        • {size}
+                                                    </span>
                                                 ))}
                                             </div>
                                         </div>
@@ -1028,34 +1069,69 @@ export default function ProductsPage() {
 
 
 
+
+
                                         {selectedProduct.customSections && selectedProduct.customSections
                                             .filter((section, sectionIdx) => (selectedProduct.id !== 3 && selectedProduct.id !== 4) || sectionIdx !== 0)
-                                            .map((section, sectionIdx) => (
-                                                <motion.div
-                                                    key={sectionIdx}
-                                                    initial={{ opacity: 0, y: 10 }}
-                                                    whileInView={{ opacity: 1, y: 0 }}
-                                                    whileHover={{ y: -5, boxShadow: '0 10px 25px -5px rgba(14, 165, 233, 0.15), 0 8px 10px -6px rgba(14, 165, 233, 0.1)' }}
-                                                    transition={{ duration: 0.3 }}
-                                                    style={{ marginTop: '1.5rem', background: 'linear-gradient(145deg, #f0f9ff 0%, #e0f2fe 100%)', padding: '1.5rem', borderRadius: '1rem', border: '1px solid #bae6fd', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)' }}
-                                                >
-                                                    <h4 style={{ fontSize: '1.1rem', fontWeight: '700', color: '#0369a1', marginBottom: '1rem' }}>
-                                                        {section.title}
-                                                    </h4>
-                                                    <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-                                                        {section.items.map((item, idx) => (
-                                                            <motion.li
-                                                                key={idx}
-                                                                whileHover={{ x: 5, color: '#0284c7' }}
-                                                                style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', fontSize: '0.95rem', color: '#334155', cursor: 'default' }}
-                                                            >
-                                                                <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#0ea5e9', boxShadow: '0 0 0 3px #e0f2fe', flexShrink: 0 }} />
-                                                                {item}
-                                                            </motion.li>
-                                                        ))}
-                                                    </ul>
-                                                </motion.div>
-                                            ))}
+                                            .map((section, sectionIdx) => {
+                                                // Detect mobile devices
+                                                const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+
+                                                const boxStyle = {
+                                                    marginTop: '1.5rem',
+                                                    background: 'linear-gradient(145deg, #f0f9ff 0%, #e0f2fe 100%)',
+                                                    padding: '1.5rem',
+                                                    borderRadius: '1rem',
+                                                    border: '1px solid #bae6fd',
+                                                    boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)'
+                                                };
+
+                                                return isMobile ? (
+                                                    // Static div for mobile (no animations)
+                                                    <div key={sectionIdx} style={boxStyle}>
+                                                        <h4 style={{ fontSize: '1.1rem', fontWeight: '700', color: '#0369a1', marginBottom: '1rem' }}>
+                                                            {section.title}
+                                                        </h4>
+                                                        <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+                                                            {section.items.map((item, idx) => (
+                                                                <li
+                                                                    key={idx}
+                                                                    style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', fontSize: '0.95rem', color: '#334155' }}
+                                                                >
+                                                                    <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#0ea5e9', boxShadow: '0 0 0 3px #e0f2fe', flexShrink: 0 }} />
+                                                                    {item}
+                                                                </li>
+                                                            ))}
+                                                        </ul>
+                                                    </div>
+                                                ) : (
+                                                    // Animated motion.div for desktop
+                                                    <motion.div
+                                                        key={sectionIdx}
+                                                        initial={{ opacity: 0, y: 10 }}
+                                                        whileInView={{ opacity: 1, y: 0 }}
+                                                        whileHover={{ y: -5, boxShadow: '0 10px 25px -5px rgba(14, 165, 233, 0.15), 0 8px 10px -6px rgba(14, 165, 233, 0.1)' }}
+                                                        transition={{ duration: 0.3 }}
+                                                        style={boxStyle}
+                                                    >
+                                                        <h4 style={{ fontSize: '1.1rem', fontWeight: '700', color: '#0369a1', marginBottom: '1rem' }}>
+                                                            {section.title}
+                                                        </h4>
+                                                        <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+                                                            {section.items.map((item, idx) => (
+                                                                <motion.li
+                                                                    key={idx}
+                                                                    whileHover={{ x: 5, color: '#0284c7' }}
+                                                                    style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', fontSize: '0.95rem', color: '#334155', cursor: 'default' }}
+                                                                >
+                                                                    <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#0ea5e9', boxShadow: '0 0 0 3px #e0f2fe', flexShrink: 0 }} />
+                                                                    {item}
+                                                                </motion.li>
+                                                            ))}
+                                                        </ul>
+                                                    </motion.div>
+                                                );
+                                            })}
 
 
 
@@ -1073,8 +1149,8 @@ export default function ProductsPage() {
                                             src={selectedProduct.detailImage || selectedProduct.image}
                                             alt={selectedProduct.title}
                                             className={styles.heroImage}
-                                            width="450"
-                                            height="450"
+                                            width="500"
+                                            height="500"
                                             onError={(e) => {
                                                 e.target.onerror = null;
                                                 e.target.src = selectedProduct.image;
@@ -1138,11 +1214,7 @@ export default function ProductsPage() {
 
                                     {/* Expiry Date Section */}
                                     {selectedProduct.expiry && (
-                                        <motion.div
-                                            initial={{ opacity: 0, y: 10 }}
-                                            whileInView={{ opacity: 1, y: 0 }}
-                                            transition={{ duration: 0.4, delay: 0.1 }}
-                                            whileHover={{ scale: 1.02, boxShadow: '0 10px 25px -5px rgba(71, 85, 105, 0.1)' }}
+                                        <div
                                             style={{
                                                 marginTop: '1.5rem',
                                                 padding: '1.25rem',
@@ -1174,7 +1246,7 @@ export default function ProductsPage() {
                                                     {selectedProduct.expiry}
                                                 </p>
                                             </div>
-                                        </motion.div>
+                                        </div>
                                     )}
 
                                 </div>
@@ -1264,6 +1336,14 @@ export default function ProductsPage() {
                 </section>
             </main>
         </div >
+    );
+}
+
+export default function ProductsPage() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <ProductsContent />
+        </Suspense>
     );
 }
 

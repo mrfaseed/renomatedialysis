@@ -137,7 +137,7 @@
 
 /* Welcome / Tagline */
 .welcomeText {
-    font-family: "Google Sans", sans-serif;
+    font-family: var(--font-outfit), sans-serif;
     font-size: 0.75rem;
     color: #e2e8f0;
     letter-spacing: 0.3em;
@@ -160,7 +160,7 @@
 
 /* Main Title */
 .title {
-    font-family: "Google Sans", sans-serif;
+    font-family: var(--font-outfit), sans-serif;
     font-size: clamp(3rem, 5vw, 5rem);
     font-weight: 700;
     line-height: 1.2;
@@ -171,7 +171,7 @@
 }
 
 .playfair {
-    font-family: "Playfair Display", serif;
+    font-family: var(--font-serif), serif;
     font-style: italic;
 
 }
@@ -217,17 +217,31 @@
 .textSub {
     display: block;
     font-size: 0.35em;
-    font-weight: 600;
+    font-weight: 800;
+    /* Increased weight */
     letter-spacing: 0.5em;
-    color: #fff200;
-    /* Muted tech blue-grey */
+    /* Reduced slightly if needed, but keeping 0.5em is fine if readable */
+
+    /* High Visibility: Brighter Blue to Emerald */
+    background: linear-gradient(135deg, #60a5fa 0%, #34d399 50%, #60a5fa 100%);
+    background-size: 200% auto;
+    animation: gradientAnimation 5s ease infinite;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+
     margin-top: 1rem;
     text-transform: uppercase;
+
+    /* Stronger Glow */
+    filter: drop-shadow(0 0 12px rgba(52, 211, 153, 0.6));
 }
 
 /* Description */
 .description {
-    font-family: "Google Sans", sans-serif;
+    font-family: var(--font-outfit), sans-serif;
     font-size: 1.15rem;
     line-height: 1.8;
     color: #cbd5e1;
@@ -247,12 +261,17 @@
 }
 
 .readMoreBtn {
-    background: #ffffff;
-    color: #0f172a;
+    /* Theme Gradient Background */
+    background: linear-gradient(135deg, #2563eb 0%, #10b981 100%);
+    background-size: 200% auto;
+    animation: gradientAnimation 15s ease infinite;
+
+    color: #ffffff;
     text-decoration: none;
     padding: 1rem 2.5rem;
-    border-radius: 4px;
-    /* Slight rounded */
+    border-radius: 99px;
+    /* Pill shape */
+
     display: inline-flex;
     align-items: center;
     gap: 0.8rem;
@@ -260,12 +279,14 @@
     font-size: 1rem;
     letter-spacing: -0.02em;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
+    border: none;
 }
 
 .btnIcon {
-    background: #0f172a;
-    color: white;
+    background: #ffffff;
+    color: #2563eb;
+    /* Theme Blue */
     width: 24px;
     height: 24px;
     border-radius: 50%;
@@ -276,9 +297,9 @@
 }
 
 .readMoreBtn:hover {
-    background: #f8fafc;
     transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.5);
+    filter: brightness(1.1);
 }
 
 .readMoreBtn:hover .btnIcon {
@@ -287,20 +308,26 @@
 
 .secondaryBtn {
     padding: 1rem 2.5rem;
-    border-radius: 4px;
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 99px;
+    /* Pill shape */
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     color: #ffffff;
     font-weight: 500;
     font-size: 1rem;
     letter-spacing: 0.02em;
     text-decoration: none;
     transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
 }
 
 .secondaryBtn:hover {
-    border-color: #ffffff;
-    background: rgba(255, 255, 255, 0.05);
+    border-color: transparent;
+    /* Theme Gradient on Hover */
+    background: linear-gradient(135deg, #2563eb 0%, #10b981 100%);
+    background-size: 200% auto;
+    animation: gradientAnimation 15s ease infinite;
+    box-shadow: 0 5px 20px rgba(16, 185, 129, 0.3);
 }
 
 /* 7. MOLECULAR OVERLAY - Glass & Subtle */
