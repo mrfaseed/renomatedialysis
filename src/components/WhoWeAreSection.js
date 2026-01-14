@@ -1,12 +1,26 @@
 'use client';
 
-import React from 'react';
+import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { DotLottiePlayer } from '@dotlottie/react-player';
+import lottie from 'lottie-web';
 import styles from './WhoWeAreSection.module.css';
 import ChemistryBackground from './ChemistryBackground';
 
 export default function WhoWeAreSection() {
+    const lottieContainer = useRef(null);
+
+    useEffect(() => {
+        const animation = lottie.loadAnimation({
+            container: lottieContainer.current,
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: '/Reactor.json'
+        });
+
+        return () => animation.destroy();
+    }, []);
+
     return (
         <section className={styles.container} id="who-we-are">
             <ChemistryBackground />
@@ -55,12 +69,7 @@ export default function WhoWeAreSection() {
                         Our state-of-the-art facility operates on a simple premise: <strong>Quality is non-negotiable.</strong> From the purity of our raw materials to the integrity of our final packaging, every step is a testament to our dedication to renal care excellence. We are not just a supplier; we are a partner in the journey towards better health.
                     </p>
                     <div className={styles.lottieContainer}>
-                        <DotLottiePlayer
-                            src="/Reactor.lottie"
-                            autoplay
-                            loop
-                            style={{ height: '100%', width: '100%' }}
-                        />
+                        <div ref={lottieContainer} style={{ height: '100%', width: '100%' }}></div>
                     </div>
                 </motion.div>
             </div>
