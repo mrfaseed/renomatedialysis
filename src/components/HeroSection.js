@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import styles from './HeroSection.module.css';
 import { ArrowRight } from 'lucide-react';
+import Hls from 'hls.js';
 
 export default function HeroSection() {
     const { scrollY } = useScroll();
@@ -200,11 +201,86 @@ function VideoBackground() {
     const [isVideoLoaded, setIsVideoLoaded] = useState(false);
     const videoRef = React.useRef(null);
 
+    // Primary Source: Firebase Storage
+    // Using the storage.googleapis.com format which works best for HLS relative paths if the bucket/folder is public.
+    const remoteHlsSource = "https://storage.googleapis.com/renomatedialysis.firebasestorage.app/mainhls/index.m3u8";
+
+    // Fallback Source: Local file
+    const localHlsSource = "/mainhls/index.m3u8";
+
     useEffect(() => {
-        // Check if video is already ready (for cached hits)
-        if (videoRef.current && videoRef.current.readyState >= 3) {
-            setIsVideoLoaded(true);
-        }
+        const video = videoRef.current;
+        if (!video) return;
+
+        let hls;
+
+        const loadStream = (source, isRetry = false) => {
+            if (Hls.isSupported()) {
+                if (hls) hls.destroy();
+
+                hls = new Hls({
+                    autoStartLoad: true,
+                    startPosition: -1,
+                    debug: false,
+                });
+
+                hls.loadSource(source);
+                hls.attachMedia(video);
+
+                hls.on(Hls.Events.MANIFEST_PARSED, () => {
+                    video.play().catch(e => console.log("Auto-play prevented", e));
+                });
+
+                hls.on(Hls.Events.ERROR, function (event, data) {
+                    if (data.fatal) {
+                        switch (data.type) {
+                            case Hls.ErrorTypes.NETWORK_ERROR:
+                                if (!isRetry) {
+                                    console.warn("Remote HLS failed, falling back to local...");
+                                    loadStream(localHlsSource, true);
+                                } else {
+                                    hls.startLoad();
+                                }
+                                break;
+                            case Hls.ErrorTypes.MEDIA_ERROR:
+                                hls.recoverMediaError();
+                                break;
+                            default:
+                                if (!isRetry) {
+                                    console.warn("Fatal HLS error, switching to local.");
+                                    loadStream(localHlsSource, true);
+                                } else {
+                                    hls.destroy();
+                                }
+                                break;
+                        }
+                    }
+                });
+            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                // Native HLS support (Safari)
+                video.src = source;
+                video.addEventListener('loadedmetadata', () => {
+                    video.play().catch(e => console.log("Auto-play prevented (Safari)", e));
+                });
+
+                video.addEventListener('error', (e) => {
+                    if (!isRetry) {
+                        console.warn("Native HLS failed, switching to local.");
+                        video.src = localHlsSource;
+                        video.play();
+                    }
+                });
+            }
+        };
+
+        // Attempt to load remote first
+        loadStream(remoteHlsSource);
+
+        return () => {
+            if (hls) {
+                hls.destroy();
+            }
+        };
     }, []);
 
     const handleVideoLoad = () => {
@@ -229,11 +305,9 @@ function VideoBackground() {
                 playsInline
                 className={styles.video}
                 onLoadedData={handleVideoLoad}
+                onPlaying={() => setIsVideoLoaded(true)}
                 style={{ opacity: isVideoLoaded ? 1 : 0 }}
-            >
-                <source src="/assets/BG_FINAL.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-            </video>
+            />
             <div className={styles.videoOverlay} />
         </div>
     );

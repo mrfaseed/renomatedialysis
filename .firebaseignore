@@ -1,0 +1,32 @@
+# Git
+.git
+.gitignore
+
+# Firebase local cache only
+.firebase
+
+# Dependencies
+node_modules
+
+# Next.js build artifacts (cloud rebuilds these)
+.next
+out
+dist
+build
+
+# Environment variables
+.env
+.env.*
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+firebase-debug.log*
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Secrets
+renomatedialysis-firebase-adminsdk-fbsvc-9261a03620.json
