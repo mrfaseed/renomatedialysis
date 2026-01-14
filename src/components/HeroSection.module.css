@@ -217,11 +217,13 @@
 .textSub {
     display: block;
     font-size: 0.35em;
-    font-weight: 700;
+    font-weight: 800;
+    /* Increased weight */
     letter-spacing: 0.5em;
+    /* Reduced slightly if needed, but keeping 0.5em is fine if readable */
 
-    /* Theme Gradient Text */
-    background: linear-gradient(135deg, #2563eb 0%, #10b981 100%);
+    /* High Visibility: Brighter Blue to Emerald */
+    background: linear-gradient(135deg, #60a5fa 0%, #34d399 50%, #60a5fa 100%);
     background-size: 200% auto;
     animation: gradientAnimation 5s ease infinite;
 
@@ -233,8 +235,8 @@
     margin-top: 1rem;
     text-transform: uppercase;
 
-    /* Glow */
-    filter: drop-shadow(0 0 10px rgba(37, 99, 235, 0.4));
+    /* Stronger Glow */
+    filter: drop-shadow(0 0 12px rgba(52, 211, 153, 0.6));
 }
 
 /* Description */
