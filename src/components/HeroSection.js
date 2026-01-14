@@ -143,7 +143,7 @@ export default function HeroSection() {
                                 variants={itemVariants}
                                 className={styles.textHighlight}
                             >
-                                High Quality
+                              <span className={styles.playfair}>  High Quality</span>
                             </motion.span>
                             <motion.span
                                 variants={itemVariants}
@@ -161,7 +161,7 @@ export default function HeroSection() {
                         </motion.h1>
 
                         <motion.p variants={itemVariants} className={styles.description} style={{ y: descY }}>
-                            Engineered for absolute purity. We synthesize state-of-the-art hemodialysis fluids using cutting-edge molecular manufacturing processes to ensure uncompromised patient safety.
+
                         </motion.p>
 
                         <motion.div variants={itemVariants} className={styles.actionGroup}>

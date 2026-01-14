@@ -45,7 +45,6 @@ export default function ChemistryBackground() {
                     style={{
                         left: `${el.initialX}%`,
                         top: `${el.initialY}%`,
-                        filter: 'blur(1px)',
                     }}
                     initial={{ opacity: 0, scale: 0.5 }}
                     animate={{

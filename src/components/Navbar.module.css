@@ -21,7 +21,7 @@
     transform: translateX(-50%);
     width: 95%;
     max-width: 1400px;
-    height: 72px;
+    height: 85px;
 
     /* Pure White Background */
     background: #ffffff;
@@ -99,10 +99,43 @@
 }
 
 .logoImage {
-    height: 48px;
+    height: 56px;
     width: auto;
     object-fit: contain;
-    /* Removed brightness filter for natural look on white */
+}
+
+.brandText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 12px;
+}
+
+.brandPrefix {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #64748b;
+    margin-bottom: -2px;
+}
+
+.brandTitle {
+    font-size: 1.8rem;
+    font-weight: 800;
+    line-height: 1;
+    color: #0ea5e9;
+    /* Light Blue / Cyan to match image */
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+.brandSubtitle {
+    font-size: 0.5rem;
+    font-weight: 600;
+    color: #334155;
+    letter-spacing: 0.05em;
+    margin-top: 2px;
+    max-width: 220px;
 }
 
 /* 3. DESKTOP NAVIGATION */
@@ -549,9 +582,16 @@
     }
 
     .logoImage {
-        height: 48px;
-        /* Slightly larger than 36 for better visibility */
+        display: block;
+        height: 60px;
         width: auto;
+    }
+
+    .brandText {
+        display: flex;
+        transform: scale(0.65);
+        transform-origin: left center;
+        margin-left: 5px;
     }
 }
 
