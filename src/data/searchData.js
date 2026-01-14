@@ -89,13 +89,6 @@ export const products = [
         category: 'Product',
         image: '/products/13.png',
         link: '/products'
-    },
-    {
-        id: 14,
-        title: 'RENOCLEAN – Cold Sterilant',
-        category: 'Product',
-        image: '/products/14.png',
-        link: '/products'
     }
 ];
 

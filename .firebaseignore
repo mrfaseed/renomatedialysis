@@ -30,3 +30,7 @@ Thumbs.db
 
 # Secrets
 renomatedialysis-firebase-adminsdk-fbsvc-9261a03620.json
+
+public/assets
+public/hls
+public/mainhls

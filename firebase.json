@@ -28,7 +28,10 @@
         ".git",
         "firebase-debug.log",
         "firebase-debug.*.log",
-        "functions"
+        "functions",
+        "public/mainhls/**",
+        "public/assets/**",
+        "public/hls/**"
       ]
     }
   ],

@@ -715,9 +715,24 @@
         grid-template-columns: 1fr;
     }
 
+    /* Keep Title First on Mobile (Default DOM Order) */
     .detailRightColumn {
         position: static;
-        order: -1;
+        order: initial;
+    }
+
+    .fullProductView {
+        margin-top: 6rem;
+        padding: 1.5rem;
+    }
+
+    .detailTitleLarge {
+        font-size: 2.25rem;
+        /* Smaller title on mobile */
+    }
+
+    .heroImageWrapper {
+        padding: 2rem;
     }
 }
 
@@ -733,6 +748,25 @@
     .overviewImageContainer {
         height: 220px;
     }
+
+    /* Inquire Section Mobile */
+    .inquireSection {
+        padding: 3rem 1.5rem;
+        margin-top: 3rem;
+    }
+
+    .inquireTitle {
+        font-size: 1.75rem;
+    }
+
+    .inquireText {
+        font-size: 1rem;
+    }
+
+    .inquireBtn {
+        width: 100%;
+        justify-content: center;
+    }
 }
 
 @media (max-width: 480px) {
@@ -747,5 +781,13 @@
 
     .categoryPill {
         text-align: center;
+    }
+
+    .detailTitleLarge {
+        font-size: 2rem;
+    }
+
+    .detailSubtitle {
+        font-size: 1.25rem;
     }
 }

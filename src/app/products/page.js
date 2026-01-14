@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState, useEffect, useRef, Suspense } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight, ShieldCheck, FileCheck, Activity, FlaskConical, Beaker, Hexagon, Component, Microscope, ChevronDown, CheckCircle2, AlertCircle, Package, Settings, HelpCircle, Clock } from 'lucide-react';
 import styles from './products.module.css';
@@ -76,8 +76,8 @@ const products = [
             }
         ],
         expiry: 'One year from the date of manufacture',
-        image: '/products/ChatGPT Image Jan 13, 2026, 06_35_14 PM.png',
-        detailImage: '/products/ChatGPT Image Jan 13, 2026, 06_35_14 PM.png',
+        image: '/products/cit.png',
+        detailImage: '/products/cit.png',
         specs: ['SKU: W019', 'pH: 1.7 - 2.0', 'Expiry: 1 Year', 'Microbiocidal >60°C'],
         whyUsed: [
             'Dissolves blood residue and calcium sediments',
@@ -115,8 +115,8 @@ const products = [
         description: 'Dialyzers are not just reused, they are reprocessed. The reprocessing procedure involves cleaning, testing, filling your dialyzer with a sterilant (Diamate® Cold Sterilant), inspecting, labeling, storing and rinsing your dialyzer before it is reused for your next treatment.',
         overview: 'DIAMATE is a specialized cold sterilant solution designed for dialyzer reprocessing. It helps sterilize and disinfect dialyzers safely, removing bacteria and other contaminants while maintaining dialyzer performance.',
         fullDescription: 'Dialyzers are not just reused, they are reprocessed. The reprocessing procedure involves cleaning, testing, filling your dialyzer with a sterilant (Diamate® Cold Sterilant), inspecting, labeling, storing and rinsing your dialyzer before it is reused for your next treatment.',
-        image: '/products/ChatGPT Image Jan 13, 2026, 06_36_53 PM.png',
-        detailImage: '/products/ChatGPT Image Jan 13, 2026, 06_36_53 PM.png',
+        image: '/products/dia.png',
+        detailImage: '/products/dia.png',
         specs: ['SKU: W021', 'Type: Peracetic Acid based', 'Usage: Reprocessing', 'Sterilization: High-level', 'Safe Reuse'],
         customSections: [
             {
@@ -775,13 +775,24 @@ const products = [
 
 ];
 
-export default function ProductsPage() {
+function ProductsContent() {
     const router = useRouter();
+    const searchParams = useSearchParams();
     const [activeProductId, setActiveProductId] = useState(null);
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [selectedCategory, setSelectedCategory] = useState('All Products');
     const productRefs = useRef({});
     const detailViewRef = useRef(null);
+
+    useEffect(() => {
+        const productId = searchParams.get('productId');
+        if (productId) {
+            const product = products.find(p => p.id === parseInt(productId));
+            if (product) {
+                setSelectedProduct(product);
+            }
+        }
+    }, [searchParams]);
 
     useEffect(() => {
         if (selectedProduct) {
@@ -1263,6 +1274,14 @@ export default function ProductsPage() {
                 </section>
             </main>
         </div >
+    );
+}
+
+export default function ProductsPage() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <ProductsContent />
+        </Suspense>
     );
 }
 

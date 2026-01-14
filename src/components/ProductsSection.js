@@ -76,13 +76,13 @@ const products = [
             }
         ],
         expiry: 'One year from the date of manufacture',
-        image: '/products/ChatGPT Image Jan 13, 2026, 06_35_14 PM.png',
-        detailImage: '/products/ChatGPT Image Jan 13, 2026, 06_35_14 PM.png',
+        image: '/products/cit.png',
+        detailImage: '/products/cit.png',
         specs: ['SKU: W019', 'pH: 1.7 - 2.0', 'Expiry: 1 Year', 'Microbiocidal >60°C'],
         whyUsed: [
             'Dissolves blood residue and calcium sediments',
             'Biodegradable and non-toxic formulation',
-            'Potent disinfectant at 60°C (Bactericidal, Virucidal, Fungicidal)',
+            'Potent disinfectant at 60°C  (Bactericidal, Virucidal, Fungicidal)',
             'Effective against HBV, HCV, and HIV',
             'Synergistic effect for high disinfection potency'
         ],
@@ -115,8 +115,8 @@ const products = [
         description: 'Dialyzers are not just reused, they are reprocessed. The reprocessing procedure involves cleaning, testing, filling your dialyzer with a sterilant (Diamate® Cold Sterilant), inspecting, labeling, storing and rinsing your dialyzer before it is reused for your next treatment.',
         overview: 'DIAMATE is a specialized cold sterilant solution designed for dialyzer reprocessing. It helps sterilize and disinfect dialyzers safely, removing bacteria and other contaminants while maintaining dialyzer performance.',
         fullDescription: 'Dialyzers are not just reused, they are reprocessed. The reprocessing procedure involves cleaning, testing, filling your dialyzer with a sterilant (Diamate® Cold Sterilant), inspecting, labeling, storing and rinsing your dialyzer before it is reused for your next treatment.',
-        image: '/products/ChatGPT Image Jan 13, 2026, 06_36_53 PM.png',
-        detailImage: '/products/ChatGPT Image Jan 13, 2026, 06_36_53 PM.png',
+        image: '/products/dia.png',
+        detailImage: '/products/dia.png',
         specs: ['SKU: W021', 'Type: Peracetic Acid based', 'Usage: Reprocessing', 'Sterilization: High-level', 'Safe Reuse'],
         customSections: [
             {

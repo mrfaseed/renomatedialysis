@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import Hls from 'hls.js';
 import { Play, Pause, Volume2, VolumeX, Maximize, RotateCcw } from 'lucide-react';
 
-export default function HLSPlayer({ src, poster }) {
+export default function HLSPlayer({ src, fallbackSrc, poster }) {
     const videoRef = useRef(null);
     const containerRef = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false);
@@ -20,31 +20,73 @@ export default function HLSPlayer({ src, poster }) {
 
         let hls;
 
-        if (Hls.isSupported()) {
-            hls = new Hls({
-                enableWorker: true,
-                lowLatencyMode: true,
-                backBufferLength: 90
-            });
-            hls.loadSource(src);
-            hls.attachMedia(video);
+        const loadStream = (currentSrc, isRetry = false) => {
+            if (Hls.isSupported()) {
+                if (hls) hls.destroy();
 
-            hls.on(Hls.Events.MANIFEST_PARSED, () => {
-                video.play()
-                    .then(() => setIsPlaying(true))
-                    .catch(e => console.log("Autoplay blocked:", e));
-            });
-        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-            // Native HLS support (Safari)
-            video.src = src;
-        }
+                hls = new Hls({
+                    enableWorker: true,
+                    lowLatencyMode: true,
+                    backBufferLength: 90
+                });
+
+                hls.loadSource(currentSrc);
+                hls.attachMedia(video);
+
+                hls.on(Hls.Events.MANIFEST_PARSED, () => {
+                    video.play()
+                        .then(() => setIsPlaying(true))
+                        .catch(e => console.log("Autoplay blocked:", e));
+                });
+
+                hls.on(Hls.Events.ERROR, function (event, data) {
+                    if (data.fatal) {
+                        switch (data.type) {
+                            case Hls.ErrorTypes.NETWORK_ERROR:
+                                if (fallbackSrc && !isRetry) {
+                                    console.warn("Primary stream failed, switching to fallback:", fallbackSrc);
+                                    loadStream(fallbackSrc, true);
+                                } else {
+                                    hls.startLoad();
+                                }
+                                break;
+                            case Hls.ErrorTypes.MEDIA_ERROR:
+                                hls.recoverMediaError();
+                                break;
+                            default:
+                                if (fallbackSrc && !isRetry) {
+                                    console.warn("Fatal error, switching to fallback.");
+                                    loadStream(fallbackSrc, true);
+                                } else {
+                                    hls.destroy();
+                                }
+                                break;
+                        }
+                    }
+                });
+            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                // Native HLS support (Safari)
+                video.src = currentSrc;
+
+                // Basic error listener for native player
+                const errorHandler = () => {
+                    if (fallbackSrc && !isRetry) {
+                        console.warn("Native player error, switching to fallback.");
+                        video.src = fallbackSrc;
+                    }
+                };
+                video.addEventListener('error', errorHandler, { once: true });
+            }
+        };
+
+        loadStream(src);
 
         return () => {
             if (hls) {
                 hls.destroy();
             }
         };
-    }, [src]);
+    }, [src, fallbackSrc]);
 
     // Handle Time Update
     const handleTimeUpdate = () => {
