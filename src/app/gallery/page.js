@@ -5,7 +5,7 @@ import styles from './gallery.module.css';
 
 export const metadata = {
     title: 'Gallery - Renomate Dialysis',
-    description: 'View our product demonstrations and gallery.',
+    description: 'View Our product demonstrations and gallery.',
 };
 
 export default function GalleryPage() {
