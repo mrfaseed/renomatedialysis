@@ -854,8 +854,7 @@ export default function ProductsPage() {
                         >
                             <header className={styles.headerSection}>
                                 <h1 className={styles.headerTitle}>
-                                    Advanced Dialysis Solutions for <br className={styles.breakLine} />
-                                    <span className={styles.headerSubtitle}>Clinical Excellence</span>
+                                    Our <span className={styles.headerSubtitle}>Products</span>
                                 </h1>
                                 <p className={styles.headerDescription}>
                                     From high-purity cleaning fluids to precise hemodialysis concentrates.
@@ -864,33 +863,11 @@ export default function ProductsPage() {
                             </header>
 
                             {/* Category Filter */}
-                            <div className={styles.categoryFilterContainer}>
-                                {categories.map((category) => {
-                                    const count = category.tag === null
-                                        ? products.length
-                                        : products.filter(p => p.tag === category.tag).length;
 
-                                    return (
-                                        <button
-                                            key={category.name}
-                                            className={`${styles.categoryPill} ${selectedCategory === category.name ? styles.categoryPillActive : ''
-                                                }`}
-                                            onClick={() => setSelectedCategory(category.name)}
-                                        >
-                                            {category.name} ({count})
-                                        </button>
-                                    );
-                                })}
-                            </div>
-
-                            {/* Product Count Text */}
-                            <div className={styles.productCountText}>
-                                Showing {filteredProducts.length} products in {selectedCategory}
-                            </div>
 
                             {/* Product Selection Grid */}
                             <div className={styles.productOverviewGrid}>
-                                {filteredProducts.map((product) => (
+                                {filteredProducts.slice(0, 4).map((product) => (
                                     <div
                                         key={product.id}
                                         className={styles.overviewCard}
@@ -915,6 +892,12 @@ export default function ProductsPage() {
                                         </div>
                                     </div>
                                 ))}
+                            </div>
+
+                            <div className={styles.viewAllContainer}>
+                                <button className={styles.viewAllBtn} onClick={() => router.push('/products')}>
+                                    View All Products <ArrowRight size={18} />
+                                </button>
                             </div>
 
 
