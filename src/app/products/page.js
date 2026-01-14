@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState, useEffect, useRef, Suspense } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight, ShieldCheck, FileCheck, Activity, FlaskConical, Beaker, Hexagon, Component, Microscope, ChevronDown, CheckCircle2, AlertCircle, Package, Settings, HelpCircle, Clock } from 'lucide-react';
 import styles from './products.module.css';
@@ -775,13 +775,24 @@ const products = [
 
 ];
 
-export default function ProductsPage() {
+function ProductsContent() {
     const router = useRouter();
+    const searchParams = useSearchParams();
     const [activeProductId, setActiveProductId] = useState(null);
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [selectedCategory, setSelectedCategory] = useState('All Products');
     const productRefs = useRef({});
     const detailViewRef = useRef(null);
+
+    useEffect(() => {
+        const productId = searchParams.get('productId');
+        if (productId) {
+            const product = products.find(p => p.id === parseInt(productId));
+            if (product) {
+                setSelectedProduct(product);
+            }
+        }
+    }, [searchParams]);
 
     useEffect(() => {
         if (selectedProduct) {
@@ -1263,6 +1274,14 @@ export default function ProductsPage() {
                 </section>
             </main>
         </div >
+    );
+}
+
+export default function ProductsPage() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <ProductsContent />
+        </Suspense>
     );
 }
 

@@ -3,99 +3,92 @@ export const products = [
         id: 1,
         title: 'Citric Acid Powder',
         category: 'Product',
-        image: '/products/Citric_Acid_Powder.png',
-        link: '/products'
+        image: '/products/CITI.png',
+        link: '/products?productId=1'
     },
     {
         id: 2,
         title: 'CITROMATE',
         category: 'Product',
-        image: '/products/CITROMATE.png',
-        link: '/products'
+        image: '/products/ChatGPT Image Jan 13, 2026, 06_35_14 PM.png',
+        link: '/products?productId=2'
     },
     {
         id: 3,
         title: 'DIAMATE',
         category: 'Product',
-        image: '/products/DIAMATE.png',
-        link: '/products'
+        image: '/products/ChatGPT Image Jan 13, 2026, 06_36_53 PM.png',
+        link: '/products?productId=3'
     },
     {
         id: 4,
         title: 'Formaldehyde Solution',
         category: 'Product',
-        image: '/products/Formaldehyde_Solution_IP.png',
-        link: '/products'
+        image: '/products/4.png',
+        link: '/products?productId=4'
     },
     {
         id: 5,
         title: 'Acid Concentrate – Bicarbonate Dialysis (1:34)',
         category: 'Product',
-        image: '/products/cane.png',
-        link: '/products'
+        image: '/products/5.png',
+        link: '/products?productId=5'
     },
     {
         id: 6,
         title: 'Acid Concentrate – Bicarbonate Dialysis (1:32.75)',
         category: 'Product',
-        image: '/products/cane.png',
-        link: '/products'
+        image: '/products/6.png',
+        link: '/products?productId=6'
     },
     {
         id: 7,
         title: 'Acid Concentrate – Acidic Solution (DEXTROSE) – Bicarbonate',
         category: 'Product',
-        image: '/products/cane.png',
-        link: '/products'
+        image: '/products/7.png',
+        link: '/products?productId=7'
     },
     {
         id: 8,
         title: 'Specialty Acid – Acidic Solution (Free Potassium) – Bicarbonate',
         category: 'Product',
-        image: '/products/cane.png',
-        link: '/products'
+        image: '/products/8.png',
+        link: '/products?productId=8'
     },
     {
         id: 9,
         title: 'Specialty Acid – Acidic Solution (Low Potassium) – Bicarbonate',
         category: 'Product',
-        image: '/products/cane.png',
-        link: '/products'
+        image: '/products/9.png',
+        link: '/products?productId=9'
     },
     {
         id: 10,
         title: 'Hydrogen Peroxide Solution',
         category: 'Product',
-        image: '/products/Hydrogen_Peroxide_Solution.png',
-        link: '/products'
+        image: '/products/10.png',
+        link: '/products?productId=10'
     },
     {
         id: 11,
         title: 'Bicarb Powder – Sodium Bicarbonate IP',
         category: 'Product',
-        image: '/products/Sodium_Bicarbonate_IP.png',
-        link: '/products'
+        image: '/products/11.png',
+        link: '/products?productId=11'
     },
     {
         id: 12,
         title: 'Bicarb Mix – Sodium Bicarbonate IP & Sodium Chloride IP',
         category: 'Product',
-        image: '/products/Sodium_Bicarbonate_IP_and_Sodium_Chloride_IP.png',
-        link: '/products'
+        image: '/products/12.png',
+        link: '/products?productId=12'
     },
     {
         id: 13,
         title: 'Sodium Hypochlorite – Bleach (5–6%)',
         category: 'Product',
-        image: '/products/SodiumHypochloriteBleach.png',
-        link: '/products'
-    },
-    {
-        id: 14,
-        title: 'RENOCLEAN – Cold Sterilant',
-        category: 'Product',
-        image: '/products/cane.png',
-        link: '/products'
+        image: '/products/13.png',
+        link: '/products?productId=13'
     }
 ];
 
