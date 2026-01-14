@@ -23,8 +23,10 @@
     max-width: 1400px;
     height: 85px;
 
-    /* Deep Teal Gradient Background - Professional & Medical */
-    background: linear-gradient(95deg, #0e5e6f 0%, #3a8891 100%);
+    /* Blue-Emerald Gradient Background */
+    background: linear-gradient(135deg, #2563eb 0%, #10b981 100%);
+    background-size: 200% auto;
+
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
 
@@ -43,8 +45,23 @@
     align-items: center;
     z-index: 99999;
 
-    animation: fadeSlideDown 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    /* Combined Animations: Entrance + Gradient Flow */
+    animation: fadeSlideDown 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards, gradient 15s ease infinite;
     transition: all 0.3s ease;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 /* RGB Gradient Border Surround */
