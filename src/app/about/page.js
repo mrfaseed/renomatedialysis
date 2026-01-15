@@ -253,7 +253,7 @@ export default function AboutPage() {
                             <p className={styles.foundedBy}>Sri Ramakrishna’s Renomate is led by its partner firm:</p>
                             <ul className={styles.foundersList}>
                                 <li>Mr. B. Suresh</li>
-                                <li>Ms. R. Meenal</li>
+                                <li>Mrs. R. Meenal</li>
                             </ul>
                             <p>
                                 The leadership team is committed to ethical business practices, regulatory transparency, and long-term sustainability. Their vision emphasizes patient safety, customer satisfaction, and excellence in manufacturing.
