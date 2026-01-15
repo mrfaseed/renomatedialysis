@@ -225,7 +225,7 @@ export default function AboutPage() {
                             delay={0.2}
                         />
                         <TeamMember
-                            name="Ms. K. Saraswathy"
+                            name="Mrs. K. Saraswathy"
                             degree="B.Sc (Chemistry)"
                             role="Quality Control"
                             description="Supports routine analysis, documentation, and quality assurance activities."
