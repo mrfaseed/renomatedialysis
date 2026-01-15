@@ -1,5 +1,5 @@
 /* Products Page Premium Styles */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
 .pageWrapper {
     min-height: 100vh;
@@ -120,6 +120,10 @@
 }
 
 .headerSubtitle {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.3em;
+    padding-right: 0.15em;
     background: linear-gradient(135deg, #2563eb 0%, #10b981 100%);
     background-size: 200% auto;
     animation: gradientShift 5s ease infinite;
