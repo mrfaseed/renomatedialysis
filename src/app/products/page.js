@@ -237,8 +237,8 @@ const products = [
             {
                 title: 'Contents (gm/Ltr) - Each Liter Contains',
                 items: [
-                    'Sodium Chloride I.P. - 210.00gm',
-                    'Potassium Chloride I.P. - 5.20gm',
+                    'Sodium Chloride I.P. - 183.00gm',
+                    'Potassium Chloride I.P. - 5.5gm',
                     'Calcium Chloride I.P. - 8gm',
                     'Magnesium Chloride I.P. - 2.7gm',
                     'Acetic Acid I.P. - 9.0gm',
@@ -248,9 +248,9 @@ const products = [
             {
                 title: 'Electrolyte Composition',
                 items: [
-                    'Na* 103mEq | K* 2.0mEq',
+                    'Na* 85.02mEq | K* 2.0mEq',
                     'Ca** 3.0mEq | Mg** 0.75mEq',
-                    'Cl 108mEq | Acetic Acid 4.0mEq'
+                    'Cl 90.7mEq | Acetic Acid 4.0mEq'
                 ]
             },
             {
