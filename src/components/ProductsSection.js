@@ -793,7 +793,7 @@ export default function ProductsPage() {
     }, [selectedProduct]);
 
     const handleViewDetails = (product) => {
-        setSelectedProduct(product);
+        router.push(`/products?productId=${product.id}`);
     };
 
     const handleBack = () => {

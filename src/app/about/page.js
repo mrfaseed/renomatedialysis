@@ -138,7 +138,7 @@ export default function AboutPage() {
                         className={styles.sectionHeader}
                     >
                         <Leaf className={styles.headerIcon} size={40} />
-                        <h2 className={styles.sectionTitle}>Raw Materials & Supplier ,<span className={styles.sectionTitle1}> Quality </span>Assurance</h2>
+                        <h2 className={styles.sectionTitle}>Raw Materials & Supplier <span className={styles.sectionTitle1}>Quality</span> Assurance</h2>
                         <p className={styles.sectionSubtitle}>
                             At Sri Ramakrishna’s Renomate, the quality of raw materials is fundamental to the safety and performance of our haemodialysis solutions.
                         </p>
@@ -225,7 +225,7 @@ export default function AboutPage() {
                             delay={0.2}
                         />
                         <TeamMember
-                            name="Ms. K. Saraswathy"
+                            name="Mrs. K. Saraswathy"
                             degree="B.Sc (Chemistry)"
                             role="Quality Control"
                             description="Supports routine analysis, documentation, and quality assurance activities."
@@ -253,7 +253,7 @@ export default function AboutPage() {
                             <p className={styles.foundedBy}>Sri Ramakrishna’s Renomate is led by its partner firm:</p>
                             <ul className={styles.foundersList}>
                                 <li>Mr. B. Suresh</li>
-                                <li>Ms. R. Meenal</li>
+                                <li>Mrs. R. Meenal</li>
                             </ul>
                             <p>
                                 The leadership team is committed to ethical business practices, regulatory transparency, and long-term sustainability. Their vision emphasizes patient safety, customer satisfaction, and excellence in manufacturing.

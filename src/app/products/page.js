@@ -781,6 +781,7 @@ function ProductsContent() {
     const [activeProductId, setActiveProductId] = useState(null);
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [selectedCategory, setSelectedCategory] = useState('All Products');
+    const [selectedPackSize, setSelectedPackSize] = useState(null);
     const productRefs = useRef({});
     const detailViewRef = useRef(null);
 
@@ -805,6 +806,7 @@ function ProductsContent() {
 
     const handleViewDetails = (product) => {
         setSelectedProduct(product);
+        setSelectedPackSize(null); // Reset pack size selection when viewing a new product
     };
 
     const handleBack = () => {
@@ -963,7 +965,13 @@ function ProductsContent() {
                                                 <span className={styles.packSizeLabel}>{selectedProduct.customSections[0].title}</span>
                                                 <div className={styles.packSizeList}>
                                                     {selectedProduct.customSections[0].items.map((item, idx) => (
-                                                        <span key={idx} className={styles.packSizeItem}>• {item}</span>
+                                                        <span
+                                                            key={idx}
+                                                            className={`${styles.packSizeItem} ${selectedPackSize === item ? styles.packSizeItemActive : ''}`}
+                                                            onClick={() => setSelectedPackSize(item)}
+                                                        >
+                                                            • {item}
+                                                        </span>
                                                     ))}
                                                 </div>
                                             </div>
@@ -971,7 +979,13 @@ function ProductsContent() {
                                                 <span className={styles.packSizeLabel}>Available Pack Sizes</span>
                                                 <div className={styles.packSizeList}>
                                                     {selectedProduct.packSizes.map(size => (
-                                                        <span key={size} className={styles.packSizeItem}>• {size}</span>
+                                                        <span
+                                                            key={size}
+                                                            className={`${styles.packSizeItem} ${selectedPackSize === size ? styles.packSizeItemActive : ''}`}
+                                                            onClick={() => setSelectedPackSize(size)}
+                                                        >
+                                                            • {size}
+                                                        </span>
                                                     ))}
                                                 </div>
                                             </div>
@@ -980,7 +994,12 @@ function ProductsContent() {
                                         <div className={styles.packSizeBox}>
                                             <span className={styles.packSizeLabel}>{selectedProduct.id === 12 || selectedProduct.id === 11 ? 'Net Weight' : 'Weight'}</span>
                                             <div className={styles.packSizeList}>
-                                                <span className={styles.packSizeItem}>• {selectedProduct.weight}</span>
+                                                <span
+                                                    className={`${styles.packSizeItem} ${selectedPackSize === selectedProduct.weight ? styles.packSizeItemActive : ''}`}
+                                                    onClick={() => setSelectedPackSize(selectedProduct.weight)}
+                                                >
+                                                    • {selectedProduct.weight}
+                                                </span>
                                             </div>
                                         </div>
                                     ) : selectedProduct.id === 3 && selectedProduct.customSections ? (
@@ -988,7 +1007,13 @@ function ProductsContent() {
                                             <span className={styles.packSizeLabel}>{selectedProduct.customSections[0].title}</span>
                                             <div className={styles.packSizeList}>
                                                 {selectedProduct.customSections[0].items.map((item, idx) => (
-                                                    <span key={idx} className={styles.packSizeItem}>• {item}</span>
+                                                    <span
+                                                        key={idx}
+                                                        className={`${styles.packSizeItem} ${selectedPackSize === item ? styles.packSizeItemActive : ''}`}
+                                                        onClick={() => setSelectedPackSize(item)}
+                                                    >
+                                                        • {item}
+                                                    </span>
                                                 ))}
                                             </div>
                                         </div>
@@ -997,7 +1022,13 @@ function ProductsContent() {
                                             <span className={styles.packSizeLabel}>Available Pack Sizes</span>
                                             <div className={styles.packSizeList}>
                                                 {selectedProduct.packSizes.map(size => (
-                                                    <span key={size} className={styles.packSizeItem}>• {size}</span>
+                                                    <span
+                                                        key={size}
+                                                        className={`${styles.packSizeItem} ${selectedPackSize === size ? styles.packSizeItemActive : ''}`}
+                                                        onClick={() => setSelectedPackSize(size)}
+                                                    >
+                                                        • {size}
+                                                    </span>
                                                 ))}
                                             </div>
                                         </div>
@@ -1038,34 +1069,69 @@ function ProductsContent() {
 
 
 
+
+
                                         {selectedProduct.customSections && selectedProduct.customSections
                                             .filter((section, sectionIdx) => (selectedProduct.id !== 3 && selectedProduct.id !== 4) || sectionIdx !== 0)
-                                            .map((section, sectionIdx) => (
-                                                <motion.div
-                                                    key={sectionIdx}
-                                                    initial={{ opacity: 0, y: 10 }}
-                                                    whileInView={{ opacity: 1, y: 0 }}
-                                                    whileHover={{ y: -5, boxShadow: '0 10px 25px -5px rgba(14, 165, 233, 0.15), 0 8px 10px -6px rgba(14, 165, 233, 0.1)' }}
-                                                    transition={{ duration: 0.3 }}
-                                                    style={{ marginTop: '1.5rem', background: 'linear-gradient(145deg, #f0f9ff 0%, #e0f2fe 100%)', padding: '1.5rem', borderRadius: '1rem', border: '1px solid #bae6fd', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)' }}
-                                                >
-                                                    <h4 style={{ fontSize: '1.1rem', fontWeight: '700', color: '#0369a1', marginBottom: '1rem' }}>
-                                                        {section.title}
-                                                    </h4>
-                                                    <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-                                                        {section.items.map((item, idx) => (
-                                                            <motion.li
-                                                                key={idx}
-                                                                whileHover={{ x: 5, color: '#0284c7' }}
-                                                                style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', fontSize: '0.95rem', color: '#334155', cursor: 'default' }}
-                                                            >
-                                                                <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#0ea5e9', boxShadow: '0 0 0 3px #e0f2fe', flexShrink: 0 }} />
-                                                                {item}
-                                                            </motion.li>
-                                                        ))}
-                                                    </ul>
-                                                </motion.div>
-                                            ))}
+                                            .map((section, sectionIdx) => {
+                                                // Detect mobile devices
+                                                const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+
+                                                const boxStyle = {
+                                                    marginTop: '1.5rem',
+                                                    background: 'linear-gradient(145deg, #f0f9ff 0%, #e0f2fe 100%)',
+                                                    padding: '1.5rem',
+                                                    borderRadius: '1rem',
+                                                    border: '1px solid #bae6fd',
+                                                    boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)'
+                                                };
+
+                                                return isMobile ? (
+                                                    // Static div for mobile (no animations)
+                                                    <div key={sectionIdx} style={boxStyle}>
+                                                        <h4 style={{ fontSize: '1.1rem', fontWeight: '700', color: '#0369a1', marginBottom: '1rem' }}>
+                                                            {section.title}
+                                                        </h4>
+                                                        <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+                                                            {section.items.map((item, idx) => (
+                                                                <li
+                                                                    key={idx}
+                                                                    style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', fontSize: '0.95rem', color: '#334155' }}
+                                                                >
+                                                                    <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#0ea5e9', boxShadow: '0 0 0 3px #e0f2fe', flexShrink: 0 }} />
+                                                                    {item}
+                                                                </li>
+                                                            ))}
+                                                        </ul>
+                                                    </div>
+                                                ) : (
+                                                    // Animated motion.div for desktop
+                                                    <motion.div
+                                                        key={sectionIdx}
+                                                        initial={{ opacity: 0, y: 10 }}
+                                                        whileInView={{ opacity: 1, y: 0 }}
+                                                        whileHover={{ y: -5, boxShadow: '0 10px 25px -5px rgba(14, 165, 233, 0.15), 0 8px 10px -6px rgba(14, 165, 233, 0.1)' }}
+                                                        transition={{ duration: 0.3 }}
+                                                        style={boxStyle}
+                                                    >
+                                                        <h4 style={{ fontSize: '1.1rem', fontWeight: '700', color: '#0369a1', marginBottom: '1rem' }}>
+                                                            {section.title}
+                                                        </h4>
+                                                        <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+                                                            {section.items.map((item, idx) => (
+                                                                <motion.li
+                                                                    key={idx}
+                                                                    whileHover={{ x: 5, color: '#0284c7' }}
+                                                                    style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', fontSize: '0.95rem', color: '#334155', cursor: 'default' }}
+                                                                >
+                                                                    <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#0ea5e9', boxShadow: '0 0 0 3px #e0f2fe', flexShrink: 0 }} />
+                                                                    {item}
+                                                                </motion.li>
+                                                            ))}
+                                                        </ul>
+                                                    </motion.div>
+                                                );
+                                            })}
 
 
 
@@ -1148,11 +1214,7 @@ function ProductsContent() {
 
                                     {/* Expiry Date Section */}
                                     {selectedProduct.expiry && (
-                                        <motion.div
-                                            initial={{ opacity: 0, y: 10 }}
-                                            whileInView={{ opacity: 1, y: 0 }}
-                                            transition={{ duration: 0.4, delay: 0.1 }}
-                                            whileHover={{ scale: 1.02, boxShadow: '0 10px 25px -5px rgba(71, 85, 105, 0.1)' }}
+                                        <div
                                             style={{
                                                 marginTop: '1.5rem',
                                                 padding: '1.25rem',
@@ -1184,7 +1246,7 @@ function ProductsContent() {
                                                     {selectedProduct.expiry}
                                                 </p>
                                             </div>
-                                        </motion.div>
+                                        </div>
                                     )}
 
                                 </div>
