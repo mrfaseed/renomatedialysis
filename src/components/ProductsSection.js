@@ -48,7 +48,7 @@ const products = [
     },
     {
         id: 2,
-        title: 'CITROMATE',
+        title: 'CITROMATE (Disinfection solution for Haemodialysis Machine )',
         sku: 'W019',
         tag: 'Disinfectant',
         description: 'This has an excellent removal of calcium & magnesium deposits. The offered citromate is precisely processed by advanced technology & finest material of market under the supervision of experts.',
@@ -56,7 +56,7 @@ const products = [
         overview: 'This has an excellent removal of calcium & magnesium deposits. The offered citromate is precisely processed by advanced technology & finest material of market under the supervision of experts. Along with that, this citromate is well examined on different terms of quality for supplying its flawless range from our side. Customers can purchase this citromate from us with various specifications at industry existing rates to the clients.',
         customSections: [
             {
-                title: 'Citromate – For Thermochemical Disinfection',
+                title: 'CITROMATE (Disinfection solution for Haemodialysis Machine ) – For Thermochemical Disinfection',
                 items: [
                     'pH Value: 1.7 to 2.0',
                     'Dissolves blood residue',

@@ -12,8 +12,8 @@ const products = [
         title: 'Citric Acid Powder',
         subtitle: 'Effective Descaling Agent for Dialysis & Medical Water Systems',
         tag: 'Disinfectant',
-        description: 'This has an excellent removal of calcium & magnesium deposits. The offered citromate is precisely processed by advanced technology & finest material of market under the supervision of experts.',
-        overview: 'This has an excellent removal of calcium & magnesium deposits. The offered citromate is precisely processed by advanced technology & finest material of market under the supervision of experts. Along with that, this citromate is well examined on different terms of quality for supplying its flawless range from our side. Customers can purchase this citromate from us with various specifications at industry existing rates to the clients.',
+        description: 'This has an excellent removal of calcium & magnesium deposits. The offered CITROMATE (Disinfection solution for Haemodialysis Machine ) is precisely processed by advanced technology & finest material of market under the supervision of experts.',
+        overview: 'This has an excellent removal of calcium & magnesium deposits. The offered CITROMATE (Disinfection solution for Haemodialysis Machine ) is precisely processed by advanced technology & finest material of market under the supervision of experts. Along with that, this CITROMATE (Disinfection solution for Haemodialysis Machine ) is well examined on different terms of quality for supplying its flawless range from our side. Customers can purchase this CITROMATE (Disinfection solution for Haemodialysis Machine ) from us with various specifications at industry existing rates to the clients.',
         fullDescription: 'Citric Acid Powder is used to clean and remove scale from dialysis machines and water systems. It helps remove hard water deposits and mineral buildup, keeping the equipment clean and working properly.',
         image: '/products/CITI.png',
         detailImage: '/products/CITI.png',
@@ -48,15 +48,15 @@ const products = [
     },
     {
         id: 2,
-        title: 'CITROMATE',
+        title: 'CITROMATE (Disinfection solution for Haemodialysis Machine )',
         sku: 'W019',
         tag: 'Disinfectant',
-        description: 'This has an excellent removal of calcium & magnesium deposits. The offered citromate is precisely processed by advanced technology & finest material of market under the supervision of experts.',
-        overview: 'This has an excellent removal of calcium & magnesium deposits. The offered citromate is precisely processed by advanced technology & finest material of market under the supervision of experts. Along with that, this citromate is well examined on different terms of quality for supplying its flawless range from our side. Customers can purchase this citromate from us with various specifications at industry existing rates to the clients.',
-        fullDescription: 'This has an excellent removal of calcium & magnesium deposits. The offered citromate is precisely processed by advanced technology & finest material of market under the supervision of experts. Along with that, this citromate is well examined on different terms of quality for supplying its flawless range from our side. Customers can purchase this citromate from us with various specifications at industry existing rates to the clients.',
+        description: 'This has an excellent removal of calcium & magnesium deposits. The offered CITROMATE (Disinfection solution for Haemodialysis Machine ) is precisely processed by advanced technology & finest material of market under the supervision of experts.',
+        overview: 'This has an excellent removal of calcium & magnesium deposits. The offered CITROMATE (Disinfection solution for Haemodialysis Machine ) is precisely processed by advanced technology & finest material of market under the supervision of experts. Along with that, this CITROMATE (Disinfection solution for Haemodialysis Machine ) is well examined on different terms of quality for supplying its flawless range from our side. Customers can purchase this CITROMATE (Disinfection solution for Haemodialysis Machine ) from us with various specifications at industry existing rates to the clients.',
+        fullDescription: 'This has an excellent removal of calcium & magnesium deposits. The offered CITROMATE (Disinfection solution for Haemodialysis Machine ) is precisely processed by advanced technology & finest material of market under the supervision of experts. Along with that, this CITROMATE (Disinfection solution for Haemodialysis Machine ) is well examined on different terms of quality for supplying its flawless range from our side. Customers can purchase this CITROMATE (Disinfection solution for Haemodialysis Machine ) from us with various specifications at industry existing rates to the clients.',
         customSections: [
             {
-                title: 'Citromate – For Thermochemical Disinfection',
+                title: 'CITROMATE (Disinfection solution for Haemodialysis Machine ) – For Thermochemical Disinfection',
                 items: [
                     'pH Value: 1.7 to 2.0',
                     'Dissolves blood residue',
@@ -68,8 +68,8 @@ const products = [
             {
                 title: 'The synergistic effect of its components',
                 items: [
-                    'Makes CITROMATE a potent disinfectant solution.',
-                    'CITROMATE at 60° has a broad spectrum of microbiocidal',
+                    'Makes CITROMATE (Disinfection solution for Haemodialysis Machine ) a potent disinfectant solution.',
+                    'CITROMATE (Disinfection solution for Haemodialysis Machine ) at 60° has a broad spectrum of microbiocidal',
                     'activity and works bactericidal, virus inactivating',
                     '(HBV, HCV,HIV) and fungicidal.'
                 ]
@@ -92,12 +92,12 @@ const products = [
             'Internal circulation systems'
         ],
         howToUse: [
-            'Use CITROMATE as per the dialysis machine manufacturer’s cleaning instructions.',
+            'Use CITROMATE (Disinfection solution for Haemodialysis Machine ) as per the dialysis machine manufacturer’s cleaning instructions.',
             'Ensure temperature reaches 60°C for full microbiocidal activity.',
             'Rinse thoroughly with clean water before use.'
         ],
         packSizes: ['5 Liter'],
-        benefit: 'Regular use of CITROMATE ensures machine hygiene, effective decalcification, and broad-spectrum disinfection.',
+        benefit: 'Regular use of CITROMATE (Disinfection solution for Haemodialysis Machine ) ensures machine hygiene, effective decalcification, and broad-spectrum disinfection.',
         safety: [
             'Causes serious eye damage - Handle with extreme care',
             'Not for Medical use - Machine Disinfectant Only',
@@ -108,13 +108,13 @@ const products = [
     },
     {
         id: 3,
-        title: 'DIAMATE',
+        title: 'DIMATE (Dialyzer reprocessing solution) ',
         subtitle: 'Cold Sterilant',
         sku: 'W021',
         tag: 'Disinfectant',
-        description: 'Dialyzers are not just reused, they are reprocessed. The reprocessing procedure involves cleaning, testing, filling your dialyzer with a sterilant (Diamate® Cold Sterilant), inspecting, labeling, storing and rinsing your dialyzer before it is reused for your next treatment.',
-        overview: 'DIAMATE is a specialized cold sterilant solution designed for dialyzer reprocessing. It helps sterilize and disinfect dialyzers safely, removing bacteria and other contaminants while maintaining dialyzer performance.',
-        fullDescription: 'Dialyzers are not just reused, they are reprocessed. The reprocessing procedure involves cleaning, testing, filling your dialyzer with a sterilant (Diamate® Cold Sterilant), inspecting, labeling, storing and rinsing your dialyzer before it is reused for your next treatment.',
+        description: 'Dialyzers are not just reused, they are reprocessed. The reprocessing procedure involves cleaning, testing, filling your dialyzer with a sterilant (Dimate® Cold Sterilant), inspecting, labeling, storing and rinsing your dialyzer before it is reused for your next treatment.',
+        overview: 'DIMATE (Dialyzer reprocessing solution) is a specialized cold sterilant solution designed for dialyzer reprocessing. It helps sterilize and disinfect dialyzers safely, removing bacteria and other contaminants while maintaining dialyzer performance.',
+        fullDescription: 'Dialyzers are not just reused, they are reprocessed. The reprocessing procedure involves cleaning, testing, filling your dialyzer with a sterilant (Dimate® Cold Sterilant), inspecting, labeling, storing and rinsing your dialyzer before it is reused for your next treatment.',
         image: '/products/dia.png',
         detailImage: '/products/dia.png',
         specs: ['SKU: W021', 'Type: Peracetic Acid based', 'Usage: Reprocessing', 'Sterilization: High-level', 'Safe Reuse'],
@@ -136,7 +136,7 @@ const products = [
                 ]
             }
         ],
-        benefit: 'Regular use of DIAMATE ensures optimal dialysis machine performance, effective removal of mineral deposits, and reliable system cleanliness.',
+        benefit: 'Regular use of DIMATE (Dialyzer reprocessing solution) ensures optimal dialysis machine performance, effective removal of mineral deposits, and reliable system cleanliness.',
         storage: ['Store upright out of direct sun light'],
         whyUsed: [
             'Provides safe and effective cold sterilization',
@@ -150,7 +150,7 @@ const products = [
             'Medical water circulation systems'
         ],
         howToUse: [
-            'Use DIAMATE as per the dialyzer manufacturer’s instructions.',
+            'Use DIMATE (Dialyzer reprocessing solution) as per the dialyzer manufacturer’s instructions.',
             'Ensure proper contact time and rinse thoroughly with clean water before reuse.'
         ],
         packSizes: ['500 ml', '1 Liter'],
