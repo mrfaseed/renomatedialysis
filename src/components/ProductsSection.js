@@ -48,7 +48,7 @@ const products = [
     },
     {
         id: 2,
-        title: 'CITROMATE (Disinfection solution for Haemodialysis Machine )',
+        title: 'CITROMATE - Disinfection solution for Haemodialysis Machine ',
         sku: 'W019',
         tag: 'Disinfectant',
         description: 'This has an excellent removal of calcium & magnesium deposits. The offered citromate is precisely processed by advanced technology & finest material of market under the supervision of experts.',
@@ -108,7 +108,7 @@ const products = [
     },
     {
         id: 3,
-        title: 'DIAMATE',
+        title: 'DIAMATE - Reprocessing Solution for Dialyzer',
         subtitle: 'Cold Sterilant',
         sku: 'W021',
         tag: 'Disinfectant',
